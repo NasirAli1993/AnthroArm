@@ -1,0 +1,23 @@
+01 | shoulder and human arm frame contract: 7 arm + 20 hand axes.
+02 | hollow upper-arm fairings and exposed circular elbow built.
+03 | tapered hollow forearm, internal drive bank and slim two-axis wrist built.
+04 | hollow palm, recessed pads and detailed finger shell panels built.
+Rendered 01_full_arm_front.png
+Rendered 02_full_arm_back.png
+Rendered 03_hand_palmar.png
+Rendered 04_hand_dorsal.png
+Rendered 05_cutaway.png
+Rendered 06_exploded.png
+Rendered 07_shoulder.png
+Rendered 08_elbow_forearm.png
+Rendered 09_wrist_palm.png
+V3_BUILD_COMPLETE 293 valid solids. All files in D:\RoboticArm\design\v3.
+Rendered 01_full_arm_front.png
+Rendered 02_full_arm_back.png
+Rendered 03_hand_palmar.png
+Rendered 04_hand_dorsal.png
+Rendered 05_cutaway.png
+Rendered 06_exploded.png
+Rendered 07_shoulder.png
+Rendered 08_elbow_forearm.png
+Rendered 09_wrist_palm.png

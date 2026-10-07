@@ -1,0 +1,469 @@
+{
+  "status": "Fifth session expired; historical native static/remote ZIP PASS; native output not recovered; DIP angle check failed; no Motion/FEA success",
+  "solidworks_installed": false,
+  "native_solidworks_tests_run": true,
+  "cloud_upload_performed": true,
+  "transfer_checks_passed": true,
+  "files": [
+    {
+      "path": "START HERE.txt",
+      "bytes": 2172,
+      "sha256": "fe0a2aba18bc74b41ca1b3c5df5d6f8f1c027cd45fd695fabb2f439173b4646d"
+    },
+    {
+      "path": "docs/WHERE_THE_CODE_AND_RESULTS_ARE.txt",
+      "bytes": 6142,
+      "sha256": "213102eca38a8cfded218207dfb0a13074c646c66dde02e49a042e642bd493ac"
+    },
+    {
+      "path": "docs/installation_and_access.txt",
+      "bytes": 4799,
+      "sha256": "f27fe8525ddeb86fcacf0bdf3fb15d5038ae616eab2c3d150265f072fede6818"
+    },
+    {
+      "path": "results/dip_v5_native_attempt.png",
+      "bytes": 111583,
+      "sha256": "e970d5b26a8df485da48d8fe4f75288cbc8d3935716ff77f1ccf6a538edc070f"
+    },
+    {
+      "path": "results/dip_v6_native_attempt.png",
+      "bytes": 133958,
+      "sha256": "642baa295e7f5e31fb53cf80c3139702f1468c57395f89afaffb91eeaa58a337"
+    },
+    {
+      "path": "results/full_static_v5_native_result.png",
+      "bytes": 162168,
+      "sha256": "87b70075784bb79dd358c3a319692c7e5820d760045459eed853dbfa04fae5e9"
+    },
+    {
+      "path": "results/full_static_v6_native_result.png",
+      "bytes": 67879,
+      "sha256": "43f987dea63a319abce44bc2f0f4d7ebfe76a166026585e5554d730be77afb51"
+    },
+    {
+      "path": "results/native_v6_download_ready.png",
+      "bytes": 96556,
+      "sha256": "d96996b5b677f04091adfca0454eb0670f5384eee7208b4557b0bbbe40a375bf"
+    },
+    {
+      "path": "results/trial_access_status.json",
+      "bytes": 31734,
+      "sha256": "f58f3fcc4e3945b6f6887e20de1515c9cf7c2cc73c95c5be99c1f34db6bb92f9"
+    },
+    {
+      "path": "scripts/ArchiveNativeResultsV1.bas",
+      "bytes": 11109,
+      "sha256": "611953ad181ddbb9208408860e4e1998e7fc4852288900b14ea485fbb286e795"
+    },
+    {
+      "path": "scripts/ArchiveNativeResultsV1.swb",
+      "bytes": 11063,
+      "sha256": "c81fe8fb15c9324af2ede72cb3a3c45c24a490b2ae273345dcd03616e6581bf9"
+    },
+    {
+      "path": "scripts/ArchiveNativeResultsV1_packaging_test_report.json",
+      "bytes": 1255,
+      "sha256": "354609e6933ef22ba9ca9f3d136c2fa9a6636850fd1422e96d24ef2a91d73e17"
+    },
+    {
+      "path": "scripts/ArchiveNativeResultsV1_source_audit.json",
+      "bytes": 1495,
+      "sha256": "6ace5c07b6d805b0c193683baf09fbd29ffb349eaf35f04949fa764fe7db323d"
+    },
+    {
+      "path": "scripts/AutoFingerImportV2.bas",
+      "bytes": 12543,
+      "sha256": "c24d012b14564eaa2019268ccd0a5af5d633e6a0f161ca9c69cbdf001798cc25"
+    },
+    {
+      "path": "scripts/AutoFingerImportV2.swb",
+      "bytes": 12501,
+      "sha256": "14e31c49eb809606cbdd133b2579aa756a8ec50e9a0d821e50a8c40fa31197e4"
+    },
+    {
+      "path": "scripts/AutoFingerImportV2_AUDIT.txt",
+      "bytes": 4543,
+      "sha256": "d74231a51f6309fcf47aec782b12e640eb35f5b0ba13e21574156dee06763426"
+    },
+    {
+      "path": "scripts/AutoFingerImportV2_README.txt",
+      "bytes": 4619,
+      "sha256": "6eef32d77f743feb3bd7880d84ea57af1fe6a1eb921161f955bea6f7b6e986dc"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV1.bas",
+      "bytes": 35009,
+      "sha256": "391980ee67ddc057a5734583ceeb4be10e1e038874663ed1837a619375fd09b6"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV1.swb",
+      "bytes": 34966,
+      "sha256": "1777436c9a42ff47b4b53e2ec975e7e0e489e1be8bb2afe0d620d8fb151b5c11"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV1_README.txt",
+      "bytes": 6201,
+      "sha256": "9f4baf35b7002abdd570c5c9d0bde18e6f9c2622347911459af5bd2ed9c96c17"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV1_second_review.json",
+      "bytes": 1154,
+      "sha256": "6dd058afb7dfbde7981ca35756f99bdc1a060b318c4eb8c148498c8e7c0817d6"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV1_source_audit.json",
+      "bytes": 833,
+      "sha256": "bfebcf2d7d238dc8c8968e2618bfbfbb619cfd5245a2842d7fd05617a0f07616"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV2.bas",
+      "bytes": 35381,
+      "sha256": "09c0999b1e94538893f98eb5127ecefec77ed424fb1c5ffafeb617f8887050cf"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV2.swb",
+      "bytes": 35338,
+      "sha256": "1327408dc52115304c47896333046f189b7665328bd099e3644119c34d23cc88"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV2_source_audit.json",
+      "bytes": 833,
+      "sha256": "533682556374623ca129bd7dcdc78cbadb5893d5edadab746a63b7347257ebc2"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV3.bas",
+      "bytes": 35479,
+      "sha256": "90032aa3237159fabaad630e862f16df00165ed1bb9b92f1acf616ef264f129a"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV3.swb",
+      "bytes": 35436,
+      "sha256": "4135763d80de9b37ece72817f4c09799a6bc6d06001a709132c9122d4895c9f9"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV3_source_audit.json",
+      "bytes": 833,
+      "sha256": "d704aac3d72d34abde7f446733be9269e62f212cb3951625c3f56d56dfaccde3"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV4.bas",
+      "bytes": 35538,
+      "sha256": "9807b0d0e004df8ffe2ab4b939e396a74c7f02a5f019587a25db0bc73147802c"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV4.swb",
+      "bytes": 35495,
+      "sha256": "7b2b9846272beaf8c2503afc8ddb9d23dc8d0c4d59d2765313c799a8fc0e18c8"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV4_source_audit.json",
+      "bytes": 833,
+      "sha256": "c95dc006b11a0d6754f94b46ad8a2162ba76b91002578039883e025d9192c373"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV5.bas",
+      "bytes": 42022,
+      "sha256": "0d9ba36150146e0894a6af79c8d232ac863d5feb1b6665d9644863e1bd24c202"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV5.swb",
+      "bytes": 41979,
+      "sha256": "d9b378f060d3b3e868bc682b156c752df7d6790a18dba5eee56bd3adf138ba77"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV5_packaging_test_report.json",
+      "bytes": 2009,
+      "sha256": "063147e71334427e84b815b6b90c732a3a2d648c75a2e3cc5eb122523fdf3a9f"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV5_source_audit.json",
+      "bytes": 1244,
+      "sha256": "450dc9acab5bbc3bd3a8c256902c4652d66ae1e3cee36c663e28afe42a5657b1"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV6.bas",
+      "bytes": 46083,
+      "sha256": "034960b6d7582df593aec1f4256e75de2d1c61cf150a19c6ddd1fcb40356d299"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV6.swb",
+      "bytes": 46040,
+      "sha256": "2dbdec796b0b8ca47d14c68d9c922131de64cfe3926110bfa35daddbcf4cbbb0"
+    },
+    {
+      "path": "scripts/AutoFullArmStaticV6_source_audit.json",
+      "bytes": 1787,
+      "sha256": "ebede59168a679896269031ae989cffeaa6d7be6c76cb0229640aaddef51ce1e"
+    },
+    {
+      "path": "studies/STUDY_PLAN.txt",
+      "bytes": 12313,
+      "sha256": "061ddfdc9300a2a2bc15d3388bfa6091f60fc9061826fc6727d91196072ece8e"
+    },
+    {
+      "path": "studies/audit_transforms.py",
+      "bytes": 4868,
+      "sha256": "a8afe2a76cbfadb12e49f1d9b9f5342e931ba35a5e83f9a0bccf099bec2f898b"
+    },
+    {
+      "path": "studies/coordinate_transform_audit.json",
+      "bytes": 46234,
+      "sha256": "736988e2c8fdf5ad9417190899034c0ebe77605c2149453b2519561ac213a617"
+    },
+    {
+      "path": "studies/dip_source_bore_audit.json",
+      "bytes": 2933,
+      "sha256": "a852c286926a4fe83c90453b954d76377a71f5248569690aa665c2fb81d50317"
+    },
+    {
+      "path": "studies/execution_checklist.txt",
+      "bytes": 5719,
+      "sha256": "8a64d34139bd8502dd4acb368c2d84d94d1b52037baf0c17b06207ca93080a01"
+    },
+    {
+      "path": "studies/first_native_test.txt",
+      "bytes": 6274,
+      "sha256": "b34b18ad136b4e244d568983ea14f8d43c4c4925b228963735aaffc14f59f7c9"
+    },
+    {
+      "path": "studies/joint_register.json",
+      "bytes": 35484,
+      "sha256": "e1c69276e3cb3e039f690025c773fc5811535857e311cbd7ba45ef004fa1289d"
+    },
+    {
+      "path": "studies/native_results_ledger.json",
+      "bytes": 91625,
+      "sha256": "dd60e4d9c0b3c6369012b0a0e0e17b8c5cd529e00bec68f61fd951a4f909957e"
+    },
+    {
+      "path": "studies/prepare_execution_ledger.py",
+      "bytes": 15268,
+      "sha256": "56d551ae3cf3e12a3fb6ec882290d256793545ac12197f1136ae234b986d02d5"
+    },
+    {
+      "path": "studies/prepare_study_definitions.py",
+      "bytes": 9121,
+      "sha256": "bf57dd649f1482e2437ed6915280962d76677258f2dff407f264b01042d44d21"
+    },
+    {
+      "path": "studies/study_definitions.json",
+      "bytes": 9024,
+      "sha256": "e43e004024dc1645da3246f987138e2e1d30aa7899d95e253bf684daba0d3448"
+    },
+    {
+      "path": "transfer/READ_ME_FIRST.txt",
+      "bytes": 6165,
+      "sha256": "4fb100e2256e78e480e06cca63ad9c3c78c6bd760d36e88ef41a6ded321f0ad5"
+    },
+    {
+      "path": "transfer/assembly_manifest.json",
+      "bytes": 78142,
+      "sha256": "93019b023703f24cb0f3f72b139aad4c615b3da5943343cbd005c9edc32f25a7"
+    },
+    {
+      "path": "transfer/component_inventory.csv",
+      "bytes": 75041,
+      "sha256": "245342d5d318c45b1f35628b3fdd29f327ba84a3975cfbea2ea6aae9cffcae56"
+    },
+    {
+      "path": "transfer/export_transfer_source.py",
+      "bytes": 9781,
+      "sha256": "4154245e1059c0267433eb4385635c1cce32664c0caf9d6dd19da34a40630649"
+    },
+    {
+      "path": "transfer/full_arm_home_reference.step",
+      "bytes": 4982211,
+      "sha256": "baf81b8871eee0e59d5f607235d51785e817dce0aa427ef2fad7ed36ea109f94"
+    },
+    {
+      "path": "transfer/index.html",
+      "bytes": 12055,
+      "sha256": "c53f5362ed591dcb4af2fcfc87fba9224aa03ae0157f0f09654a11fa50086400"
+    },
+    {
+      "path": "transfer/joint_schedule.csv",
+      "bytes": 3579,
+      "sha256": "48daf54b82f3a42fc00b556104e793db0416b91fb46f88b2d3938e5b2b92623c"
+    },
+    {
+      "path": "transfer/links/base_link.step",
+      "bytes": 10734,
+      "sha256": "28e6985fb6a0aeee94bfb6eb1a43e3ad5d89861f2e229a38fad84b6456db2c2c"
+    },
+    {
+      "path": "transfer/links/elbow_link.step",
+      "bytes": 54682,
+      "sha256": "5029dc395f79639a4b0b3298cbe211aae34aedd035377a282a6ad1057150f4b3"
+    },
+    {
+      "path": "transfer/links/forearm.step",
+      "bytes": 954676,
+      "sha256": "97c182236583bf2355ef8a85d6c487cba2fbda8a1e8545f3d621d86c192a0e5f"
+    },
+    {
+      "path": "transfer/links/index_distal.step",
+      "bytes": 178462,
+      "sha256": "dd080f24655fd0c46e3f6010860928e00ffe8a9842f9b1ac0a64bc61f88f429d"
+    },
+    {
+      "path": "transfer/links/index_intermediate.step",
+      "bytes": 182959,
+      "sha256": "a2e0017f86c034169aa05533e97749c55ae5a355d5fa99ceb7283e5cf59af220"
+    },
+    {
+      "path": "transfer/links/index_knuckle.step",
+      "bytes": 3477,
+      "sha256": "30035ec669c15c3b9078864c1d70b29c505eea5beb1222b294df6c35c46820f4"
+    },
+    {
+      "path": "transfer/links/index_proximal.step",
+      "bytes": 183736,
+      "sha256": "432672ae6d6911a1a9270ee539fc14b69dd1ced4e45d654a3325cbd0ca8bffd8"
+    },
+    {
+      "path": "transfer/links/middle_distal.step",
+      "bytes": 175308,
+      "sha256": "8b1cc7293f7d0b9803fad80f3f05f5ca281d6648889f2a16e5eb8e7f595401fe"
+    },
+    {
+      "path": "transfer/links/middle_intermediate.step",
+      "bytes": 188137,
+      "sha256": "8bfb0cecbc0ef329144f4598eccf871f2f178e60a43482d9d002f5392230b9a0"
+    },
+    {
+      "path": "transfer/links/middle_knuckle.step",
+      "bytes": 3477,
+      "sha256": "9bd4f7e0f41d5cc5d89252f8d6d66b998c07c526d15f5a5f4ef1b5dfff6b152e"
+    },
+    {
+      "path": "transfer/links/middle_proximal.step",
+      "bytes": 180023,
+      "sha256": "776b8c8eb3e4ae799930c08deeb091ed6c2c6acaa7ebe2c0bf40c51a45da9708"
+    },
+    {
+      "path": "transfer/links/palm_base.step",
+      "bytes": 338085,
+      "sha256": "d662b0b1eb05903d69cd40b28861c9c52010c826c74d731d1925c47b5b7965f2"
+    },
+    {
+      "path": "transfer/links/pinky_distal.step",
+      "bytes": 202845,
+      "sha256": "7545912224fc227b31c0fecf496835e35a06c788769fef51b643477c54a676b0"
+    },
+    {
+      "path": "transfer/links/pinky_intermediate.step",
+      "bytes": 201862,
+      "sha256": "653bc4bec52385c2991ed7d1d2d39cc6ce2ad74a98f3d386d17d2b432bed87c3"
+    },
+    {
+      "path": "transfer/links/pinky_knuckle.step",
+      "bytes": 3445,
+      "sha256": "229d89520b8149adbacf54dc4d032f8d1aed2950cb874390c30be7a8847fa4cd"
+    },
+    {
+      "path": "transfer/links/pinky_proximal.step",
+      "bytes": 183150,
+      "sha256": "acc4e6e831f8cd03e3c15e66523c5af9d291a540eea0e70eb74388a8a697b383"
+    },
+    {
+      "path": "transfer/links/ring_distal.step",
+      "bytes": 178903,
+      "sha256": "beec4899a5385e567566aa0c3f3cd10f1be60567c3dab8a4cb76d55f7a64d1c7"
+    },
+    {
+      "path": "transfer/links/ring_intermediate.step",
+      "bytes": 183945,
+      "sha256": "d967244e8e6beec85079b279b06c7e1f44ce97fc7af20ad0c918d8037705b67f"
+    },
+    {
+      "path": "transfer/links/ring_knuckle.step",
+      "bytes": 3475,
+      "sha256": "e045c05e25b8603d8abc55fcf613d9f83dd569b3353d61740bd43e597550b907"
+    },
+    {
+      "path": "transfer/links/ring_proximal.step",
+      "bytes": 179115,
+      "sha256": "238ce94c5dc71024d1675ce5f1aca2f4bfbfa5c56c989cee543d03e486f20250"
+    },
+    {
+      "path": "transfer/links/shoulder_abduction.step",
+      "bytes": 23061,
+      "sha256": "6c6f7bc60adb34e5299414f2386d095362746fa1e750857455a3e5ca6ab819ec"
+    },
+    {
+      "path": "transfer/links/shoulder_flexion.step",
+      "bytes": 4873,
+      "sha256": "e828573e7985d7740c6d03f3422e3decd59635c1daab53ef72fd1e27d6bdc0df"
+    },
+    {
+      "path": "transfer/links/thumb_distal.step",
+      "bytes": 183397,
+      "sha256": "c23bcef27d0587a735682997a265216083b144619a9edbd4342db424784763e1"
+    },
+    {
+      "path": "transfer/links/thumb_metacarpal.step",
+      "bytes": 183020,
+      "sha256": "2758a88a6121b1eefa17f8446a0ed4991630255677d5bf7f3e97ef1854663946"
+    },
+    {
+      "path": "transfer/links/thumb_opposition.step",
+      "bytes": 10039,
+      "sha256": "446d38bd23210469e5fc77184c9b10709cc5e156eb3046050ec638f31f485876"
+    },
+    {
+      "path": "transfer/links/thumb_proximal.step",
+      "bytes": 179666,
+      "sha256": "deb2dcbc1b42a2107048107e706e4cb4885abdeac6882448370f71734474572a"
+    },
+    {
+      "path": "transfer/links/upper_arm.step",
+      "bytes": 229007,
+      "sha256": "0ad302d27c2291075ebcd2b074c47220744882215ba035d038eb18f62c361391"
+    },
+    {
+      "path": "transfer/links/wrist_pitch.step",
+      "bytes": 23430,
+      "sha256": "82b3833b003e4c36f1b582bb71e3c48d8f506797658a31a48ddf472d61486e76"
+    },
+    {
+      "path": "transfer/package_integrity.json",
+      "bytes": 201,
+      "sha256": "3b09c19e3117c19fd34a5ade519304cdafd36708832e032befe833da8e5a6ab9"
+    },
+    {
+      "path": "transfer/preview.png",
+      "bytes": 144752,
+      "sha256": "a11b49d520428f9696f38a0fa24b2f44c69f086319a854e281ad3940fbe0813b"
+    },
+    {
+      "path": "transfer/transfer_validation.json",
+      "bytes": 13450,
+      "sha256": "80ae402538573e7305ee3780ae61742303f7ceed6723943d624a3d371de828e0"
+    }
+  ],
+  "cloud_upload_authorized": true,
+  "trial_access_status": "FIFTH_SESSION_EXPIRED_NATIVE_STATIC_REMOTE_SUCCESS_HISTORICAL_NO_RECOVERED_NATIVE_OUTPUT",
+  "updated_date": "2026-10-06",
+  "native_solidworks_cloud_opened": true,
+  "native_solidworks_version": "Design Premium 2026 SP0",
+  "native_geometry_outputs_verified": true,
+  "software_license_approved": true,
+  "native_solidworks_tests_run_scope": "V6 native import/count/transform/rebuild/save, auto-close and remote ZIP gates completed. No DIP movement, Motion study or FEA was executed in this snapshot.",
+  "native_engineering_studies_run": false,
+  "native_geometry_partial_import_evidence": true,
+  "native_files_recovered_locally": 0,
+  "temporary_browser_download_then_move_to_D_authorized": true,
+  "native_geometry_outputs_verified_scope": "Remote static files and archive only; local recovery unconfirmed.",
+  "native_static_assembly_built_in_cloud": true,
+  "remote_native_archive_verified": true,
+  "local_native_checkpoint_verified": false,
+  "native_static_scoped_verification_passed": true,
+  "manual_download_question_pending": false,
+  "manual_download_reply_received": true,
+  "dip_attempt_status": "FAILED_SIGNED_FLEXION_TOLERANCE",
+  "native_joint_sweep_passed": false,
+  "session_expired": true,
+  "expired_at_local_approx": "2026-10-06 19:36 Asia/Shanghai",
+  "manual_download_action_available": false,
+  "remote_archive_currently_downloadable": false
+}

@@ -1,0 +1,204 @@
+ADVANCED ROBOTICS ARCHITECTURE FOR ANTHROARM
+Planning explanation checked 7 October 2026. This is not an implementation report.
+
+CURRENT PROJECT
+Use design/v3/robot_spec.json and design/v3/robot.urdf for the 27-axis model.
+The older root-level robot description is not the current v3 reference.
+simulation/v3/model.py, robot.xml and vision_reach.py provide a MuJoCo model
+and simulated camera-guided approach/contact experiment. There is no validated
+autonomous pickup, real-camera grasp, Jetson deployment, ROS 2 integration,
+SLAM system or VLA deployment in this project yet. The UNO finger firmware
+compiled but has not been physically commissioned. Internal hardware packaging
+and actuator selection remain unresolved.
+
+THE THREE COMPUTING ROLES
+1. Development computer: CAD, simulation, robot description, training, tests,
+   recorded sensor data and debugging. Proposed Isaac Sim / Isaac Lab work goes
+   on a compatible GPU workstation or an explicitly authorized remote machine.
+2. Robot computer: Jetson or another suitable Linux computer runs camera
+   processing, ROS 2, task logic, planning and selected AI inference workloads.
+3. Motor control: dedicated real-time controller and/or smart motor drives
+   perform encoder feedback, current/velocity/position regulation, limits,
+   watchdogs and fault handling. Exact partition depends on the selected drives.
+   Jetson GPIO is not a motor power output. Motor power comes through properly
+   selected drives, power distribution and protection.
+
+PROPOSED FIXED-ARM DATA FLOW
+Camera -> calibrated 3D object estimate -> task manager -> grasp goal ->
+MoveIt 2 / IK / collision-aware trajectory -> ros2_control hardware interface
+-> real-time controller / motor drives -> motors and tendons.
+Joint encoders + tactile/contact + current/temperature feedback -> controllers
+and task manager, closing the loop and verifying success or failure.
+An optional language/vision model supplies task proposals or a selected object;
+its output is checked before execution. A VLA policy is an alternative learned
+action source, adapted and evaluated for the actual robot, not a mandatory
+extra step between every planner and motor command.
+
+JETSON
+Onboard GPU computing for camera perception, selected neural networks and
+robot software. Choose the module after measuring memory, camera bandwidth,
+inference latency, power and cooling needs; a higher TOPS number alone does
+not establish application performance. JetPack, CUDA/TensorRT, Isaac ROS,
+ROS distribution, Ubuntu base and camera drivers must form a supported stack.
+For this arm, mount the initial computer in a base enclosure with a regulated
+supply, cooling and service access. A full developer board and its heatsink
+are not currently proven to fit the forearm. Embedded-module/carrier packaging
+requires a separate design. Jetson has its own Linux storage; the Windows
+D:-only project-storage rule does not create a D: drive on that hardware.
+
+ROS 2 AND ROS2_CONTROL
+ROS 2 carries messages, services and actions among software components. It
+does not supply arbitrary motors with a driver or automatically make an
+application deterministic. Define timestamps, coordinate frames and interfaces.
+Example proposed interfaces: /joint_states, /tf, camera image/camera_info/depth,
+detected object poses, arm FollowJointTrajectory action and a custom hand
+control interface that reflects its real transmissions.
+Use ros2_control to expose physical command/state interfaces and connect a
+trajectory controller to the hardware. The hardware plugin must implement
+actual read/write communication, e.g. over the selected CAN, EtherCAT or other
+drive interface. These buses are alternatives chosen with the actuators, not
+all required. Test simulated/mock hardware before a physical driver.
+
+INVERSE KINEMATICS AND MOTION PLANNING
+Forward kinematics maps measured joint angles to the hand pose. Inverse
+kinematics finds joint angles for a desired hand position and orientation.
+Some goals are unreachable, and several joint configurations can satisfy a
+goal. IK alone does not plan the route, choose a grasp or verify grip force.
+MoveIt 2 can use the robot model, joint limits and planning scene to generate
+a collision-checked, time-parameterized arm trajectory. Configure the 7-axis
+arm planning group and a separate hand/controller model. Add objects and
+fixtures to the planning scene and update them from perception as needed.
+
+CAMERAS AND CONTACT SENSING
+Start with a fixed RGB-D or calibrated stereo camera looking at the workspace;
+an optional wrist camera helps near-contact views but adds cabling and
+hand-eye calibration. RGB provides appearance; depth/geometric calibration
+provides metric position. Camera intrinsics, camera-to-base transform and
+frame timestamps must be measured and checked.
+Tactile sensors and/or wrist force-torque sensing can verify contact and grip.
+Motor current alone is an imperfect estimate of fingertip force because
+gear friction, tendon friction and transmission geometry affect it.
+
+IMU
+An inertial measurement unit measures angular rate and acceleration. It can
+support orientation and motion estimation when fused with other sensors.
+It does not replace joint encoders or give a drift-free absolute fingertip
+position. A fixed arm needs encoders and camera calibration first. A moving
+base benefits more directly from synchronized IMU, wheel and visual data.
+
+ISAAC SIM
+Use it to build a physics scene with an articulated robot, free objects,
+camera/sensor models, contacts and a ROS 2 connection. Import the current
+URDF or another supported robot asset and verify units, transforms, limits,
+colliders, masses/inertias and joint drives. Decorative CAD alone is not a
+validated robot physics model. Compare the imported behavior to the existing
+MuJoCo tests, then implement actual grasp/lift/release trials. A pose animation
+or object artificially attached to the hand is not evidence of a frictional
+grasp. ROS planning-scene attachment for collision planning is a separate
+concept from physically welding a simulated object to make a test succeed.
+
+ISAAC LAB
+Use robot-learning environments to train and evaluate skills, e.g. finger
+closure that tolerates position errors or grasping from demonstrations.
+Define observations (images, joint states, contact), actions (the real drive
+coordinates), task resets, rewards/success criteria and held-out evaluation.
+For a visual physics workflow, compatible Isaac Sim/Lab versions can be used
+together. Available backends depend on release; newer experimental workflows
+can run physics without the full Isaac Sim application. Do not combine arbitrary
+latest tutorials or infer that this PC supports a workload without testing it.
+Reinforcement learning is optional: a classical camera/IK/grasp controller is
+a useful first working baseline and produces comparison data.
+
+SIM-TO-REAL
+This is an engineering and validation process, not one application or export.
+First measure real joint zeros, ranges, motor response, transmission ratios,
+backlash, tendon stretch, friction, payload, camera calibration and delays.
+Fit the simulated model to those measurements. Randomize plausible lighting,
+object properties, friction, mass, sensor noise and delays while training.
+Keep action/observation order, units, scaling and control timing identical at
+deployment. Validate the exported policy with replay/shadow tests and then
+with bounded physical trials, logging error, slip, current and temperature.
+If one real motor couples three finger hinges, do not train three independent
+motor actions for that mechanism. Model the actual coupling/tendon mapping.
+Domain randomization does not compensate for a fundamentally wrong mechanism.
+
+LLM / VLM / VLA
+LLM (language model): interpret a request such as "put the red cup in the
+tray" and propose a sequence of supported skills. It is not precision motor
+feedback or a reliable source of metric coordinates.
+VLM (vision-language model): relate images to text, identify/describe the
+requested object or scene. A semantic answer still needs geometric grounding
+and uncertainty checks before grasp execution.
+VLA (vision-language-action model): use observations and instructions to
+predict robot actions. NVIDIA Isaac GR00T is an example. Deployment to this
+custom 27-axis arm requires embodiment/action mapping, suitable demonstrations
+or other adaptation, runtime compatibility, and measured evaluation.
+Pretrained weights do not establish reliable pickup on an unbuilt custom hand.
+These model families are options; not every robot needs all three separately.
+
+SLAM, VSLAM AND AUTONOMOUS DRIVING
+SLAM jointly estimates where a moving sensor/robot is and a map of the area.
+Visual SLAM uses cameras, often with an IMU; LiDAR-based methods use laser
+range data. They require calibration, synchronization and adequate observability.
+A fixed arm over a known table normally uses its calibrated base frame without
+needing room-scale SLAM. A wrist camera can be localized from arm joint states
+and hand-eye calibration while the base stays fixed.
+If the arm is later mounted on a wheeled platform, add wheel drives/encoders,
+power/battery management, IMU and suitable obstacle/localization sensors.
+SLAM/localization supplies robot pose and a map; Nav2 can plan and control
+navigation to a workspace. Then the arm planner handles manipulation.
+Start with the base stopped during a grasp. Moving-base manipulation adds
+combined stability and whole-body planning requirements. Room navigation is
+not an on-road autonomous-driving system.
+
+OTHER USEFUL SYSTEMS
+URDF/Xacro: robot kinematics, collision geometry and hardware interfaces.
+USD: Isaac scene/asset representation.
+tf2: consistent transforms between camera, base, wrist and tool frames.
+RViz: inspect live robot, frames, sensors and planned trajectories.
+rosbag2: record/replay observations and commands for diagnosis and evaluation.
+State machine/behavior tree: sequence inspect, approach, grasp, verify, lift,
+release and recover. Include explicit handling of a missing object or slip.
+Thermal monitoring, encoder feedback, contact sensing, time synchronization
+and tested fault behavior are as necessary as high-level AI.
+
+CURRENT COMPUTER CHECK
+Read-only hardware query: NVIDIA GeForce GTX 1660 Ti, 6144 MiB GPU memory;
+15.9 GiB system RAM. Current full Isaac Sim requirements list 32 GB RAM,
+GeForce RTX 4080 and 16 GB VRAM minimum; the checked host is below them.
+Do not promise a local full Isaac Sim installation will work on this machine.
+Existing MuJoCo/CAD development remains usable. A supported workstation or
+separately authorized remote GPU would be needed for the proposed full Isaac
+Sim workflow. No software, GPU service or hardware was installed/purchased
+as part of this explanation. All files written for this explanation are on D:.
+
+RECOMMENDED IMPLEMENTATION ORDER
+A. Resolve mechanical fit, transmissions and real actuator choices. Commission
+   one instrumented finger, then opposing thumb/finger and a fixed hand.
+B. Create a ROS 2 description/control interface around the current v3 model;
+   verify joint naming, limits and frame transforms in simulation.
+C. Add calibrated real perception and a grasp state machine. Demonstrate
+   repeated lift/hold/release with known objects using measured feedback.
+D. Deploy perception/planning to a selected Jetson and dedicated motor drives.
+E. On supported compute, add Isaac Sim/Lab for larger simulation, synthetic
+   sensor data, policy training and regression tests, retaining a baseline.
+F. Adapt VLM/VLA capabilities only to measurable task needs and actual hardware.
+G. Add SLAM/Nav2 only when adding the mobile base and a navigation requirement.
+
+PRIMARY SOURCES CHECKED
+Isaac Sim requirements:
+https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html
+Isaac Lab workflow:
+https://isaac-sim.github.io/IsaacLab/main/source/setup/quickstart.html
+Isaac ROS support matrix / installation:
+https://nvidia-isaac-ros.github.io/getting_started/index.html
+MoveIt motion planning:
+https://moveit.picknik.ai/main/doc/concepts/motion_planning.html
+ros2_control architecture:
+https://control.ros.org/jazzy/doc/getting_started/getting_started.html
+Visual SLAM:
+https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam
+NVIDIA GR00T VLA:
+https://github.com/NVIDIA/Isaac-GR00T
+Nav2:
+https://docs.nav2.org/rolling/

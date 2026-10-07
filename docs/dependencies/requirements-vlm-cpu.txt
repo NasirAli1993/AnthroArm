@@ -1,0 +1,3 @@
+# Separate target: software/vision_language. Use the official PyTorch CPU index.
+torch==2.8.0+cpu
+torchvision==0.23.0+cpu

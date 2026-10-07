@@ -1,0 +1,9 @@
+{
+  "pid": 8352,
+  "role": "server",
+  "token": "d49c305a5244",
+  "received_messages": 90,
+  "valid_messages": 90,
+  "service_calls": 1,
+  "passed": true
+}

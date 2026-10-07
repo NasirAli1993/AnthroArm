@@ -1,0 +1,82 @@
+SOLIDWORKS ACCESS AND FINAL SESSION STATUS — 6 October 2026
+
+SOLIDWORKS SESSION ENDED — STATIC BUILD EVIDENCED; NATIVE FILES NOT RECOVERED
+Final session state: 6 October 2026, approximately 7:36 PM Asia/Shanghai
+
+V6 successfully built/saved the 28-part, 293-solid all-fixed native arm assembly
+and verified its 30-file ZIP inside SOLIDWORKS Design Premium 2026 SP0. This is
+historical native execution evidence, preserved by screenshots.
+
+The archive was NOT transferred to this computer. Browser download-event wait,
+downloadMedia and pageAssets could not deliver a confirmed file. At expiry, the
+trial redirected to MySolidWorks feedback. D:/RoboticArm/solidworks/native_results
+is empty. The expired cloud session does not provide a retained/recoverable
+archive; no current download action is available.
+
+Historical archive filename (not a downloadable local/cloud asset):
+AnthroArm27_Static_20261006_105654_39414012_NATIVE.zip
+
+DIP V6 reached DIP_DRIVEN_10DEG.SLDASM with parent fixed, child floating and Mates,
+then FAILED with error -2147220784:
+"Actual signed flexion differs from target by over 0.5 degrees".
+No successful full joint sweep, Motion study or FEA is claimed. The complete
+robotic-arm project in SOLIDWORKS remains unfinished.
+
+WHAT IS PRESERVED ON D:
+- transfer/: original STEP links, 293-body inventory, frames and joint definitions.
+- scripts/AutoFullArmStaticV6*: reproducible native static generation source.
+- scripts/AutoDIPMateV6*: the failed native joint-test source for investigation.
+- results/full_static_v6_native_result.png: actual static/ZIP success message.
+- results/native_v6_download_ready.png: historical remote archive listing.
+- results/dip_v6_native_attempt.png: actual failed joint check.
+- docs/WHERE_THE_CODE_AND_RESULTS_ARE.txt: explanation and software distinctions.
+- studies/native_results_ledger.json: results, failure and missing recovery evidence.
+
+The preparation ZIP contains source/data/evidence; it is NOT the missing native
+SLDPRT/SLDASM result archive. Generation scripts remain reproducible, but no new
+trial session is being started. Existing movement/camera recordings on D: are
+MuJoCo results and must remain labelled accordingly.
+
+AUTHORIZATION
+The user approved official trial use, CAD upload, software license and saving. These approvals do not establish that a download happened. No purchase or local SOLIDWORKS installation occurred.
+
+OFFICIAL SOURCES
+Free online trial:
+https://www.solidworks.com/online-product-trials
+Authorized desktop downloads:
+https://www.solidworks.com/support/downloads
+Installation method and prerequisites:
+https://help.solidworks.com/2026/english/Installation/install_guide/c_installing_on_individual_computers.htm
+Installation destination:
+https://help.solidworks.com/2024/english/SolidWorks/install_guide/r_HID_STATE_INSTALL_LOC.htm
+Windows Installer servicing cache:
+https://learn.microsoft.com/en-us/troubleshoot/windows-client/application-management/missing-windows-installer-cache
+Simulation package capabilities:
+https://www.solidworks.com/product/solidworks-simulation
+Motion study types and licensing:
+https://blogs.solidworks.com/products/solidworks/solidworks-motion-analysis-use-cases/
+System requirements:
+https://www.solidworks.com/support/system-requirements
+
+
+LATEST SAVE AND DIP UPDATE — 6 October 2026
+The user replied "save it as you want". This authorizes saving but does not confirm
+a download. Browser download-event wait, downloadMedia and pageAssets did not
+transfer the native archive. D:/RoboticArm/solidworks/native_results is still empty.
+The 30-file static native ZIP remains confirmed remotely; no local native CAD
+checkpoint is confirmed.
+AutoDIPMateV5 failed with "Parent component did not become fixed"; see
+results/dip_v5_native_attempt.png. V6 selected the parent before fixing and subsequently ran. Its final signed-angle
+check failed; see the final outcome below. No successful joint sweep, Motion or
+FEA result is claimed. The static CAD/remote ZIP PASS remains valid.
+
+FINAL NATIVE DIP V6 OUTCOME — 6 October 2026
+V6 reached saved DIP_DRIVEN_10DEG.SLDASM in remote folder
+DIP_Mate_20261006_113212_41532250. The parent is fixed, the child is floating,
+and Mates were created. The test then FAILED with error -2147220784:
+"Actual signed flexion differs from target by over 0.5 degrees".
+Evidence: results/dip_v6_native_attempt.png. No measured numeric angle is
+available in this screenshot. A completed joint sweep, limit conversion and DIP
+ZIP are not confirmed. No Motion or FEA success is claimed. Full-arm static
+native CAD and its remote ZIP still PASS; native_results remains empty locally.
+The cause requires investigation; do not change the tolerance merely to pass.

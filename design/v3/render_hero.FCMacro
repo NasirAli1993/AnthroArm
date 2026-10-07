@@ -1,0 +1,31 @@
+from pathlib import Path
+import math,traceback
+import FreeCAD as App
+import FreeCADGui as Gui
+from pivy import coin
+ROOT=Path(r'D:\RoboticArm');V=App.Vector
+try:
+ doc=App.openDocument(str(ROOT/'design'/'v3'/'AnthroArm27_ReferenceV3.FCStd'))
+ view=Gui.activeDocument().activeView()
+ if hasattr(view,'setAnimationEnabled'):view.setAnimationEnabled(False)
+ points=[]
+ for o in doc.Objects:
+  if 'RobotLink' not in o.PropertiesList:continue
+  o.ViewObject.Visibility=o.Category not in ['internal','fixture']
+  if o.ViewObject.Visibility:points.extend(o.Shape.tessellate(.45)[0])
+ b=V(.65,-2.0,1.0);b.normalize();r=V(0,0,1).cross(b);r.normalize();u=b.cross(r)
+ # Roll the camera so the shoulder-to-fingertip direction reads left to right.
+ shoulder=doc.getObject('ShoulderSocket').Shape.CenterOfMass
+ fingertip=doc.getObject('middle_distalDorsalShell').Shape.Solids[0].CenterOfMass
+ d=fingertip-shoulder;theta=math.atan2(d.dot(u),d.dot(r));phi=theta+.10
+ nr=r*math.cos(phi)+u*math.sin(phi);nu=u*math.cos(phi)-r*math.sin(phi);r=nr;u=nu
+ ux=[p.dot(r) for p in points];vy=[p.dot(u) for p in points];bz=[p.dot(b) for p in points]
+ center=r*((min(ux)+max(ux))/2)+u*((min(vy)+max(vy))/2)+b*((min(bz)+max(bz))/2)
+ height=max(max(vy)-min(vy),(max(ux)-min(ux))/(1600/900))*1.10
+ view.setCameraType('Orthographic');view.setCameraOrientation(App.Rotation(r,u,b,'ZXY').Q)
+ cam=view.getCameraNode();position=center+b*1500
+ cam.position.setValue(position.x,position.y,position.z);cam.height.setValue(height);cam.focalDistance.setValue(1500);cam.nearDistance.setValue(.1);cam.farDistance.setValue(4000)
+ Gui.updateGui();view.saveImage(str(ROOT/'results'/'v3'/'hero_arm.png'),1600,900,'White')
+ # Intentionally do not save: this is a read-only presentation camera.
+except Exception:
+ (ROOT/'results'/'v3'/'hero_render_error.txt').write_text(traceback.format_exc(),encoding='utf-8');raise

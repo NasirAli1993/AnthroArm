@@ -1,0 +1,62 @@
+HUMANOID ARM DEMONSTRATION — OPEN THIS FIRST
+
+1. Extract the entire ZIP to one folder. Keep the subfolders together.
+2. Open index.html in a recent Edge, Chrome or Firefox browser.
+3. The CAD gallery, both current v3 videos, guides and source viewers work
+   from local files. Use the video controls to play the recordings.
+4. If a browser blocks a recording, open its .webm file directly from
+   assets/results in a compatible video player. Do not edit server settings.
+
+WHAT THIS PACKAGE CONTAINS
+  index.html       Offline project presentation and eight-minute talk track
+  assets/results   Current v3 CAD images, actual simulation recordings/reports
+  assets/archive   Explicitly versioned earlier v2 recording and reports
+  docs             Assembly guide, wiring SVG, BOM CSV and sizing workbook
+  CAD              Native full-arm FreeCAD assembly and STEP export
+  CAD/printable_finger  Separate fit-test finger CAD, STEP and STL in millimeters
+  code             Readable source snapshots and original source downloads
+  PACKAGE_MANIFEST.json  Per-file sizes and SHA256 checksums
+
+WHAT IT DOES NOT DO
+This package does not start the local simulation servers, access a webcam,
+install software or operate physical motors. Links marked About live controls
+explain this boundary. The original D:\RoboticArm installation runs live
+studios locally. A localhost/127.0.0.1 address is not a public sharing link.
+The six source snapshots document the code; they are not a complete portable
+runtime. They depend on other project files and compatible packages.
+code/probe_camera.py is the camera diagnosis utility. It records scalar frame
+statistics for available backends, without saving or transmitting camera images.
+
+CURRENT RECORDED EVIDENCE
+V3 is a seven-arm-axis, twenty-hand-axis simulation. Its recorded report
+passes seven checks. The camera experiment uses a calibrated virtual RGB-D
+camera and a known upright 50 mm orange target. Three trials approached and
+touched it. Autonomous pickup was not demonstrated. The 33-second motion
+video and 10.05-second vision video show integrated simulated physics.
+Numerical tracking/localization results do not establish hardware accuracy.
+Tracking below 0.01 degrees describes the independent-axis test without
+object contact, not contact poses. The computer's only registered camera was
+the ToDesk virtual camera; its feed was distorted. Live hand imitation has
+not been validated with a usable camera. The camera_diagnosis.json file
+records this limitation. No webcam frames are included in this package.
+
+HARDWARE STATUS
+No physical robot or finger has been built or powered. The single-finger
+geometry is a fit-test prototype. Read its READ_ME_FIRST.txt and the separate
+prototype_assembly.txt before fabricating anything. Full-arm motor, gearing,
+structure, bearing, wiring and stopping design remains to be engineered.
+The UNO firmware source starts disarmed, but it is not a safety controller.
+
+OPENING ENGINEERING FILES
+FCStd requires compatible FreeCAD software. STEP opens in compatible CAD
+software. STL files in CAD/printable_finger/stl_mm use millimeters. XLSX opens
+in a compatible spreadsheet application; the CSV is a plain BOM export.
+There are no application installers, external runtimes, trained models,
+credentials, webcam captures or the user's original requirements document
+inside this presentation package. Official source links require the internet.
+
+SHARING
+Share the ZIP or the entire extracted folder, preserving all subfolders.
+Do not send index.html alone. The package includes project-created CAD,
+documentation and source snapshots; third-party software is referenced rather
+than bundled. Confirm appropriate permissions before publishing project files.

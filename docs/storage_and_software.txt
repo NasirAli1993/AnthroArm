@@ -1,0 +1,20 @@
+Storage and software
+
+Project root: D:\RoboticArm
+The user-provided source document was read at its supplied F: path and copied to source\requirements.docx on D:. Generated project files, downloaded software, models, exported CAD, simulation outputs and configured application caches are on D:.
+
+This project does not relocate the existing Windows installation, running host application or its internally managed history/tool caches. Those are controlled by Windows/host-application, rather than by this project's portable environment. No system-wide installer, registry association, Windows service, driver update or global Python package installation is needed.
+
+scripts\environment.ps1 redirects child-process TEMP/TMP, USERPROFILE, APPDATA, LOCALAPPDATA, Python cache settings, matplotlib and model caches into this project. Launchers call it. A browser started by Start Robotics Studio uses a separate profile and disk cache on D: with an already-installed browser executable.
+
+Official download sources used
+Python 3.12.10 embeddable Windows runtime: https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip
+Python packaging bootstrap: https://bootstrap.pypa.io/get-pip.py
+MuJoCo and scientific/vision dependencies: official PyPI registry https://pypi.org/
+OpenSCAD 2021.01 portable stable: https://openscad.org/downloads.html
+FreeCAD 1.1.4 portable: https://github.com/FreeCAD/FreeCAD/releases/tag/1.1.4
+7-Zip standalone extractor: https://www.7-zip.org/a/7zr.exe
+
+OpenSCAD and FreeCAD archives were compared against publisher SHA256 files before use. All download hashes and installed Python versions are recorded in results\environment.json. Pinned Python dependencies are in software\requirements-lock.txt.
+
+The selected software is sufficient for this fixed tabletop prototype. GPS, SLAM, autonomous driving simulators and locomotion software do not add a required capability here. Isaac Sim/Isaac Lab cannot run on the detected GTX 1660 Ti, which lacks the required RTX ray-tracing cores; the system's 16 GB RAM is also below current Isaac Sim requirements. See docs\official_sources.txt.

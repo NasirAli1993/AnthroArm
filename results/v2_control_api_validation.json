@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "test_count": 31,
+  "restored_state": {
+    "home_targets": true,
+    "demo": false,
+    "teleop": false,
+    "paused": false
+  },
+  "tests": [
+    {
+      "test": "http_invalid_json",
+      "passed": true,
+      "detail": "{\"error\": \"Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\"}"
+    },
+    {
+      "test": "http_wrong_root",
+      "passed": true,
+      "detail": "{\"error\": \"Expected command object\"}"
+    },
+    {
+      "test": "http_empty_payload",
+      "passed": true,
+      "detail": "{\"error\": \"Invalid payload size\"}"
+    },
+    {
+      "test": "http_unknown_action",
+      "passed": true,
+      "detail": "{\"error\": \"Unknown command action\"}"
+    },
+    {
+      "test": "http_unknown_joint",
+      "passed": true,
+      "detail": "{\"error\": \"Unknown joints: bogus\"}"
+    },
+    {
+      "test": "http_nonfinite_joint",
+      "passed": true,
+      "detail": "{\"error\": \"index_pip must be finite\"}"
+    },
+    {
+      "test": "http_bad_boolean",
+      "passed": true,
+      "detail": "{\"error\": \"value must be true or false\"}"
+    },
+    {
+      "test": "http_nonfinite_camera",
+      "passed": true,
+      "detail": "{\"error\": \"azimuth must be finite\"}"
+    },
+    {
+      "test": "http_bad_camera_vector",
+      "passed": true,
+      "detail": "{\"error\": \"lookat must contain three numbers\"}"
+    },
+    {
+      "test": "http_nonfinite_ik",
+      "passed": true,
+      "detail": "{\"error\": \"target must be finite\"}"
+    },
+    {
+      "test": "http_enormous_camera_integer",
+      "passed": true,
+      "detail": "{\"error\": \"azimuth must be finite\"}"
+    },
+    {
+      "test": "cross_origin_rejected",
+      "passed": true,
+      "detail": "Origin rejected"
+    },
+    {
+      "test": "pause_reset",
+      "passed": true,
+      "detail": "Time freezes while paused; reset resumes."
+    },
+    {
+      "test": "joint_clamp",
+      "passed": true,
+      "detail": 1.7
+    },
+    {
+      "test": "udp_valid",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "test": "udp_reject_stale",
+      "passed": true,
+      "detail": "Tracking packet is stale"
+    },
+    {
+      "test": "udp_reject_nan_timestamp",
+      "passed": true,
+      "detail": "Tracking packet is stale"
+    },
+    {
+      "test": "udp_reject_infinite_timestamp",
+      "passed": true,
+      "detail": "Tracking packet is stale"
+    },
+    {
+      "test": "udp_reject_enormous_integer",
+      "passed": true,
+      "detail": "Tracking packet is stale"
+    },
+    {
+      "test": "udp_reject_nonfinite_target",
+      "passed": true,
+      "detail": "timestamp must be finite"
+    },
+    {
+      "test": "udp_reject_bad_arm_shape",
+      "passed": true,
+      "detail": "timestamp must be finite"
+    },
+    {
+      "test": "udp_reject_arm_out_of_bounds",
+      "passed": true,
+      "detail": "timestamp must be finite"
+    },
+    {
+      "test": "udp_reject_unknown_joint",
+      "passed": true,
+      "detail": "timestamp must be finite"
+    },
+    {
+      "test": "udp_reject_empty",
+      "passed": true,
+      "detail": "timestamp must be finite"
+    },
+    {
+      "test": "udp_reject_malformed",
+      "passed": true,
+      "detail": "timestamp must be finite"
+    },
+    {
+      "test": "udp_reject_invalid_utf8",
+      "passed": true,
+      "detail": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "test": "udp_reject_deep_nesting",
+      "passed": true,
+      "detail": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "test": "udp_reject_oversized",
+      "passed": true,
+      "detail": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "test": "udp_watchdog",
+      "passed": true,
+      "detail": "Invalid packets do not prolong freshness; stale stream holds."
+    },
+    {
+      "test": "udp_arm_target",
+      "passed": true,
+      "detail": {
+        "ik_error_m": 1.6781128635435334e-10
+      }
+    },
+    {
+      "test": "exclusive_modes",
+      "passed": true,
+      "detail": "Demo, manual and tracking modes are exclusive; reset returns home."
+    }
+  ]
+}

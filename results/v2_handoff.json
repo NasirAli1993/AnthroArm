@@ -1,0 +1,60 @@
+{
+  "version": "2.0",
+  "created_utc": "2026-10-04T19:04:35.307786+00:00",
+  "reports": {
+    "anatomical_cad_validation.json": {
+      "passed": true
+    },
+    "v2_precision.json": {
+      "passed": true
+    },
+    "v2_grasp_validation.json": {
+      "passed": true
+    },
+    "v2_gym_smoke.json": {
+      "passed": true
+    },
+    "v2_control_api_validation.json": {
+      "passed": true
+    },
+    "v2_delivery_api.json": {
+      "passed": true
+    },
+    "v2_browser_validation.json": {
+      "passed": true
+    }
+  },
+  "artifacts": {
+    "design/AnthroArm25_Humanoid.FCStd": {
+      "bytes": 328443,
+      "sha256": "05d786e51e6c9acaf2e67abed6bffb8e94391074d16e93a81ce333c36753e126"
+    },
+    "design/AnthroArm25_Humanoid.step": {
+      "bytes": 907956,
+      "sha256": "915d6b273c969df73bdff910b39434679442e8b9cf96cfa33bec4d2d0df338c1"
+    },
+    "design/anatomical_manifest.json": {
+      "bytes": 87447,
+      "sha256": "559fe6e690e1ac7a2ed23106da6013f415f7be027622b4b3ad101ace34d846be"
+    },
+    "design/humanoid_hand.scad": {
+      "bytes": 31590,
+      "sha256": "ba2873d0a8d751146c5af9c3fa66219950b6f34f04c22fa59a1c6d98e49425f7"
+    },
+    "simulation/robot.xml": {
+      "bytes": 51172,
+      "sha256": "0e14aae2a9bf2b663d9c1b520726bce392e03fba60c4f198faea215fe7fe0fba"
+    },
+    "results/humanoid_hand_demo.webm": {
+      "bytes": 3434856,
+      "sha256": "87413f9ae3138e55f2ecbdbac417cb8fdf6cb238eb9e132ee525f6ee3ad1b440"
+    }
+  },
+  "studio": {
+    "ready": true,
+    "demo": true,
+    "error": ""
+  },
+  "scope": "Digital CAD, bounded-actuator physics simulation, explained walkthrough and actual motion recording. Physical hardware remains unbuilt and unvalidated.",
+  "passed": true
+}

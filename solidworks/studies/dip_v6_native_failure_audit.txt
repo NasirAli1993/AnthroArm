@@ -1,0 +1,76 @@
+DIP V6 NATIVE FAILURE AUDIT - 2026-10-06
+Status: NATIVE_RUN_FAILED_DURING_MEASURED_SWEEP. No source repair applied.
+
+OBSERVED EVIDENCE
+Screenshot: D:\RoboticArm\solidworks\results\dip_v6_native_attempt.png
+SOLIDWORKS title: DIP_DRIVEN_10DEG.SLDASM * (modified since that checkpoint).
+Tree: fixed index_intermediate, index_distal present, Mates folder present.
+Dialog: AutoDIPMateV6 stopped: -2147220784
+Actual signed flexion differs from target by over 0.5 degrees.
+Remote run folder:
+C:\Users\PhotonUser\My Files\Temporary Files\DIP_Mate_20261006_113212_41532250
+No local native CAD output or measurement CSV is confirmed by this audit.
+
+WHAT THE SOURCE CONTROL FLOW SUPPORTS
+The 10-degree checkpoint is saved only after the hinge mates are created,
+native feature checks pass and the actual transform is within 0.5 degree of
+the +10-degree target. This is an inference from the unchanged V6 source and
+the displayed checkpoint name; the numeric native log has not been read here.
+The component is seeded at +10 degrees BEFORE creating the mates. Therefore
+the initial +10-degree check does not, by itself, prove a commanded movement.
+The observed error occurs in Drive after the mate definition readback and
+native pose measurement. At least one later requested 0/10/0 sample failed.
+The exact sample label, target and measured angle are currently unknown.
+
+WHAT IS NOT A PASS
+Two repeated 0/10/0 sweeps: failed/incomplete.
+Return-to-zero repeatability: not established.
+True limit conversion and endpoint enforcement: not reached/confirmed.
+DIP ZIP: not reached/confirmed.
+Motion Study / dynamics / contact / FEA / hardware: not performed by this macro.
+The full-arm static CAD and its separate remote ZIP result are separate work.
+
+SOURCE CHECK
+The signed-angle calculation atan2(child Z-axis X, child Z-axis Z) is consistent
+with the declared +Y rotation and the native MathPoint transform convention.
+The origin/axis checks separately reject hinge translation and Y-axis flips.
+The 0.5-degree acceptance threshold is unchanged. No abs(angle), forced
+Transform2 update during measurement, or other way of concealing error is added.
+
+DIAGNOSIS REQUIRES THE LAST MEASURE ROW
+Retrieve Native_DIP_Mate.log and native_pose_measurements.csv from the remote
+folder. Each measurement is appended and closed before the failing assertion.
+For the final row record sample, target_deg, actual_signed_y_deg,
+hinge_drift_m and y_axis_error. Also retain preceding rows and mate error codes.
+
+If +10 target gives about -10 after a zero sample, inspect angle branch and
+ReferenceEntity persistence at the zero-angle configuration. Do not change
+the measurement sign or tolerance to accept the opposite rotation.
+If zero target leaves about +10, inspect native mate suppression, actual
+component ownership of angle entities, solver rebuild and transform readback.
+The initial seed can mask an inactive driving constraint at the first +10 step.
+If zero target produces about +180 or -180, inspect an alternate zero-angle
+branch and plane alignment rather than treating that rotation as zero.
+If a different angle appears, inspect angle alignment, reference direction,
+actual plane normals and native angular measurement before selecting a repair.
+The official angle-edit sequence is GetDefinition, modify mate data, then
+ModifyDefinition. It does not add an AccessSelections prerequisite; absence
+of that call alone is not an evidenced defect.
+https://help.solidworks.com/2022/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IAngleMateFeatureData.html?id=2.2.1.4
+
+NEXT NATIVE RUN, ONCE EVIDENCE IS AVAILABLE
+Reopen the saved hinge and 10-degree checkpoints. Inspect the mate tree and
+the angle mate's two component references plus direction reference. Compare
+native Measure with CSV. Preserve the original failed run. Apply only the
+repair supported by the failing row, then rerun the unchanged acceptance
+checks and record actual changed-target movement. No V7 fix is justified by
+the current screenshot alone.
+
+READ-ONLY CONTEXT DIAGNOSTIC FOR THE NEXT SESSION
+Obtain Mate2 from angleFeature.GetSpecificFeature2; enumerate MateEntity(i)
+from i=0 to GetMateEntityCount-1. Record each ReferenceComponent.Name2 and
+EntityParams (assembly-space point/vector; plane vector is its normal).
+This establishes actual native component references independently of the
+dimension target and tests the possible reference-context issue directly.
+https://help.solidworks.com/2016/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.imate2~mateentity.html
+https://help.solidworks.com/2026/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IMateEntity2~ReferenceComponent.html

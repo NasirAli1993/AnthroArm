@@ -1,0 +1,38 @@
+DELIVERY STATUS — 2026-10-05
+
+Implemented and run locally on this computer
+25 independent controlled axes: five in the arm and four in each of five digits.
+Adult-scale nominal190mm hand;300mm upper arm and250mm forearm.
+MuJoCo physics with gravity, bounded actuator forces, joint limits and contact.
+Interactive local dashboard, individual sliders, five gestures, position-only IK, orbit/detail cameras, pause/reset, and contact-driven seeded grasp/lift.
+Virtual palm IMU and wrist force/torque telemetry.
+FreeCAD native assembly, full STEP export,62 local-frame STL components, editable OpenSCAD and Python generators; each CAD component includes a brief explanation.
+Webcam retargeting code for20 digit axes, optional bounded relative arm control,600ms tracking timeout, local UDP receiver.
+Runnable untrained Gymnasium grasp environment with object-specific contact and lift rewards.
+Recorded simulation video and GIF.
+
+Verified
+Every joint independently moves; all five gesture simulations remain finite and within tested limit tolerance.
+URDF and MJCF link frames match numerically; all assigned inertias are positive and physically realizable.
+Position IK solves tested reachable points and rejects an unreachable target.
+60g36mm cube seeded in the upward palm is retained during a293.6mm lift; middle and thumb maintain force-bearing contact during a2s hold. No weld, post-reset object teleportation or ideal gravity compensation.
+The live dashboard also completed this seeded lift (~293mm).
+Camera0 provided a640x480 frame; the official MediaPipe model loads and runs. No human-hand motion calibration or accuracy test was possible without a hand in view.
+Gymnasium interface checker and100 random small-action steps pass; this is not evidence of a trained policy.
+31 local HTTP/UDP integration cases pass, including rejected malformed/nonfinite packets, stale tracking and mode switching.
+FreeCAD file reopened with62 descriptions preserved; STEP reimport contains62 valid solids; all62 STL meshes parse.
+
+Not completed or demonstrated
+Autonomous object detection and pickup from a table; a trained general grasp policy; reinforcement-learning performance; sim-to-real transfer; physical electronics/firmware operation; hardware manufacturing or payload certification.
+Detailed transmission/tendon routing through every moving joint, motor/reducer/bearing selection, assembly interference across the entire workspace, mechanical stress/fatigue, tolerances and physical calibration.
+Isaac Sim/Isaac Lab operation: incompatible with the detected GTX1660Ti and16GBRAM. The implemented MuJoCo alternative is expressly described in the source document.
+
+Important modeling decisions
+The source called its hand20DoF but supplied19 finger joints. This implementation adds a fourth thumb axis to provide20 finger axes plus5 arm axes.
+The source examples included a50mm cube; the reproducible seeded grasp demonstration uses a36mm cube at60g. Its dimensions/mass are in robot.xml and generate_model.py.
+The detailed CAD and simplified physics geometry share joint frames and major dimensions. CAD density/materials are not used to derive the assumed physics masses. Valid CAD solids do not establish manufacturability.
+Position-only IK does not plan collision-free paths or control arbitrary hand orientation. The dashboard distinguishes predicted kinematic solution error from the measured position error under gravitational load.
+
+Portable software
+Python3.12.10, MuJoCo3.14.0, FreeCAD1.1.4, OpenSCAD2021.01; installed package lock and download hashes are in software and results\environment.json.
+All project-managed files, downloads, portable applications and configured caches are in D:\RoboticArm. Existing Windows/host-application-managed data are outside this project's control; see docs\storage_and_software.txt.

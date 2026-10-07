@@ -1,0 +1,53 @@
+{
+  "file": "D:\\RoboticArm\\results\\humanoid_hand_demo.webm",
+  "fps": 24,
+  "duration_s": 27,
+  "source": "Actual current MuJoCo mesh model; dynamics integrated every frame",
+  "phases": [
+    {
+      "start_s": 0,
+      "duration_s": 3,
+      "title": "Open hand \u00b7 smooth shells and finger pads"
+    },
+    {
+      "start_s": 3,
+      "duration_s": 3,
+      "title": "Index \u00b7 independent joints"
+    },
+    {
+      "start_s": 6,
+      "duration_s": 3,
+      "title": "Middle \u00b7 independent joints"
+    },
+    {
+      "start_s": 9,
+      "duration_s": 3,
+      "title": "Ring \u00b7 independent joints"
+    },
+    {
+      "start_s": 12,
+      "duration_s": 3,
+      "title": "Little finger \u00b7 independent joints"
+    },
+    {
+      "start_s": 15,
+      "duration_s": 3,
+      "title": "Thumb \u00b7 opposition and flexion"
+    },
+    {
+      "start_s": 18,
+      "duration_s": 3,
+      "title": "Five fingers \u00b7 closing together"
+    },
+    {
+      "start_s": 21,
+      "duration_s": 3,
+      "title": "Five fingers \u00b7 reopening"
+    },
+    {
+      "start_s": 24,
+      "duration_s": 3,
+      "title": "Spread and gesture control"
+    }
+  ]
+}

@@ -1,0 +1,627 @@
+{
+  "spec": "D:\\RoboticArm\\design\\robot_spec.json",
+  "components": [
+    {
+      "name": "BaseFixture",
+      "label": "Base \u00b7 M8 table mounting plate",
+      "link": "base_link",
+      "explanation": "Anchors the arm to a rigid bench. Four 9 mm clearance holes on 180 mm PCD; rear service port; central cable passage. Anchoring, mass and bolt selection require structural validation.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 3519252.170542723,
+      "stl": "D:\\RoboticArm\\design\\parts\\BaseFixture.stl"
+    },
+    {
+      "name": "BaseAccent",
+      "label": "Base \u00b7 removable trim ring",
+      "link": "base_link",
+      "explanation": "Visual trim and cover seam around the waist stage. Does not carry the arm load.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 19415.042599184904,
+      "stl": "D:\\RoboticArm\\design\\parts\\BaseAccent.stl"
+    },
+    {
+      "name": "WaistHousing",
+      "label": "J1 \u00b7 waist actuator enclosure",
+      "link": "waist_link",
+      "explanation": "Rotating waist enclosure and central cable route. Its local Z axis follows the first arm joint; bearing and actuator interfaces remain conceptual.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 308919.08881279145,
+      "stl": "D:\\RoboticArm\\design\\parts\\WaistHousing.stl"
+    },
+    {
+      "name": "ShoulderYokeL",
+      "label": "J2 \u00b7 shoulder yoke L",
+      "link": "waist_link",
+      "explanation": "Support cheek for shoulder pivot. Bore is a placeholder for a bearing-supported output shaft; bearing seat tolerance must be designed.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 13463.241981909783,
+      "stl": "D:\\RoboticArm\\design\\parts\\ShoulderYokeL.stl"
+    },
+    {
+      "name": "ShoulderYokeR",
+      "label": "J2 \u00b7 shoulder yoke R",
+      "link": "waist_link",
+      "explanation": "Support cheek for shoulder pivot. Bore is a placeholder for a bearing-supported output shaft; bearing seat tolerance must be designed.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 13463.241981909776,
+      "stl": "D:\\RoboticArm\\design\\parts\\ShoulderYokeR.stl"
+    },
+    {
+      "name": "upperShell",
+      "label": "Upper arm \u00b7 hollow structural shell",
+      "link": "upper_arm",
+      "explanation": "300 mm pivot spacing. Hollow concept housing with 16 mm pivot passages and a front service recess. Wall sizing and torque load paths require analysis.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 367807.1369987568,
+      "stl": "D:\\RoboticArm\\design\\parts\\upperShell.stl"
+    },
+    {
+      "name": "upperCover",
+      "label": "Upper arm \u00b7 service cover",
+      "link": "upper_arm",
+      "explanation": "Removable front cover identifies cable and actuator service area. Fasteners, cable strain relief and a complete tendon spool package are not yet detailed.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 20796.15332421659,
+      "stl": "D:\\RoboticArm\\design\\parts\\upperCover.stl"
+    },
+    {
+      "name": "upperRootBearingCover",
+      "label": "Upper arm \u00b7 root bearing cover",
+      "link": "upper_arm",
+      "explanation": "External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 6333.450789637023,
+      "stl": "D:\\RoboticArm\\design\\parts\\upperRootBearingCover.stl"
+    },
+    {
+      "name": "upperRootHubRing",
+      "label": "Upper arm \u00b7 root hub ring",
+      "link": "upper_arm",
+      "explanation": "High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 263.89378290154264,
+      "stl": "D:\\RoboticArm\\design\\parts\\upperRootHubRing.stl"
+    },
+    {
+      "name": "upperTipBearingCover",
+      "label": "Upper arm \u00b7 tip bearing cover",
+      "link": "upper_arm",
+      "explanation": "External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 6333.450789637022,
+      "stl": "D:\\RoboticArm\\design\\parts\\upperTipBearingCover.stl"
+    },
+    {
+      "name": "upperTipHubRing",
+      "label": "Upper arm \u00b7 tip hub ring",
+      "link": "upper_arm",
+      "explanation": "High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 263.8937829015423,
+      "stl": "D:\\RoboticArm\\design\\parts\\upperTipHubRing.stl"
+    },
+    {
+      "name": "forearmShell",
+      "label": "Forearm \u00b7 hollow structural shell",
+      "link": "forearm",
+      "explanation": "250 mm pivot spacing. Hollow concept housing with 16 mm pivot passages and a front service recess. Wall sizing and torque load paths require analysis.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 230632.933028879,
+      "stl": "D:\\RoboticArm\\design\\parts\\forearmShell.stl"
+    },
+    {
+      "name": "forearmCover",
+      "label": "Forearm \u00b7 service cover",
+      "link": "forearm",
+      "explanation": "Removable front cover identifies cable and actuator service area. Fasteners, cable strain relief and a complete tendon spool package are not yet detailed.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 12653.356876844286,
+      "stl": "D:\\RoboticArm\\design\\parts\\forearmCover.stl"
+    },
+    {
+      "name": "forearmRootBearingCover",
+      "label": "Forearm \u00b7 root bearing cover",
+      "link": "forearm",
+      "explanation": "External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 3757.3448136933926,
+      "stl": "D:\\RoboticArm\\design\\parts\\forearmRootBearingCover.stl"
+    },
+    {
+      "name": "forearmRootHubRing",
+      "label": "Forearm \u00b7 root hub ring",
+      "link": "forearm",
+      "explanation": "High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 263.89378290154264,
+      "stl": "D:\\RoboticArm\\design\\parts\\forearmRootHubRing.stl"
+    },
+    {
+      "name": "forearmTipBearingCover",
+      "label": "Forearm \u00b7 tip bearing cover",
+      "link": "forearm",
+      "explanation": "External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 3757.3448136933935,
+      "stl": "D:\\RoboticArm\\design\\parts\\forearmTipBearingCover.stl"
+    },
+    {
+      "name": "forearmTipHubRing",
+      "label": "Forearm \u00b7 tip hub ring",
+      "link": "forearm",
+      "explanation": "High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 263.8937829015426,
+      "stl": "D:\\RoboticArm\\design\\parts\\forearmTipHubRing.stl"
+    },
+    {
+      "name": "WristPitchHousing",
+      "label": "J4 \u00b7 wrist pitch housing",
+      "link": "wrist_link",
+      "explanation": "60 mm wrist stage. Pitch follows the local Y axis; a through-bore reserves cable space for the hand.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 124836.80240269593,
+      "stl": "D:\\RoboticArm\\design\\parts\\WristPitchHousing.stl"
+    },
+    {
+      "name": "WristRollCollar",
+      "label": "J5 \u00b7 wrist roll collar",
+      "link": "wrist_link",
+      "explanation": "Visual collar at the hand roll interface. Rotation is around the palm Z axis; a slip ring and cable turn limit must be resolved for physical construction.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 3230.0599027148783,
+      "stl": "D:\\RoboticArm\\design\\parts\\WristRollCollar.stl"
+    },
+    {
+      "name": "PalmShell",
+      "label": "Palm \u00b7 100 \u00d7 84 \u00d7 32 mm shell",
+      "link": "palm_base",
+      "explanation": "Adult-scale palm with dorsal access, screw bosses and wrist cable inlet. The 100 mm palm plus 90 mm middle finger establishes the 190 mm hand scale.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 63585.94465079531,
+      "stl": "D:\\RoboticArm\\design\\parts\\PalmShell.stl"
+    },
+    {
+      "name": "PalmDorsalLid",
+      "label": "Palm \u00b7 removable dorsal cover",
+      "link": "palm_base",
+      "explanation": "Dorsal service lid. Four M3 clearance holes align with internal bosses; threaded inserts and screw lengths need selection.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 21583.096016682943,
+      "stl": "D:\\RoboticArm\\design\\parts\\PalmDorsalLid.stl"
+    },
+    {
+      "name": "PalmContactPad",
+      "label": "Palm \u00b7 compliant contact pad concept",
+      "link": "palm_base",
+      "explanation": "Reserved palmar contact surface. Simulation uses idealized friction; elastomer durometer, attachment and tactile sensing are unvalidated.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 6719.30938445042,
+      "stl": "D:\\RoboticArm\\design\\parts\\PalmContactPad.stl"
+    },
+    {
+      "name": "index_knuckleYoke",
+      "label": "index knuckle \u00b7 lateral joint",
+      "link": "index_knuckle",
+      "explanation": "Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 1372.2476710880214,
+      "stl": "D:\\RoboticArm\\design\\parts\\index_knuckleYoke.stl"
+    },
+    {
+      "name": "index_proximalBody",
+      "label": "index proximal \u00b7 40 mm",
+      "link": "index_proximal",
+      "explanation": "40 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 6691.11413739804,
+      "stl": "D:\\RoboticArm\\design\\parts\\index_proximalBody.stl"
+    },
+    {
+      "name": "index_proximalPin",
+      "label": "index proximal \u00b7 hinge pin",
+      "link": "index_proximal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 47.97325079367144,
+      "stl": "D:\\RoboticArm\\design\\parts\\index_proximalPin.stl"
+    },
+    {
+      "name": "index_intermediateBody",
+      "label": "index intermediate \u00b7 24 mm",
+      "link": "index_intermediate",
+      "explanation": "24 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 3832.0525686284595,
+      "stl": "D:\\RoboticArm\\design\\parts\\index_intermediateBody.stl"
+    },
+    {
+      "name": "index_intermediatePin",
+      "label": "index intermediate \u00b7 hinge pin",
+      "link": "index_intermediate",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 47.97325079367144,
+      "stl": "D:\\RoboticArm\\design\\parts\\index_intermediatePin.stl"
+    },
+    {
+      "name": "index_distalBody",
+      "label": "index distal \u00b7 18 mm",
+      "link": "index_distal",
+      "explanation": "18 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 2421.2904746133304,
+      "stl": "D:\\RoboticArm\\design\\parts\\index_distalBody.stl"
+    },
+    {
+      "name": "index_distalPin",
+      "label": "index distal \u00b7 hinge pin",
+      "link": "index_distal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 47.97325079367144,
+      "stl": "D:\\RoboticArm\\design\\parts\\index_distalPin.stl"
+    },
+    {
+      "name": "index_distalPad",
+      "label": "index distal \u00b7 fingertip pad",
+      "link": "index_distal",
+      "explanation": "Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 237.22586076131074,
+      "stl": "D:\\RoboticArm\\design\\parts\\index_distalPad.stl"
+    },
+    {
+      "name": "middle_knuckleYoke",
+      "label": "middle knuckle \u00b7 lateral joint",
+      "link": "middle_knuckle",
+      "explanation": "Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 1372.2476710880214,
+      "stl": "D:\\RoboticArm\\design\\parts\\middle_knuckleYoke.stl"
+    },
+    {
+      "name": "middle_proximalBody",
+      "label": "middle proximal \u00b7 45 mm",
+      "link": "middle_proximal",
+      "explanation": "45 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 8142.0054899586175,
+      "stl": "D:\\RoboticArm\\design\\parts\\middle_proximalBody.stl"
+    },
+    {
+      "name": "middle_proximalPin",
+      "label": "middle proximal \u00b7 hinge pin",
+      "link": "middle_proximal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 50.99043637817906,
+      "stl": "D:\\RoboticArm\\design\\parts\\middle_proximalPin.stl"
+    },
+    {
+      "name": "middle_intermediateBody",
+      "label": "middle intermediate \u00b7 25 mm",
+      "link": "middle_intermediate",
+      "explanation": "25 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 4308.17852900025,
+      "stl": "D:\\RoboticArm\\design\\parts\\middle_intermediateBody.stl"
+    },
+    {
+      "name": "middle_intermediatePin",
+      "label": "middle intermediate \u00b7 hinge pin",
+      "link": "middle_intermediate",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 50.99043637817906,
+      "stl": "D:\\RoboticArm\\design\\parts\\middle_intermediatePin.stl"
+    },
+    {
+      "name": "middle_distalBody",
+      "label": "middle distal \u00b7 20 mm",
+      "link": "middle_distal",
+      "explanation": "20 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 2925.4254370097037,
+      "stl": "D:\\RoboticArm\\design\\parts\\middle_distalBody.stl"
+    },
+    {
+      "name": "middle_distalPin",
+      "label": "middle distal \u00b7 hinge pin",
+      "link": "middle_distal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 50.99043637817906,
+      "stl": "D:\\RoboticArm\\design\\parts\\middle_distalPin.stl"
+    },
+    {
+      "name": "middle_distalPad",
+      "label": "middle distal \u00b7 fingertip pad",
+      "link": "middle_distal",
+      "explanation": "Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 309.57771865620316,
+      "stl": "D:\\RoboticArm\\design\\parts\\middle_distalPad.stl"
+    },
+    {
+      "name": "ring_knuckleYoke",
+      "label": "ring knuckle \u00b7 lateral joint",
+      "link": "ring_knuckle",
+      "explanation": "Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 1372.2476710880214,
+      "stl": "D:\\RoboticArm\\design\\parts\\ring_knuckleYoke.stl"
+    },
+    {
+      "name": "ring_proximalBody",
+      "label": "ring proximal \u00b7 40 mm",
+      "link": "ring_proximal",
+      "explanation": "40 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 6691.11413739804,
+      "stl": "D:\\RoboticArm\\design\\parts\\ring_proximalBody.stl"
+    },
+    {
+      "name": "ring_proximalPin",
+      "label": "ring proximal \u00b7 hinge pin",
+      "link": "ring_proximal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 47.97325079367144,
+      "stl": "D:\\RoboticArm\\design\\parts\\ring_proximalPin.stl"
+    },
+    {
+      "name": "ring_intermediateBody",
+      "label": "ring intermediate \u00b7 24 mm",
+      "link": "ring_intermediate",
+      "explanation": "24 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 3832.0525686284595,
+      "stl": "D:\\RoboticArm\\design\\parts\\ring_intermediateBody.stl"
+    },
+    {
+      "name": "ring_intermediatePin",
+      "label": "ring intermediate \u00b7 hinge pin",
+      "link": "ring_intermediate",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 47.97325079367144,
+      "stl": "D:\\RoboticArm\\design\\parts\\ring_intermediatePin.stl"
+    },
+    {
+      "name": "ring_distalBody",
+      "label": "ring distal \u00b7 18 mm",
+      "link": "ring_distal",
+      "explanation": "18 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 2421.2904746133304,
+      "stl": "D:\\RoboticArm\\design\\parts\\ring_distalBody.stl"
+    },
+    {
+      "name": "ring_distalPin",
+      "label": "ring distal \u00b7 hinge pin",
+      "link": "ring_distal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 47.97325079367144,
+      "stl": "D:\\RoboticArm\\design\\parts\\ring_distalPin.stl"
+    },
+    {
+      "name": "ring_distalPad",
+      "label": "ring distal \u00b7 fingertip pad",
+      "link": "ring_distal",
+      "explanation": "Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 237.22586076131074,
+      "stl": "D:\\RoboticArm\\design\\parts\\ring_distalPad.stl"
+    },
+    {
+      "name": "pinky_knuckleYoke",
+      "label": "pinky knuckle \u00b7 lateral joint",
+      "link": "pinky_knuckle",
+      "explanation": "Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 1372.2476710880214,
+      "stl": "D:\\RoboticArm\\design\\parts\\pinky_knuckleYoke.stl"
+    },
+    {
+      "name": "pinky_proximalBody",
+      "label": "pinky proximal \u00b7 33 mm",
+      "link": "pinky_proximal",
+      "explanation": "33 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 4838.1227763867355,
+      "stl": "D:\\RoboticArm\\design\\parts\\pinky_proximalBody.stl"
+    },
+    {
+      "name": "pinky_proximalPin",
+      "label": "pinky proximal \u00b7 hinge pin",
+      "link": "pinky_proximal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 43.44747241690998,
+      "stl": "D:\\RoboticArm\\design\\parts\\pinky_proximalPin.stl"
+    },
+    {
+      "name": "pinky_intermediateBody",
+      "label": "pinky intermediate \u00b7 20 mm",
+      "link": "pinky_intermediate",
+      "explanation": "20 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 2768.635252839227,
+      "stl": "D:\\RoboticArm\\design\\parts\\pinky_intermediateBody.stl"
+    },
+    {
+      "name": "pinky_intermediatePin",
+      "label": "pinky intermediate \u00b7 hinge pin",
+      "link": "pinky_intermediate",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 43.44747241690998,
+      "stl": "D:\\RoboticArm\\design\\parts\\pinky_intermediatePin.stl"
+    },
+    {
+      "name": "pinky_distalBody",
+      "label": "pinky distal \u00b7 17 mm",
+      "link": "pinky_distal",
+      "explanation": "17 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 2042.5322664692924,
+      "stl": "D:\\RoboticArm\\design\\parts\\pinky_distalBody.stl"
+    },
+    {
+      "name": "pinky_distalPin",
+      "label": "pinky distal \u00b7 hinge pin",
+      "link": "pinky_distal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 43.44747241690998,
+      "stl": "D:\\RoboticArm\\design\\parts\\pinky_distalPin.stl"
+    },
+    {
+      "name": "pinky_distalPad",
+      "label": "pinky distal \u00b7 fingertip pad",
+      "link": "pinky_distal",
+      "explanation": "Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 186.5993125155671,
+      "stl": "D:\\RoboticArm\\design\\parts\\pinky_distalPad.stl"
+    },
+    {
+      "name": "thumb_oppositionYoke",
+      "label": "thumb opposition \u00b7 lateral joint",
+      "link": "thumb_opposition",
+      "explanation": "Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 1372.2476710880214,
+      "stl": "D:\\RoboticArm\\design\\parts\\thumb_oppositionYoke.stl"
+    },
+    {
+      "name": "thumb_metacarpalBody",
+      "label": "thumb metacarpal \u00b7 30 mm",
+      "link": "thumb_metacarpal",
+      "explanation": "30 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 5810.287187725946,
+      "stl": "D:\\RoboticArm\\design\\parts\\thumb_metacarpalBody.stl"
+    },
+    {
+      "name": "thumb_metacarpalPin",
+      "label": "thumb metacarpal \u00b7 hinge pin",
+      "link": "thumb_metacarpal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 55.51621475494052,
+      "stl": "D:\\RoboticArm\\design\\parts\\thumb_metacarpalPin.stl"
+    },
+    {
+      "name": "thumb_proximalBody",
+      "label": "thumb proximal \u00b7 20 mm",
+      "link": "thumb_proximal",
+      "explanation": "20 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 3698.3737072508407,
+      "stl": "D:\\RoboticArm\\design\\parts\\thumb_proximalBody.stl"
+    },
+    {
+      "name": "thumb_proximalPin",
+      "label": "thumb proximal \u00b7 hinge pin",
+      "link": "thumb_proximal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 55.51621475494052,
+      "stl": "D:\\RoboticArm\\design\\parts\\thumb_proximalPin.stl"
+    },
+    {
+      "name": "thumb_distalBody",
+      "label": "thumb distal \u00b7 15 mm",
+      "link": "thumb_distal",
+      "explanation": "15 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 2468.46373458194,
+      "stl": "D:\\RoboticArm\\design\\parts\\thumb_distalBody.stl"
+    },
+    {
+      "name": "thumb_distalPin",
+      "label": "thumb distal \u00b7 hinge pin",
+      "link": "thumb_distal",
+      "explanation": "Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 55.51621475494052,
+      "stl": "D:\\RoboticArm\\design\\parts\\thumb_distalPin.stl"
+    },
+    {
+      "name": "thumb_distalPad",
+      "label": "thumb distal \u00b7 fingertip pad",
+      "link": "thumb_distal",
+      "explanation": "Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.",
+      "solid_count": 1,
+      "valid": true,
+      "volume_mm3": 197.500551112162,
+      "stl": "D:\\RoboticArm\\design\\parts\\thumb_distalPad.stl"
+    }
+  ],
+  "count": 62,
+  "valid": true
+}

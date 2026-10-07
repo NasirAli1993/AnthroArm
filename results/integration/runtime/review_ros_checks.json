@@ -1,0 +1,16 @@
+{
+  "part": "ros",
+  "passed": true,
+  "scope": "Focused local fixtures; no live simulation commands",
+  "checks": [
+    "supported position-only goal remains accepted",
+    "unsupported multi_dof_joint_names rejected",
+    "unsupported multi_dof_points rejected",
+    "unsupported multi_dof_frame rejected",
+    "unsupported multi_dof_timestamp rejected",
+    "unsupported component_path_tolerance rejected",
+    "unsupported component_goal_tolerance rejected",
+    "ROS status exposes completed task failure details",
+    "ROS status exposes active grasp phase"
+  ]
+}

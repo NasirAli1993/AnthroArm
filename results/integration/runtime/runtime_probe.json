@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "python": "3.12.15 | packaged by conda-forge | (main, Oct  6 2026, 23:39:35) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "D:\\RoboticArm\\software\\ros2\\.pixi\\envs\\default\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "rmw": "rmw_fastrtps_cpp",
+  "rclpy_path": "D:\\RoboticArm\\software\\ros2\\.pixi\\envs\\default\\Lib\\site-packages\\rclpy\\__init__.py",
+  "tf2_ros_path": "D:\\RoboticArm\\software\\ros2\\.pixi\\envs\\default\\Lib\\site-packages\\tf2_ros\\__init__.py",
+  "message_checks": {
+    "std_msgs.msg._string.String": {
+      "serialized_bytes": 9,
+      "roundtrip": true
+    },
+    "sensor_msgs.msg._joint_state.JointState": {
+      "serialized_bytes": 44,
+      "roundtrip": true
+    },
+    "sensor_msgs.msg._imu.Imu": {
+      "serialized_bytes": 316,
+      "roundtrip": true
+    },
+    "sensor_msgs.msg._image.Image": {
+      "serialized_bytes": 44,
+      "roundtrip": true
+    },
+    "trajectory_msgs.msg._joint_trajectory.JointTrajectory": {
+      "serialized_bytes": 28,
+      "roundtrip": true
+    },
+    "geometry_msgs.msg._transform_stamped.TransformStamped": {
+      "serialized_bytes": 84,
+      "roundtrip": true
+    },
+    "geometry_msgs.msg._pose_stamped.PoseStamped": {
+      "serialized_bytes": 76,
+      "roundtrip": true
+    },
+    "std_srvs.srv._trigger.Trigger_Request": {
+      "serialized_bytes": 8,
+      "roundtrip": true
+    },
+    "std_srvs.srv._trigger.Trigger_Response": {
+      "serialized_bytes": 13,
+      "roundtrip": true
+    },
+    "control_msgs.action._follow_joint_trajectory.FollowJointTrajectory_Goal": {
+      "serialized_bytes": 76,
+      "roundtrip": true
+    }
+  }
+}

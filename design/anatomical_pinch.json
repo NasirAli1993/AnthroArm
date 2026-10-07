@@ -1,0 +1,40 @@
+{
+  "method": "Numerical pad-contact preset using native CAD support points and opposing palmar normals",
+  "targets": {
+    "index_mcp_abduction": 0.2999899999999999,
+    "index_mcp_flexion": 1.4999899999999997,
+    "index_pip": 1.4101654844926945,
+    "index_dip": 1.0000000000000003e-05,
+    "thumb_cmc_opposition": 1.3315734886000867,
+    "thumb_cmc_flexion": 0.15067274194684444,
+    "thumb_mcp_flexion": 1.0000000000000003e-05,
+    "thumb_ip": 1.0000000000000003e-05
+  },
+  "geometric_pad_alignment_error_m": 0.005098909323621482,
+  "normal_residual": 0.012853560525056507,
+  "index_pad_local_surface_m": [
+    0.006524,
+    0.0,
+    0.00918
+  ],
+  "thumb_pad_local_surface_m": [
+    0.007384,
+    0.0,
+    0.00765
+  ],
+  "requires_dynamic_validation": false,
+  "dynamic_surface_gap_m": 0.0002574711854739071,
+  "dynamic_contacts": [
+    {
+      "geom1": "index_distalPad_collision",
+      "geom2": "thumb_distalPad_collision",
+      "distance": 0.000257875632707547,
+      "normal_force": 1.6297503319723075,
+      "position": [
+        0.46257577000153005,
+        0.043711563880137735,
+        0.6077280217328933
+      ]
+    }
+  ]
+}

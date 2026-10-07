@@ -1,0 +1,2517 @@
+{
+  "schema": "anthro27.solidworks-native-results-ledger.v1",
+  "prepared_date": "2026-10-05",
+  "purpose": "Historical native static/remote archive PASS and failed DIP evidence. Fifth session expired without local native recovery; no complete deliverable or Motion/FEA success.",
+  "user_authorization": {
+    "official_free_online_trial": true,
+    "upload_project_CAD": true,
+    "account_purchase": false,
+    "basis": "Yes you can use the free online trial but I want this whole project to be done",
+    "software_license_approved": true,
+    "temporary_browser_download_then_move_to_D": true,
+    "save_location_discretion_quote": "save it as you want",
+    "save_location_discretion_note": "Permission to save; does not establish a completed transfer."
+  },
+  "storage": {
+    "local_root": "D:/RoboticArm/solidworks",
+    "suggested_download_checkpoint_root": "D:/RoboticArm/solidworks/project/native_cloud",
+    "suggested_evidence_root": "D:/RoboticArm/solidworks/results/native_cloud",
+    "note": "Native cloud working files are remote until downloaded. Record actual destination; never describe remote workspace as D:.",
+    "temporary_browser_download_exception": "User approved temporary browser download followed by moving the deliverable to D:. No download has yet occurred in this snapshot."
+  },
+  "trial": {
+    "access_status": "FIFTH_SESSION_EXPIRED_NATIVE_STATIC_REMOTE_SUCCESS_HISTORICAL_NO_RECOVERED_NATIVE_OUTPUT",
+    "product": "SOLIDWORKS",
+    "version": "2026 SP0",
+    "edition": "Design Premium",
+    "expires_at": null,
+    "time_remaining_displayed": null,
+    "file_upload_limit": null,
+    "file_download_supported": null,
+    "motion_types_available": null,
+    "simulation_addins_available": null,
+    "api_or_macro_access_available": true,
+    "evidence": [
+      "D:/RoboticArm/solidworks/results/trial_native_ready.png",
+      "D:/RoboticArm/solidworks/results/trial_access_status.json",
+      "D:/RoboticArm/solidworks/scripts/AutoFingerImportV2_AUDIT.txt",
+      "D:/RoboticArm/solidworks/scripts/AutoFullArmStaticV1_source_audit.json",
+      "D:/RoboticArm/solidworks/results/full_static_native_attempt.png",
+      "D:/RoboticArm/solidworks/results/native_save_error_tail.png",
+      "D:/RoboticArm/solidworks/results/full_static_v3_native_outcome.png",
+      "D:/RoboticArm/solidworks/results/full_static_v3_progress.png",
+      "D:/RoboticArm/solidworks/results/full_static_v3_result.png",
+      "D:/RoboticArm/solidworks/scripts/AutoFullArmStaticV4_source_audit.json",
+      "D:/RoboticArm/solidworks/results/full_static_v5_native_result.png",
+      "D:/RoboticArm/solidworks/results/native_archive_recovered.png",
+      "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+      "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+    ],
+    "file_upload_verified": true,
+    "uploaded_source_files": [
+      "transfer/links/base_link.step",
+      "transfer/links/elbow_link.step",
+      "transfer/links/forearm.step",
+      "transfer/links/index_distal.step",
+      "transfer/links/index_intermediate.step",
+      "transfer/links/index_knuckle.step",
+      "transfer/links/index_proximal.step",
+      "transfer/links/middle_distal.step",
+      "transfer/links/middle_intermediate.step",
+      "transfer/links/middle_knuckle.step",
+      "transfer/links/middle_proximal.step",
+      "transfer/links/palm_base.step",
+      "transfer/links/pinky_distal.step",
+      "transfer/links/pinky_intermediate.step",
+      "transfer/links/pinky_knuckle.step",
+      "transfer/links/pinky_proximal.step",
+      "transfer/links/ring_distal.step",
+      "transfer/links/ring_intermediate.step",
+      "transfer/links/ring_knuckle.step",
+      "transfer/links/ring_proximal.step",
+      "transfer/links/shoulder_abduction.step",
+      "transfer/links/shoulder_flexion.step",
+      "transfer/links/thumb_distal.step",
+      "transfer/links/thumb_metacarpal.step",
+      "transfer/links/thumb_opposition.step",
+      "transfer/links/thumb_proximal.step",
+      "transfer/links/upper_arm.step",
+      "transfer/links/wrist_pitch.step",
+      "scripts/AutoFingerImportV2.swb",
+      "scripts/AutoFullArmStaticV1.swb"
+    ],
+    "official_sessions_launched_observed": 5,
+    "native_macro_compile_success_verified": true,
+    "capabilities_note": "Historical native Design Premium 2026 SP0 static CAD and remote ZIP succeeded. Browser transfers failed; fifth session expired and redirected to feedback. No local native recovery, complete joint sweep, Motion or FEA success.",
+    "latest_session_expired": true,
+    "native_files_recovered_locally": 0,
+    "native_static_geometry_saved_remotely": true,
+    "remote_archive_verified": true,
+    "file_download_attempt_observed": true,
+    "file_download_completed_verified": false,
+    "manual_download_question_pending": false,
+    "manual_download_reply_received": true,
+    "reported_session_expiry_local": "2026-10-06 19:36 Asia/Shanghai",
+    "manual_download_reply_interpretation": "Authorization to save; not confirmation that a file was downloaded.",
+    "current_session_active": false,
+    "expired_at_local_approx": "2026-10-06 19:36 Asia/Shanghai",
+    "expiry_observation": "Operating agent confirmed tab 17 redirected to MySolidWorks feedback after session expiry.",
+    "manual_download_action_available": false,
+    "transfer_blocker": "Browser download-event wait, downloadMedia and pageAssets did not transfer a confirmed native file. The session expired before recovery."
+  },
+  "input_sources": [
+    {
+      "path": "D:\\RoboticArm\\solidworks\\transfer\\assembly_manifest.json",
+      "sha256": "93019b023703f24cb0f3f72b139aad4c615b3da5943343cbd005c9edc32f25a7"
+    },
+    {
+      "path": "D:\\RoboticArm\\solidworks\\studies\\joint_register.json",
+      "sha256": "e1c69276e3cb3e039f690025c773fc5811535857e311cbd7ba45ef004fa1289d"
+    }
+  ],
+  "completion_rule": "Change a state only after actual native action and measured evidence. Uploads, source audits, FreeCAD checks and MuJoCo results are not completed native SOLIDWORKS imports, articulated assemblies, or engineering studies.",
+  "core_deliverable": {
+    "expected_rigid_link_parts": 28,
+    "expected_source_solid_bodies": 293,
+    "expected_revolute_joints": 27,
+    "expected_arm_joints": 7,
+    "expected_hand_joints": 20,
+    "full_native_assembly_completed": false,
+    "native_motion_study_completed": false,
+    "native_static_assembly_built_in_cloud": true,
+    "native_static_assembly_saved_in_cloud": true,
+    "native_static_part_count": 28,
+    "native_static_solid_count": 293,
+    "native_static_components_all_fixed": true,
+    "native_static_archive_verified_remotely": true,
+    "local_native_checkpoint_verified": false,
+    "full_native_assembly_completed_note": "The requested 27-joint articulated assembly remains incomplete; current successful native build is all-fixed/static.",
+    "native_static_scoped_verification_passed": true
+  },
+  "stages": [
+    {
+      "id": "P0",
+      "priority": 0,
+      "name": "Record trial capabilities and export a smoke-test native file",
+      "prerequisites": [
+        "Official trial access"
+      ],
+      "required_evidence": [
+        "actual product/version/edition shown",
+        "remaining session time and quota if displayed",
+        "Motion study type menu and Simulation add-in availability",
+        "successful native test-file save/download and local path"
+      ],
+      "acceptance": [
+        "record capabilities without guessing",
+        "prove export/recovery before spending the trial on the full assembly"
+      ],
+      "status": "HISTORICAL_NATIVE_STATIC_PASS_LOCAL_CHECKPOINT_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "Native V6 static/remote ZIP gates passed, but the fifth session expired before local transfer. No native checkpoint can be delivered or reopened from D:. See historical scoped verification; broader milestone remains incomplete.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ]
+    },
+    {
+      "id": "P1",
+      "priority": 1,
+      "name": "Static full-arm import and native checkpoint",
+      "prerequisites": [
+        "P0 export verified"
+      ],
+      "required_evidence": [
+        "import options and diagnostics",
+        "body/component count",
+        "known 300/250/40 mm joint spans",
+        "full arm screenshot in SOLIDWORKS",
+        "downloaded native file and SHA256"
+      ],
+      "acceptance": [
+        "293 source solids accounted for; explain any import restructuring",
+        "units/scale correct within 0.1 mm import comparison",
+        "no unresolved import errors",
+        "native geometry saved; does not count as articulated assembly"
+      ],
+      "status": "HISTORICAL_NATIVE_STATIC_PASS_LOCAL_CHECKPOINT_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "Native V6 static/remote ZIP gates passed, but the fifth session expired before local transfer. No native checkpoint can be delivered or reopened from D:. See historical scoped verification; broader milestone remains incomplete.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ]
+    },
+    {
+      "id": "P2",
+      "priority": 2,
+      "name": "28 rigid-link native parts and assembled home pose",
+      "prerequisites": [
+        "P1 checkpoint"
+      ],
+      "required_evidence": [
+        "28 native SLDPRT files",
+        "SLDASM with link-named components",
+        "transform/placement audit",
+        "fixed base and remaining free component status",
+        "complete native dependency package downloaded"
+      ],
+      "acceptance": [
+        "all 28 links and 293 bodies accounted for",
+        "source mm transforms preserved",
+        "home pose matches source",
+        "imported B-rep parts identified honestly; no native sketch-history claim"
+      ],
+      "status": "HISTORICAL_NATIVE_STATIC_PASS_LOCAL_CHECKPOINT_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "Native V6 static/remote ZIP gates passed, but the fifth session expired before local transfer. No native checkpoint can be delivered or reopened from D:. See historical scoped verification; broader milestone remains incomplete.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ]
+    },
+    {
+      "id": "P3",
+      "priority": 3,
+      "name": "27 revolute joints, limits and individual jogs",
+      "prerequisites": [
+        "P2 native link assembly"
+      ],
+      "required_evidence": [
+        "joint-by-joint mate/axis and angular-zero record",
+        "positive-jog direction evidence",
+        "each measured actual joint angle",
+        "moving parent/child propagation",
+        "rebuild log",
+        "27 intended free rotations audit before drive constraints"
+      ],
+      "acceptance": [
+        "all 27 joints recorded",
+        "no unintended translations/axis tilt",
+        "correct sign, limits and parent-child behavior",
+        "no unresolved mate error; no unintentional locked rotation"
+      ],
+      "status": "BLOCKED_FIRST_DIP_NATIVE_TOLERANCE_FAILURE",
+      "started_at": null,
+      "finished_at": null,
+      "observed": "The first index DIP V6 test reached a 10-degree named native assembly then failed the signed-flexion tolerance check. No full 27-joint validation.",
+      "passed": false,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/dip_v6_native_attempt.png"
+      ]
+    },
+    {
+      "id": "P4",
+      "priority": 4,
+      "name": "Native Motion study and collision/clearance review",
+      "prerequisites": [
+        "P3 joint audit",
+        "confirmed available study type"
+      ],
+      "required_evidence": [
+        "saved native study type and timeline",
+        "27 joint sweeps angle/time measurements",
+        "native recording",
+        "interference pair/volume/pose report",
+        "minimum clearance evidence and exclusions"
+      ],
+      "acceptance": [
+        "label Animation/Basic Motion/Motion Analysis correctly",
+        "conservative schedules followed within 0.5 degrees",
+        "no unexplained motion or interference",
+        "dynamic loads not asserted from Animation or unverified masses"
+      ],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "id": "P5",
+      "priority": 5,
+      "name": "Separate tendon-finger fit study",
+      "prerequisites": [
+        "native starter-finger import",
+        "available trial time after core full-arm checkpoints"
+      ],
+      "required_evidence": [
+        "three individual 0/5/10/15 degree hinge sweeps",
+        "1 degree sample interference/clearance report",
+        "pin, stop-tab, screw-head and retainer review",
+        "native file and recording"
+      ],
+      "acceptance": [
+        "no unintended contact within tested sweep",
+        "illustrative cord solids not reported as a transmission simulation",
+        "physical fit and motor output-offset compatibility remain unverified"
+      ],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "id": "P6",
+      "priority": 6,
+      "name": "Quantitative dynamics and structural analysis gate",
+      "prerequisites": [
+        "P4 geometry/motion issues resolved",
+        "licensed feature availability",
+        "documented physical inputs and criteria"
+      ],
+      "required_evidence": [
+        "mass/material/drive/load/support sources",
+        "solver settings/logs",
+        "charts",
+        "mesh convergence and reaction checks for FEA"
+      ],
+      "acceptance": [
+        "execute only after gates filled",
+        "otherwise record NOT_EXECUTED with missing inputs",
+        "no inferred torque/payload/strength qualification from appearance or solver availability"
+      ],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    }
+  ],
+  "link_imports": [
+    {
+      "link": "base_link",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/base_link.step",
+      "expected_solid_count": 1,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 1,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "shoulder_abduction",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/shoulder_abduction.step",
+      "expected_solid_count": 5,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 5,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "shoulder_flexion",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/shoulder_flexion.step",
+      "expected_solid_count": 1,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 1,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "upper_arm",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/upper_arm.step",
+      "expected_solid_count": 13,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 13,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "elbow_link",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/elbow_link.step",
+      "expected_solid_count": 11,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 11,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "forearm",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/forearm.step",
+      "expected_solid_count": 69,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 69,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "wrist_pitch",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/wrist_pitch.step",
+      "expected_solid_count": 4,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 4,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "palm_base",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/palm_base.step",
+      "expected_solid_count": 13,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 13,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "index_knuckle",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/index_knuckle.step",
+      "expected_solid_count": 1,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 1,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "index_proximal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/index_proximal.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "index_intermediate",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/index_intermediate.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "index_distal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/index_distal.step",
+      "expected_solid_count": 10,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 10,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "middle_knuckle",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/middle_knuckle.step",
+      "expected_solid_count": 1,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 1,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "middle_proximal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/middle_proximal.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "middle_intermediate",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/middle_intermediate.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "middle_distal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/middle_distal.step",
+      "expected_solid_count": 10,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 10,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "ring_knuckle",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/ring_knuckle.step",
+      "expected_solid_count": 1,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 1,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "ring_proximal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/ring_proximal.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "ring_intermediate",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/ring_intermediate.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "ring_distal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/ring_distal.step",
+      "expected_solid_count": 10,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 10,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "pinky_knuckle",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/pinky_knuckle.step",
+      "expected_solid_count": 1,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 1,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "pinky_proximal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/pinky_proximal.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "pinky_intermediate",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/pinky_intermediate.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "pinky_distal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/pinky_distal.step",
+      "expected_solid_count": 10,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 10,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "thumb_opposition",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/thumb_opposition.step",
+      "expected_solid_count": 2,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 2,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "thumb_metacarpal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/thumb_metacarpal.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "thumb_proximal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/thumb_proximal.step",
+      "expected_solid_count": 12,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 12,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    },
+    {
+      "link": "thumb_distal",
+      "source_step": "D:/RoboticArm/solidworks/transfer/links/thumb_distal.step",
+      "expected_solid_count": 10,
+      "native_part_path": null,
+      "native_component_name": null,
+      "native_solid_count": 10,
+      "import_diagnostics": null,
+      "native_file_sha256": null,
+      "status": "HISTORICAL_NATIVE_IMPORT_COUNT_SAVE_PASS_NOT_RECOVERED",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": null,
+      "observed": "V6 native import/count/save and remote archive succeeded historically. Session expired without local CAD recovery; no native file/hash/reopen is available on D:.",
+      "passed": null,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "native_solid_count_evidence_basis": "V6 strict per-part native count/save gate; full successful completion evidenced.",
+      "native_import_count_save_gate_passed": true
+    }
+  ],
+  "joint_tests": [
+    {
+      "joint": "shoulder_abduction",
+      "parent_link": "base_link",
+      "child_link": "shoulder_abduction",
+      "axis_local": [
+        1,
+        0,
+        0
+      ],
+      "expected_limit_deg": [
+        -77.34930234266115,
+        77.34930234266115
+      ],
+      "expected_home_deg": 5.729577951308233,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        5.729577951308233,
+        -17.475212751490112,
+        5.729577951308233,
+        28.934368654106574,
+        5.729577951308233
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "shoulder_flexion",
+      "parent_link": "shoulder_abduction",
+      "child_link": "shoulder_flexion",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        -68.75493541569878,
+        131.78029288008932
+      ],
+      "expected_home_deg": 14.32394487827058,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        14.32394487827058,
+        -15.75633936609764,
+        14.32394487827058,
+        44.4042291226388,
+        14.32394487827058
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "shoulder_rotation",
+      "parent_link": "shoulder_flexion",
+      "child_link": "upper_arm",
+      "axis_local": [
+        0,
+        0,
+        1
+      ],
+      "expected_limit_deg": [
+        -148.96902673401405,
+        148.96902673401405
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        -44.69070802020421,
+        0.0,
+        44.69070802020421,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "elbow_flexion",
+      "parent_link": "upper_arm",
+      "child_link": "elbow_link",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        140.3746598070517
+      ],
+      "expected_home_deg": 63.02535746439056,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        63.02535746439056,
+        41.96915849333281,
+        63.02535746439056,
+        84.0815564354483,
+        63.02535746439056
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "forearm_pronation",
+      "parent_link": "elbow_link",
+      "child_link": "forearm",
+      "axis_local": [
+        0,
+        0,
+        1
+      ],
+      "expected_limit_deg": [
+        -179.9087476710785,
+        179.9087476710785
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        -53.97262430132354,
+        0.0,
+        53.97262430132354,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "wrist_flexion",
+      "parent_link": "forearm",
+      "child_link": "wrist_pitch",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        -71.6197243913529,
+        71.6197243913529
+      ],
+      "expected_home_deg": 11.459155902616466,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        11.459155902616466,
+        -10.026761414789405,
+        11.459155902616466,
+        32.94507322002233,
+        11.459155902616466
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "wrist_deviation",
+      "parent_link": "wrist_pitch",
+      "child_link": "palm_base",
+      "axis_local": [
+        1,
+        0,
+        0
+      ],
+      "expected_limit_deg": [
+        -37.24225668350351,
+        37.24225668350351
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        -11.172677005051053,
+        0.0,
+        11.172677005051053,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "index_mcp_abduction",
+      "parent_link": "palm_base",
+      "child_link": "index_knuckle",
+      "axis_local": [
+        1,
+        0,
+        0
+      ],
+      "expected_limit_deg": [
+        -17.188733853924695,
+        17.188733853924695
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        -5.156620156177409,
+        0.0,
+        5.156620156177409,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "index_mcp_flexion",
+      "parent_link": "index_knuckle",
+      "child_link": "index_proximal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        85.94366926962348
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.891550390443522,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "index_pip",
+      "parent_link": "index_proximal",
+      "child_link": "index_intermediate",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        97.40282517223994
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        14.610423775835992,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "index_dip",
+      "parent_link": "index_intermediate",
+      "child_link": "index_distal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "FAILED_NATIVE_V6_SIGNED_ANGLE_TOLERANCE",
+      "started_at": "2026-10-06 (exact time not recorded)",
+      "finished_at": "2026-10-06 (exact local time not recorded)",
+      "observed": "V6 reached saved DIP_DRIVEN_10DEG.SLDASM. Parent fixed, child floating and Mates created. Stopped with error -2147220784: Actual signed flexion differs from target by over 0.5 degrees. No full sweep, confirmed limit conversion or ZIP.",
+      "passed": false,
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/dip_v6_native_attempt.png"
+      ],
+      "failure_error_code": -2147220784,
+      "failure_reason": "Actual signed flexion differs from target by over 0.5 degrees",
+      "failure_tolerance_deg": 0.5,
+      "actual_failed_angle_deg": null,
+      "parent_fixed_observed": true,
+      "child_floating_observed": true,
+      "mates_created_observed": true,
+      "native_saved_document": "DIP_DRIVEN_10DEG.SLDASM",
+      "native_cloud_folder": "DIP_Mate_20261006_113212_41532250",
+      "full_sweep_completed": false
+    },
+    {
+      "joint": "middle_mcp_abduction",
+      "parent_link": "palm_base",
+      "child_link": "middle_knuckle",
+      "axis_local": [
+        1,
+        0,
+        0
+      ],
+      "expected_limit_deg": [
+        -17.188733853924695,
+        17.188733853924695
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        -5.156620156177409,
+        0.0,
+        5.156620156177409,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "middle_mcp_flexion",
+      "parent_link": "middle_knuckle",
+      "child_link": "middle_proximal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        85.94366926962348
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.891550390443522,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "middle_pip",
+      "parent_link": "middle_proximal",
+      "child_link": "middle_intermediate",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        97.40282517223994
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        14.610423775835992,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "middle_dip",
+      "parent_link": "middle_intermediate",
+      "child_link": "middle_distal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "ring_mcp_abduction",
+      "parent_link": "palm_base",
+      "child_link": "ring_knuckle",
+      "axis_local": [
+        1,
+        0,
+        0
+      ],
+      "expected_limit_deg": [
+        -17.188733853924695,
+        17.188733853924695
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        -5.156620156177409,
+        0.0,
+        5.156620156177409,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "ring_mcp_flexion",
+      "parent_link": "ring_knuckle",
+      "child_link": "ring_proximal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        85.94366926962348
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.891550390443522,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "ring_pip",
+      "parent_link": "ring_proximal",
+      "child_link": "ring_intermediate",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        97.40282517223994
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        14.610423775835992,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "ring_dip",
+      "parent_link": "ring_intermediate",
+      "child_link": "ring_distal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "pinky_mcp_abduction",
+      "parent_link": "palm_base",
+      "child_link": "pinky_knuckle",
+      "axis_local": [
+        1,
+        0,
+        0
+      ],
+      "expected_limit_deg": [
+        -17.188733853924695,
+        17.188733853924695
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        -5.156620156177409,
+        0.0,
+        5.156620156177409,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "pinky_mcp_flexion",
+      "parent_link": "pinky_knuckle",
+      "child_link": "pinky_proximal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        85.94366926962348
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.891550390443522,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "pinky_pip",
+      "parent_link": "pinky_proximal",
+      "child_link": "pinky_intermediate",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        97.40282517223994
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        14.610423775835992,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "pinky_dip",
+      "parent_link": "pinky_intermediate",
+      "child_link": "pinky_distal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "thumb_cmc_opposition",
+      "parent_link": "palm_base",
+      "child_link": "thumb_opposition",
+      "axis_local": [
+        0,
+        0,
+        -1
+      ],
+      "expected_limit_deg": [
+        -11.459155902616466,
+        91.67324722093173
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        -11.459155902616466,
+        0.0,
+        15.469860468532229,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "thumb_cmc_flexion",
+      "parent_link": "thumb_opposition",
+      "child_link": "thumb_metacarpal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        -14.32394487827058,
+        74.48451336700703
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        -13.32126873679164,
+        0.0,
+        13.32126873679164,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "thumb_mcp_flexion",
+      "parent_link": "thumb_metacarpal",
+      "child_link": "thumb_proximal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    },
+    {
+      "joint": "thumb_ip",
+      "parent_link": "thumb_proximal",
+      "child_link": "thumb_distal",
+      "axis_local": [
+        0,
+        1,
+        0
+      ],
+      "expected_limit_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "expected_home_deg": 0.0,
+      "sweep_time_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "sweep_target_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "mate_names": [],
+      "measured_zero_definition": null,
+      "actual_limit_deg": null,
+      "positive_jog_passed": null,
+      "measured_angles_deg": [],
+      "maximum_schedule_error_deg": null,
+      "unintended_translation_mm": null,
+      "interference_findings": [],
+      "status": "NOT_EXECUTED",
+      "started_at": null,
+      "finished_at": null,
+      "observed": null,
+      "passed": null,
+      "evidence": []
+    }
+  ],
+  "fea_gate": {
+    "status": "MISSING_INPUTS_NOT_EXECUTED",
+    "physical_material_properties": null,
+    "manufacturing_process_and_orientation": null,
+    "actual_load_bearing_geometry": null,
+    "payload_and_center_of_mass": null,
+    "fingertip_force": null,
+    "cord_tension_and_pretension": null,
+    "support_and_contact_definition": null,
+    "required_safety_factor": null,
+    "allowable_deflection": null,
+    "duty_cycle_and_fatigue_target": null,
+    "linear_assumptions_review": null,
+    "entitlement": null,
+    "solver_run": false,
+    "structural_pass": null,
+    "note": "SimulationXpress supports a single solid body, not this full arm assembly. Numerical settings are not material/load approval."
+  },
+  "quantitative_motion_gate": {
+    "status": "MISSING_INPUTS_NOT_EXECUTED",
+    "motion_analysis_available": null,
+    "physical_mass_inertia_sources": null,
+    "actuator_gear_ratio_efficiency_ratings": null,
+    "friction_contact_model": null,
+    "duty_cycle": null,
+    "physical_motor_capacity_pass": null
+  },
+  "camera_control": {
+    "native_bridge_implemented": false,
+    "native_live_vision_test_executed": false,
+    "note": "Joint-trajectory replay is not native autonomous camera control."
+  },
+  "downloaded_artifacts": [],
+  "session_events": [
+    {
+      "id": "2026-10-06-session1-native-open",
+      "date": "2026-10-06",
+      "session": 1,
+      "event": "USER_APPROVED_LICENSE_ACCEPTED_NATIVE_APP_OPENED",
+      "observation": "Native SOLIDWORKS 2026 SP0 opened. Two finger STEP files and a macro were uploaded.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session1-compile-blocks",
+      "date": "2026-10-06",
+      "session": 1,
+      "event": "MACRO_COMPILE_ATTEMPTS_BLOCKED",
+      "observation": "First macro encountered missing SOLIDWORKS type-library references, then an invalid assignment from a void setter. No native geometry output was verified.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session1-timeout",
+      "date": "2026-10-06",
+      "session": 1,
+      "event": "SESSION_TIMED_OUT",
+      "observation": "First cloud session timed out before a verified native geometry checkpoint.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session2-open-upload",
+      "date": "2026-10-06",
+      "session": 2,
+      "event": "SECOND_OFFICIAL_SESSION_OPENED_AND_FILES_UPLOADED",
+      "observation": "Vendor-offered Launch used the same account. Same user-approved software license accepted. 28 link STEP files, AutoFingerImportV2.swb and AutoFullArmStaticV1.swb uploaded to remote Temporary Files.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session2-v2-edit",
+      "date": "2026-10-06",
+      "session": 2,
+      "event": "CORRECTED_MACRO_OPEN_FOR_EDITING",
+      "observation": "Native application is open with corrected V2 source being edited. V2 and full-static V1 have local source audits only; neither has a verified native compile or run.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session3-license",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "THIRD_NATIVE_SESSION_LICENSE_ACCEPTED",
+      "observation": "User-approved software license accepted; native SOLIDWORKS Design Premium 2026 SP0 available.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session3-v1",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "V1_NATIVE_COMPILE_SUCCEEDED_RUNTIME_PREF_FAILURE",
+      "observation": "Full-static V1 compiled natively, then stopped at preference readback.",
+      "engineering_result": null,
+      "evidence": [
+        "results/full_static_native_attempt.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session3-v2",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "V2_BASE_IMPORTED_SAVE_TRUE_FALSE_FAILURE_CHECK",
+      "observation": "V2 imported base_link. Save returned True, errors 0, warnings 0; an incorrect Boolean check falsely reported save failure. This is API evidence in the cloud, not a locally recovered file.",
+      "engineering_result": null,
+      "evidence": [
+        "results/native_save_error_tail.png",
+        "results/full_static_v2_save_error.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session3-v3",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "V3_IMPORT_LOOP_REACHED_ASSEMBLY_RUNTIME_438",
+      "observation": "V3 corrected Boolean checks and reached the first-component assembly stage after its 28-part import/save loop. Screenshots directly show index_intermediate and thumb_proximal with 12 solid bodies. Assembly stopped with runtime error 438 at Transform2 assignment; all-28 completion is control-flow inference, not individually recovered evidence.",
+      "engineering_result": null,
+      "evidence": [
+        "results/full_static_v3_native_outcome.png",
+        "results/full_static_v3_progress.png",
+        "results/full_static_v3_result.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session3-v4",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "V4_TRANSFORM_SETTER_CORRECTION_STAGED",
+      "observation": "V4 replaces Set comp.Transform2 = transform with the officially verified plain property assignment comp.Transform2 = transform. Native V4 compile/run not verified.",
+      "engineering_result": null,
+      "evidence": [
+        "scripts/AutoFullArmStaticV4_source_audit.json"
+      ]
+    },
+    {
+      "id": "2026-10-06-session3-expiry",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "EXPIRED_BEFORE_DOWNLOAD",
+      "observation": "Third session expired before native CAD was downloaded. Temporary Files are deleted under the published trial policy. No recoverable local native CAD artifact exists.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session4-plan",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "FOURTH_SESSION_PLANNED_NOT_LAUNCHED",
+      "observation": "Plan full-static V5 automatic single-ZIP packaging for prompt download. User approved a temporary browser download followed by move to D:. No fourth-session execution or download is claimed here.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session4-v5-static",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "V5_NATIVE_STATIC_GEOMETRY_BUILT_AND_SAVED",
+      "observation": "V5 completed the native 28-part/293-solid import, placement, rebuild and save gates. Full all-fixed arm and SLDASM visible. No mates, articulated movement or engineering study are implied.",
+      "engineering_result": null,
+      "evidence": [
+        "results/full_static_v5_native_result.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session4-v5-zip",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "V5_AUTOMATIC_ZIP_PACKAGING_FAILED",
+      "observation": "V5 stopped after saving geometry because ZIP packaging/validation failed; dialog noted code 124 denotes the bounded job wait expiring. Geometry remained in cloud at that point.",
+      "engineering_result": null,
+      "evidence": [
+        "results/full_static_v5_native_result.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session4-archive",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "DOCUMENTS_CLOSED_REMOTE_30_FILE_ARCHIVE_VERIFIED",
+      "observation": "After manual Window > Close All, ArchiveNativeResultsV1 succeeded and verified a remote archive of 28 parts, one assembly and original build log. Approximately 10 MB.",
+      "engineering_result": null,
+      "evidence": [
+        "results/native_archive_recovered.png"
+      ],
+      "archive_filename": "AnthroArm27_Static_20261006_095036_35436562_NATIVE_RECOVERED_20261006_102327_37407207.zip"
+    },
+    {
+      "id": "2026-10-06-session4-download",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "DOWNLOAD_TIMEOUT_BEFORE_SESSION_END",
+      "observation": "Browser download waitForEvent/click timed out; no completed local download confirmed before the fourth trial ended. No D: native CAD checkpoint is recovered.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-v6-preparation",
+      "date": "2026-10-06",
+      "event": "V6_AUTO_CLOSE_ZIP_SOURCE_IN_PREPARATION",
+      "observation": "V6 is being prepared to close saved project documents before robust allowlisted ZIP packaging. Native V6 execution has not been verified.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session5-v6",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "V6_NATIVE_STATIC_AND_AUTOMATIC_ZIP_PASS",
+      "observation": "V6 completed 28 native parts/293 solids, static assembly save, automatic close and verified 30-file ZIP. Native message explicitly labels all-fixed/static, no mates/Motion/FEA.",
+      "scoped_result": "PASS_NATIVE_STATIC_AND_REMOTE_ZIP_ONLY",
+      "evidence": [
+        "results/full_static_v6_native_result.png",
+        "results/native_v6_download_ready.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session5-download-attempts",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "AUTOMATED_DOWNLOAD_NO_CONFIRMED_FILE",
+      "observation": "Independent README click test produced no confirmed local file; downloadMedia failed and download-event wait timed out. Archive remains a remote artifact at snapshot.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session5-user-download",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "USER_MANUAL_DOWNLOAD_QUESTION_PENDING",
+      "observation": "User asked to manually download the displayed archive before reported 19:36 local expiry. No reply or completed local download is recorded.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session5-dip-v5-v6",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "DIP_V5_PARENT_FIX_FAILURE_V6_RUNNING",
+      "observation": "V5 failed parent fixing; V6 patched selection-before-fix uploaded/imported and running, outcome pending.",
+      "engineering_result": null,
+      "evidence": [
+        "results/dip_v5_native_attempt.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session5-dip-v6-failed",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "DIP_V6_SIGNED_ANGLE_TOLERANCE_CHECK_FAILED",
+      "observation": "Reached DIP_DRIVEN_10DEG.SLDASM with parent fixed, child floating and Mates created, then error -2147220784: Actual signed flexion differs from target by over 0.5 degrees. Full sweep/limit conversion/ZIP not completed or confirmed; no local native files.",
+      "result": "FAIL_NATIVE_DIP_SWEEP",
+      "evidence": [
+        "results/dip_v6_native_attempt.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session5-expired-final",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "EXPIRED_REDIRECTED_TO_FEEDBACK_NO_NATIVE_TRANSFER",
+      "observation": "At approximately 19:36 Asia/Shanghai, browser tab 17 redirected to MySolidWorks feedback. Native archive was not transferred; D:/RoboticArm/solidworks/native_results is empty. No retained cloud recovery is claimed.",
+      "engineering_result": null
+    }
+  ],
+  "updated_date": "2026-10-06",
+  "macro_attempts": [
+    {
+      "name": "AutoFullArmStaticV1",
+      "status": "NATIVE_COMPILED_RUNTIME_PREF_READBACK_FAILURE",
+      "native_compiled": true,
+      "native_run_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV2",
+      "status": "NATIVE_BASE_IMPORT_SAVE_TRUE_CHECK_BUG",
+      "native_compiled": true,
+      "native_run_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV3",
+      "status": "NATIVE_IMPORT_LOOP_COMPLETED_ASSEMBLY_RUNTIME_438",
+      "native_compiled": true,
+      "native_run_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV4",
+      "status": "SOURCE_CORRECTED_STAGED_NATIVE_EXECUTION_UNVERIFIED",
+      "native_compiled": false,
+      "native_run_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV5",
+      "status": "NATIVE_STATIC_SAVE_SUCCEEDED_AUTOMATIC_ZIP_FAILED",
+      "native_compiled": true,
+      "native_geometry_stage_completed": true,
+      "native_run_completed": false
+    },
+    {
+      "name": "ArchiveNativeResultsV1",
+      "status": "NATIVE_REMOTE_ARCHIVE_VERIFIED_AFTER_CLOSE_ALL",
+      "native_compiled": true,
+      "native_run_completed": true,
+      "local_download_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV6",
+      "status": "NATIVE_STATIC_REMOTE_ZIP_PASS_EXPIRED_WITHOUT_LOCAL_RECOVERY",
+      "native_compiled": true,
+      "native_run_completed": true,
+      "native_geometry_stage_completed": true,
+      "automatic_close_completed": true,
+      "remote_archive_verified": true,
+      "local_download_completed": false
+    }
+  ],
+  "recovery_status": {
+    "status": "SESSION_EXPIRED_NATIVE_ARCHIVE_NOT_TRANSFERRED",
+    "archive_filename": "AnthroArm27_Static_20261006_105654_39414012_NATIVE.zip",
+    "historical_remote_archive_verified": true,
+    "currently_downloadable": false,
+    "cloud_recovery_verified": false,
+    "local_path": null,
+    "downloaded_native_files": 0,
+    "native_results_directory_observed_empty": true,
+    "transfer_blocker": "Browser download-event wait, downloadMedia and pageAssets did not transfer a confirmed native file. The session expired before recovery.",
+    "next_action": "Preserve existing D: source geometry/scripts/screenshots and report incomplete native recovery. No fresh trial session is being launched."
+  },
+  "remote_artifacts": [
+    {
+      "filename": "AnthroArm27_Static_20261006_095036_35436562_NATIVE_RECOVERED_20261006_102327_37407207.zip",
+      "location": "Vendor cloud Temporary Files; not a local D: path",
+      "contents": {
+        "native_parts": 28,
+        "native_assemblies": 1,
+        "original_build_logs": 1,
+        "total_files": 30
+      },
+      "approximately_MB": 10,
+      "remote_archive_verified": true,
+      "verification_basis": "ArchiveNativeResultsV1 reported a verified archive after manual Window > Close All. Screenshot preserves the success message; source validates the 30 allowlisted entries and contents.",
+      "remote_sha256": null,
+      "download_attempted": true,
+      "download_result": "Not recovered before its session ended; no currently available cloud archive or successful local transfer is claimed.",
+      "local_path": null,
+      "local_sha256": null,
+      "locally_reopened": false,
+      "availability_after_session_end": "Not recoverable through the expired session; Temporary Files subject to vendor deletion policy. No post-expiry remote filesystem inspection claimed.",
+      "historical_evidence_only": true,
+      "currently_downloadable": false,
+      "cloud_recovery_verified": false,
+      "availability_note": "Session ended; archive name is historical evidence only, not a retained cloud asset."
+    },
+    {
+      "filename": "AnthroArm27_Static_20261006_105654_39414012_NATIVE.zip",
+      "session": 5,
+      "location": "Vendor cloud Temporary Files; not a D: file",
+      "contents": {
+        "native_parts": 28,
+        "native_assemblies": 1,
+        "original_build_logs": 1,
+        "total_files": 30
+      },
+      "approximately_MB": 10,
+      "remote_archive_verified": true,
+      "verification_status": "PASS_REMOTE_ONLY",
+      "verification_basis": "V6 completed native save, CloseAllDocuments(True), no-open-document check and exact 30-file ZIP verification; success message and remote file listing captured. ZIP verification checks names, entry count, sizes and readable streams.",
+      "remote_sha256": null,
+      "download_attempted": true,
+      "download_result": "Not recovered before its session ended; no currently available cloud archive or successful local transfer is claimed.",
+      "local_path": null,
+      "local_sha256": null,
+      "locally_reopened": false,
+      "user_download_confirmation_received": false,
+      "availability_note": "Session ended; archive name is historical evidence only, not a retained cloud asset.",
+      "historical_evidence_only": true,
+      "currently_downloadable": false,
+      "cloud_recovery_verified": false
+    }
+  ],
+  "scoped_native_verification": {
+    "static_cad": {
+      "status": "PASS",
+      "scope": "V6 28 imported native parts, 293 source solids, all-fixed assembly, body/count/transform/rebuild/save gates",
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png"
+      ],
+      "does_not_include": [
+        "27-joint mates",
+        "movement",
+        "engineering loads",
+        "local recovery/reopen"
+      ],
+      "historical_execution_evidence": true
+    },
+    "remote_zip": {
+      "status": "PASS",
+      "scope": "Automatic close followed by exactly 30 named files in remote ZIP; names/counts/sizes/readable-stream verification",
+      "archive_filename": "AnthroArm27_Static_20261006_105654_39414012_NATIVE.zip",
+      "evidence": [
+        "D:/RoboticArm/solidworks/results/full_static_v6_native_result.png",
+        "D:/RoboticArm/solidworks/results/native_v6_download_ready.png"
+      ],
+      "local_download_passed": false,
+      "historical_execution_evidence": true,
+      "currently_downloadable": false
+    },
+    "local_recovery": {
+      "status": "NOT_RECOVERED_SESSION_EXPIRED",
+      "passed": false,
+      "downloaded_native_files": 0
+    }
+  },
+  "dip_latest_attempt": {
+    "joint": "index_dip",
+    "v5_status": "FAILED_PARENT_COMPONENT_DID_NOT_BECOME_FIXED",
+    "evidence": "results/dip_v5_native_attempt.png",
+    "v6_status": "FAILED_SIGNED_FLEXION_TOLERANCE",
+    "passed": false,
+    "motion_success_verified": false,
+    "v6_error_code": -2147220784,
+    "v6_error_reason": "Actual signed flexion differs from target by over 0.5 degrees",
+    "v6_evidence": "results/dip_v6_native_attempt.png",
+    "remote_cloud_folder": "DIP_Mate_20261006_113212_41532250",
+    "remote_saved_document": "DIP_DRIVEN_10DEG.SLDASM",
+    "parent_fixed_observed": true,
+    "child_floating_observed": true,
+    "mates_created_observed": true,
+    "full_sweep_completed": false,
+    "limit_conversion_confirmed": false,
+    "DIP_zip_confirmed": false,
+    "measured_angle_numeric_available": false
+  }
+}

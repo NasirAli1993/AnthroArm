@@ -1,0 +1,8 @@
+{
+  "Test": "No-overwrite and incomplete-30-file rejection",
+  "ExistingZipExit": 1,
+  "ExistingZipHashUnchanged": true,
+  "IncompleteSourceExit": 1,
+  "IncompleteArchiveCreated": false,
+  "NativeCadTest": false
+}

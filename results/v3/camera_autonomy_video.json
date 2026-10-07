@@ -1,0 +1,48 @@
+{
+  "file": "camera_autonomy.webm",
+  "fps": 20,
+  "duration_s": 10.05,
+  "events": [
+    {
+      "video_time_s": 0.05,
+      "phase": "raise_clearance",
+      "simulation_time_s": 0.6500000000000005
+    },
+    {
+      "video_time_s": 0.6,
+      "phase": "align_above_target",
+      "simulation_time_s": 1.2000000000000008
+    },
+    {
+      "video_time_s": 2.8,
+      "phase": "descend_to_touch",
+      "simulation_time_s": 3.399999999999847
+    },
+    {
+      "video_time_s": 8.05,
+      "phase": "contact_stop",
+      "simulation_time_s": 8.649999999999558
+    }
+  ],
+  "result": {
+    "success": true,
+    "task": "Vision-guided approach and touch",
+    "autonomous_pickup": false,
+    "contacts": [
+      {
+        "geom1": "object_geom",
+        "geom2": "PalmAnteriorChassis_collision",
+        "distance": 0.0003573145991262597,
+        "normal_force": 5.6742100646539315,
+        "position": [
+          0.4282090827988919,
+          -0.03675198537964899,
+          0.6505700742262925
+        ]
+      }
+    ],
+    "elapsed_seconds": 8.013999999999546,
+    "ground_truth_object_pose_used_for_control": false
+  },
+  "source": "Actual current CAD meshes and integrated MuJoCo physics; true RGB and metric depth renders from calibrated fixed camera"
+}

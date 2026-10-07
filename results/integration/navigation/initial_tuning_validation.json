@@ -1,0 +1,101 @@
+{
+  "passed": false,
+  "implementation": "Custom incremental scan-to-map ICP + differential-wheel odometry + log-odds occupancy + inflated-grid A* + feedback drive",
+  "scope": "Simulation only. Separate base. No mounted humanoid arm, ROS Nav2, graph optimization or global loop closure is claimed.",
+  "seed": 10,
+  "simulated_duration_s": 96.7999999999558,
+  "wall_elapsed_s": 51.30595130001893,
+  "sensor": {
+    "beams": 180,
+    "max_range_m": 5.5,
+    "range_noise_std_m": 0.006,
+    "scan_rate_hz": 10,
+    "odometry_scale_bias": 1.008,
+    "encoder_distance_noise_std_m": 6e-05
+  },
+  "initialization": "Local pose origin set at the known initial base pose; no later ground-truth correction.",
+  "controller_truth_access": "Ground truth used only after control for scoring and orange evaluation trace. Planning and SLAM use observations.",
+  "checks": {
+    "sensor_based_mapping": {
+      "passed": true,
+      "accepted_scan_matches": 962,
+      "rejected_scan_matches": 0,
+      "map_points": 2755,
+      "observed_cells": 4867
+    },
+    "localization": {
+      "passed": true,
+      "position_rmse_m": 0.10702740154303195,
+      "position_max_error_m": 0.13718324836001278,
+      "wheel_odometry_rmse_m": 0.9509681252184807,
+      "final_yaw_error_deg": 4.54130748580553
+    },
+    "heldout_goals": {
+      "passed": false,
+      "episodes": []
+    },
+    "obstacle_contacts": {
+      "passed": true,
+      "physics_steps_in_contact": 0,
+      "pairs": []
+    }
+  },
+  "episodes": [
+    {
+      "name": "mapping_east",
+      "goal_map_xy_m": [
+        4.35,
+        0.1
+      ],
+      "unknown_cells_allowed_in_plan": true,
+      "reached_estimated_tolerance": true,
+      "duration_s": 16.200000000001566,
+      "goal_error_estimated_m": 0.13359020953117584,
+      "goal_error_true_m": 0.13298236048152307,
+      "position_rmse_m": 0.004833556526525924,
+      "max_pose_error_m": 0.013388096969205676,
+      "environment_contact_steps": 0,
+      "passed": true
+    },
+    {
+      "name": "mapping_north",
+      "goal_map_xy_m": [
+        4.35,
+        3.8
+      ],
+      "unknown_cells_allowed_in_plan": true,
+      "reached_estimated_tolerance": true,
+      "duration_s": 14.999999999991687,
+      "goal_error_estimated_m": 0.14509184824640542,
+      "goal_error_true_m": 0.16729895354160934,
+      "position_rmse_m": 0.049490809336770504,
+      "max_pose_error_m": 0.09261198448118099,
+      "environment_contact_steps": 0,
+      "passed": true
+    },
+    {
+      "name": "mapping_west",
+      "goal_map_xy_m": [
+        0.15,
+        3.8
+      ],
+      "unknown_cells_allowed_in_plan": true,
+      "reached_estimated_tolerance": false,
+      "duration_s": 64.99999999996254,
+      "goal_error_estimated_m": 2.3494776770216994,
+      "goal_error_true_m": 2.40464805035872,
+      "position_rmse_m": 0.12799275185201506,
+      "max_pose_error_m": 0.13718324836001278,
+      "environment_contact_steps": 0,
+      "passed": false
+    }
+  ],
+  "emergency_forward_stops": 0,
+  "planning_calls": 620,
+  "video": {
+    "filename": null,
+    "frames": 0,
+    "fps": 10,
+    "playback_simulation_speed": 5
+  }
+}

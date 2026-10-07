@@ -1,0 +1,181 @@
+SOLIDWORKS STUDY PLAN - ANTHROARM-27
+Prepared 2026-10-05 | STATUS: UNEXECUTED
+
+These are study specifications, NOT SOLIDWORKS studies or results. SOLIDWORKS
+has not run these tests. Existing FreeCAD/MuJoCo results cannot be renamed as
+SOLIDWORKS validation. A supported licensed or authorized trial environment
+with the required add-ins is needed to execute this plan.
+
+INPUTS
+Full arm: D:\RoboticArm\design\v3\AnthroArm27_ReferenceV3.step
+Joint source: D:\RoboticArm\design\v3\robot_spec.json
+Starter finger: D:\RoboticArm\design\v3\printable_finger\TendonFinger_FitTest.step
+Finger dimensions: D:\RoboticArm\design\v3\printable_finger\manifest.json
+
+STEP transfers geometry; it does not automatically recreate the original
+parametric design history, MuJoCo actuator model, joint limits, controllers,
+sensors, tendon mechanics, or SOLIDWORKS mates. The arm contains conceptual
+internal parts. Its simulation masses and motor-effort values are placeholders
+for a digital model, not verified physical parts, material or motor ratings.
+
+WHICH TOOL ANSWERS WHICH QUESTION?
+Animation: demonstrates prescribed assembly motion and mate behavior. It does
+not establish forces, structural strength, or an actuator's ability to move.
+Basic Motion: approximate motion including mass, gravity and contact; useful for
+visual review. Do not use its appearance as engineering sizing evidence.
+Motion Analysis: use the Motion add-in for dynamics and result curves. Confirm
+the available entitlement before promising this study type. Prescribed motors
+force a motion; the resulting required torque must be compared with a measured
+or manufacturer-supported motor envelope, rather than treated as motor proof.
+Simulation static study: evaluates structural response under defined loads,
+constraints and materials. Appropriate entitlement and a load-bearing design
+are prerequisites. It is a separate analysis from assembly rigid-body motion.
+SimulationXpress: a first-pass linear static tool for ONE solid body. It cannot
+validate the multi-part hand/arm assembly. Validity depends on realistic loads,
+fixtures and materials. Small, elastic response and slowly applied loads must
+be reasonable; otherwise use an appropriate nonlinear/dynamic analysis.
+
+00 - IMPORT AND MATE AUDIT
+1. Open the STEP and confirm dimensions with Measure: upper-arm joint span
+   300 mm, forearm joint span 250 mm, wrist span 40 mm. Do not assume the unit
+   shown on-screen establishes correct imported scale.
+2. Preserve separately moving parts. Rigidly group parts that belong to the
+   same source link. Avoid accidentally fusing the entire arm into one body.
+3. Fix only the shoulder attachment. Create reference axes from the joint table.
+   All axes in joint_register.json are in the local joint frame, not world axes.
+   The source +Z points toward the fingers; the shoulder anchor has a 180-degree
+   X rotation in world. Retain the thumb's additional -0.75 rad X orientation.
+4. Recreate each revolute joint using concentric/hinge and axial location mates;
+   retain one rotation and add a limit-angle mate. Check sign with a +5-degree
+   move before entering the complete range. Do not double-constrain the axis.
+5. With joint-driving angle mates suppressed, confirm 27 intended rotations and
+   no unintended translations. Prescribed motor studies drive these rotations;
+   they do not add extra physical mechanisms.
+Required evidence: imported-file screenshot, scale measurements, component to
+link mapping, mate tree, rebuild report and signed-axis check for all 27 joints.
+Pass: no import/rebuild errors; expected scale within 0.1 mm; all 27 rotations
+accounted for. This is an import/mate check, not manufacturing tolerance approval.
+
+01 - INDIVIDUAL JOINT MOTION
+Use Animation for a first visual test; Motion Analysis only after masses,
+inertias, friction and physical drive assumptions are documented.
+For each of the 27 joints, keep other joints at source home, then move through
+home -> conservative low -> home -> conservative high -> home in 8 seconds.
+The JSON defines conservative low/high as home +/- 15% of that joint's source
+range, clamped to its limits. Use smooth transitions and stop if it binds.
+Then inspect the complete source range progressively, rather than assuming it
+is physically feasible because a digital limit exists. Other finger positions
+may need to change to provide clearance; record those configurations explicitly.
+Export: one joint-angle curve and short video per joint; wrist and fingertip
+paths; unresolved mates and solver warnings. If Motion Analysis is available,
+also export required motor torque and joint reaction force, marked conceptual
+until the mass/drive inputs have been verified.
+Pass for kinematic import: driven angles within 0.5 degrees of the scheduled
+values, continuous paths, correct sign, no unexplained motion/solver error.
+No torque, speed or payload pass is permitted until actual ratings are supplied.
+
+02 - INTERFERENCE AND CLEARANCE
+At home, each conservative sweep endpoint and intermediate points spaced no
+more than 5 degrees apart, run Tools > Evaluate > Interference Detection.
+Also check pairwise shell clearance using Clearance Verification. Save component
+names, intersection volume, minimum distance and the joint pose for each issue.
+Repeat more finely near any suspected contact. Sampling does not prove continuous
+clearance; use collision detection/contact or a finer sweep around moving edges.
+Inspect shell-shell, shell-fastener, fingertip-palm and neighboring-finger pairs.
+Review intended overlaps individually (for example, a fastener or reference
+envelope). Keep an explicit exclusion list with reasons; never ignore all pairs.
+Concept-stage target: no unexplained interference, and at least 0.5 mm nominal
+clearance between non-contacting moving shells. The 0.5 mm value is a review
+target, not a validated production clearance. Pin fits, bearing fits, pads and
+intended contacts need their own requirements and tolerance stack.
+Pass remains pending if a clearance requirement or expected-contact list is absent.
+
+03 - SINGLE-FINGER LIMITED-ANGLE FIT TEST
+Use the separate TendonFinger_FitTest assembly, NOT the full-arm visual fingers.
+Fixed bench plate/root; three phalanx hinges about their M2 pin axes. Start with
+the servo and routing illustrations hidden. The drawn straight cord segments
+are reference geometry and do not implement a deformable tendon transmission.
+First drive each hinge separately from 0 to 5, 10, then 15 degrees and return,
+with all other hinges at zero. If a nominal start pose interferes, stop and
+repair the assembly instead of forcing the motor through it. Sample each sweep
+at 1 degree for this small-angle check. Record stop-tab behavior, pin/clevis
+clearance and whether screw-head/retainer envelopes obstruct motion.
+Nominal source dimensions: 2.0 mm reference pin, 2.3 mm bore, 6.0 mm clevis gap,
+5.2 mm tongue, 1.4 mm tendon channel, 7.0 mm drum winding radius. These are CAD
+dimensions, not measured printed fits. Do not equate a 1450-1550 microsecond
+firmware window with a calibrated number of degrees on the actual servo.
+Next, model the actual cord path, wrap/contact, stiffness, pretension, elastic
+return and purchased servo/horn offsets. Only then try a coupled tendon study.
+Begin with +/-5 degrees of drum rotation and review cord travel and joint motion;
+this is a virtual commissioning range, not an authorization for a powered test.
+Required outputs: hinge-angle plots, min-clearance table, tendon length/change,
+drum torque and cord tension (latter two only with a defensible dynamics model).
+Pass: intended limited-angle motion is free, no unintended contact, return path
+is feasible, and the modeled transmission explains all three hinge motions.
+Mechanical stop angles, motor fit and powered behavior remain unvalidated until
+measured on physical hardware. One tendon/servo couples the three hinges; it
+does not independently command three joints.
+
+04 - STRUCTURAL LOAD CASES AND MOTOR SIZING (INPUTS REQUIRED)
+Start with the finger root clevis, pin holes, drum/horn interface and bench
+attachment. Full-arm shoulder/elbow loading comes after the physical structure
+and drives are selected. Decorative shells are not assumed to carry arm loads.
+Before solving, fill in:
+- Material/process: polymer grade, print orientation, wall/infill settings,
+  measured elastic properties/strength, metal pin/bolt grade and variability.
+- Geometry: actual fillets, retained pins, bearings, inserts, fasteners,
+  mount contact areas, shell thickness and tendon/horn interfaces.
+- Loads: target fingertip force, payload and center of mass, tendon pretension,
+  maximum cord force, full duty cycle, acceleration, gear efficiency and friction.
+- Restraints: realistic bearing/contact support and fastener restraint; avoid
+  fixing entire convenient faces if the real part is supported only at pins.
+- Criteria: required safety factor, allowed fingertip deflection, fatigue life,
+  temperature and acceptable permanent deformation; none is currently specified.
+Useful calculations (do not insert invented load values):
+  Drum torque [N m] = cord tension [N] * effective radius [m] / efficiency.
+  Static joint moment = sum of (position from joint CROSS applied force).
+  Required drive torque also includes acceleration, friction and transmission.
+  Check pin shear, bore bearing stress, section bending and tendon-anchor load.
+Compare peak, RMS and holding demands with rated drive behavior and thermal/duty
+limits. Stall torque is not a continuous operating torque rating.
+Use a static study only where linear/small-strain assumptions are appropriate;
+elastic cords, soft pads, contact changes and flexible printed parts may require
+different models. Do not apply an isotropic metal-like model to a printed part
+and present the result as proven strength.
+Refine the mesh around bores/fillets and repeat at least three mesh levels.
+Proposed numerical review targets: reaction balance within 1%, meaningful
+non-singular stress and displacement change below 5% on the last refinement.
+Report mesh, units, loads, restraints, material source, warnings and convergence.
+Stress singularities at ideal fixed edges must be diagnosed, not hidden.
+Pass: numerical checks plus the hardware-specific safety/deflection criteria.
+Those criteria and physical inputs are still missing: NO structural pass today.
+
+05 - CAMERA/CONTROL BOUNDARY
+SOLIDWORKS geometry or a Motion animation alone does not run the project's
+OpenCV/MediaPipe/MuJoCo camera controller. Keep that working demonstration as a
+separate, explicitly labeled result. Importing its joint trajectory could show
+a replay in SOLIDWORKS, but replay is not live autonomous vision validation.
+Future closed-loop coupling needs a documented API/co-simulation bridge, time
+synchronization, collision policy and its own tests. No such bridge is claimed.
+
+RECORDING RESULTS WHEN EXECUTION BECOMES AVAILABLE
+Create a dated run folder under D:\RoboticArm\solidworks\results. Preserve the
+SOLIDWORKS version/edition, add-ins, model revision/hash, study settings, input
+sources, solver log, charts, videos and result status. Keep every study PENDING
+until actually run. A calculated numerical result is still not physical proof.
+
+OFFICIAL SOURCES (checked 2026-10-05)
+Motion study types and assumptions:
+https://help.solidworks.com/2026/english/SolidWorks/motionstudies/c_Introduction_to_Motion_Studies.htm?id=22.0
+Motion elements and prescribed motors:
+https://help.solidworks.com/2026/english/SolidWorks/motionstudies/c_motion_study_elements_overview.htm?id=22.3.0
+Motion Analysis licensing explanation:
+https://blogs.solidworks.com/products/solidworks/solidworks-motion-analysis-use-cases/
+SimulationXpress scope (accessible official 2022 page; verify edition on install):
+https://help.solidworks.com/2022/english/SolidWorks/cosmosxpresshelp/c_Overview_of_SOLIDWORKS_SimulationXpress.htm?id=32.0
+Interference Detection:
+https://help.solidworks.com/2026/english/SolidWorks/sldworks/t_detecting_interferences.htm?id=7.14.3.0
+Clearance Verification:
+https://help.solidworks.com/2026/english/SolidWorks/sldworks/c_Clearance_Verification_SWassy.htm?id=7.14.0
+Limits of linear analysis:
+https://help.solidworks.com/2026/English/SolidWorks/Cworks/c_When_to_Use_Nonlinear_Analysis.htm

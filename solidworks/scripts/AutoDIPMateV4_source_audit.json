@@ -1,0 +1,44 @@
+{
+  "status": "STAGED_NOT_COMPILED_NOT_EXECUTED",
+  "source_frames": "isolated parent identity; child Ry(+10deg) and translation [0,0,0.024] m before mates",
+  "source_counts": [
+    12,
+    10
+  ],
+  "source_limit_rad": [
+    0,
+    1.4
+  ],
+  "motion_study_created": false,
+  "files": [
+    {
+      "name": "AutoDIPMateV4.bas",
+      "bytes": 38909,
+      "sha256": "dc63e881168d2252bd40effcb635850b3aef6042c5c86b8c79a2d6975ce2eb67"
+    },
+    {
+      "name": "AutoDIPMateV4.swb",
+      "bytes": 38872,
+      "sha256": "128070fdace72aa586986fc8df99b31aaa03bdb8158966edd1183febe98f5330"
+    }
+  ],
+  "checks": {
+    "source_ascii": true,
+    "max_line_length": 298,
+    "bad_toggle_assignment": false,
+    "transform_setter_uses_plain_assignment": true,
+    "boolean_comparisons_normalized": true
+  },
+  "packaging_required_filenames": [
+    "index_intermediate.SLDPRT",
+    "index_distal.SLDPRT",
+    "DIP_PLACEMENT_ONLY.SLDASM",
+    "DIP_HINGE_MATED.SLDASM",
+    "DIP_DRIVEN_10DEG.SLDASM",
+    "DIP_DRIVEN_RETURN_ZERO.SLDASM",
+    "DIP_LIMITED_0_TO_80DEG.SLDASM",
+    "Native_DIP_Mate.log",
+    "native_pose_measurements.csv"
+  ],
+  "packaging_status": "THREE_LOCAL_DUMMY_FIXTURE_CASES_PASSED_NATIVE_EXECUTION_PENDING"
+}

@@ -1,0 +1,103 @@
+{
+  "registered_directshow_video_sources": [
+    "ToDesk Camera"
+  ],
+  "images_saved": false,
+  "images_transmitted": false,
+  "hand_tracking_verified": false,
+  "probes": [
+    {
+      "configuration": "DSHOW default",
+      "opened": true,
+      "negotiated_fourcc": -466162819,
+      "fps": -1.0,
+      "frames_received": 8,
+      "last_frame_statistics": {
+        "shape": [
+          480,
+          640,
+          3
+        ],
+        "mean": 0.009388020833333333,
+        "std": 1.1275332083349767,
+        "horizontal_spatial_std": 0.07500534325443081,
+        "vertical_spatial_std": 0.19119076852315778,
+        "gray_pixel_fraction": 0.9998893229166667
+      },
+      "temporal_mean_absolute_changes": [
+        0.3972037760416667,
+        0.3972037760416667,
+        0.06224609375,
+        0.06224609375,
+        0.06224609375,
+        0.06224609375,
+        0.06224609375
+      ]
+    },
+    {
+      "configuration": "DSHOW MJPG",
+      "opened": true,
+      "format_set_accepted": true,
+      "negotiated_fourcc": 1196444237,
+      "fps": -1.0,
+      "frames_received": 8,
+      "last_frame_statistics": {
+        "shape": [
+          480,
+          640,
+          3
+        ],
+        "mean": 0.009446614583333334,
+        "std": 1.0591408079458782,
+        "horizontal_spatial_std": 0.07647670795416386,
+        "vertical_spatial_std": 0.2051079508954178,
+        "gray_pixel_fraction": 0.9998828125
+      },
+      "temporal_mean_absolute_changes": [
+        0.3892740885416667,
+        0.013255208333333334,
+        0.013255208333333334,
+        0.013255208333333334,
+        0.013255208333333334,
+        0.013255208333333334,
+        0.013255208333333334
+      ]
+    },
+    {
+      "configuration": "DSHOW YUY2",
+      "opened": true,
+      "format_set_accepted": true,
+      "negotiated_fourcc": 844715353,
+      "fps": -1.0,
+      "frames_received": 8,
+      "last_frame_statistics": {
+        "shape": [
+          480,
+          640,
+          3
+        ],
+        "mean": 0.007923177083333333,
+        "std": 1.0170914332947518,
+        "horizontal_spatial_std": 0.060642025078849644,
+        "vertical_spatial_std": 0.17176387986639718,
+        "gray_pixel_fraction": 0.99990234375
+      },
+      "temporal_mean_absolute_changes": [
+        0.3376822916666667,
+        0.3376822916666667,
+        0.3376822916666667,
+        0.3376822916666667,
+        0.3376822916666667,
+        0.3376822916666667,
+        0.3376822916666667
+      ]
+    },
+    {
+      "configuration": "MSMF default",
+      "opened": false
+    }
+  ],
+  "windows_physical_camera_device_detected": false,
+  "conclusion": "Only ToDesk virtual camera is registered; DSHOW default, MJPG and YUY2 returned nearly black/grayscale data; MSMF could not open index0. No physical webcam or live hand tracking verified.",
+  "recovery": "Enable a real remote camera feed in ToDesk or connect/select a physical webcam. Software backend changes did not recover a usable feed."
+}

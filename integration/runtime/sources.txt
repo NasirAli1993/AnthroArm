@@ -1,0 +1,36 @@
+ROS 2 Windows runtime research, 2026-10-07
+
+RoboStack Getting Started:
+https://robostack.github.io/GettingStarted.html
+Recommends Pixi and documents Windows and ROS Jazzy channel usage. Its full
+development workflow lists Visual Studio C++ prerequisites. This project is
+testing prebuilt runtime packages without installing a compiler or system SDK.
+
+RoboStack Jazzy package inventory:
+https://robostack.github.io/jazzy.html
+https://prefix.dev/channels/robostack-jazzy
+
+Portable Pixi installation:
+https://pixi.prefix.dev/latest/installation/
+Documents that the single executable can run directly from a release archive.
+No MSI/winget installer or system PATH edit was used here.
+
+Pixi cache and configuration environment variables:
+https://pixi.prefix.dev/latest/reference/environment_variables/
+PIXI_HOME, PIXI_CACHE_DIR, RATTLER_CACHE_DIR and PIXI_NO_CONFIG are redirected
+or set in environment.ps1, along with Python, ROS, temporary and profile paths.
+
+Downloaded official executable:
+https://github.com/prefix-dev/pixi/releases/download/v0.81.0/pixi-x86_64-pc-windows-msvc.exe
+SHA256: 1b989b152ea13e881a641a112c7ea59c51818fd5ba84924c763b40b9b157dab9
+The GitHub release API asset digest matched the downloaded file.
+
+Binary package channels:
+https://prefix.dev/robostack-jazzy
+https://prefix.dev/conda-forge
+Exact solved packages, versions, URLs and hashes are in:
+D:/RoboticArm/software/ros2/pixi.lock
+
+RoboStack is a community distribution of ROS packages, not the ROS project's
+official Windows binary installer. Actual runtime test reports distinguish
+installed/importable interfaces from running ROS communication.

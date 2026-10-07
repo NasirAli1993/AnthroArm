@@ -1,0 +1,81 @@
+ANTHROARM-27 - V3 SIMULATION AND CAMERA METHODS
+
+293 native-frame CAD mesh solids form the complete shoulder, upper arm, elbow,
+forearm, wrist and five-digit hand. Exterior surfaces use MuJoCo group 1;
+internal hardware is group 4 and hidden normally; collision hulls are group 3.
+Shadow casting is disabled in previews to avoid shadow-acne speckles on white shells.
+
+The kinematic chain has 7 arm axes (shoulder X/Y/Z, elbow Y, forearm Z, wrist Y/X)
+and 20 independent hand axes. Upper-arm, forearm and wrist pivot spacings are
+300, 250 and 40 mm. Local +Z points toward the fingers, local +X is palmar.
+The fixed shoulder is at world [0,0,1.08] m and rotated pi around X.
+URDF retains this transform through its fixed world-to-shoulder anchor.
+
+Each motion is integrated in MuJoCo at 2 ms. Position references are rate limited.
+Model gravity/Coriolis bias goes through the SAME torque-limited actuators.
+There is no body gravity cancellation or externally applied control torque.
+All 27 free-space movement tests, hand gestures, bounded efforts, initial
+clearance, three camera-guided touches and the missing-target rejection pass.
+
+CAMERA AUTONOMY
+The fixed virtual RGB-D camera renders real RGB and metric depth from the scene.
+OpenCV segments the known orange target; calibrated pixel/depth backprojection
+estimates its top surface and center. Known target dimensions are 50 mm cubed.
+The detector assumes an upright target on the known 600 mm high worktable.
+No object body position is read in the controller. Ground truth is read ONLY
+in the validation program for scoring and initial placement of test objects.
+
+The controller acquires an initial camera estimate, raises the arm for clearance,
+aligns the palm above that estimate, and descends. Contact is checked every 2 ms;
+physical hand/object contact stops motion. Upper-arm contact, missing target,
+unreachable IK or worktable collision cause a stop without success credit.
+The controller does not continuously chase a moving or occluded target.
+A blue-target negative test yields no orange observation and no commanded motion.
+
+This demonstrates autonomous camera-guided approach and touch, NOT autonomous
+pickup. It is a controlled simulated RGB-D task, separate from the physical
+webcam hand-gesture control. No physical motors are driven.
+
+MEASURED TRIALS
+Trial 1: target xy=[0.37, -0.08]; camera error 1.265 mm; successful hand contact=True.
+Trial 2: target xy=[0.42, 0]; camera error 1.403 mm; successful hand contact=True.
+Trial 3: target xy=[0.43, 0.075]; camera error 1.390 mm; successful hand contact=True.
+
+RGB camera_trial_1..3.png and depth_trial_1..3.npy are synchronized initial
+RGB-D pairs. Depth arrays contain optical-axis metres, not normalized colors.
+Camera calibration and estimated target coordinates are in validation.json.
+The side-by-side video shows live RGB and visualized metric depth as it moves.
+
+PINCH
+The V3 fingertip preset is recalibrated against its inset-pad CAD geometry.
+The actual contact occurs between distal flexor-shell convex hulls; those hulls
+fill small pad pockets. This is valid fingertip contact, but not a simulated
+isolated soft-pad deformation or exact concave collision calculation.
+
+FILES AND REPRODUCTION
+D:/RoboticArm/simulation/v3/generate_model.py
+D:/RoboticArm/simulation/v3/calibrate_pinch.py
+D:/RoboticArm/simulation/v3/validate.py
+D:/RoboticArm/simulation/v3/render_demo.py
+D:/RoboticArm/simulation/v3/render_articulation.py
+Use D:/RoboticArm/software/python/python.exe after scripts/environment.ps1.
+Final model: simulation/v3/robot.xml; design/v3/robot.urdf and robot_spec.json.
+Results: results/v3/validation.json, media_validation.json, camera_autonomy.webm,
+full_arm_articulation.webm. V1/V2 files remain available separately.
+
+LIMITS
+Mass/inertia, actuator capability, contact friction and rigid casing behavior
+remain conceptual. Simulated tracking precision is not hardware accuracy.
+IK does not provide a global collision-free planner. No learned grasp policy,
+unknown-object recognition, SLAM, fabrication certification or real-motor test
+is claimed. Physical manufacturing and commissioning require validation.
+
+PHYSICAL CAMERA DIAGNOSIS
+The available DirectShow source is ToDesk Camera (virtual). Windows enumerated
+no physical Camera/Image device. DSHOW default, MJPG and YUY2 produced nearly
+black/grayscale unusable frames; MSMF could not open camera index 0. Changing
+the software backend did not supply a real feed. Live hand tracking has NOT
+been verified. Enable a real camera feed through ToDesk or connect a physical
+webcam before using hand gesture control. The final studio leaves camera off.
+The diagnostic report contains scalar statistics only; no webcam image was
+saved or transmitted externally. See results/v3/camera_diagnosis.json.

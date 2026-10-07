@@ -1,0 +1,246 @@
+{
+  "model": "Aster-25 Anatomical",
+  "checks": {
+    "urdf_graph": {
+      "passed": true,
+      "links": 26,
+      "revolute_joints": 25,
+      "root": "base_link",
+      "positive_physical_inertias": true
+    },
+    "urdf_mjcf_frames": {
+      "passed": true,
+      "max_absolute_error": 2.220446049250313e-16
+    },
+    "initial_contacts": {
+      "passed": true,
+      "count": 0,
+      "penetrations_deeper_than_50_um": 0
+    },
+    "independent_actuation": {
+      "passed": true,
+      "actuators": 25,
+      "joint_results": [
+        {
+          "joint": "joint_1_waist",
+          "movement_rad": 0.1499999833271299,
+          "steady_error_rad": 1.6672870084555313e-08
+        },
+        {
+          "joint": "joint_2_shoulder",
+          "movement_rad": 0.14999657300549962,
+          "steady_error_rad": 3.426994500399516e-06
+        },
+        {
+          "joint": "joint_3_elbow",
+          "movement_rad": 0.1499998793836429,
+          "steady_error_rad": 1.2061635712434793e-07
+        },
+        {
+          "joint": "joint_4_wrist_pitch",
+          "movement_rad": 0.14999955271947052,
+          "steady_error_rad": 4.4728052950304686e-07
+        },
+        {
+          "joint": "joint_5_wrist_roll",
+          "movement_rad": 0.14999874749696412,
+          "steady_error_rad": 1.2525030358701006e-06
+        },
+        {
+          "joint": "index_mcp_abduction",
+          "movement_rad": 0.0646780376659633,
+          "steady_error_rad": 0.010321962334036691
+        },
+        {
+          "joint": "index_mcp_flexion",
+          "movement_rad": 0.1499999986412778,
+          "steady_error_rad": 1.3587221903144098e-09
+        },
+        {
+          "joint": "index_pip",
+          "movement_rad": 0.1499999998808745,
+          "steady_error_rad": 1.1912548725234728e-10
+        },
+        {
+          "joint": "index_dip",
+          "movement_rad": 0.14999999997730507,
+          "steady_error_rad": 2.269492926920691e-11
+        },
+        {
+          "joint": "middle_mcp_abduction",
+          "movement_rad": 0.06848102572102772,
+          "steady_error_rad": 0.006518974278972273
+        },
+        {
+          "joint": "middle_mcp_flexion",
+          "movement_rad": 0.14999999792452198,
+          "steady_error_rad": 2.0754780116760685e-09
+        },
+        {
+          "joint": "middle_pip",
+          "movement_rad": 0.14999999977701461,
+          "steady_error_rad": 2.2298538016052305e-10
+        },
+        {
+          "joint": "middle_dip",
+          "movement_rad": 0.14999999978411963,
+          "steady_error_rad": 2.1588036913655628e-10
+        },
+        {
+          "joint": "ring_mcp_abduction",
+          "movement_rad": 0.07499999998003769,
+          "steady_error_rad": 1.9962309583121396e-11
+        },
+        {
+          "joint": "ring_mcp_flexion",
+          "movement_rad": 0.14999999899169789,
+          "steady_error_rad": 1.008302108473913e-09
+        },
+        {
+          "joint": "ring_pip",
+          "movement_rad": 0.14999999971442196,
+          "steady_error_rad": 2.855780334432012e-10
+        },
+        {
+          "joint": "ring_dip",
+          "movement_rad": 0.149999999942707,
+          "steady_error_rad": 5.729300367462997e-11
+        },
+        {
+          "joint": "pinky_mcp_abduction",
+          "movement_rad": 0.0749999999985377,
+          "steady_error_rad": 1.4623025013094093e-12
+        },
+        {
+          "joint": "pinky_mcp_flexion",
+          "movement_rad": 0.14999999915583437,
+          "steady_error_rad": 8.441656262903052e-10
+        },
+        {
+          "joint": "pinky_pip",
+          "movement_rad": 0.14999999950542237,
+          "steady_error_rad": 4.945776288511894e-10
+        },
+        {
+          "joint": "pinky_dip",
+          "movement_rad": 0.1499999999676989,
+          "steady_error_rad": 3.230110623420046e-11
+        },
+        {
+          "joint": "thumb_cmc_opposition",
+          "movement_rad": 0.1500000000971626,
+          "steady_error_rad": 9.716261129000259e-11
+        },
+        {
+          "joint": "thumb_cmc_flexion",
+          "movement_rad": 0.1499999998100029,
+          "steady_error_rad": 1.8999710138523085e-10
+        },
+        {
+          "joint": "thumb_mcp_flexion",
+          "movement_rad": 0.14999999980423842,
+          "steady_error_rad": 1.9576157361811397e-10
+        },
+        {
+          "joint": "thumb_ip",
+          "movement_rad": 0.14999999998115604,
+          "steady_error_rad": 1.884395417484086e-11
+        }
+      ]
+    },
+    "presets_finite_limits": {
+      "passed": true,
+      "results": [
+        {
+          "name": "open",
+          "max_joint_limit_violation_rad": 0.0,
+          "contacts": 4,
+          "deepest_contact_m": 0,
+          "max_speed_rad_s": 1.5232974901610784e-14,
+          "thumb_index_endpoint_gap_m": 0.12593357330251498
+        },
+        {
+          "name": "fist",
+          "max_joint_limit_violation_rad": 0.0,
+          "contacts": 4,
+          "deepest_contact_m": 0,
+          "max_speed_rad_s": 1.1509514201013268e-07,
+          "thumb_index_endpoint_gap_m": 0.05451350891575297
+        },
+        {
+          "name": "pinch",
+          "max_joint_limit_violation_rad": 0.0016661840304759187,
+          "contacts": 6,
+          "deepest_contact_m": 0,
+          "max_speed_rad_s": 0.07141725751677551,
+          "thumb_index_endpoint_gap_m": 0.01401347326448694
+        },
+        {
+          "name": "point",
+          "max_joint_limit_violation_rad": 0.0,
+          "contacts": 4,
+          "deepest_contact_m": 0,
+          "max_speed_rad_s": 1.0553530872729228e-07,
+          "thumb_index_endpoint_gap_m": 0.16018149319181374
+        },
+        {
+          "name": "peace",
+          "max_joint_limit_violation_rad": 2.413495149663268e-10,
+          "contacts": 4,
+          "deepest_contact_m": 0,
+          "max_speed_rad_s": 7.758720818529264e-08,
+          "thumb_index_endpoint_gap_m": 0.1615354779875728
+        }
+      ]
+    },
+    "position_ik": {
+      "passed": true,
+      "reachable_tests": [
+        {
+          "target": [
+            0.4330033943486999,
+            0.06544206242487267,
+            0.5906590101042775
+          ],
+          "error_m": 2.859681260364772e-10
+        },
+        {
+          "target": [
+            0.44963700751845465,
+            -0.19010347767252248,
+            0.43952220150031607
+          ],
+          "error_m": 1.845073349674729e-10
+        },
+        {
+          "target": [
+            0.07190916071820805,
+            0.039284153542934366,
+            0.7123516767016469
+          ],
+          "error_m": 1.056923609346109e-15
+        },
+        {
+          "target": [
+            -0.08155981911024053,
+            0.0,
+            0.7503538770797922
+          ],
+          "error_m": 8.443037102334958e-11
+        }
+      ],
+      "unreachable_rejected": true
+    },
+    "object_contact_physics": {
+      "passed": true,
+      "normal_force_N": 0.5885999999520478,
+      "expected_weight_N": 0.5886,
+      "contact_points": 4
+    }
+  },
+  "limitations": [
+    "Rigid-body concept: not validated hardware or manufacturing release.",
+    "Position-only IK does not certify collision-free trajectories or arbitrary orientation."
+  ],
+  "passed": true
+}

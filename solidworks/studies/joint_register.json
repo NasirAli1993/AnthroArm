@@ -1,0 +1,1589 @@
+{
+  "status": "UNEXECUTED - no SOLIDWORKS execution or native study creation",
+  "source": "D:\\RoboticArm\\design\\v3\\robot_spec.json",
+  "source_sha256": "2850f291586aa453369e61996ef1ed964985b4dc31eb6f3f331ae6f245559762",
+  "coordinate_convention": "Link local +Z points distally, +X is palmar, +Y is thumb/index side. Shoulder anchor rotates pi around X in world, so neutral arm hangs down.",
+  "root_frame": {
+    "xyz_m": [
+      0,
+      0,
+      1.08
+    ],
+    "rpy_rad": [
+      3.141592653589793,
+      0,
+      0
+    ]
+  },
+  "arm_dof": 7,
+  "hand_dof": 20,
+  "warning": "Conceptual effort, kp, kv, mass and inertia values are NOT verified physical motor/material ratings and are intentionally not imported into these study inputs.",
+  "joints": [
+    {
+      "name": "shoulder_abduction",
+      "label": "Shoulder side raise",
+      "group": "Arm",
+      "parent_link": "base_link",
+      "child_link": "shoulder_abduction",
+      "origin_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        1,
+        0,
+        0
+      ],
+      "limits_rad": [
+        -1.35,
+        1.35
+      ],
+      "limits_deg": [
+        -77.34930234266115,
+        77.34930234266115
+      ],
+      "home_rad": 0.1,
+      "home_deg": 5.729577951308233,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0.1,
+        -0.30500000000000005,
+        0.1,
+        0.505,
+        0.1
+      ],
+      "conservative_sweep_deg": [
+        5.729577951308233,
+        -17.475212751490112,
+        5.729577951308233,
+        28.934368654106574,
+        5.729577951308233
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "shoulder_flexion",
+      "label": "Shoulder forward raise",
+      "group": "Arm",
+      "parent_link": "shoulder_abduction",
+      "child_link": "shoulder_flexion",
+      "origin_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        -1.2,
+        2.3
+      ],
+      "limits_deg": [
+        -68.75493541569878,
+        131.78029288008932
+      ],
+      "home_rad": 0.25,
+      "home_deg": 14.32394487827058,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0.25,
+        -0.275,
+        0.25,
+        0.775,
+        0.25
+      ],
+      "conservative_sweep_deg": [
+        14.32394487827058,
+        -15.75633936609764,
+        14.32394487827058,
+        44.4042291226388,
+        14.32394487827058
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "shoulder_rotation",
+      "label": "Upper arm rotation",
+      "group": "Arm",
+      "parent_link": "shoulder_flexion",
+      "child_link": "upper_arm",
+      "origin_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        0,
+        1
+      ],
+      "limits_rad": [
+        -2.6,
+        2.6
+      ],
+      "limits_deg": [
+        -148.96902673401405,
+        148.96902673401405
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        -0.78,
+        0,
+        0.78,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        -44.69070802020421,
+        0.0,
+        44.69070802020421,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "elbow_flexion",
+      "label": "Elbow flexion",
+      "group": "Arm",
+      "parent_link": "upper_arm",
+      "child_link": "elbow_link",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.3
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        2.45
+      ],
+      "limits_deg": [
+        0.0,
+        140.3746598070517
+      ],
+      "home_rad": 1.1,
+      "home_deg": 63.02535746439056,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        1.1,
+        0.7325000000000002,
+        1.1,
+        1.4675,
+        1.1
+      ],
+      "conservative_sweep_deg": [
+        63.02535746439056,
+        41.96915849333281,
+        63.02535746439056,
+        84.0815564354483,
+        63.02535746439056
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "forearm_pronation",
+      "label": "Forearm pronation",
+      "group": "Arm",
+      "parent_link": "elbow_link",
+      "child_link": "forearm",
+      "origin_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        0,
+        1
+      ],
+      "limits_rad": [
+        -3.14,
+        3.14
+      ],
+      "limits_deg": [
+        -179.9087476710785,
+        179.9087476710785
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        -0.942,
+        0,
+        0.942,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        -53.97262430132354,
+        0.0,
+        53.97262430132354,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "wrist_flexion",
+      "label": "Wrist flexion",
+      "group": "Arm",
+      "parent_link": "forearm",
+      "child_link": "wrist_pitch",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.25
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        -1.25,
+        1.25
+      ],
+      "limits_deg": [
+        -71.6197243913529,
+        71.6197243913529
+      ],
+      "home_rad": 0.2,
+      "home_deg": 11.459155902616466,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0.2,
+        -0.175,
+        0.2,
+        0.575,
+        0.2
+      ],
+      "conservative_sweep_deg": [
+        11.459155902616466,
+        -10.026761414789405,
+        11.459155902616466,
+        32.94507322002233,
+        11.459155902616466
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "wrist_deviation",
+      "label": "Wrist deviation",
+      "group": "Arm",
+      "parent_link": "wrist_pitch",
+      "child_link": "palm_base",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.04
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        1,
+        0,
+        0
+      ],
+      "limits_rad": [
+        -0.65,
+        0.65
+      ],
+      "limits_deg": [
+        -37.24225668350351,
+        37.24225668350351
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        -0.195,
+        0,
+        0.195,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        -11.172677005051053,
+        0.0,
+        11.172677005051053,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "index_mcp_abduction",
+      "label": "Index spread",
+      "group": "Index",
+      "parent_link": "palm_base",
+      "child_link": "index_knuckle",
+      "origin_xyz_m": [
+        0,
+        0.03,
+        0.1
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        1,
+        0,
+        0
+      ],
+      "limits_rad": [
+        -0.3,
+        0.3
+      ],
+      "limits_deg": [
+        -17.188733853924695,
+        17.188733853924695
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        -0.09,
+        0,
+        0.09,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        -5.156620156177409,
+        0.0,
+        5.156620156177409,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "index_mcp_flexion",
+      "label": "Index MCP curl",
+      "group": "Index",
+      "parent_link": "index_knuckle",
+      "child_link": "index_proximal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.5
+      ],
+      "limits_deg": [
+        0.0,
+        85.94366926962348
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.22499999999999998,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.891550390443522,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "index_pip",
+      "label": "Index PIP curl",
+      "group": "Index",
+      "parent_link": "index_proximal",
+      "child_link": "index_intermediate",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.04
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.7
+      ],
+      "limits_deg": [
+        0.0,
+        97.40282517223994
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.255,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        14.610423775835992,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "index_dip",
+      "label": "Index DIP curl",
+      "group": "Index",
+      "parent_link": "index_intermediate",
+      "child_link": "index_distal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.024
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.4
+      ],
+      "limits_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.21,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "middle_mcp_abduction",
+      "label": "Middle spread",
+      "group": "Middle",
+      "parent_link": "palm_base",
+      "child_link": "middle_knuckle",
+      "origin_xyz_m": [
+        0,
+        0.01,
+        0.1
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        1,
+        0,
+        0
+      ],
+      "limits_rad": [
+        -0.3,
+        0.3
+      ],
+      "limits_deg": [
+        -17.188733853924695,
+        17.188733853924695
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        -0.09,
+        0,
+        0.09,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        -5.156620156177409,
+        0.0,
+        5.156620156177409,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "middle_mcp_flexion",
+      "label": "Middle MCP curl",
+      "group": "Middle",
+      "parent_link": "middle_knuckle",
+      "child_link": "middle_proximal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.5
+      ],
+      "limits_deg": [
+        0.0,
+        85.94366926962348
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.22499999999999998,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.891550390443522,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "middle_pip",
+      "label": "Middle PIP curl",
+      "group": "Middle",
+      "parent_link": "middle_proximal",
+      "child_link": "middle_intermediate",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.045
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.7
+      ],
+      "limits_deg": [
+        0.0,
+        97.40282517223994
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.255,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        14.610423775835992,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "middle_dip",
+      "label": "Middle DIP curl",
+      "group": "Middle",
+      "parent_link": "middle_intermediate",
+      "child_link": "middle_distal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.025
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.4
+      ],
+      "limits_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.21,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "ring_mcp_abduction",
+      "label": "Ring spread",
+      "group": "Ring",
+      "parent_link": "palm_base",
+      "child_link": "ring_knuckle",
+      "origin_xyz_m": [
+        0,
+        -0.01,
+        0.1
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        1,
+        0,
+        0
+      ],
+      "limits_rad": [
+        -0.3,
+        0.3
+      ],
+      "limits_deg": [
+        -17.188733853924695,
+        17.188733853924695
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        -0.09,
+        0,
+        0.09,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        -5.156620156177409,
+        0.0,
+        5.156620156177409,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "ring_mcp_flexion",
+      "label": "Ring MCP curl",
+      "group": "Ring",
+      "parent_link": "ring_knuckle",
+      "child_link": "ring_proximal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.5
+      ],
+      "limits_deg": [
+        0.0,
+        85.94366926962348
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.22499999999999998,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.891550390443522,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "ring_pip",
+      "label": "Ring PIP curl",
+      "group": "Ring",
+      "parent_link": "ring_proximal",
+      "child_link": "ring_intermediate",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.04
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.7
+      ],
+      "limits_deg": [
+        0.0,
+        97.40282517223994
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.255,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        14.610423775835992,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "ring_dip",
+      "label": "Ring DIP curl",
+      "group": "Ring",
+      "parent_link": "ring_intermediate",
+      "child_link": "ring_distal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.024
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.4
+      ],
+      "limits_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.21,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "pinky_mcp_abduction",
+      "label": "Pinky spread",
+      "group": "Pinky",
+      "parent_link": "palm_base",
+      "child_link": "pinky_knuckle",
+      "origin_xyz_m": [
+        0,
+        -0.03,
+        0.095
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        1,
+        0,
+        0
+      ],
+      "limits_rad": [
+        -0.3,
+        0.3
+      ],
+      "limits_deg": [
+        -17.188733853924695,
+        17.188733853924695
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        -0.09,
+        0,
+        0.09,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        -5.156620156177409,
+        0.0,
+        5.156620156177409,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "pinky_mcp_flexion",
+      "label": "Pinky MCP curl",
+      "group": "Pinky",
+      "parent_link": "pinky_knuckle",
+      "child_link": "pinky_proximal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.5
+      ],
+      "limits_deg": [
+        0.0,
+        85.94366926962348
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.22499999999999998,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.891550390443522,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "pinky_pip",
+      "label": "Pinky PIP curl",
+      "group": "Pinky",
+      "parent_link": "pinky_proximal",
+      "child_link": "pinky_intermediate",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.033
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.7
+      ],
+      "limits_deg": [
+        0.0,
+        97.40282517223994
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.255,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        14.610423775835992,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "pinky_dip",
+      "label": "Pinky DIP curl",
+      "group": "Pinky",
+      "parent_link": "pinky_intermediate",
+      "child_link": "pinky_distal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.02
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.4
+      ],
+      "limits_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.21,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "thumb_cmc_opposition",
+      "label": "Thumb opposition",
+      "group": "Thumb",
+      "parent_link": "palm_base",
+      "child_link": "thumb_opposition",
+      "origin_xyz_m": [
+        0,
+        0.048,
+        0.025
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        0,
+        -1
+      ],
+      "limits_rad": [
+        -0.2,
+        1.6
+      ],
+      "limits_deg": [
+        -11.459155902616466,
+        91.67324722093173
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        -0.2,
+        0,
+        0.27,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        -11.459155902616466,
+        0.0,
+        15.469860468532229,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "thumb_cmc_flexion",
+      "label": "Thumb CMC flexion",
+      "group": "Thumb",
+      "parent_link": "thumb_opposition",
+      "child_link": "thumb_metacarpal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_rad": [
+        -0.75,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        -0.25,
+        1.3
+      ],
+      "limits_deg": [
+        -14.32394487827058,
+        74.48451336700703
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        -0.23249999999999998,
+        0,
+        0.23249999999999998,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        -13.32126873679164,
+        0.0,
+        13.32126873679164,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "thumb_mcp_flexion",
+      "label": "Thumb MCP curl",
+      "group": "Thumb",
+      "parent_link": "thumb_metacarpal",
+      "child_link": "thumb_proximal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.03
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.4
+      ],
+      "limits_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.21,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    },
+    {
+      "name": "thumb_ip",
+      "label": "Thumb IP curl",
+      "group": "Thumb",
+      "parent_link": "thumb_proximal",
+      "child_link": "thumb_distal",
+      "origin_xyz_m": [
+        0,
+        0,
+        0.02
+      ],
+      "origin_rpy_rad": [
+        0,
+        0,
+        0
+      ],
+      "axis_in_local_joint_frame": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        1.4
+      ],
+      "limits_deg": [
+        0.0,
+        80.21409131831524
+      ],
+      "home_rad": 0,
+      "home_deg": 0.0,
+      "mate_type": "revolute; axial location plus one remaining rotation; limit-angle mate",
+      "sign_verification": "PENDING +5 degree comparison with source local axis",
+      "conservative_sweep_rad": [
+        0,
+        0,
+        0,
+        0.21,
+        0
+      ],
+      "conservative_sweep_deg": [
+        0.0,
+        0.0,
+        0.0,
+        12.032113697747288,
+        0.0
+      ],
+      "sweep_times_s": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "all_other_joints": "hold their source home; document any clearance-driven exception",
+      "status": "UNEXECUTED",
+      "actual_result": null
+    }
+  ]
+}

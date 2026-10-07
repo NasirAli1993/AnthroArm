@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "test": "walkthrough_and_eight_images",
+      "passed": true,
+      "detail": "Eight actual stage images served with explanations"
+    },
+    {
+      "test": "current_physics_reports",
+      "passed": true,
+      "detail": "Current precision and grasp reports pass"
+    },
+    {
+      "test": "browser_video_file",
+      "passed": true,
+      "detail": {
+        "bytes": 3434856,
+        "format": "WebM/VP8"
+      }
+    },
+    {
+      "test": "display_layers",
+      "passed": true,
+      "detail": "Surface, collision and joint overlays render without server errors"
+    },
+    {
+      "test": "request_validation",
+      "passed": true,
+      "detail": "Invalid paths and display options rejected"
+    }
+  ]
+}

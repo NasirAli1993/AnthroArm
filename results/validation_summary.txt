@@ -1,0 +1,37 @@
+ASTER-25 DIGITAL PROTOTYPE VALIDATION
+
+PASS: 26-link URDF forms one rooted tree with 25 independent revolute joints.
+PASS: Every link mass and inertia is positive and physically realizable.
+PASS: URDF and MuJoCo link frames agree to 2.23e-16 absolute error at home.
+PASS: Zero initial contacts or robot penetrations at the home configuration.
+PASS: All 25 actuators produce independent commanded joint motion.
+PASS: Open, fist, pinch, point, and peace poses remain finite and bounded.
+      Largest observed soft joint-limit penetration: 0.000184 rad (0.0106 deg).
+      Dynamic pinch endpoint separation: approximately 7.9 mm. Empty-hand pose;
+      precision object pinching is not established by this gesture test.
+PASS: Four reachable palm-position IK targets converge below 2 mm.
+PASS: An unreachable target is rejected without applying an impossible solution.
+PASS: Resting 60 g object produces 0.5886 N normal force, equal to its weight.
+PASS: Seeded grasp lifts the 60 g cube 293.6 mm under gravity.
+      Middle finger AND thumb maintain positive object contact (>0.01 N)
+      in 100% of the sampled 2-second hold. No floor contact during the hold.
+      Final object-to-palm centre distance is 44.1 mm.
+      No welds, hidden attachments, ideal gravity compensation, or object
+      position changes after the initial demo reset are used.
+
+SCOPE
+The grasp demo begins with the cube placed in the upward-facing palm. It tests
+physical grip retention and lift, not perception or autonomous pickup from a table.
+The five-axis arm uses position-only inverse kinematics; arbitrary 6D orientation
+and collision-free motion planning are not implemented by that solver.
+Motor torque limits and rigid-body masses are concept assumptions, not verified
+hardware ratings. CAD is a concept, not a production release. No physical robot
+has been manufactured, wired, calibrated, or tested.
+
+REPRODUCE (all project assets and portable runtime are on D:)
+D:\RoboticArm\software\python\python.exe D:\RoboticArm\simulation\validate.py
+D:\RoboticArm\software\python\python.exe D:\RoboticArm\simulation\grasp_demo.py --frames
+D:\RoboticArm\software\python\python.exe D:\RoboticArm\simulation\record_demo.py
+
+Structured results: results\validation.json and results\grasp_validation.json
+Actual simulated motion: results\robot_demo.mp4 and results\robot_demo.gif

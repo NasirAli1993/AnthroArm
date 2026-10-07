@@ -1,0 +1,24 @@
+{
+  "created": "2026-10-06T17:23:26.022642",
+  "status": "Offline source review only; native compilation/execution is owned by root and is not established by this audit",
+  "swb_sha256": "bb197dcc7495672382ac5c917bc8067667c0f517bb49f3e378fdcff2c1d1037a",
+  "bas_sha256": "a4960c6881dbffe61618bb7c0f49e79fc3d8487fb8b4ffde3a615afeef08b94e",
+  "initial_data_exactly_matches_audited_full_v4": true,
+  "public_entrypoints": [
+    "main"
+  ],
+  "link_count": 28,
+  "expected_solids": 293,
+  "no_set_transform2_setter": true,
+  "plain_transform2_setter": true,
+  "explicit_false_central_check": true,
+  "save_bool_normalized": true,
+  "main_no_import_or_preference_call": true,
+  "known_input_folder": "C:\\Users\\PhotonUser\\My Files\\Temporary Files\\AnthroArm27_Static_20261006_091441_33281078\\",
+  "opens_missing_parts_read_only": true,
+  "strict_native_body_gates": true,
+  "component_readbacks": true,
+  "maximum_physical_line_length": 316,
+  "operational_note": "The inherited header mentions uploading STEP files; recovery main does not need them. Upload this macro alone. It requires the observed native source folder to remain in this same vendor session.",
+  "scope": "All-fixed 28-component static assembly only; no mates, Motion study, FEA, or hardware result."
+}

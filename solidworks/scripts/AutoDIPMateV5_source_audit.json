@@ -1,0 +1,75 @@
+{
+  "status": "STAGED_NOT_COMPILED_NOT_EXECUTED",
+  "source_frames": "isolated parent identity; child Ry(+10deg) and translation [0,0,0.024] m before mates",
+  "source_counts": [
+    12,
+    10
+  ],
+  "source_limit_rad": [
+    0,
+    1.4
+  ],
+  "motion_study_created": false,
+  "files": [
+    {
+      "name": "AutoDIPMateV5.bas",
+      "bytes": 41559,
+      "sha256": "28b6117d2f1b1402f6cc1fa981e6e3e438beab3ff6f2bfe0fb746b27477e492d"
+    },
+    {
+      "name": "AutoDIPMateV5.swb",
+      "bytes": 41522,
+      "sha256": "7b06f5b032a4bd3ae0e2165402999d79ac3b45d016ac2c3acb2bd118883ce818"
+    }
+  ],
+  "checks": {
+    "source_ascii": true,
+    "max_line_length": 298,
+    "bad_toggle_assignment": false,
+    "transform_setter_uses_plain_assignment": true,
+    "boolean_comparisons_normalized": true,
+    "saved_output_preflight_before_close": true,
+    "close_result_normalized_and_no_documents_readback": true,
+    "packaging_helper_identical_to_v4": true
+  },
+  "packaging_required_filenames": [
+    "index_intermediate.SLDPRT",
+    "index_distal.SLDPRT",
+    "DIP_PLACEMENT_ONLY.SLDASM",
+    "DIP_HINGE_MATED.SLDASM",
+    "DIP_DRIVEN_10DEG.SLDASM",
+    "DIP_DRIVEN_RETURN_ZERO.SLDASM",
+    "DIP_LIMITED_0_TO_80DEG.SLDASM",
+    "Native_DIP_Mate.log",
+    "native_pose_measurements.csv"
+  ],
+  "packaging_status": "V4_HELPER_REUSED_UNCHANGED_V5_NATIVE_EXECUTION_NOT_RUN",
+  "v5_execution_status": "SOURCE_AUDIT_ONLY_NO_NEW_EXECUTION_TEST_CLAIM",
+  "native_mate_risks_to_observe": [
+    {
+      "stage": "DATUMS",
+      "risk": "Native plane transform convention or offset direction differs from expected template",
+      "gate": "Unique native plane match and measured axis endpoints at x=0, z=0.024 m parent / z=0 child; stop if mismatch"
+    },
+    {
+      "stage": "BUILD_HINGE_ASSEMBLY",
+      "risk": "Imported analytic bore, assembly-context face mapping or qualified datum selection fails",
+      "gate": "Geometry-derived 1.2-mm-radius Y-axis bore; owning-component readback; non-null mate features; clean rebuild"
+    },
+    {
+      "stage": "CREATE_DRIVEN_ANGLE",
+      "risk": "Reference-plane API selection, direction reference or angle branch differs natively",
+      "gate": "Assembly-context RefPlane objects; explicit direction mark; actual signed +10-degree readback, one documented FlipDimension attempt"
+    },
+    {
+      "stage": "MEASURE_SWEEPS_AND_CONFIGURE_LIMIT",
+      "risk": "Zero-angle branch, repeated solve or standard-to-limit conversion fails",
+      "gate": "Keep driven and limited checkpoints separate; feature error/readback and measured transform checks; no claiming endpoint enforcement"
+    },
+    {
+      "stage": "CLOSE_SAVED_DOCUMENTS / PACKAGE_SAVED_RESULTS",
+      "risk": "Native documents remain open or external process still locks a saved file",
+      "gate": "Nine-file preflight, explicit CloseAllDocuments result and GetFirstDocument Nothing, then complete ZIP entry reads"
+    }
+  ]
+}

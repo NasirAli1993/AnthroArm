@@ -1,0 +1,226 @@
+Option Explicit
+' V2: application toggle setter is Sub; all preference changes verified by readback.
+
+' STAGED SOURCE ONLY - NOT COMPILED OR EXECUTED IN SOLIDWORKS.
+' Import with VBA Editor File > Import File into a SOLIDWORKS .swp project.
+' Requires SOLIDWORKS type library + SOLIDWORKS constants type library references.
+' Runtime folder is the current macro directory; no cloud path is assumed.
+' Set STEP import units to File specified unit before running.
+' No shell, network, assembly mating, healing, or existing-file overwrite.
+
+Private swApp As SldWorks.SldWorks
+Private logNumber As Integer
+Private logOpened As Boolean
+Private oldMapping As Long
+Private oldInterconnect As Boolean
+Private oldSolidSurface As Boolean
+Private oldDiagnostics As Boolean
+Private prefsCaptured As Boolean
+
+Private Sub LogLine(ByVal message As String)
+    Debug.Print Format$(Now, "yyyy-mm-dd hh:nn:ss") & " | " & message
+    If logOpened Then Print #logNumber, Format$(Now, "yyyy-mm-dd hh:nn:ss") & " | " & message
+End Sub
+
+Private Sub Check(ByVal condition As Boolean, ByVal message As String)
+    If Not condition Then Err.Raise vbObjectError + 710, "AutoFingerImportV2", message
+End Sub
+
+Private Function BodyCount(ByVal bodies As Variant) As Long
+    If IsEmpty(bodies) Then
+        BodyCount = 0
+    ElseIf IsArray(bodies) Then
+        BodyCount = UBound(bodies) - LBound(bodies) + 1
+    Else
+        Err.Raise vbObjectError + 711, "BodyCount", "Expected a body array or Empty."
+    End If
+End Function
+
+Private Sub RestorePreferences()
+    Dim result As Boolean
+    If Not prefsCaptured Then Exit Sub
+    On Error Resume Next
+    Call swApp.SetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping, oldMapping)
+    result = (swApp.GetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping) = oldMapping)
+    If Not result Then LogLine "WARNING: could not restore assembly mapping preference"
+    Call swApp.SetUserPreferenceToggle(swImportNeutral_SolidandSurface, oldSolidSurface)
+    result = (swApp.GetUserPreferenceToggle(swImportNeutral_SolidandSurface) = oldSolidSurface)
+    If Not result Then LogLine "WARNING: could not restore solid/surface preference"
+    Call swApp.SetUserPreferenceToggle(swImportNeutralRunDiagnostics, oldDiagnostics)
+    result = (swApp.GetUserPreferenceToggle(swImportNeutralRunDiagnostics) = oldDiagnostics)
+    If Not result Then LogLine "WARNING: could not restore diagnostic preference"
+    Call swApp.SetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect, oldInterconnect)
+    result = (swApp.GetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect) = oldInterconnect)
+    If Not result Then LogLine "WARNING: could not restore 3D Interconnect preference"
+    If Err.Number <> 0 Then LogLine "RESTORE_ERROR " & CStr(Err.Number) & " " & Err.Description
+    prefsCaptured = False
+    On Error GoTo 0
+End Sub
+
+Private Sub ValidateNativeMath()
+    Dim mathUtil As SldWorks.MathUtility
+    Dim transform As SldWorks.MathTransform
+    Dim point As SldWorks.MathPoint
+    Dim data(15) As Double
+    Dim pointData(2) As Double
+    Dim vData As Variant, vPoint As Variant, actual As Variant
+    Dim points As Variant, expected As Variant, sourcePoint As Variant, expectedPoint As Variant
+    Dim i As Long, j As Long
+    Dim errorM As Double, maxErrorM As Double
+    Set mathUtil = swApp.GetMathUtility
+    ' Column-vector source Ry(+90 degrees), translated [100,200,300] mm.
+    ' ArrayData has transposed rotation storage and translation in metres.
+    data(0) = 0#: data(1) = 0#: data(2) = -1#
+    data(3) = 0#: data(4) = 1#: data(5) = 0#
+    data(6) = 1#: data(7) = 0#: data(8) = 0#
+    data(9) = 0.1: data(10) = 0.2: data(11) = 0.3
+    data(12) = 1#: data(13) = 0#: data(14) = 0#: data(15) = 0#
+    vData = data
+    Set transform = mathUtil.CreateTransform(vData)
+    Check Not transform Is Nothing, "CreateTransform returned Nothing"
+    points = Array(Array(0#, 0#, 0#), Array(0.01, 0#, 0#), Array(0#, 0.01, 0#), Array(0#, 0#, 0.01))
+    expected = Array(Array(0.1, 0.2, 0.3), Array(0.1, 0.2, 0.29), Array(0.1, 0.21, 0.3), Array(0.11, 0.2, 0.3))
+    For i = 0 To 3
+        sourcePoint = points(i)
+        expectedPoint = expected(i)
+        For j = 0 To 2
+            pointData(j) = CDbl(sourcePoint(j))
+        Next j
+        vPoint = pointData
+        Set point = mathUtil.CreatePoint(vPoint)
+        Set point = point.MultiplyTransform(transform)
+        actual = point.ArrayData
+        LogLine "MATH_POINT " & CStr(i) & " actual_m=" & CStr(actual(0)) & "," & CStr(actual(1)) & "," & CStr(actual(2))
+        For j = 0 To 2
+            errorM = Abs(CDbl(actual(j)) - CDbl(expectedPoint(j)))
+            If errorM > maxErrorM Then maxErrorM = errorM
+        Next j
+    Next i
+    LogLine "MATH_MAX_ERROR_M=" & CStr(maxErrorM)
+    Check maxErrorM < 0.000000001, "Native transform convention check failed"
+    LogLine "MATH_POINT_CHECK_PASS; this checks API math, not assembled geometry"
+End Sub
+
+
+Private Sub ImportOne(ByVal folder As String, ByVal stem As String, ByVal countExpected As Long, ByVal runStamp As String)
+    Dim inputPath As String, outputPath As String
+    Dim model As SldWorks.ModelDoc2, alreadyOpen As SldWorks.ModelDoc2
+    Dim part As SldWorks.PartDoc, stepData As SldWorks.ImportStepData
+    Dim body As SldWorks.Body2
+    Dim bodies As Variant, sheets As Variant, box As Variant
+    Dim loadErrors As Long, saveErrors As Long, saveWarnings As Long
+    Dim result As Boolean, i As Long, j As Long
+    Dim low(2) As Double, high(2) As Double, largestSpan As Double, span As Double
+    inputPath = folder & stem & ".step"
+    outputPath = folder & stem & "_native_" & runStamp & ".SLDPRT"
+    LogLine "SOURCE=" & inputPath
+    LogLine "DESTINATION=" & outputPath
+    Check Len(Dir$(inputPath)) > 0, "Missing required sibling STEP: " & inputPath
+    Check Len(Dir$(outputPath)) = 0, "Refusing existing destination: " & outputPath
+    Set alreadyOpen = swApp.GetOpenDocumentByName(inputPath)
+    Check alreadyOpen Is Nothing, "Source already open; preserve/close it before fresh import: " & inputPath
+    Set stepData = swApp.GetImportFileData(inputPath)
+    Check Not stepData Is Nothing, "No ImportStepData: " & stem
+    stepData.MapConfigurationData = False
+    Set model = swApp.LoadFile4(inputPath, "r", stepData, loadErrors)
+    LogLine stem & " LOAD_ERRORS=" & CStr(loadErrors)
+    Check Not model Is Nothing, "LoadFile4 returned Nothing: " & stem
+    Check loadErrors = 0, "LoadFile4 error: " & stem
+    Check model.GetType = swDocPART, "Expected a Part document: " & stem
+    Set part = model
+    bodies = part.GetBodies2(swSolidBody, False)
+    sheets = part.GetBodies2(swSheetBody, False)
+    LogLine stem & " SOLIDS=" & CStr(BodyCount(bodies)) & " EXPECTED=" & CStr(countExpected) & " SHEETS=" & CStr(BodyCount(sheets))
+    Check BodyCount(bodies) = countExpected, "Wrong solid count: " & stem
+    Check BodyCount(sheets) = 0, "Unexpected sheet bodies: " & stem
+    For j = 0 To 2
+        low(j) = 1E+30
+        high(j) = -1E+30
+    Next j
+    For i = LBound(bodies) To UBound(bodies)
+        Set body = bodies(i)
+        LogLine stem & " BODY=" & body.Name
+        box = body.GetBodyBox
+        Check IsArray(box), "No bounding box returned: " & body.Name
+        For j = 0 To 2
+            If CDbl(box(j)) < low(j) Then low(j) = CDbl(box(j))
+            If CDbl(box(j + 3)) > high(j) Then high(j) = CDbl(box(j + 3))
+        Next j
+    Next i
+    For j = 0 To 2
+        span = high(j) - low(j)
+        LogLine stem & " APPROX_SPAN_AXIS_" & CStr(j) & "_M=" & CStr(span)
+        If span > largestSpan Then largestSpan = span
+    Next j
+    Check largestSpan > 0.005 And largestSpan < 0.1, "Gross scale sanity check failed; inspect file-specified mm import units"
+    model.ClearSelection2 True
+    result = model.Extension.SaveAs(outputPath, swSaveAsCurrentVersion, swSaveAsOptions_Silent, Nothing, saveErrors, saveWarnings)
+    LogLine stem & " SAVE_RETURN=" & CStr(result) & " ERRORS=" & CStr(saveErrors) & " WARNINGS=" & CStr(saveWarnings)
+    Check result And saveErrors = 0, "Native save failed: " & stem
+    Check Len(Dir$(outputPath)) > 0, "Saved file not found: " & outputPath
+    Check FileLen(outputPath) > 0, "Saved file is empty: " & outputPath
+    LogLine stem & " SAVED_BYTES=" & CStr(FileLen(outputPath))
+    LogLine stem & " IMPORT_COUNT_SAVE_PASS; exact dimensions and geometry diagnostics remain pending"
+End Sub
+
+' Only public no-argument entry point; run after uploading macro beside both STEP files.
+Public Sub main()
+    Dim macroPath As String, folder As String, logPath As String, runStamp As String
+    Dim result As Boolean, failureNumber As Long, failureText As String
+    On Error GoTo Failed
+    Set swApp = Application.SldWorks
+    macroPath = swApp.GetCurrentMacroPathName()
+    Check Len(macroPath) > 0 And InStrRev(macroPath, "\") > 0, "Cannot resolve running macro's directory"
+    folder = Left$(macroPath, InStrRev(macroPath, "\"))
+    runStamp = Format$(Now, "yyyymmdd_hhnnss") & "_" & CStr(CLng(Timer * 1000#))
+    logPath = folder & "AutoFingerImportV2_" & runStamp & ".log"
+    Check Len(Dir$(logPath)) = 0, "Log already exists; rerun"
+    logNumber = FreeFile
+    Open logPath For Output As #logNumber
+    logOpened = True
+    LogLine "RUN_STARTED: native imports only; no assembly/motion/FEA"
+    LogLine "MACRO_PATH=" & macroPath
+    LogLine "RUNTIME_FOLDER=" & folder
+    LogLine "SOLIDWORKS_REVISION=" & swApp.RevisionNumber
+    Check Len(Dir$(folder & "index_intermediate.step")) > 0, "Missing exact sibling index_intermediate.step"
+    Check Len(Dir$(folder & "index_distal.step")) > 0, "Missing exact sibling index_distal.step"
+    LogLine "IMPORT_UNIT_PREFERENCE_CODE=" & CStr(swApp.GetUserPreferenceIntegerValue(swImportNeutralUnits))
+    LogLine "Source files specify mm. Gross scale checked; exact native Measure check remains pending."
+    ValidateNativeMath
+    oldMapping = swApp.GetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping)
+    oldInterconnect = swApp.GetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect)
+    oldSolidSurface = swApp.GetUserPreferenceToggle(swImportNeutral_SolidandSurface)
+    oldDiagnostics = swApp.GetUserPreferenceToggle(swImportNeutralRunDiagnostics)
+    prefsCaptured = True
+    Call swApp.SetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect, False)
+    result = (swApp.GetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect) = False)
+    Check result, "Cannot set classic import mode"
+    Call swApp.SetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping, swImportNeutralAssemblyStructureMapping_MultibodyPart)
+    result = (swApp.GetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping) = swImportNeutralAssemblyStructureMapping_MultibodyPart)
+    Check result, "Cannot select multibody mapping"
+    Call swApp.SetUserPreferenceToggle(swImportNeutral_SolidandSurface, True)
+    result = (swApp.GetUserPreferenceToggle(swImportNeutral_SolidandSurface) = True)
+    Check result, "Cannot enable solids/surfaces"
+    Call swApp.SetUserPreferenceToggle(swImportNeutralRunDiagnostics, False)
+    result = (swApp.GetUserPreferenceToggle(swImportNeutralRunDiagnostics) = False)
+    Check result, "Cannot disable automatic healing"
+    ImportOne folder, "index_intermediate", 12, runStamp
+    ImportOne folder, "index_distal", 10, runStamp
+    LogLine "BOTH_IMPORTS_COUNT_SAVE_PASS"
+    LogLine "PENDING: native Measure/Import Diagnostics review, reopened files, assembly/mates/motion, FEA, physical hardware"
+    RestorePreferences
+    Close #logNumber
+    logOpened = False
+    MsgBox "Two native parts and one log saved beside this macro." & vbCrLf & folder & vbCrLf & "Run: " & runStamp & vbCrLf & "No assembly/motion/FEA test performed.", vbInformation
+    Exit Sub
+Failed:
+    failureNumber = Err.Number
+    failureText = Err.Description
+    On Error Resume Next
+    LogLine "FAIL " & CStr(failureNumber) & " | " & failureText
+    LogLine "Any prior successful file remains saved; overall operation did not complete."
+    RestorePreferences
+    If logOpened Then Close #logNumber
+    logOpened = False
+    MsgBox "AutoFingerImportV2 stopped: " & CStr(failureNumber) & vbCrLf & failureText & vbCrLf & "Log, if created: " & logPath, vbExclamation
+End Sub

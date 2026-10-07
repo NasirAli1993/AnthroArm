@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "relative_references_checked": 45,
+  "missing_references": [],
+  "external_dependencies": 0,
+  "static_html_no_fetch": true,
+  "video_count": 3,
+  "total_decoded_frames": 904,
+  "videos": [
+    {
+      "file": "media/mobile.webm",
+      "frames": 289,
+      "decoded_frames": 289,
+      "fps": 10.0,
+      "duration_s": 28.9,
+      "height_width": [
+        900,
+        1440
+      ]
+    },
+    {
+      "file": "media/grasp.webm",
+      "frames": 372,
+      "decoded_frames": 372,
+      "fps": 20.0,
+      "duration_s": 18.6,
+      "height_width": [
+        900,
+        1440
+      ]
+    },
+    {
+      "file": "media/navigation.webm",
+      "frames": 243,
+      "decoded_frames": 243,
+      "fps": 10.0,
+      "duration_s": 24.3,
+      "height_width": [
+        800,
+        1440
+      ]
+    }
+  ],
+  "selected_evidence_files": 19,
+  "media_files": 9,
+  "metrics": {
+    "grasp_heldout": "10/10",
+    "camera_grasp": "6/6",
+    "mobile": "3/3",
+    "arm_ros_checks": 23,
+    "navigation_ros_groups": 6
+  },
+  "sha256": {
+    "media/mobile.webm": "640f67f64d6648d7b33757b91cadf31b1d07a04149a3f5f3ac9fad4181903121",
+    "media/mobile_poster.png": "5ebb928157990b28af3c099982f3e21c16cffb3e0ee3a9b1266ed66cebab2154",
+    "media/grasp.webm": "b5f1afe2ed79a928c1edc89dcda79f4d3047592c8e70e7f5cdedf342fbbc2b47",
+    "media/grasp_poster.png": "74b2966965c469d94f07d64d3293498eb3f81489a4844bd5b4eb440bb1b77f85",
+    "media/navigation.webm": "df1edb8bfee73e7ac00ff8809c4110dfbdb2d62e4f48e07778697fb838944819",
+    "media/navigation_poster.png": "3bc73f2a27174b79f9edf45c5a2097cf1b24e9f81181d717e7a13f22d7eab7f3",
+    "media/navigation_map.png": "af73d490c559bf2225d2ac2a3b04a4b6a84573e4d09ea916abefbbc92fc33f13",
+    "media/vlm_scene.png": "f9e1c5373a49e19c9472ea1921ccde91d971d816cb87cd8b5ffd6d453b04ccef",
+    "media/vlm_target.png": "563d9d26643a27630f3507678b12b0b62970875f18389f35ba337d35a036ed23",
+    "evidence/grasp_training_and_heldout.json": "b083cb46558085c623957b7d997daca28fd96131f4347261e6d7072da4db8a9e",
+    "evidence/grasp_final_validation.json": "2a66b14966cf21899b922f46ab3c981a207a114222d9bdea11e3747db1ccae89",
+    "evidence/grasp_camera_validation.json": "f27947e4c197bddb784d282f1f398d3bf846eb9423e4edf63e99838010ea0b69",
+    "evidence/grasp_video.json": "66fdb4636d2f6a91656f2d2c9adeaaa77df418d56755846866b59534d243b558",
+    "evidence/grasp_training_trials_summary.json": "88f488332eb88e069bc8cc14327a8498f3b5621cf6ac6577cc256be6e1f266aa",
+    "evidence/grasp_policy.json": "c57e5de6337063ce41e3e2b5e8c7dded1c79efcbc96406d8ac7f3b3697f9a5f1",
+    "evidence/mobile_validation.json": "d0258571b7db27fc66797c7c35a05e225b2e614c07c7e2000e3917b8e1c2e223",
+    "evidence/mobile_video_trial.json": "0c250b06a9037c6e3e1e4a3dc8331cb88f20e41fd8b30b09b7f1f752d7f39304",
+    "evidence/mobile_video.json": "d741f1141d32499c06ef05e0a6e5ed8fc550dd395d4f0d0b4fbf8ca111e357aa",
+    "evidence/mobile_development_notes.json": "f90fe1afbf6dae728100c19475a139ba15e57d7f9dd1678489a3fa315db938c3",
+    "evidence/navigation_validation.json": "69671621f997159fb952e962c34ac5cf45f2a5722da53d75acfd4a78d14afbb0",
+    "evidence/navigation_ros_validation.json": "ff67954a6a3f701c3c4bd0ea86e0eae395bbe74401ab59b1e9d2e1990d930814",
+    "evidence/navigation_media_validation.json": "aab498c82748210c2829a17fb20f9d4e171a81b282807b0a516c93f143a18481",
+    "evidence/arm_ros_validation.json": "4e4fa36480e7e110eb5ccd86159006989c3f8ce9a98c8e82ca5c16e66cce0ea7",
+    "evidence/ros_runtime_probe.json": "6877e6b5835f4d5a9ea3a3cc8d0cb58835d9c9bf9db02e8170be83af81dbe42e",
+    "evidence/final_review.json": "9d5b8b02b5a8c5b4c70f9301d0c27dfc8c35600ce62e27cac9bb52fc7fcdc5c0",
+    "evidence/vlm_report.json": "449e4f8c2e6b069e11ff031d8bdd077e910be3eda9bca6d7abc7f67bc6a4068e",
+    "evidence/vlm_annotated_input_experiment.json": "23fa00d8be9dc8588be581c9ee2c32639d639c49b852062af7566043c44efceb",
+    "evidence/isaac_feasibility.txt": "8c7e36fc6327436e70d207360b39bc1d5105405932903a56fd2e478b53d29354"
+  },
+  "public_export_note": "Incidental host-application wording neutralized in final_review.json; media unchanged; evidence hashes regenerated."
+}

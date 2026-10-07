@@ -1,0 +1,23 @@
+{
+  "gymnasium_check_env": "passed",
+  "steps": 100,
+  "observation_size": 142,
+  "action_size": 25,
+  "all_rewards_finite": true,
+  "final_info": {
+    "success": false,
+    "dropped": false,
+    "finite": true,
+    "lift_m": 3.220999855724216e-13,
+    "palm_distance_m": 0.6258997641510166,
+    "finger_object_contacts": 0,
+    "reach_reward": 0.023391125401369308,
+    "contact_reward": 0.0,
+    "lift_reward": 0.0,
+    "action_rate_penalty": 0.0029692061082004445,
+    "hold_steps": 0,
+    "trained_policy": false
+  },
+  "trained_policy": false,
+  "grasp_success_demonstrated": false
+}

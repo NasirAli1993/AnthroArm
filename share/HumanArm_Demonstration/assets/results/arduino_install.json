@@ -1,0 +1,7 @@
+{
+  "install": "D:\\RoboticArm\\software\\arduino-cli",
+  "sha256": "FABE42E0EB04D00E776A66178299FF95A46C623DBC260F997E58FD514853DD40",
+  "config": "D:\\RoboticArm\\software\\arduino-cli\\arduino-cli.yaml",
+  "version": "v1.5.1",
+  "source": "https://github.com/arduino/arduino-cli/releases/download/v1.5.1/arduino-cli_1.5.1_Windows_64bit.zip"
+}

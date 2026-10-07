@@ -1,0 +1,37 @@
+TECHNICAL REQUIREMENTS AND VERIFIED PROJECT SCOPE
+
+This neutral engineering brief describes the project requirements and current
+software deliverables. The original conversational input and supplied reference
+images remain in the local backup; they are not redistributed in this export.
+
+1. Model a recognizably humanoid arm and articulated five-finger hand, with
+   smooth anatomical mechanical surfaces rather than block-only finger shapes.
+2. Preserve editable native FreeCAD models, STEP/STL exports, joint definitions,
+   component explanations, scripts, and visible design/simulation evidence.
+3. Provide seven arm axes and twenty hand axes with kinematics, bounded dynamic
+   actuation, collision/contact modeling, and measured simulation checks.
+4. Demonstrate actual contact pickup, lift, hold, set-down, and release of a free
+   simulated object without attaching or teleporting it during the task.
+5. Use calibrated virtual RGB-D image/depth observations for target location.
+   Separate measured performance from ground-truth evaluation data.
+6. Fit a real learned component and evaluate held-out conditions. The delivered
+   component is a small size-conditioned regression with scripted task stages
+   and numerical IK, restricted to upright cubes, not a general VLA policy.
+7. Demonstrate sensor-based mobile navigation and a continuous mounted-arm
+   docking/pickup experiment. The standalone obstacle benchmark and heavy-base
+   clear-lane combined experiment are distinct validated scopes.
+8. Provide actual ROS 2 interfaces, reproducible tests, logs of quantitative
+   results, recorded demonstrations, and documented failures and limitations.
+9. Preserve earlier model revisions and mechanical/SOLIDWORKS preparation work.
+   The tiny native-named SOLIDWORKS test fixtures are not a recovered usable
+   SOLIDWORKS assembly; FreeCAD and neutral exports are the usable CAD assets.
+10. Keep the implemented environment and project data on D:. The documented
+    tested reproduction root is D:\RoboticArm. Public source includes pinned
+    dependencies and model provenance; installed runtimes/caches and the large
+    downloadable model weight are not bundled in ordinary Git.
+11. The current requested outcome is software/simulation only. No physical
+    robot or Jetson is required. Isaac Sim/Lab was not installed or executed on
+    the unsupported local GPU; its feasibility and remaining work are stated.
+
+See README.md, docs/SETUP.md, the validation reports, and the offline simulation
+presentation for exact measurements, installation details, and scope limits.

@@ -1,0 +1,165 @@
+{
+  "status": "STAGED ONLY; no native execution",
+  "files": [
+    {
+      "name": "base_link.step",
+      "sha256": "28e6985fb6a0aeee94bfb6eb1a43e3ad5d89861f2e229a38fad84b6456db2c2c",
+      "bytes": 10734
+    },
+    {
+      "name": "shoulder_abduction.step",
+      "sha256": "6c6f7bc60adb34e5299414f2386d095362746fa1e750857455a3e5ca6ab819ec",
+      "bytes": 23061
+    },
+    {
+      "name": "shoulder_flexion.step",
+      "sha256": "e828573e7985d7740c6d03f3422e3decd59635c1daab53ef72fd1e27d6bdc0df",
+      "bytes": 4873
+    },
+    {
+      "name": "upper_arm.step",
+      "sha256": "0ad302d27c2291075ebcd2b074c47220744882215ba035d038eb18f62c361391",
+      "bytes": 229007
+    },
+    {
+      "name": "elbow_link.step",
+      "sha256": "5029dc395f79639a4b0b3298cbe211aae34aedd035377a282a6ad1057150f4b3",
+      "bytes": 54682
+    },
+    {
+      "name": "forearm.step",
+      "sha256": "97c182236583bf2355ef8a85d6c487cba2fbda8a1e8545f3d621d86c192a0e5f",
+      "bytes": 954676
+    },
+    {
+      "name": "wrist_pitch.step",
+      "sha256": "82b3833b003e4c36f1b582bb71e3c48d8f506797658a31a48ddf472d61486e76",
+      "bytes": 23430
+    },
+    {
+      "name": "palm_base.step",
+      "sha256": "d662b0b1eb05903d69cd40b28861c9c52010c826c74d731d1925c47b5b7965f2",
+      "bytes": 338085
+    },
+    {
+      "name": "index_knuckle.step",
+      "sha256": "30035ec669c15c3b9078864c1d70b29c505eea5beb1222b294df6c35c46820f4",
+      "bytes": 3477
+    },
+    {
+      "name": "index_proximal.step",
+      "sha256": "432672ae6d6911a1a9270ee539fc14b69dd1ced4e45d654a3325cbd0ca8bffd8",
+      "bytes": 183736
+    },
+    {
+      "name": "index_intermediate.step",
+      "sha256": "a2e0017f86c034169aa05533e97749c55ae5a355d5fa99ceb7283e5cf59af220",
+      "bytes": 182959
+    },
+    {
+      "name": "index_distal.step",
+      "sha256": "dd080f24655fd0c46e3f6010860928e00ffe8a9842f9b1ac0a64bc61f88f429d",
+      "bytes": 178462
+    },
+    {
+      "name": "middle_knuckle.step",
+      "sha256": "9bd4f7e0f41d5cc5d89252f8d6d66b998c07c526d15f5a5f4ef1b5dfff6b152e",
+      "bytes": 3477
+    },
+    {
+      "name": "middle_proximal.step",
+      "sha256": "776b8c8eb3e4ae799930c08deeb091ed6c2c6acaa7ebe2c0bf40c51a45da9708",
+      "bytes": 180023
+    },
+    {
+      "name": "middle_intermediate.step",
+      "sha256": "8bfb0cecbc0ef329144f4598eccf871f2f178e60a43482d9d002f5392230b9a0",
+      "bytes": 188137
+    },
+    {
+      "name": "middle_distal.step",
+      "sha256": "8b1cc7293f7d0b9803fad80f3f05f5ca281d6648889f2a16e5eb8e7f595401fe",
+      "bytes": 175308
+    },
+    {
+      "name": "ring_knuckle.step",
+      "sha256": "e045c05e25b8603d8abc55fcf613d9f83dd569b3353d61740bd43e597550b907",
+      "bytes": 3475
+    },
+    {
+      "name": "ring_proximal.step",
+      "sha256": "238ce94c5dc71024d1675ce5f1aca2f4bfbfa5c56c989cee543d03e486f20250",
+      "bytes": 179115
+    },
+    {
+      "name": "ring_intermediate.step",
+      "sha256": "d967244e8e6beec85079b279b06c7e1f44ce97fc7af20ad0c918d8037705b67f",
+      "bytes": 183945
+    },
+    {
+      "name": "ring_distal.step",
+      "sha256": "beec4899a5385e567566aa0c3f3cd10f1be60567c3dab8a4cb76d55f7a64d1c7",
+      "bytes": 178903
+    },
+    {
+      "name": "pinky_knuckle.step",
+      "sha256": "229d89520b8149adbacf54dc4d032f8d1aed2950cb874390c30be7a8847fa4cd",
+      "bytes": 3445
+    },
+    {
+      "name": "pinky_proximal.step",
+      "sha256": "acc4e6e831f8cd03e3c15e66523c5af9d291a540eea0e70eb74388a8a697b383",
+      "bytes": 183150
+    },
+    {
+      "name": "pinky_intermediate.step",
+      "sha256": "653bc4bec52385c2991ed7d1d2d39cc6ce2ad74a98f3d386d17d2b432bed87c3",
+      "bytes": 201862
+    },
+    {
+      "name": "pinky_distal.step",
+      "sha256": "7545912224fc227b31c0fecf496835e35a06c788769fef51b643477c54a676b0",
+      "bytes": 202845
+    },
+    {
+      "name": "thumb_opposition.step",
+      "sha256": "446d38bd23210469e5fc77184c9b10709cc5e156eb3046050ec638f31f485876",
+      "bytes": 10039
+    },
+    {
+      "name": "thumb_metacarpal.step",
+      "sha256": "2758a88a6121b1eefa17f8446a0ed4991630255677d5bf7f3e97ef1854663946",
+      "bytes": 183020
+    },
+    {
+      "name": "thumb_proximal.step",
+      "sha256": "deb2dcbc1b42a2107048107e706e4cb4885abdeac6882448370f71734474572a",
+      "bytes": 179666
+    },
+    {
+      "name": "thumb_distal.step",
+      "sha256": "c23bcef27d0587a735682997a265216083b144619a9edbd4342db424784763e1",
+      "bytes": 183397
+    },
+    {
+      "name": "AutoFullArmStaticV1.swb",
+      "sha256": "1777436c9a42ff47b4b53e2ec975e7e0e489e1be8bb2afe0d620d8fb151b5c11",
+      "bytes": 34966
+    },
+    {
+      "name": "AutoFullArmStaticV1.bas",
+      "sha256": "391980ee67ddc057a5734583ceeb4be10e1e038874663ed1837a619375fd09b6",
+      "bytes": 35009
+    },
+    {
+      "name": "AutoFullArmStaticV1_README.txt",
+      "sha256": "9f4baf35b7002abdd570c5c9d0bde18e6f9c2622347911459af5bd2ed9c96c17",
+      "bytes": 6201
+    },
+    {
+      "name": "AutoFullArmStaticV1_source_audit.json",
+      "sha256": "bfebcf2d7d238dc8c8968e2618bfbfbb619cfd5245a2842d7fd05617a0f07616",
+      "bytes": 833
+    }
+  ]
+}

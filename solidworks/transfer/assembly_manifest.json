@@ -1,0 +1,3781 @@
+{
+  "schema": "anthro27.solidworks-transfer.v1",
+  "length_units": "mm",
+  "angle_units": "explicit rad and deg",
+  "matrix_convention": "4x4 row-major, column-vector: p_parent=R*p_child+t; translations are mm. Apply parent_to_child_zero then local joint-axis rotation. Home-world matrix includes home rotations.",
+  "geometry": "28 rigid links with 293 named solid bodies in local frames. Imported B-rep geometry; no native SOLIDWORKS sketches/features/mates.",
+  "status": "SOLIDWORKS validation pending licensed installation.",
+  "root_world_origin_mm": [
+    0,
+    0,
+    1080
+  ],
+  "coordinate_convention": "Link local +Z points distally, +X is palmar, +Y is thumb/index side. Shoulder anchor rotates pi around X in world, so neutral arm hangs down.",
+  "links": [
+    {
+      "name": "base_link",
+      "parent": null,
+      "step_file": "links/base_link.step",
+      "body_names": [
+        "ShoulderMountFlange"
+      ],
+      "body_count": 1,
+      "origin_xyz_mm": [
+        0,
+        0,
+        1080.0
+      ],
+      "origin_rpy_deg": [
+        180.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": null
+    },
+    {
+      "name": "shoulder_abduction",
+      "parent": "base_link",
+      "step_file": "links/shoulder_abduction.step",
+      "body_names": [
+        "ShoulderSocket",
+        "ShoulderBearing-1",
+        "ShoulderCap-1",
+        "ShoulderBearing1",
+        "ShoulderCap1"
+      ],
+      "body_count": 5,
+      "origin_xyz_mm": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.9950041652780259,
+          0.09983341664682804,
+          0.0
+        ],
+        [
+          0.0,
+          -0.09983341664682804,
+          -0.9950041652780259,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "shoulder_abduction",
+        "label": "Shoulder side raise",
+        "type": "revolute",
+        "group": "Arm",
+        "axis_joint_local": [
+          1,
+          0,
+          0
+        ],
+        "axis_parent": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "limits_rad": [
+          -1.35,
+          1.35
+        ],
+        "limits_deg": [
+          -77.34930234266115,
+          77.34930234266115
+        ],
+        "home_rad": 0.1,
+        "home_deg": 5.729577951308233,
+        "simulation_effort_limit_Nm": 70,
+        "simulation_velocity_limit_rad_s": 1.25,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "shoulder_flexion",
+      "parent": "shoulder_abduction",
+      "step_file": "links/shoulder_flexion.step",
+      "body_names": [
+        "ShoulderFlexionGimbal"
+      ],
+      "body_count": 1,
+      "origin_xyz_mm": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.9689124217106447,
+          1.734723475976807e-18,
+          0.247403959254523,
+          0.0
+        ],
+        [
+          -0.024699182544331663,
+          -0.9950041652780262,
+          0.09672983749092597,
+          0.0
+        ],
+        [
+          0.24616796996452536,
+          -0.09983341664682806,
+          -0.9640718953917109,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "shoulder_flexion",
+        "label": "Shoulder forward raise",
+        "type": "revolute",
+        "group": "Arm",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          -1.2,
+          2.3
+        ],
+        "limits_deg": [
+          -68.75493541569878,
+          131.78029288008932
+        ],
+        "home_rad": 0.25,
+        "home_deg": 14.32394487827058,
+        "simulation_effort_limit_Nm": 70,
+        "simulation_velocity_limit_rad_s": 1.25,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "upper_arm",
+      "parent": "shoulder_flexion",
+      "step_file": "links/upper_arm.step",
+      "body_names": [
+        "ShoulderRotationCoupler",
+        "UpperArmAnteriorShell",
+        "UpperArmPosteriorShell",
+        "UpperPanelScrew_75_-1",
+        "UpperPanelScrew_75_1",
+        "UpperPanelScrew_220_-1",
+        "UpperPanelScrew_220_1",
+        "HumerusCore",
+        "ShoulderMotorEnvelope",
+        "ShoulderMotorBand",
+        "ElbowDriveEnvelope",
+        "UpperHarness-12",
+        "UpperHarness12"
+      ],
+      "body_count": 13,
+      "origin_xyz_mm": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.9689124217106447,
+          1.734723475976807e-18,
+          0.247403959254523,
+          0.0
+        ],
+        [
+          -0.024699182544331663,
+          -0.9950041652780262,
+          0.09672983749092597,
+          0.0
+        ],
+        [
+          0.24616796996452536,
+          -0.09983341664682806,
+          -0.9640718953917109,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "shoulder_rotation",
+        "label": "Upper arm rotation",
+        "type": "revolute",
+        "group": "Arm",
+        "axis_joint_local": [
+          0,
+          0,
+          1
+        ],
+        "axis_parent": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "limits_rad": [
+          -2.6,
+          2.6
+        ],
+        "limits_deg": [
+          -148.96902673401405,
+          148.96902673401405
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 40,
+        "simulation_velocity_limit_rad_s": 1.25,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "elbow_link",
+      "parent": "upper_arm",
+      "step_file": "links/elbow_link.step",
+      "body_names": [
+        "ElbowBearingBarrel",
+        "ElbowRace-1",
+        "ElbowHub-1",
+        "ElbowBolt_-1_0",
+        "ElbowBolt_-1_120",
+        "ElbowBolt_-1_240",
+        "ElbowRace1",
+        "ElbowHub1",
+        "ElbowBolt_1_0",
+        "ElbowBolt_1_120",
+        "ElbowBolt_1_240"
+      ],
+      "body_count": 11,
+      "origin_xyz_mm": [
+        0,
+        0,
+        300.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          300.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.21900668709304127,
+          0.0,
+          0.9757233578266592,
+          74.2211877763569
+        ],
+        [
+          -0.09740979651395096,
+          -0.9950041652780262,
+          0.02186418584100111,
+          29.01895124727779
+        ],
+        [
+          0.9708488051965874,
+          -0.09983341664682806,
+          -0.2179125658813177,
+          790.7784313824868
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -3.6739403974420595e-14
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          780.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "elbow_flexion",
+        "label": "Elbow flexion",
+        "type": "revolute",
+        "group": "Arm",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          2.45
+        ],
+        "limits_deg": [
+          0.0,
+          140.3746598070517
+        ],
+        "home_rad": 1.1,
+        "home_deg": 63.02535746439056,
+        "simulation_effort_limit_Nm": 40,
+        "simulation_velocity_limit_rad_s": 1.25,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "forearm",
+      "parent": "elbow_link",
+      "step_file": "links/forearm.step",
+      "body_names": [
+        "PronationBearing",
+        "ForearmAnteriorShell",
+        "ForearmPosteriorShell",
+        "ForePanelScrew_65_-1",
+        "ForePanelScrew_65_1",
+        "ForePanelScrew_206_-1",
+        "ForePanelScrew_206_1",
+        "RadiusUlnaRail-9",
+        "RadiusUlnaRail9",
+        "HandActuator00",
+        "TendonSpool00",
+        "TendonGuide00",
+        "HandActuator01",
+        "TendonSpool01",
+        "TendonGuide01",
+        "HandActuator02",
+        "TendonSpool02",
+        "TendonGuide02",
+        "HandActuator03",
+        "TendonSpool03",
+        "TendonGuide03",
+        "HandActuator04",
+        "TendonSpool04",
+        "TendonGuide04",
+        "HandActuator05",
+        "TendonSpool05",
+        "TendonGuide05",
+        "HandActuator06",
+        "TendonSpool06",
+        "TendonGuide06",
+        "HandActuator07",
+        "TendonSpool07",
+        "TendonGuide07",
+        "HandActuator08",
+        "TendonSpool08",
+        "TendonGuide08",
+        "HandActuator09",
+        "TendonSpool09",
+        "TendonGuide09",
+        "HandActuator10",
+        "TendonSpool10",
+        "TendonGuide10",
+        "HandActuator11",
+        "TendonSpool11",
+        "TendonGuide11",
+        "HandActuator12",
+        "TendonSpool12",
+        "TendonGuide12",
+        "HandActuator13",
+        "TendonSpool13",
+        "TendonGuide13",
+        "HandActuator14",
+        "TendonSpool14",
+        "TendonGuide14",
+        "HandActuator15",
+        "TendonSpool15",
+        "TendonGuide15",
+        "HandActuator16",
+        "TendonSpool16",
+        "TendonGuide16",
+        "HandActuator17",
+        "TendonSpool17",
+        "TendonGuide17",
+        "HandActuator18",
+        "TendonSpool18",
+        "TendonGuide18",
+        "HandActuator19",
+        "TendonSpool19",
+        "TendonGuide19"
+      ],
+      "body_count": 69,
+      "origin_xyz_mm": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.21900668709304127,
+          0.0,
+          0.9757233578266592,
+          74.2211877763569
+        ],
+        [
+          -0.09740979651395096,
+          -0.9950041652780262,
+          0.02186418584100111,
+          29.01895124727779
+        ],
+        [
+          0.9708488051965874,
+          -0.09983341664682806,
+          -0.2179125658813177,
+          790.7784313824868
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -3.6739403974420595e-14
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          780.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "forearm_pronation",
+        "label": "Forearm pronation",
+        "type": "revolute",
+        "group": "Arm",
+        "axis_joint_local": [
+          0,
+          0,
+          1
+        ],
+        "axis_parent": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "limits_rad": [
+          -3.14,
+          3.14
+        ],
+        "limits_deg": [
+          -179.9087476710785,
+          179.9087476710785
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 12,
+        "simulation_velocity_limit_rad_s": 1.25,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "wrist_pitch",
+      "parent": "forearm",
+      "step_file": "links/wrist_pitch.step",
+      "body_names": [
+        "WristFlexionBall",
+        "WristCarpalCoupler",
+        "WristFlexionCap-1",
+        "WristFlexionCap1"
+      ],
+      "body_count": 4,
+      "origin_xyz_mm": [
+        0,
+        0,
+        250.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          250.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          318.1520272330217
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          34.484997707528066
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          736.3002899121574
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -6.735557395310443e-14
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          530.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "wrist_flexion",
+        "label": "Wrist flexion",
+        "type": "revolute",
+        "group": "Arm",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          -1.25,
+          1.25
+        ],
+        "limits_deg": [
+          -71.6197243913529,
+          71.6197243913529
+        ],
+        "home_rad": 0.2,
+        "home_deg": 11.459155902616466,
+        "simulation_effort_limit_Nm": 8,
+        "simulation_velocity_limit_rad_s": 1.25,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "palm_base",
+      "parent": "wrist_pitch",
+      "step_file": "links/palm_base.step",
+      "body_names": [
+        "WristDeviationSeal",
+        "PalmAnteriorChassis",
+        "PalmDorsalCover",
+        "PalmInsetPad",
+        "PalmInternalPlate",
+        "PalmCoverScrew_-1_18",
+        "PalmCoverScrew_-1_79",
+        "PalmCoverScrew_1_18",
+        "PalmCoverScrew_1_79",
+        "indexMCPMount",
+        "middleMCPMount",
+        "ringMCPMount",
+        "pinkyMCPMount"
+      ],
+      "body_count": 13,
+      "origin_xyz_mm": [
+        0,
+        0,
+        40.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          40.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          358.143377800596
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          34.568038455854676
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          735.4726523009448
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -7.225416114969385e-14
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          490.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "wrist_deviation",
+        "label": "Wrist deviation",
+        "type": "revolute",
+        "group": "Arm",
+        "axis_joint_local": [
+          1,
+          0,
+          0
+        ],
+        "axis_parent": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "limits_rad": [
+          -0.65,
+          0.65
+        ],
+        "limits_deg": [
+          -37.24225668350351,
+          37.24225668350351
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 6,
+        "simulation_velocity_limit_rad_s": 1.25,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "index_knuckle",
+      "parent": "palm_base",
+      "step_file": "links/index_knuckle.step",
+      "body_names": [
+        "indexMCPUniversal"
+      ],
+      "body_count": 1,
+      "origin_xyz_mm": [
+        0,
+        30.0,
+        100.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          30.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          100.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          458.1217542195317
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          4.925515368330416
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          730.4085557735083
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -30.00000000000008
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          390.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "index_mcp_abduction",
+        "label": "Index spread",
+        "type": "revolute",
+        "group": "Index",
+        "axis_joint_local": [
+          1,
+          0,
+          0
+        ],
+        "axis_parent": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "limits_rad": [
+          -0.3,
+          0.3
+        ],
+        "limits_deg": [
+          -17.188733853924695,
+          17.188733853924695
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.65,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "index_proximal",
+      "parent": "index_knuckle",
+      "step_file": "links/index_proximal.step",
+      "body_names": [
+        "index_proximalDorsalShell",
+        "index_proximalFlexorShell",
+        "index_proximalInsetPad",
+        "index_proximalCore",
+        "index_proximalHingeBarrel",
+        "index_proximalCheek-1",
+        "index_proximalCheek1",
+        "index_proximalPin",
+        "index_proximalScrew_-1_0.24",
+        "index_proximalScrew_-1_0.75",
+        "index_proximalScrew_1_0.24",
+        "index_proximalScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          458.1217542195317
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          4.925515368330416
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          730.4085557735083
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -30.00000000000008
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          390.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "index_mcp_flexion",
+        "label": "Index MCP curl",
+        "type": "revolute",
+        "group": "Index",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.5
+        ],
+        "limits_deg": [
+          0.0,
+          85.94366926962348
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 1.1,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "index_intermediate",
+      "parent": "index_proximal",
+      "step_file": "links/index_intermediate.step",
+      "body_names": [
+        "index_intermediateDorsalShell",
+        "index_intermediateFlexorShell",
+        "index_intermediateInsetPad",
+        "index_intermediateCore",
+        "index_intermediateHingeBarrel",
+        "index_intermediateCheek-1",
+        "index_intermediateCheek1",
+        "index_intermediatePin",
+        "index_intermediateScrew_-1_0.24",
+        "index_intermediateScrew_-1_0.75",
+        "index_intermediateScrew_1_0.24",
+        "index_intermediateScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        40.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          40.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          498.11310478710595
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          5.008556116657022
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          729.5809181622957
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -30.000000000000085
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          350.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "index_pip",
+        "label": "Index PIP curl",
+        "type": "revolute",
+        "group": "Index",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.7
+        ],
+        "limits_deg": [
+          0.0,
+          97.40282517223994
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.85,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "index_distal",
+      "parent": "index_intermediate",
+      "step_file": "links/index_distal.step",
+      "body_names": [
+        "index_distalDorsalShell",
+        "index_distalFlexorShell",
+        "index_distalInsetPad",
+        "index_distalCore",
+        "index_distalHingeBarrel",
+        "index_distalCheek-1",
+        "index_distalCheek1",
+        "index_distalPin",
+        "index_distalScrew_-1_0.32",
+        "index_distalScrew_1_0.32"
+      ],
+      "body_count": 10,
+      "origin_xyz_mm": [
+        0,
+        0,
+        24.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          24.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          522.1079151276505
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          5.058380565652986
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          729.0843355955681
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -30.00000000000009
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          326.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "index_dip",
+        "label": "Index DIP curl",
+        "type": "revolute",
+        "group": "Index",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.4
+        ],
+        "limits_deg": [
+          0.0,
+          80.21409131831524
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.55,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "middle_knuckle",
+      "parent": "palm_base",
+      "step_file": "links/middle_knuckle.step",
+      "body_names": [
+        "middleMCPUniversal"
+      ],
+      "body_count": 1,
+      "origin_xyz_mm": [
+        0,
+        10.0,
+        100.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          10.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          100.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          458.1217542195317
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          24.825598673890934
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          732.4052241064448
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -10.000000000000085
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          390.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "middle_mcp_abduction",
+        "label": "Middle spread",
+        "type": "revolute",
+        "group": "Middle",
+        "axis_joint_local": [
+          1,
+          0,
+          0
+        ],
+        "axis_parent": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "limits_rad": [
+          -0.3,
+          0.3
+        ],
+        "limits_deg": [
+          -17.188733853924695,
+          17.188733853924695
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.65,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "middle_proximal",
+      "parent": "middle_knuckle",
+      "step_file": "links/middle_proximal.step",
+      "body_names": [
+        "middle_proximalDorsalShell",
+        "middle_proximalFlexorShell",
+        "middle_proximalInsetPad",
+        "middle_proximalCore",
+        "middle_proximalHingeBarrel",
+        "middle_proximalCheek-1",
+        "middle_proximalCheek1",
+        "middle_proximalPin",
+        "middle_proximalScrew_-1_0.24",
+        "middle_proximalScrew_-1_0.75",
+        "middle_proximalScrew_1_0.24",
+        "middle_proximalScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          458.1217542195317
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          24.825598673890934
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          732.4052241064448
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -10.000000000000085
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          390.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "middle_mcp_flexion",
+        "label": "Middle MCP curl",
+        "type": "revolute",
+        "group": "Middle",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.5
+        ],
+        "limits_deg": [
+          0.0,
+          85.94366926962348
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 1.1,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "middle_intermediate",
+      "parent": "middle_proximal",
+      "step_file": "links/middle_intermediate.step",
+      "body_names": [
+        "middle_intermediateDorsalShell",
+        "middle_intermediateFlexorShell",
+        "middle_intermediateInsetPad",
+        "middle_intermediateCore",
+        "middle_intermediateHingeBarrel",
+        "middle_intermediateCheek-1",
+        "middle_intermediateCheek1",
+        "middle_intermediatePin",
+        "middle_intermediateScrew_-1_0.24",
+        "middle_intermediateScrew_-1_0.75",
+        "middle_intermediateScrew_1_0.24",
+        "middle_intermediateScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        45.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          45.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          503.11202360805277
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          24.919019515758364
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          731.4741317938307
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -10.00000000000009
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          345.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "middle_pip",
+        "label": "Middle PIP curl",
+        "type": "revolute",
+        "group": "Middle",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.7
+        ],
+        "limits_deg": [
+          0.0,
+          97.40282517223994
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.85,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "middle_distal",
+      "parent": "middle_intermediate",
+      "step_file": "links/middle_distal.step",
+      "body_names": [
+        "middle_distalDorsalShell",
+        "middle_distalFlexorShell",
+        "middle_distalInsetPad",
+        "middle_distalCore",
+        "middle_distalHingeBarrel",
+        "middle_distalCheek-1",
+        "middle_distalCheek1",
+        "middle_distalPin",
+        "middle_distalScrew_-1_0.32",
+        "middle_distalScrew_1_0.32"
+      ],
+      "body_count": 10,
+      "origin_xyz_mm": [
+        0,
+        0,
+        25.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          25.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          528.1066177127867
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          24.970919983462494
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          730.9568582868228
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -10.000000000000094
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          320.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "middle_dip",
+        "label": "Middle DIP curl",
+        "type": "revolute",
+        "group": "Middle",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.4
+        ],
+        "limits_deg": [
+          0.0,
+          80.21409131831524
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.55,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "ring_knuckle",
+      "parent": "palm_base",
+      "step_file": "links/ring_knuckle.step",
+      "body_names": [
+        "ringMCPUniversal"
+      ],
+      "body_count": 1,
+      "origin_xyz_mm": [
+        0,
+        -10.0,
+        100.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -10.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          100.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          458.1217542195317
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          44.72568197945145
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          734.4018924393814
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          9.999999999999915
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          390.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "ring_mcp_abduction",
+        "label": "Ring spread",
+        "type": "revolute",
+        "group": "Ring",
+        "axis_joint_local": [
+          1,
+          0,
+          0
+        ],
+        "axis_parent": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "limits_rad": [
+          -0.3,
+          0.3
+        ],
+        "limits_deg": [
+          -17.188733853924695,
+          17.188733853924695
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.65,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "ring_proximal",
+      "parent": "ring_knuckle",
+      "step_file": "links/ring_proximal.step",
+      "body_names": [
+        "ring_proximalDorsalShell",
+        "ring_proximalFlexorShell",
+        "ring_proximalInsetPad",
+        "ring_proximalCore",
+        "ring_proximalHingeBarrel",
+        "ring_proximalCheek-1",
+        "ring_proximalCheek1",
+        "ring_proximalPin",
+        "ring_proximalScrew_-1_0.24",
+        "ring_proximalScrew_-1_0.75",
+        "ring_proximalScrew_1_0.24",
+        "ring_proximalScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          458.1217542195317
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          44.72568197945145
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          734.4018924393814
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          9.999999999999915
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          390.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "ring_mcp_flexion",
+        "label": "Ring MCP curl",
+        "type": "revolute",
+        "group": "Ring",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.5
+        ],
+        "limits_deg": [
+          0.0,
+          85.94366926962348
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 1.1,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "ring_intermediate",
+      "parent": "ring_proximal",
+      "step_file": "links/ring_intermediate.step",
+      "body_names": [
+        "ring_intermediateDorsalShell",
+        "ring_intermediateFlexorShell",
+        "ring_intermediateInsetPad",
+        "ring_intermediateCore",
+        "ring_intermediateHingeBarrel",
+        "ring_intermediateCheek-1",
+        "ring_intermediateCheek1",
+        "ring_intermediatePin",
+        "ring_intermediateScrew_-1_0.24",
+        "ring_intermediateScrew_-1_0.75",
+        "ring_intermediateScrew_1_0.24",
+        "ring_intermediateScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        40.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          40.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          498.11310478710595
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          44.80872272777806
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          733.5742548281688
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          9.99999999999991
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          350.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "ring_pip",
+        "label": "Ring PIP curl",
+        "type": "revolute",
+        "group": "Ring",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.7
+        ],
+        "limits_deg": [
+          0.0,
+          97.40282517223994
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.85,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "ring_distal",
+      "parent": "ring_intermediate",
+      "step_file": "links/ring_distal.step",
+      "body_names": [
+        "ring_distalDorsalShell",
+        "ring_distalFlexorShell",
+        "ring_distalInsetPad",
+        "ring_distalCore",
+        "ring_distalHingeBarrel",
+        "ring_distalCheek-1",
+        "ring_distalCheek1",
+        "ring_distalPin",
+        "ring_distalScrew_-1_0.32",
+        "ring_distalScrew_1_0.32"
+      ],
+      "body_count": 10,
+      "origin_xyz_mm": [
+        0,
+        0,
+        24.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          24.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          522.1079151276505
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          44.858547176774024
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          733.0776722614412
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          9.999999999999906
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          326.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "ring_dip",
+        "label": "Ring DIP curl",
+        "type": "revolute",
+        "group": "Ring",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.4
+        ],
+        "limits_deg": [
+          0.0,
+          80.21409131831524
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.55,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "pinky_knuckle",
+      "parent": "palm_base",
+      "step_file": "links/pinky_knuckle.step",
+      "body_names": [
+        "pinkyMCPUniversal"
+      ],
+      "body_count": 1,
+      "origin_xyz_mm": [
+        0,
+        -30.0,
+        95.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -30.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          95.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          453.1228353985849
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          64.61538519147115
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          736.5020154737196
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          29.99999999999992
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          395.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "pinky_mcp_abduction",
+        "label": "Pinky spread",
+        "type": "revolute",
+        "group": "Pinky",
+        "axis_joint_local": [
+          1,
+          0,
+          0
+        ],
+        "axis_parent": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "limits_rad": [
+          -0.3,
+          0.3
+        ],
+        "limits_deg": [
+          -17.188733853924695,
+          17.188733853924695
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.65,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "pinky_proximal",
+      "parent": "pinky_knuckle",
+      "step_file": "links/pinky_proximal.step",
+      "body_names": [
+        "pinky_proximalDorsalShell",
+        "pinky_proximalFlexorShell",
+        "pinky_proximalInsetPad",
+        "pinky_proximalCore",
+        "pinky_proximalHingeBarrel",
+        "pinky_proximalCheek-1",
+        "pinky_proximalCheek1",
+        "pinky_proximalPin",
+        "pinky_proximalScrew_-1_0.24",
+        "pinky_proximalScrew_-1_0.75",
+        "pinky_proximalScrew_1_0.24",
+        "pinky_proximalScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          453.1228353985849
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          64.61538519147115
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          736.5020154737196
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          29.99999999999992
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          395.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "pinky_mcp_flexion",
+        "label": "Pinky MCP curl",
+        "type": "revolute",
+        "group": "Pinky",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.5
+        ],
+        "limits_deg": [
+          0.0,
+          85.94366926962348
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 1.1,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "pinky_intermediate",
+      "parent": "pinky_proximal",
+      "step_file": "links/pinky_intermediate.step",
+      "body_names": [
+        "pinky_intermediateDorsalShell",
+        "pinky_intermediateFlexorShell",
+        "pinky_intermediateInsetPad",
+        "pinky_intermediateCore",
+        "pinky_intermediateHingeBarrel",
+        "pinky_intermediateCheek-1",
+        "pinky_intermediateCheek1",
+        "pinky_intermediatePin",
+        "pinky_intermediateScrew_-1_0.24",
+        "pinky_intermediateScrew_-1_0.75",
+        "pinky_intermediateScrew_1_0.24",
+        "pinky_intermediateScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        33.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          33.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          486.1156996168337
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          64.6838938088406
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          735.8192144444691
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          29.999999999999915
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          362.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "pinky_pip",
+        "label": "Pinky PIP curl",
+        "type": "revolute",
+        "group": "Pinky",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.7
+        ],
+        "limits_deg": [
+          0.0,
+          97.40282517223994
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.85,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "pinky_distal",
+      "parent": "pinky_intermediate",
+      "step_file": "links/pinky_distal.step",
+      "body_names": [
+        "pinky_distalDorsalShell",
+        "pinky_distalFlexorShell",
+        "pinky_distalInsetPad",
+        "pinky_distalCore",
+        "pinky_distalHingeBarrel",
+        "pinky_distalCheek-1",
+        "pinky_distalCheek1",
+        "pinky_distalPin",
+        "pinky_distalScrew_-1_0.32",
+        "pinky_distalScrew_1_0.32"
+      ],
+      "body_count": 10,
+      "origin_xyz_mm": [
+        0,
+        0,
+        20.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          20.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          506.11137490062083
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          64.72541418300389
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          735.4053956388628
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          29.99999999999991
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          342.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "pinky_dip",
+        "label": "Pinky DIP curl",
+        "type": "revolute",
+        "group": "Pinky",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.4
+        ],
+        "limits_deg": [
+          0.0,
+          80.21409131831524
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.55,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "thumb_opposition",
+      "parent": "palm_base",
+      "step_file": "links/thumb_opposition.step",
+      "body_names": [
+        "ThumbOppositionHub",
+        "ThumbOppositionRing"
+      ],
+      "body_count": 2,
+      "origin_xyz_mm": [
+        0,
+        48.0,
+        25.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          48.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          25.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          1.3877787807814457e-17,
+          0.9997837641893571,
+          383.13797190532995
+        ],
+        [
+          -0.09981182908705018,
+          -0.9950041652780262,
+          0.0020760187081651643,
+          -13.140261009786443
+        ],
+        [
+          0.9947890097457538,
+          -0.09983341664682807,
+          -0.02069094028031615,
+          730.1633747948891
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -48.00000000000007
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          465.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "thumb_cmc_opposition",
+        "label": "Thumb opposition",
+        "type": "revolute",
+        "group": "Thumb",
+        "axis_joint_local": [
+          0,
+          0,
+          -1
+        ],
+        "axis_parent": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "limits_rad": [
+          -0.2,
+          1.6
+        ],
+        "limits_deg": [
+          -11.459155902616466,
+          91.67324722093173
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 1.1,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "thumb_metacarpal",
+      "parent": "thumb_opposition",
+      "step_file": "links/thumb_metacarpal.step",
+      "body_names": [
+        "thumb_metacarpalDorsalShell",
+        "thumb_metacarpalFlexorShell",
+        "thumb_metacarpalInsetPad",
+        "thumb_metacarpalCore",
+        "thumb_metacarpalHingeBarrel",
+        "thumb_metacarpalCheek-1",
+        "thumb_metacarpalCheek1",
+        "thumb_metacarpalPin",
+        "thumb_metacarpalScrew_-1_0.24",
+        "thumb_metacarpalScrew_-1_0.75",
+        "thumb_metacarpalScrew_1_0.24",
+        "thumb_metacarpalScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy_deg": [
+        -42.97183463481174,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.7316888688738208,
+          0.6816387600233343,
+          0.0
+        ],
+        [
+          0.0,
+          -0.6816387600233343,
+          0.7316888688738208,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          -0.681491365313495,
+          0.7315306515381214,
+          383.13797190532995
+        ],
+        [
+          -0.09981182908705011,
+          -0.7294485670350379,
+          -0.676714405657828,
+          -13.140261009786443
+        ],
+        [
+          0.9947890097457538,
+          -0.05894325282573504,
+          -0.08318965702167702,
+          730.1633747948891
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.0,
+          -0.7316888688738208,
+          -0.6816387600233345,
+          -48.00000000000007
+        ],
+        [
+          0.0,
+          0.6816387600233345,
+          -0.7316888688738208,
+          465.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "thumb_cmc_flexion",
+        "label": "Thumb CMC flexion",
+        "type": "revolute",
+        "group": "Thumb",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          0.7316888688738208,
+          -0.6816387600233343
+        ],
+        "limits_rad": [
+          -0.25,
+          1.3
+        ],
+        "limits_deg": [
+          -14.32394487827058,
+          74.48451336700703
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 1,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "thumb_proximal",
+      "parent": "thumb_metacarpal",
+      "step_file": "links/thumb_proximal.step",
+      "body_names": [
+        "thumb_proximalDorsalShell",
+        "thumb_proximalFlexorShell",
+        "thumb_proximalInsetPad",
+        "thumb_proximalCore",
+        "thumb_proximalHingeBarrel",
+        "thumb_proximalCheek-1",
+        "thumb_proximalCheek1",
+        "thumb_proximalPin",
+        "thumb_proximalScrew_-1_0.24",
+        "thumb_proximalScrew_-1_0.75",
+        "thumb_proximalScrew_1_0.24",
+        "thumb_proximalScrew_1_0.75"
+      ],
+      "body_count": 12,
+      "origin_xyz_mm": [
+        0,
+        0,
+        30.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          30.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          -0.681491365313495,
+          0.7315306515381214,
+          405.0838914514736
+        ],
+        [
+          -0.09981182908705011,
+          -0.7294485670350379,
+          -0.676714405657828,
+          -33.44169317952128
+        ],
+        [
+          0.9947890097457538,
+          -0.05894325282573504,
+          -0.08318965702167702,
+          727.6676850842389
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.0,
+          -0.7316888688738208,
+          -0.6816387600233345,
+          -68.44916280070011
+        ],
+        [
+          0.0,
+          0.6816387600233345,
+          -0.7316888688738208,
+          443.04933393378536
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "thumb_mcp_flexion",
+        "label": "Thumb MCP curl",
+        "type": "revolute",
+        "group": "Thumb",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.4
+        ],
+        "limits_deg": [
+          0.0,
+          80.21409131831524
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.7,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    },
+    {
+      "name": "thumb_distal",
+      "parent": "thumb_proximal",
+      "step_file": "links/thumb_distal.step",
+      "body_names": [
+        "thumb_distalDorsalShell",
+        "thumb_distalFlexorShell",
+        "thumb_distalInsetPad",
+        "thumb_distalCore",
+        "thumb_distalHingeBarrel",
+        "thumb_distalCheek-1",
+        "thumb_distalCheek1",
+        "thumb_distalPin",
+        "thumb_distalScrew_-1_0.32",
+        "thumb_distalScrew_1_0.32"
+      ],
+      "body_count": 10,
+      "origin_xyz_mm": [
+        0,
+        0,
+        20.0
+      ],
+      "origin_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent_to_child_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          20.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_home_matrix_mm": [
+        [
+          0.020794827803092053,
+          -0.681491365313495,
+          0.7315306515381214,
+          419.71450448223607
+        ],
+        [
+          -0.09981182908705011,
+          -0.7294485670350379,
+          -0.676714405657828,
+          -46.975981292677844
+        ],
+        [
+          0.9947890097457538,
+          -0.05894325282573504,
+          -0.08318965702167702,
+          726.0038919438053
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_from_link_zero_matrix_mm": [
+        [
+          1.0,
+          0.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.0,
+          -0.7316888688738208,
+          -0.6816387600233345,
+          -82.0819380011668
+        ],
+        [
+          0.0,
+          0.6816387600233345,
+          -0.7316888688738208,
+          428.41555655630896
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "joint": {
+        "name": "thumb_ip",
+        "label": "Thumb IP curl",
+        "type": "revolute",
+        "group": "Thumb",
+        "axis_joint_local": [
+          0,
+          1,
+          0
+        ],
+        "axis_parent": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "limits_rad": [
+          0,
+          1.4
+        ],
+        "limits_deg": [
+          0.0,
+          80.21409131831524
+        ],
+        "home_rad": 0,
+        "home_deg": 0.0,
+        "simulation_effort_limit_Nm": 0.7,
+        "simulation_velocity_limit_rad_s": 5,
+        "hardware_rating_validated": false
+      }
+    }
+  ]
+}

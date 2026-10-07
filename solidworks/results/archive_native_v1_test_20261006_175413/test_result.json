@@ -1,0 +1,10 @@
+{
+  "Test": "Exact archive-only hidden PowerShell payload; thirty named files plus extra hidden SOLIDWORKS lock fixture",
+  "ExitCode": 0,
+  "ElapsedSeconds": 1.1483654,
+  "ZipPath": "D:\\RoboticArm\\solidworks\\results\\archive_native_v1_test_20261006_175413\\Test's recovered archive.zip",
+  "Entries": 30,
+  "FlatEntries": true,
+  "LockExcluded": true,
+  "NativeCadTest": false
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "algorithm": "ordinary least squares affine regression",
+  "learned_outputs": [
+    "palm_x_offset_m",
+    "palm_y_offset_m",
+    "palm_clearance_m",
+    "finger_mcp_rad",
+    "finger_pip_rad",
+    "finger_dip_rad",
+    "thumb_opposition_rad",
+    "thumb_cmc_rad",
+    "thumb_mcp_rad",
+    "thumb_ip_rad"
+  ],
+  "size_domain_m": [
+    0.032,
+    0.042
+  ],
+  "size_center_m": 0.037,
+  "size_scale_m": 0.005,
+  "coefficients": [
+    [
+      -0.034666666666666686,
+      0.0,
+      0.022666666666666672,
+      1.3533333333333337,
+      1.5466666666666673,
+      1.2566666666666673,
+      1.2566666666666673,
+      0.4833333333333335,
+      0.6766666666666669,
+      0.6766666666666669
+    ],
+    [
+      -0.00099999999999999,
+      0.0,
+      0.0005714285714285702,
+      0.019999999999999712,
+      0.022857142857142663,
+      0.018571428571428232,
+      0.018571428571428232,
+      0.0071428571428570455,
+      0.009999999999999856,
+      0.009999999999999856
+    ]
+  ],
+  "training_examples": 6,
+  "optimization_trials": 42,
+  "training_parameter_rmse": [
+    0.0011925695879998895,
+    0.0,
+    0.0008582004057957203,
+    0.015776212754932305,
+    0.018029957434208353,
+    0.014649340415294282,
+    0.014649340415294282,
+    0.005634361698190111,
+    0.007888106377466153,
+    0.007888106377466153
+  ],
+  "explanation": "Actual regression fitted to six successful demonstration parameter vectors selected by contact simulation search. Only cube size conditions the grasp; world position is handled by IK. Stage timing and IK are scripted."
+}

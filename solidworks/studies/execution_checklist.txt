@@ -1,0 +1,88 @@
+NATIVE SOLIDWORKS CLOUD EXECUTION CHECKLIST
+Prepared 2026-10-05 | ALL NATIVE ACTIONS IN THIS CHECKLIST: NOT EXECUTED
+
+The user has approved the official free online trial and uploading this CAD.
+This checklist does not assert that the trial opened, accepted uploads, or ran.
+Its state is an empty ledger for the operator to fill using actual evidence.
+Local downloads/evidence belong under D:\RoboticArm\solidworks. The trial's
+remote working files are cloud files, not local D: files until downloaded.
+
+PRIORITY ORDER FOR UNKNOWN TRIAL LIMITS
+P0  Record product/version, time/quotas, native save/export ability, Motion study
+    menu, Simulation add-ins and API/macro availability. Export a small native
+    smoke-test file first; verify it is recoverable on D:. Do not spend the
+    whole trial on a model that cannot be downloaded.
+P1  Import transfer/full_arm_home_reference.step. Check Import Diagnostics,
+    293 solids and known 300/250/40 mm joint spans. Capture a SOLIDWORKS view.
+    Save/export the static native checkpoint. This is not an articulated arm.
+P2  Import the 28 files in transfer/links as 28 rigid multibody SLDPRT parts.
+    Preserve origins; create an SLDASM. Apply manifest home transforms in mm,
+    fix only base_link and verify the silhouette. Download the assembly with
+    ALL native part dependencies at this milestone.
+P3  Recreate 27 revolute joints from transfer/joint_schedule.csv and the manifest.
+    Define angular zero and signs; audit +5 degree jogs where limits allow.
+    Confirm limits, one free rotation per joint and no unintended translation.
+    Inspect shoulder carriers and thumb frame carefully; do not guess axes from
+    decorative shell faces. Record each joint in native_results_ledger.json.
+P4  Create a native Motion study using the ACTUAL available study type. Run all
+    27 conservative per-joint schedules in joint_register.json, holding the
+    other joints at home. Save measured angles, warnings, timeline and recording.
+    Compare scheduled/actual angles within 0.5 degrees for this import check.
+    Inspect interference at endpoints and <=5-degree intermediate samples;
+    refine around suspected contact. Record each excluded pair and why.
+P5  If trial time permits, import the separate tendon finger. Test each hinge
+    0/5/10/15 degrees independently, sampling at 1 degree. Check pins, stop tabs
+    and retainer envelopes. Straight cord solids are illustrations, not tendons.
+P6  Quantitative dynamics / FEA only after the prerequisite gates below pass.
+
+CHECKPOINT POLICY
+Save native parts + assembly + study after P1, P2, P3 and P4. Download dependents
+with the assembly; a lone SLDASM may lose its referenced parts. Record file paths,
+sizes and SHA256 on D:. Reopen a downloaded checkpoint if the trial allows.
+Capture progress before a displayed timeout. Prioritize the native full arm and
+27-joint study over cosmetic rendering or optional FEA. If a capability is absent,
+record the actual limitation; never relabel another tool's results as SOLIDWORKS.
+
+REQUIRED EVIDENCE FOR EACH JOINT
+Mate/axis names; angular-zero definition; source and measured limits; observed
+positive direction; measured angles for the five 8-second schedule points;
+parent-child movement; solver warnings; interference findings; screenshot/curve
+or recording path. If the interface cannot export a curve, record how angles
+were measured and the limitation. Do not substitute target values for readings.
+
+DYNAMICS AND FEA GATES
+Animation proves only prescribed geometry/mate motion. Basic Motion is an
+approximate preview. Required-torque/reactive-force reporting needs Motion
+Analysis and defensible mass, inertia, friction, contact and drive inputs.
+Prescribed motion does not prove that a physical motor can achieve it.
+
+Before structural FEA: select the actual load-bearing part, material/process,
+print orientation if applicable, pin/support/contact model, tendon load or
+payload/COM, safety factor, allowed deflection and duty/fatigue criteria. These
+inputs remain missing. Decorative shells and conceptual actuator envelopes
+do not establish the arm's strength. SimulationXpress can analyze one solid
+body, not the assembled arm. Confirm the available product before proceeding.
+If eligible, keep mesh refinement, equilibrium and assumption checks with the
+result. Three mesh levels and <5% last-refinement change are proposed numerical
+review targets; they do not replace physical design criteria.
+
+TRUTHFUL COMPLETION LABELS
+Uploaded -> files accepted only.
+Native static import -> geometry saved in native format; no joint movement.
+Native articulated assembly -> 28 rigid links and 27 audited revolute joints.
+Native motion demonstration -> actual saved study and measured motion evidence.
+Native quantitative dynamics / FEA -> actual executed solver plus input sources.
+Physical prototype validated -> cannot be concluded from any of the above alone.
+
+The existing MuJoCo camera/controller result stays labeled MuJoCo. A replay in
+SOLIDWORKS is not live vision. No SOLIDWORKS camera-control bridge is implemented.
+
+FILES
+native_results_ledger.json: 7 priority stages, 28 part imports, 27 joint tests,
+empty evidence fields and dynamics/FEA gates. All results are null / NOT_EXECUTED.
+STUDY_PLAN.txt: detailed test procedure and official reference URLs.
+joint_register.json: source axes, limits, homes and conservative motion schedules.
+study_definitions.json: the six underlying study specifications.
+
+Update state only after the action occurred and evidence was recorded. Preserve
+unknowns and failures explicitly. This preparation script never calls SOLIDWORKS.

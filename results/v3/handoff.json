@@ -1,0 +1,182 @@
+{
+  "recorded_at": "2026-10-05T04:13:43.171704+08:00",
+  "project_root": "D:\\RoboticArm",
+  "version": 3,
+  "physics_validation_passed": true,
+  "service_validation_passed": true,
+  "media_validation_passed": true,
+  "browser_checks": [
+    "Live frame visible",
+    "Index PIP requested35degrees and reached35degrees",
+    "Layer switching visible",
+    "Live camera-guided reach contact_stop success",
+    "Both WebM recordings readyState4;33and10.05seconds",
+    "Presentation and responsive wiring visually inspected"
+  ],
+  "firmware": {
+    "board": "Arduino UNO R3",
+    "compiled": true,
+    "flash_bytes": 4900,
+    "ram_bytes": 314,
+    "uploaded": false,
+    "physical_actuation_tested": false
+  },
+  "camera_diagnosis": {
+    "registered_directshow_video_sources": [
+      "ToDesk Camera"
+    ],
+    "images_saved": false,
+    "images_transmitted": false,
+    "hand_tracking_verified": false,
+    "probes": [
+      {
+        "configuration": "DSHOW default",
+        "opened": true,
+        "negotiated_fourcc": -466162819,
+        "fps": -1.0,
+        "frames_received": 8,
+        "last_frame_statistics": {
+          "shape": [
+            480,
+            640,
+            3
+          ],
+          "mean": 0.009388020833333333,
+          "std": 1.1275332083349767,
+          "horizontal_spatial_std": 0.07500534325443081,
+          "vertical_spatial_std": 0.19119076852315778,
+          "gray_pixel_fraction": 0.9998893229166667
+        },
+        "temporal_mean_absolute_changes": [
+          0.3972037760416667,
+          0.3972037760416667,
+          0.06224609375,
+          0.06224609375,
+          0.06224609375,
+          0.06224609375,
+          0.06224609375
+        ]
+      },
+      {
+        "configuration": "DSHOW MJPG",
+        "opened": true,
+        "format_set_accepted": true,
+        "negotiated_fourcc": 1196444237,
+        "fps": -1.0,
+        "frames_received": 8,
+        "last_frame_statistics": {
+          "shape": [
+            480,
+            640,
+            3
+          ],
+          "mean": 0.009446614583333334,
+          "std": 1.0591408079458782,
+          "horizontal_spatial_std": 0.07647670795416386,
+          "vertical_spatial_std": 0.2051079508954178,
+          "gray_pixel_fraction": 0.9998828125
+        },
+        "temporal_mean_absolute_changes": [
+          0.3892740885416667,
+          0.013255208333333334,
+          0.013255208333333334,
+          0.013255208333333334,
+          0.013255208333333334,
+          0.013255208333333334,
+          0.013255208333333334
+        ]
+      },
+      {
+        "configuration": "DSHOW YUY2",
+        "opened": true,
+        "format_set_accepted": true,
+        "negotiated_fourcc": 844715353,
+        "fps": -1.0,
+        "frames_received": 8,
+        "last_frame_statistics": {
+          "shape": [
+            480,
+            640,
+            3
+          ],
+          "mean": 0.007923177083333333,
+          "std": 1.0170914332947518,
+          "horizontal_spatial_std": 0.060642025078849644,
+          "vertical_spatial_std": 0.17176387986639718,
+          "gray_pixel_fraction": 0.99990234375
+        },
+        "temporal_mean_absolute_changes": [
+          0.3376822916666667,
+          0.3376822916666667,
+          0.3376822916666667,
+          0.3376822916666667,
+          0.3376822916666667,
+          0.3376822916666667,
+          0.3376822916666667
+        ]
+      },
+      {
+        "configuration": "MSMF default",
+        "opened": false
+      }
+    ],
+    "windows_physical_camera_device_detected": false,
+    "conclusion": "Only ToDesk virtual camera is registered; DSHOW default, MJPG and YUY2 returned nearly black/grayscale data; MSMF could not open index0. No physical webcam or live hand tracking verified.",
+    "recovery": "Enable a real remote camera feed in ToDesk or connect/select a physical webcam. Software backend changes did not recover a usable feed."
+  },
+  "current_service": {
+    "ready": true,
+    "server_error": "",
+    "mode": "vision",
+    "webcam_enabled": false
+  },
+  "offline_package": {
+    "structurally_verified": true,
+    "visually_opened_from_file_url": false,
+    "reason": "Browser tool blocks file URLs; live presentation was visually inspected."
+  },
+  "limits": [
+    "Physical full arm has not been built.",
+    "Full-arm internal motors and load ratings remain conceptual.",
+    "Printable finger has not been fabricated or tested with a real servo.",
+    "Autonomy is calibrated known-object approach and touch, not autonomous pickup.",
+    "Physical hand imitation unverified because only unusable ToDesk virtual-camera feed is available."
+  ],
+  "files": [
+    {
+      "path": "design/v3/AnthroArm27_ReferenceV3.FCStd",
+      "bytes": 1760248,
+      "sha256": "163edcb99d696d17fd435d978ad1c08bbe7e39d26428295e23a2763bd7b337ab"
+    },
+    {
+      "path": "design/v3/AnthroArm27_ReferenceV3.step",
+      "bytes": 4982211,
+      "sha256": "baf81b8871eee0e59d5f607235d51785e817dce0aa427ef2fad7ed36ea109f94"
+    },
+    {
+      "path": "design/v3/printable_finger/TendonFinger_FitTest.FCStd",
+      "bytes": 198004,
+      "sha256": "a4277f1841cdcce8bac43f180eb28f39e5fc9147476617bd718a6a74dbaae6a7"
+    },
+    {
+      "path": "results/v3/full_arm_articulation.webm",
+      "bytes": 4895417,
+      "sha256": "8f4076e048bf85033f5101359f91d6bd68da4f7533e23af1578303ee926234cd"
+    },
+    {
+      "path": "results/v3/camera_autonomy.webm",
+      "bytes": 2037436,
+      "sha256": "0deb3c23f4157e30e073c0d83e07ec20208e055c39c84e25693f05dc2541cac2"
+    },
+    {
+      "path": "hardware/single_finger/single_finger.ino",
+      "bytes": 3279,
+      "sha256": "38ebf266c3c819b9bcb91e23459e4c64cf38fa9ff4248541ff9621964f2ce18d"
+    },
+    {
+      "path": "share/HumanArm_Demonstration.zip",
+      "bytes": 16119794,
+      "sha256": "ea6e2e6e50900d157a590a967ede777dd24215da018d162597b631d82ec4f01f"
+    }
+  ]
+}

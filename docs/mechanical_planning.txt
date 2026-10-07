@@ -1,0 +1,32 @@
+PRELIMINARY MECHANICAL PLANNING — NOT A MANUFACTURING RELEASE
+2026-10-05
+
+This calculation illustrates why hardware cannot be selected from URDF effort attributes alone. It uses the source document's heavy link masses, not measured/generated CAD properties. Recalculate from the final design before procurement. No motor model, payload certification, or machining tolerance is approved here.
+
+Assumed horizontal posture; g=9.81m/s^2:
+Upper arm 0.30m,2.5kg; COM at0.15m from shoulder.
+Forearm 0.25m,1.5kg; COM at0.425m from shoulder.
+Wrist assembly0.06m,0.6kg; COM at0.58m from shoulder.
+Hand0.61kg (sum of supplied finger/palm masses); assumed COM0.08m beyond wrist end, at0.69m from shoulder.
+Illustrative payload0.25kg at0.77m from shoulder; this payload is an analysis assumption, not a user requirement or model rating.
+
+Static gravity torque T=sum(m_i*g*r_i), all offsets horizontal:
+Shoulder:9.81*(2.5*.15+1.5*.425+.6*.58+.61*.69+.25*.77)=19.364Nm.
+Elbow:9.81*(1.5*.125+.6*.28+.61*.39+.25*.47)=6.974Nm.
+Wrist pitch:9.81*(.6*.03+.61*.14+.25*.22)=1.554Nm.
+A simple 2x static allowance gives38.728,13.948,3.108Nm respectively. These are not complete motor specifications: acceleration, inertia, transmission losses, temperature, continuous duty, backlash, shock, and brake behavior are absent. Rated stall torque is not continuous torque. Gearbox output and motor-shaft torque are different quantities.
+
+The supplied5kg base and1.8kg yaw body on a0.12m radius base do not make this an unconditionally stable freestanding arm. Total assumed mass including links/hand/payload is12.26kg, whose maximum gravity restoring moment about a base edge is9.81*12.26*.12=14.432Nm if all mass were represented at the base center for the support-bound comparison. The horizontal arm's19.364Nm first moment about the base center puts the combined COM beyond that support radius. A fixed simulated base assumes an anchored fixture; a real tabletop mounting plate and clamps/bolts must be designed for the load and table.
+
+Provisional parts categories, quantities to resolve after actuator architecture:
+- Five arm actuators with encoders, appropriate transmissions/bearings, mounts and retained shafts.
+- Twenty independently controlled hand axes in the implemented model (including the added thumb axis); a physical tendon design could use fewer motors with coupling, but then is underactuated and no longer matches independent joint control.
+- Fifteen principal digit segments plus knuckle carriers, palm chassis, wrist frame, and arm links.
+- Hinge pins/bushings and shoulder/elbow bearing stacks, retaining clips, spacers, and fasteners sized from actual loads and tolerances.
+- If tendon-driven: flexor/extensor cables, guides, anchors, spools, tensioners, return elements, abrasion-resistant bend radii, and service access.
+- Power supply, fuses, motor buses/drivers, wiring harness, connector strain relief and motor-power emergency stop.
+- Joint feedback/limit referencing; optional fingertip force/tactile sensing and camera.
+
+A2mm pin-hole radius specification in code is not a fit tolerance. Select actual pin diameter/material and printed or machined bore process; test coupons and bearing/wear requirements determine allowances. Printed anisotropy, fastener pullout, cable pretension, pinch gaps, and heat must be evaluated on physical samples.
+
+No purchase list with specific motors or price totals is supplied because the mechanism, payload, duty cycle and fabrication process have not been established. These categories support design iteration without implying a ready-to-build machine.

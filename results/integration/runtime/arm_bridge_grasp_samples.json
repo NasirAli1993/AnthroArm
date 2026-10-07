@@ -1,0 +1,1122 @@
+[
+  {
+    "time_s": 1.280000000000001,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971316,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 1.400000000000001,
+    "phase": "raise",
+    "object_z_m": 0.6183914782972201,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 1.5200000000000011,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971548,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 1.6400000000000012,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971894,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 1.7600000000000013,
+    "phase": "raise",
+    "object_z_m": 0.618391478297106,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 1.8800000000000014,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971262,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 1.9600000000000015,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971381,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 2.0799999999999925,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971373,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 2.1999999999999793,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971253,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 2.3799999999999595,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971244,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 2.439999999999953,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971858,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 2.5599999999999397,
+    "phase": "raise",
+    "object_z_m": 0.6183914782971316,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 2.73999999999992,
+    "phase": "approach",
+    "object_z_m": 0.6183914782971612,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 2.8599999999999066,
+    "phase": "approach",
+    "object_z_m": 0.6183914782971318,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 2.9799999999998934,
+    "phase": "approach",
+    "object_z_m": 0.61839147829719,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 3.09999999999988,
+    "phase": "approach",
+    "object_z_m": 0.6183914782971742,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 3.219999999999867,
+    "phase": "approach",
+    "object_z_m": 0.6183914782971477,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 3.3399999999998538,
+    "phase": "approach",
+    "object_z_m": 0.6183914782971793,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 3.4599999999998405,
+    "phase": "approach",
+    "object_z_m": 0.6183914782971746,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 3.519999999999834,
+    "phase": "approach",
+    "object_z_m": 0.618391478297153,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 3.6399999999998207,
+    "phase": "approach",
+    "object_z_m": 0.6183914782972065,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 3.7599999999998075,
+    "phase": "approach",
+    "object_z_m": 0.6183914782972054,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 3.8799999999997943,
+    "phase": "approach",
+    "object_z_m": 0.6183914782971581,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 3.999999999999781,
+    "phase": "approach",
+    "object_z_m": 0.6183914782972089,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.119999999999768,
+    "phase": "approach",
+    "object_z_m": 0.6183914782971621,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.2999999999997485,
+    "phase": "approach",
+    "object_z_m": 0.6183914782971314,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.479999999999729,
+    "phase": "approach",
+    "object_z_m": 0.618391478297143,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.539999999999722,
+    "phase": "approach",
+    "object_z_m": 0.618391478297176,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.539999999999722,
+    "phase": "approach",
+    "object_z_m": 0.618391478297176,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.539999999999722,
+    "phase": "approach",
+    "object_z_m": 0.618391478297176,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.539999999999722,
+    "phase": "approach",
+    "object_z_m": 0.618391478297176,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.659999999999709,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971104,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.779999999999696,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971865,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 4.899999999999682,
+    "phase": "descend",
+    "object_z_m": 0.6183914782970913,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 5.019999999999669,
+    "phase": "descend",
+    "object_z_m": 0.6183914782970878,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 5.139999999999656,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971229,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 5.259999999999643,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971428,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 5.3799999999996295,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971077,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 5.499999999999616,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971975,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 5.619999999999603,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971582,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 5.73999999999959,
+    "phase": "descend",
+    "object_z_m": 0.6183914782972183,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 5.859999999999577,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971914,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 5.979999999999563,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971317,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 6.09999999999955,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971639,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 6.219999999999537,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971244,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 6.27999999999953,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971858,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 6.399999999999517,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971316,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 6.579999999999497,
+    "phase": "descend",
+    "object_z_m": 0.6183914782971612,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 6.639999999999491,
+    "phase": "close",
+    "object_z_m": 0.6183914782971548,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 6.7599999999994775,
+    "phase": "close",
+    "object_z_m": 0.6183914782970747,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 6.879999999999464,
+    "phase": "close",
+    "object_z_m": 0.6181181683391449,
+    "opposed_contacts": true,
+    "hand_contact_count": 5
+  },
+  {
+    "time_s": 6.999999999999451,
+    "phase": "close",
+    "object_z_m": 0.6192634974148522,
+    "opposed_contacts": true,
+    "hand_contact_count": 11
+  },
+  {
+    "time_s": 7.0599999999994445,
+    "phase": "close",
+    "object_z_m": 0.6192110122092694,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 7.179999999999431,
+    "phase": "close",
+    "object_z_m": 0.6196447082648163,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 7.3599999999994115,
+    "phase": "close",
+    "object_z_m": 0.6206529469385285,
+    "opposed_contacts": true,
+    "hand_contact_count": 7
+  },
+  {
+    "time_s": 7.539999999999392,
+    "phase": "close",
+    "object_z_m": 0.6217368740355934,
+    "opposed_contacts": true,
+    "hand_contact_count": 5
+  },
+  {
+    "time_s": 7.659999999999378,
+    "phase": "close",
+    "object_z_m": 0.6226306177697544,
+    "opposed_contacts": true,
+    "hand_contact_count": 5
+  },
+  {
+    "time_s": 7.779999999999365,
+    "phase": "close",
+    "object_z_m": 0.6237002487049611,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 7.899999999999352,
+    "phase": "close",
+    "object_z_m": 0.6236347008033735,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 7.959999999999345,
+    "phase": "close",
+    "object_z_m": 0.6236376106161072,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 8.139999999999388,
+    "phase": "close",
+    "object_z_m": 0.6235558903667661,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 8.259999999999428,
+    "phase": "close",
+    "object_z_m": 0.6235018277461635,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 8.379999999999468,
+    "phase": "close",
+    "object_z_m": 0.6234773013149967,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 8.379999999999468,
+    "phase": "close",
+    "object_z_m": 0.6234773013149967,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 8.379999999999468,
+    "phase": "close",
+    "object_z_m": 0.6234773013149967,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 8.499999999999508,
+    "phase": "lift",
+    "object_z_m": 0.6256897408201251,
+    "opposed_contacts": true,
+    "hand_contact_count": 7
+  },
+  {
+    "time_s": 8.659999999999561,
+    "phase": "lift",
+    "object_z_m": 0.6584516077559838,
+    "opposed_contacts": true,
+    "hand_contact_count": 11
+  },
+  {
+    "time_s": 8.779999999999601,
+    "phase": "lift",
+    "object_z_m": 0.6855571384070964,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 8.899999999999642,
+    "phase": "lift",
+    "object_z_m": 0.7147880646063646,
+    "opposed_contacts": true,
+    "hand_contact_count": 15
+  },
+  {
+    "time_s": 8.979999999999668,
+    "phase": "lift",
+    "object_z_m": 0.7401046772870551,
+    "opposed_contacts": true,
+    "hand_contact_count": 16
+  },
+  {
+    "time_s": 9.099999999999708,
+    "phase": "lift",
+    "object_z_m": 0.7661421806679996,
+    "opposed_contacts": true,
+    "hand_contact_count": 12
+  },
+  {
+    "time_s": 9.219999999999748,
+    "phase": "lift",
+    "object_z_m": 0.7712652821454963,
+    "opposed_contacts": true,
+    "hand_contact_count": 12
+  },
+  {
+    "time_s": 9.379999999999802,
+    "phase": "lift",
+    "object_z_m": 0.772336649870469,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 9.499999999999842,
+    "phase": "lift",
+    "object_z_m": 0.7724217215878856,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 9.619999999999882,
+    "phase": "lift",
+    "object_z_m": 0.7724266643102274,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 9.739999999999922,
+    "phase": "lift",
+    "object_z_m": 0.7724219960767487,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 9.819999999999949,
+    "phase": "lift",
+    "object_z_m": 0.772421088680086,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 9.939999999999989,
+    "phase": "lift",
+    "object_z_m": 0.772403079052112,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 10.100000000000042,
+    "phase": "lift",
+    "object_z_m": 0.7723697399063549,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 10.220000000000082,
+    "phase": "lift",
+    "object_z_m": 0.7723484901705241,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 10.340000000000122,
+    "phase": "lift",
+    "object_z_m": 0.7723183883348742,
+    "opposed_contacts": true,
+    "hand_contact_count": 11
+  },
+  {
+    "time_s": 10.460000000000163,
+    "phase": "lift",
+    "object_z_m": 0.77229870248526,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 10.54000000000019,
+    "phase": "lift",
+    "object_z_m": 0.7722886993105401,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 10.66000000000023,
+    "phase": "lift",
+    "object_z_m": 0.772273639277415,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 10.78000000000027,
+    "phase": "lift",
+    "object_z_m": 0.7722587138273925,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 10.90000000000031,
+    "phase": "hold",
+    "object_z_m": 0.7722441960817652,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 11.02000000000035,
+    "phase": "hold",
+    "object_z_m": 0.7722301254983023,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 11.180000000000403,
+    "phase": "hold",
+    "object_z_m": 0.7722117660831835,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 11.300000000000443,
+    "phase": "hold",
+    "object_z_m": 0.7721944763967884,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 11.420000000000483,
+    "phase": "hold",
+    "object_z_m": 0.772173588015944,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 11.540000000000523,
+    "phase": "hold",
+    "object_z_m": 0.7721503541247121,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 11.660000000000563,
+    "phase": "hold",
+    "object_z_m": 0.7721252824889131,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 11.780000000000603,
+    "phase": "hold",
+    "object_z_m": 0.7720987139666134,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 11.900000000000643,
+    "phase": "hold",
+    "object_z_m": 0.7720706020351608,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 12.020000000000683,
+    "phase": "hold",
+    "object_z_m": 0.772041313660888,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 12.140000000000724,
+    "phase": "hold",
+    "object_z_m": 0.7720115190424239,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 12.260000000000764,
+    "phase": "hold",
+    "object_z_m": 0.7719811150139777,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 12.380000000000804,
+    "phase": "hold",
+    "object_z_m": 0.771950180183036,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 12.46000000000083,
+    "phase": "lower",
+    "object_z_m": 0.7700263444854181,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 12.620000000000884,
+    "phase": "lower",
+    "object_z_m": 0.7474415145642368,
+    "opposed_contacts": true,
+    "hand_contact_count": 6
+  },
+  {
+    "time_s": 12.740000000000924,
+    "phase": "lower",
+    "object_z_m": 0.7226542728780689,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 12.860000000000964,
+    "phase": "lower",
+    "object_z_m": 0.6921177482927637,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 13.020000000001017,
+    "phase": "lower",
+    "object_z_m": 0.6401983139819406,
+    "opposed_contacts": true,
+    "hand_contact_count": 8
+  },
+  {
+    "time_s": 13.100000000001044,
+    "phase": "lower",
+    "object_z_m": 0.6272448904417234,
+    "opposed_contacts": true,
+    "hand_contact_count": 7
+  },
+  {
+    "time_s": 13.220000000001084,
+    "phase": "lower",
+    "object_z_m": 0.6236900748045366,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 13.340000000001124,
+    "phase": "lower",
+    "object_z_m": 0.6236181339957071,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 13.460000000001164,
+    "phase": "lower",
+    "object_z_m": 0.6235502510488701,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 13.620000000001218,
+    "phase": "lower",
+    "object_z_m": 0.6234559674543005,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 13.740000000001258,
+    "phase": "lower",
+    "object_z_m": 0.6234019448111027,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 13.820000000001285,
+    "phase": "lower",
+    "object_z_m": 0.6233674383648234,
+    "opposed_contacts": true,
+    "hand_contact_count": 11
+  },
+  {
+    "time_s": 13.980000000001338,
+    "phase": "lower",
+    "object_z_m": 0.6233063983992359,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 14.060000000001365,
+    "phase": "lower",
+    "object_z_m": 0.6232772314303812,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 14.220000000001418,
+    "phase": "lower",
+    "object_z_m": 0.6232219239034532,
+    "opposed_contacts": true,
+    "hand_contact_count": 11
+  },
+  {
+    "time_s": 14.340000000001458,
+    "phase": "lower",
+    "object_z_m": 0.6231828269111382,
+    "opposed_contacts": true,
+    "hand_contact_count": 11
+  },
+  {
+    "time_s": 14.460000000001498,
+    "phase": "lower",
+    "object_z_m": 0.6231460691862426,
+    "opposed_contacts": true,
+    "hand_contact_count": 10
+  },
+  {
+    "time_s": 14.620000000001552,
+    "phase": "lower",
+    "object_z_m": 0.6231004881997744,
+    "opposed_contacts": true,
+    "hand_contact_count": 9
+  },
+  {
+    "time_s": 14.740000000001592,
+    "phase": "lower",
+    "object_z_m": 0.623063559051789,
+    "opposed_contacts": true,
+    "hand_contact_count": 11
+  },
+  {
+    "time_s": 14.820000000001619,
+    "phase": "lower",
+    "object_z_m": 0.6230429890423262,
+    "opposed_contacts": true,
+    "hand_contact_count": 11
+  },
+  {
+    "time_s": 14.980000000001672,
+    "phase": "release",
+    "object_z_m": 0.6236497218691862,
+    "opposed_contacts": false,
+    "hand_contact_count": 1
+  },
+  {
+    "time_s": 15.140000000001725,
+    "phase": "release",
+    "object_z_m": 0.6257035758120383,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 15.260000000001765,
+    "phase": "release",
+    "object_z_m": 0.6182088618741844,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 15.340000000001792,
+    "phase": "release",
+    "object_z_m": 0.6183909649853383,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 15.460000000001832,
+    "phase": "release",
+    "object_z_m": 0.6183914782531013,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 15.620000000001886,
+    "phase": "release",
+    "object_z_m": 0.618391478296933,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 15.700000000001912,
+    "phase": "release",
+    "object_z_m": 0.6183914782969365,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 15.820000000001953,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 15.940000000001993,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.04000000000199,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.160000000001922,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.280000000001856,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.40000000000179,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.520000000001723,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.640000000001656,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.640000000001656,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.640000000001656,
+    "phase": "release",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.700000000001623,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 16.880000000001523,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 17.000000000001457,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 17.12000000000139,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 17.240000000001324,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 17.360000000001257,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 17.48000000000119,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 17.600000000001124,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 17.720000000001058,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 17.84000000000099,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 17.960000000000925,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 18.080000000000858,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 18.26000000000076,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 18.380000000000692,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 18.500000000000625,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 18.62000000000056,
+    "phase": "retreat",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 18.740000000000492,
+    "phase": "settle",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 18.860000000000426,
+    "phase": "settle",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 18.98000000000036,
+    "phase": "settle",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 19.100000000000293,
+    "phase": "settle",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 19.220000000000226,
+    "phase": "settle",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 19.400000000000126,
+    "phase": "settle",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 19.460000000000093,
+    "phase": "settle",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 19.639999999999993,
+    "phase": "settle",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  },
+  {
+    "time_s": 19.69999999999996,
+    "phase": "complete",
+    "object_z_m": 0.6183914782969366,
+    "opposed_contacts": false,
+    "hand_contact_count": 0
+  }
+]

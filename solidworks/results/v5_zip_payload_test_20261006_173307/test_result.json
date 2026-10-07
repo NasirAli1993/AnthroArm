@@ -1,0 +1,9 @@
+{
+  "Test": "Exact V5 ZIP payload via hidden WScript.Shell.Run with spaces and apostrophes",
+  "ExitCode": 0,
+  "ElapsedSeconds": 1.9571053,
+  "ZipExists": true,
+  "ZipPath": "D:\\RoboticArm\\solidworks\\results\\v5_zip_payload_test_20261006_173307\\Test's archive.zip",
+  "CommandLength": 2685,
+  "NativeCadTest": false
+}

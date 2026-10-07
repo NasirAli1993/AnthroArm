@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>simulation/v3/vision_reach.py</title><style>body{margin:0;background:#0d1518;color:#dce9eb;font:14px Segoe UI,sans-serif}header{padding:23px 30px;border-bottom:1px solid #304a50;position:sticky;top:0;background:#132126}a{color:#72e0c7;margin-right:25px}h1{font:19px Segoe UI,sans-serif;margin:18px 0 8px}p{color:#abc0c6;font-size:12px}pre{font:12px/1.6 Consolas,monospace;padding:25px 30px;white-space:pre;overflow:auto}</style><header><a href="../index.html#software">Back to presentation</a><a href="vision.py" download>Download source snapshot</a><h1>simulation/v3/vision_reach.py</h1><p>Readable source snapshot from the project. This file may depend on other project files, packages and the original directory layout.</p></header><pre>&quot;&quot;&quot;Autonomous reach/touch driven by actual rendered RGB-D pixels.
+
+Known camera calibration and known upright 50 mm orange target are assumptions.
+Object body position is deliberately never read by this control module.
+&quot;&quot;&quot;
+from pathlib import Path
+import importlib.util,json
+import cv2,numpy as np,mujoco
+ROOT=Path(__file__).resolve().parents[2]
+
+class RGDBCamera:
+    def __init__(self,sim,width=640,height=480):
+        self.sim=sim;self.width=width;self.height=height;self.renderer=mujoco.Renderer(sim.m,height=height,width=width)
+        self.camera_id=mujoco.mj_name2id(sim.m,mujoco.mjtObj.mjOBJ_CAMERA,&#x27;vision_camera&#x27;)
+        fovy=np.deg2rad(sim.m.cam_fovy[self.camera_id]);self.fy=.5*height/np.tan(.5*fovy);self.fx=self.fy;self.cx=(width-1)/2;self.cy=(height-1)/2
+        self.latest_rgb=None;self.latest_depth=None;self.last_detection={}
+    def capture(self):
+        option=mujoco.MjvOption();option.geomgroup[3]=0;option.geomgroup[4]=0
+        self.renderer.update_scene(self.sim.d,camera=&#x27;vision_camera&#x27;,scene_option=option)
+        self.renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SHADOW]=False
+        self.renderer.disable_depth_rendering();rgb=self.renderer.render().copy()
+        self.renderer.enable_depth_rendering();depth=self.renderer.render().copy();self.renderer.disable_depth_rendering()
+        hsv=cv2.cvtColor(rgb,cv2.COLOR_RGB2HSV);mask=cv2.inRange(hsv,np.array([2,125,80],dtype=np.uint8),np.array([23,255,255],dtype=np.uint8))
+        # Choose the orange connected component in the calibrated worktable ROI.
+        count,labels,stats,centroids=cv2.connectedComponentsWithStats(mask)
+        candidates=[]
+        R=self.sim.d.cam_xmat[self.camera_id].reshape(3,3);position=self.sim.d.cam_xpos[self.camera_id]
+        for i in range(1,count):
+            if stats[i,cv2.CC_STAT_AREA]&lt;=45:continue
+            yy,xx=np.where(labels==i);zz=depth[yy,xx]
+            pts=np.c_[(xx-self.cx)*zz/self.fx,-(yy-self.cy)*zz/self.fy,-zz]@R.T+position
+            center=np.median(pts,axis=0);top=np.quantile(pts[:,2],.98)
+            if .14&lt;center[0]&lt;.68 and abs(center[1])&lt;.29 and .62&lt;top&lt;.665:candidates.append(i)
+        result={&#x27;detected&#x27;:False,&#x27;source&#x27;:&#x27;rendered RGB segmentation + metric depth&#x27;,&#x27;ground_truth_object_pose_used&#x27;:False}
+        overlay=rgb.copy()
+        if candidates:
+            c=max(candidates,key=lambda i:stats[i,cv2.CC_STAT_AREA]);ys,xs=np.where(labels==c);z=depth[ys,xs]
+            camera_points=np.c_[(xs-self.cx)*z/self.fx,-(ys-self.cy)*z/self.fy,-z]
+            world=camera_points@R.T+position
+            # Top surface is visible before reach. Use its centre and known half-height.
+            top_z=float(np.quantile(world[:,2],.98));top=world[world[:,2]&gt;top_z-.003]
+            if len(top)&gt;15:
+                lower=np.quantile(top[:,:2],.02,axis=0);upper=np.quantile(top[:,:2],.98,axis=0);center=np.r_[(lower+upper)/2,top_z-.025]
+                x,y,w,h,area=stats[c];cv2.rectangle(overlay,(x,y),(x+w,y+h),(65,255,130),2);cv2.circle(overlay,tuple(np.rint(centroids[c]).astype(int)),4,(255,255,255),-1)
+                text=&#x27;RGB-D target (m): %.3f %.3f %.3f&#x27;%tuple(center);cv2.putText(overlay,text,(15,25),cv2.FONT_HERSHEY_SIMPLEX,.55,(240,255,240),2,cv2.LINE_AA)
+                result.update(detected=True,center_world_m=center.tolist(),top_surface_z_m=top_z,bbox_pixels=[int(x),int(y),int(w),int(h)],orange_pixels=int(area),top_surface_pixels=len(top),calibration={&#x27;fx&#x27;:self.fx,&#x27;fy&#x27;:self.fy,&#x27;cx&#x27;:self.cx,&#x27;cy&#x27;:self.cy,&#x27;width&#x27;:self.width,&#x27;height&#x27;:self.height,&#x27;camera_world_position_m&#x27;:position.tolist(),&#x27;camera_world_rotation&#x27;:R.tolist()},assumptions=&#x27;Known upright 50 mm orange cube; top surface visible; camera extrinsics calibrated.&#x27;)
+        if not result[&#x27;detected&#x27;]:cv2.putText(overlay,&#x27;No fresh target estimate (occluded or absent)&#x27;,(15,25),cv2.FONT_HERSHEY_SIMPLEX,.50,(255,200,120),2,cv2.LINE_AA)
+        self.latest_rgb=overlay;self.latest_depth=depth;self.last_detection=result;return result
+    def close(self):self.renderer.close()
+
+class VisionReach:
+    def __init__(self,sim):
+        self.sim=sim;self.camera=RGDBCamera(sim);self.active=False;self.phase=&#x27;idle&#x27;;self.result={};self.target=None;self.waypoint=None;self.events=[];self.started=0;self.phase_started=0
+        self.downward_palm_rotation=np.array([[0,0,1],[0,1,0],[-1,0,0]],dtype=float)
+        self.object_geom=mujoco.mj_name2id(sim.m,mujoco.mjtObj.mjOBJ_GEOM,&#x27;object_geom&#x27;);self.table_geom=mujoco.mj_name2id(sim.m,mujoco.mjtObj.mjOBJ_GEOM,&#x27;worktable&#x27;)
+        self.initial_detection={};self.initial_rgb=None;self.initial_depth=None;self.control_counter=0
+    @property
+    def latest_rgb(self):return self.camera.latest_rgb
+    @property
+    def latest_depth(self):return self.camera.latest_depth
+    @property
+    def state(self):return dict(active=self.active,phase=self.phase,target_estimate=self.target,waypoint=self.waypoint,result=self.result,events=self.events,detection=self.camera.last_detection,initial_detection=self.initial_detection,method=&#x27;Actual virtual RGB-D camera -&gt; OpenCV segmentation -&gt; calibrated 3D backprojection -&gt; IK -&gt; effort-limited physics -&gt; contact stop&#x27;,autonomous_pickup=False)
+    def start(self):
+        self.sim.hold();self.sim.preset(&#x27;open&#x27;);self.active=True;self.phase=&#x27;detect&#x27;;self.started=float(self.sim.d.time);self.phase_started=self.started;self.events=[];self.result={};self.target=None;self.waypoint=None;self.control_counter=0;self.initial_detection={};return self.state
+    def stop(self,reason=&#x27;Stopped by user&#x27;):
+        self.active=False;self.sim.hold();self.phase=&#x27;stopped&#x27;;self.result=dict(success=False,reason=reason);return self.state
+    def _transition(self,phase):
+        self.phase=phase;self.phase_started=float(self.sim.d.time);self.events.append(dict(time_s=float(self.sim.d.time),phase=phase))
+    def _command(self,point,oriented=True):
+        result=self.sim.solve_ik(point,self.downward_palm_rotation if oriented else None)
+        if not result[&#x27;success&#x27;]:
+            self.stop(&#x27;IK target unreachable: &#x27;+str(result[&#x27;error_m&#x27;]));return False
+        self.waypoint=list(map(float,point));return True
+    def _arrived(self):
+        return self.waypoint is not None and np.linalg.norm(self.sim.d.site_xpos[self.sim.palm_id]-self.waypoint)&lt;.004 and np.max(abs(self.sim.d.qvel[self.sim.vadr[:7]]))&lt;.08
+    def step(self,n=1):
+        &quot;&quot;&quot;Use instead of sim.step while active: contact stop checked every 2 ms.&quot;&quot;&quot;
+        for _ in range(int(n)):
+            self.sim.step();self.control_counter+=1
+            if self.active and self.phase!=&#x27;detect&#x27;:
+                for ci in range(self.sim.d.ncon):
+                    contact=self.sim.d.contact[ci];a,b=int(contact.geom1),int(contact.geom2)
+                    if self.object_geom not in (a,b) or self.table_geom in (a,b):continue
+                    force=np.zeros(6);mujoco.mj_contactForce(self.sim.m,self.sim.d,ci,force)
+                    if force[0]&gt;.03:self.tick();break
+            if self.active and self.control_counter%50==0:self.tick()
+    def tick(self):
+        if not self.active:return self.state
+        elapsed=float(self.sim.d.time)-self.started
+        if elapsed&gt;32:return self.stop(&#x27;Vision reach timeout&#x27;)
+        # Touch safety is derived from physical contact forces, never object pose.
+        contacts=self.sim.state()[&#x27;contacts&#x27;]
+        object_contacts=[c for c in contacts if &#x27;object_geom&#x27; in (c[&#x27;geom1&#x27;],c[&#x27;geom2&#x27;]) and &#x27;worktable&#x27; not in (c[&#x27;geom1&#x27;],c[&#x27;geom2&#x27;]) and c[&#x27;normal_force&#x27;]&gt;.03]
+        table_contacts=[c for c in contacts if &#x27;worktable&#x27; in (c[&#x27;geom1&#x27;],c[&#x27;geom2&#x27;]) and &#x27;object_geom&#x27; not in (c[&#x27;geom1&#x27;],c[&#x27;geom2&#x27;]) and c[&#x27;normal_force&#x27;]&gt;1]
+        if object_contacts:
+            if self.target is None or self.phase in (&#x27;detect&#x27;,&#x27;raise_clearance&#x27;):
+                return self.stop(&#x27;Object contact before camera-guided approach; no autonomous reach credited&#x27;)
+            for contact in object_contacts:
+                other=contact[&#x27;geom2&#x27;] if contact[&#x27;geom1&#x27;]==&#x27;object_geom&#x27; else contact[&#x27;geom1&#x27;]
+                geom=mujoco.mj_name2id(self.sim.m,mujoco.mjtObj.mjOBJ_GEOM,other);body=mujoco.mj_id2name(self.sim.m,mujoco.mjtObj.mjOBJ_BODY,int(self.sim.m.geom_bodyid[geom]))
+                if body!=&#x27;palm_base&#x27; and not any(body.startswith(f+&#x27;_&#x27;) for f in (&#x27;index&#x27;,&#x27;middle&#x27;,&#x27;ring&#x27;,&#x27;pinky&#x27;,&#x27;thumb&#x27;)):
+                    return self.stop(&#x27;Unexpected arm contact with target; no hand reach credited&#x27;)
+            self.sim.hold();self.active=False;self._transition(&#x27;contact_stop&#x27;);self.result=dict(success=True,task=&#x27;Vision-guided approach and touch&#x27;,autonomous_pickup=False,contacts=object_contacts,elapsed_seconds=elapsed,ground_truth_object_pose_used_for_control=False);self.camera.capture();return self.state
+        if table_contacts:return self.stop(&#x27;Worktable contact detected; held joint positions&#x27;)
+        if self.phase==&#x27;detect&#x27;:
+            detection=self.camera.capture()
+            if not detection[&#x27;detected&#x27;]:
+                if elapsed&gt;3:return self.stop(&#x27;No orange target detected&#x27;)
+                return self.state
+            self.target=detection[&#x27;center_world_m&#x27;];palm=self.sim.d.site_xpos[self.sim.palm_id].copy();palm[2]=max(.90,palm[2]+.12)
+            self.initial_detection=detection.copy();self.initial_rgb=self.camera.latest_rgb.copy();self.initial_depth=self.camera.latest_depth.copy()
+            if self._command(palm,False):self._transition(&#x27;raise_clearance&#x27;)
+        elif self.phase==&#x27;raise_clearance&#x27; and self._arrived():
+            goal=np.array(self.target);goal[2]+=.22
+            if self._command(goal,True):self._transition(&#x27;align_above_target&#x27;)
+        elif self.phase==&#x27;align_above_target&#x27; and self._arrived():
+            self._transition(&#x27;descend_to_touch&#x27;)
+        elif self.phase==&#x27;descend_to_touch&#x27; and self._arrived():
+            goal=np.array(self.waypoint);goal[2]-=.008
+            if goal[2]&lt;self.target[2]+.034:return self.stop(&#x27;Reached visual depth limit without target contact&#x27;)
+            self._command(goal,True)
+        return self.state
+    def close(self):self.camera.close()
+
+if __name__==&#x27;__main__&#x27;:
+    spec=importlib.util.spec_from_file_location(&#x27;v3model&#x27;,ROOT/&#x27;simulation&#x27;/&#x27;v3&#x27;/&#x27;model.py&#x27;);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    sim=module.ArmSimulation();controller=VisionReach(sim);controller.start()
+    while controller.active:controller.step(50)
+    print(json.dumps(controller.state,indent=2));controller.close();sim.close()
+</pre></html>

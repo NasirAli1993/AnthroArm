@@ -1,0 +1,770 @@
+{
+  "model": "AnthroArm-27",
+  "version": "3.0",
+  "provisional": true,
+  "passed": true,
+  "checks": {
+    "degrees_of_freedom": {
+      "passed": true,
+      "arm": 7,
+      "hand": 20,
+      "actuators": 27
+    },
+    "initial_clearance": {
+      "passed": true,
+      "deep_robot_contacts": [],
+      "steady_joint_error_deg": 6.853171621085521e-09
+    },
+    "independent_27_axis_motion": {
+      "passed": true,
+      "max_error_deg": 7.648209267597214e-05,
+      "results": [
+        {
+          "joint": "shoulder_abduction",
+          "error_deg": 7.648209267597214e-05,
+          "effort_fraction": 0.12217671331229285,
+          "finite": true
+        },
+        {
+          "joint": "shoulder_flexion",
+          "error_deg": 2.2587295882751896e-07,
+          "effort_fraction": 0.12337281216465668,
+          "finite": true
+        },
+        {
+          "joint": "shoulder_rotation",
+          "error_deg": 2.8871461266824964e-09,
+          "effort_fraction": 0.1232713996568533,
+          "finite": true
+        },
+        {
+          "joint": "elbow_flexion",
+          "error_deg": 3.8755694904569244e-10,
+          "effort_fraction": 0.12337281593193561,
+          "finite": true
+        },
+        {
+          "joint": "forearm_pronation",
+          "error_deg": 1.1043365322659561e-08,
+          "effort_fraction": 0.12221344104283105,
+          "finite": true
+        },
+        {
+          "joint": "wrist_flexion",
+          "error_deg": 4.463154703974539e-09,
+          "effort_fraction": 0.12337281789324539,
+          "finite": true
+        },
+        {
+          "joint": "wrist_deviation",
+          "error_deg": 3.415000523282226e-08,
+          "effort_fraction": 0.12394765629047644,
+          "finite": true
+        },
+        {
+          "joint": "index_mcp_abduction",
+          "error_deg": 5.8784860320217315e-09,
+          "effort_fraction": 0.12356143572630618,
+          "finite": true
+        },
+        {
+          "joint": "index_mcp_flexion",
+          "error_deg": 1.3689314085073272e-09,
+          "effort_fraction": 0.12353175285467888,
+          "finite": true
+        },
+        {
+          "joint": "index_pip",
+          "error_deg": 2.233067441855535e-10,
+          "effort_fraction": 0.12355454255526199,
+          "finite": true
+        },
+        {
+          "joint": "index_dip",
+          "error_deg": 3.967582937391664e-11,
+          "effort_fraction": 0.12356119808647259,
+          "finite": true
+        },
+        {
+          "joint": "middle_mcp_abduction",
+          "error_deg": 5.981424684287299e-09,
+          "effort_fraction": 0.12356130937653287,
+          "finite": true
+        },
+        {
+          "joint": "middle_mcp_flexion",
+          "error_deg": 1.0896723463654674e-09,
+          "effort_fraction": 0.12352847304408954,
+          "finite": true
+        },
+        {
+          "joint": "middle_pip",
+          "error_deg": 1.1560839183917664e-10,
+          "effort_fraction": 0.12355410568382563,
+          "finite": true
+        },
+        {
+          "joint": "middle_dip",
+          "error_deg": 2.3157618635735866e-11,
+          "effort_fraction": 0.12356103924987227,
+          "finite": true
+        },
+        {
+          "joint": "ring_mcp_abduction",
+          "error_deg": 4.7802172427062715e-09,
+          "effort_fraction": 0.12356143566808031,
+          "finite": true
+        },
+        {
+          "joint": "ring_mcp_flexion",
+          "error_deg": 1.974822304494105e-10,
+          "effort_fraction": 0.12353175886021672,
+          "finite": true
+        },
+        {
+          "joint": "ring_pip",
+          "error_deg": 9.381682143912935e-11,
+          "effort_fraction": 0.12355454030548474,
+          "finite": true
+        },
+        {
+          "joint": "ring_dip",
+          "error_deg": 4.7105605109815414e-11,
+          "effort_fraction": 0.12356119759372142,
+          "finite": true
+        },
+        {
+          "joint": "pinky_mcp_abduction",
+          "error_deg": 3.0550187845401545e-09,
+          "effort_fraction": 0.12356163486828686,
+          "finite": true
+        },
+        {
+          "joint": "pinky_mcp_flexion",
+          "error_deg": 1.1004687392316954e-09,
+          "effort_fraction": 0.12353693720952919,
+          "finite": true
+        },
+        {
+          "joint": "pinky_pip",
+          "error_deg": 3.563652492845797e-11,
+          "effort_fraction": 0.12355572861231279,
+          "finite": true
+        },
+        {
+          "joint": "pinky_dip",
+          "error_deg": 2.9271121816710965e-10,
+          "effort_fraction": 0.12356127710116427,
+          "finite": true
+        },
+        {
+          "joint": "thumb_cmc_opposition",
+          "error_deg": 5.834314091036231e-10,
+          "effort_fraction": 0.12356975201929687,
+          "finite": true
+        },
+        {
+          "joint": "thumb_cmc_flexion",
+          "error_deg": 5.442294823772445e-10,
+          "effort_fraction": 0.1235454220913339,
+          "finite": true
+        },
+        {
+          "joint": "thumb_mcp_flexion",
+          "error_deg": 3.548115483226848e-10,
+          "effort_fraction": 0.12355757989261651,
+          "finite": true
+        },
+        {
+          "joint": "thumb_ip",
+          "error_deg": 4.074608602422911e-11,
+          "effort_fraction": 0.123561690321079,
+          "finite": true
+        }
+      ]
+    },
+    "bounded_physics": {
+      "passed": true,
+      "gravity_active": true,
+      "actuator_bias_feedforward": true,
+      "external_control_forces": false
+    },
+    "rgbd_autonomous_reach": {
+      "passed": true,
+      "trials": [
+        {
+          "trial": 1,
+          "configured_target_xy": [
+            0.37,
+            -0.08
+          ],
+          "ground_truth_initial_for_scoring_m": [
+            0.3699999999987158,
+            -0.07999999794944292,
+            0.6253914782969372
+          ],
+          "camera_estimate_m": [
+            0.3708771053304587,
+            -0.08064645201150371,
+            0.6260331784478894
+          ],
+          "estimation_error_mm": 1.264514017739155,
+          "success": true,
+          "control": {
+            "active": false,
+            "phase": "contact_stop",
+            "target_estimate": [
+              0.3708771053304587,
+              -0.08064645201150371,
+              0.6260331784478894
+            ],
+            "waypoint": [
+              0.3708771053304587,
+              -0.08064645201150371,
+              0.6620331784478892
+            ],
+            "result": {
+              "success": true,
+              "task": "Vision-guided approach and touch",
+              "autonomous_pickup": false,
+              "contacts": [
+                {
+                  "geom1": "object_geom",
+                  "geom2": "CentralPalmPad_collision",
+                  "distance": 0.00029679131673927687,
+                  "normal_force": 4.286353742263343,
+                  "position": [
+                    0.38306245274487605,
+                    -0.07892484319690196,
+                    0.6505398739427188
+                  ]
+                },
+                {
+                  "geom1": "object_geom",
+                  "geom2": "CentralPalmPad_collision",
+                  "distance": 0.00029679131673927687,
+                  "normal_force": 4.055378827865358,
+                  "position": [
+                    0.387755277446993,
+                    -0.08137191809205652,
+                    0.6505432042717378
+                  ]
+                }
+              ],
+              "elapsed_seconds": 7.793999999999472,
+              "ground_truth_object_pose_used_for_control": false
+            },
+            "events": [
+              {
+                "time_s": 0.7000000000000005,
+                "phase": "raise_clearance"
+              },
+              {
+                "time_s": 1.300000000000001,
+                "phase": "align_above_target"
+              },
+              {
+                "time_s": 3.699999999999814,
+                "phase": "descend_to_touch"
+              },
+              {
+                "time_s": 8.393999999999473,
+                "phase": "contact_stop"
+              }
+            ],
+            "detection": {
+              "detected": true,
+              "source": "rendered RGB segmentation + metric depth",
+              "ground_truth_object_pose_used": false,
+              "center_world_m": [
+                0.3843598661475124,
+                -0.10978271083360078,
+                0.6228525681251068
+              ],
+              "top_surface_z_m": 0.6478525681251068,
+              "bbox_pixels": [
+                268,
+                251,
+                32,
+                22
+              ],
+              "orange_pixels": 511,
+              "top_surface_pixels": 22,
+              "calibration": {
+                "fx": 539.0488257370118,
+                "fy": 539.0488257370118,
+                "cx": 319.5,
+                "cy": 239.5,
+                "width": 640,
+                "height": 480,
+                "camera_world_position_m": [
+                  0.76,
+                  -0.9,
+                  1.3
+                ],
+                "camera_world_rotation": [
+                  [
+                    0.9354720936771068,
+                    -0.2039771050121656,
+                    0.28859193090283475
+                  ],
+                  [
+                    0.3534005686913514,
+                    0.5399393956679712,
+                    -0.7639198171629897
+                  ],
+                  [
+                    0.0,
+                    0.8166142232636915,
+                    0.5771838618355836
+                  ]
+                ]
+              },
+              "assumptions": "Known upright 50 mm orange cube; top surface visible; camera extrinsics calibrated."
+            },
+            "initial_detection": {
+              "detected": true,
+              "source": "rendered RGB segmentation + metric depth",
+              "ground_truth_object_pose_used": false,
+              "center_world_m": [
+                0.3708771053304587,
+                -0.08064645201150371,
+                0.6260331784478894
+              ],
+              "top_surface_z_m": 0.6510331784478894,
+              "bbox_pixels": [
+                267,
+                235,
+                33,
+                38
+              ],
+              "orange_pixels": 966,
+              "top_surface_pixels": 369,
+              "calibration": {
+                "fx": 539.0488257370118,
+                "fy": 539.0488257370118,
+                "cx": 319.5,
+                "cy": 239.5,
+                "width": 640,
+                "height": 480,
+                "camera_world_position_m": [
+                  0.76,
+                  -0.9,
+                  1.3
+                ],
+                "camera_world_rotation": [
+                  [
+                    0.9354720936771068,
+                    -0.2039771050121656,
+                    0.28859193090283475
+                  ],
+                  [
+                    0.3534005686913514,
+                    0.5399393956679712,
+                    -0.7639198171629897
+                  ],
+                  [
+                    0.0,
+                    0.8166142232636915,
+                    0.5771838618355836
+                  ]
+                ]
+              },
+              "assumptions": "Known upright 50 mm orange cube; top surface visible; camera extrinsics calibrated."
+            },
+            "method": "Actual virtual RGB-D camera -> OpenCV segmentation -> calibrated 3D backprojection -> IK -> effort-limited physics -> contact stop",
+            "autonomous_pickup": false
+          }
+        },
+        {
+          "trial": 2,
+          "configured_target_xy": [
+            0.42,
+            0
+          ],
+          "ground_truth_initial_for_scoring_m": [
+            0.42,
+            0.0,
+            0.6253914782971268
+          ],
+          "camera_estimate_m": [
+            0.420694300227821,
+            -0.0010196506262710545,
+            0.626060307304734
+          ],
+          "estimation_error_mm": 1.40323641893451,
+          "success": true,
+          "control": {
+            "active": false,
+            "phase": "contact_stop",
+            "target_estimate": [
+              0.420694300227821,
+              -0.0010196506262710545,
+              0.626060307304734
+            ],
+            "waypoint": [
+              0.420694300227821,
+              -0.0010196506262710545,
+              0.6620603073047339
+            ],
+            "result": {
+              "success": true,
+              "task": "Vision-guided approach and touch",
+              "autonomous_pickup": false,
+              "contacts": [
+                {
+                  "geom1": "object_geom",
+                  "geom2": "CentralPalmPad_collision",
+                  "distance": 0.0003127960091178078,
+                  "normal_force": 4.345805864752212,
+                  "position": [
+                    0.43348447287003955,
+                    0.0005532503402109961,
+                    0.6505478760091898
+                  ]
+                },
+                {
+                  "geom1": "object_geom",
+                  "geom2": "CentralPalmPad_collision",
+                  "distance": 0.0003127960091178078,
+                  "normal_force": 4.370877985176741,
+                  "position": [
+                    0.4334787099876846,
+                    -0.0017192596954999746,
+                    0.6505504016534758
+                  ]
+                }
+              ],
+              "elapsed_seconds": 7.819999999999481,
+              "ground_truth_object_pose_used_for_control": false
+            },
+            "events": [
+              {
+                "time_s": 0.7000000000000005,
+                "phase": "raise_clearance"
+              },
+              {
+                "time_s": 1.300000000000001,
+                "phase": "align_above_target"
+              },
+              {
+                "time_s": 3.399999999999847,
+                "phase": "descend_to_touch"
+              },
+              {
+                "time_s": 8.419999999999481,
+                "phase": "contact_stop"
+              }
+            ],
+            "detection": {
+              "detected": true,
+              "source": "rendered RGB segmentation + metric depth",
+              "ground_truth_object_pose_used": false,
+              "center_world_m": [
+                0.43148472303395125,
+                -0.02333410531243335,
+                0.6219555159246748
+              ],
+              "top_surface_z_m": 0.6469555159246748,
+              "bbox_pixels": [
+                305,
+                235,
+                30,
+                21
+              ],
+              "orange_pixels": 484,
+              "top_surface_pixels": 26,
+              "calibration": {
+                "fx": 539.0488257370118,
+                "fy": 539.0488257370118,
+                "cx": 319.5,
+                "cy": 239.5,
+                "width": 640,
+                "height": 480,
+                "camera_world_position_m": [
+                  0.76,
+                  -0.9,
+                  1.3
+                ],
+                "camera_world_rotation": [
+                  [
+                    0.9354720936771068,
+                    -0.2039771050121656,
+                    0.28859193090283475
+                  ],
+                  [
+                    0.3534005686913514,
+                    0.5399393956679712,
+                    -0.7639198171629897
+                  ],
+                  [
+                    0.0,
+                    0.8166142232636915,
+                    0.5771838618355836
+                  ]
+                ]
+              },
+              "assumptions": "Known upright 50 mm orange cube; top surface visible; camera extrinsics calibrated."
+            },
+            "initial_detection": {
+              "detected": true,
+              "source": "rendered RGB segmentation + metric depth",
+              "ground_truth_object_pose_used": false,
+              "center_world_m": [
+                0.420694300227821,
+                -0.0010196506262710545,
+                0.626060307304734
+              ],
+              "top_surface_z_m": 0.6510603073047341,
+              "bbox_pixels": [
+                305,
+                220,
+                30,
+                36
+              ],
+              "orange_pixels": 869,
+              "top_surface_pixels": 325,
+              "calibration": {
+                "fx": 539.0488257370118,
+                "fy": 539.0488257370118,
+                "cx": 319.5,
+                "cy": 239.5,
+                "width": 640,
+                "height": 480,
+                "camera_world_position_m": [
+                  0.76,
+                  -0.9,
+                  1.3
+                ],
+                "camera_world_rotation": [
+                  [
+                    0.9354720936771068,
+                    -0.2039771050121656,
+                    0.28859193090283475
+                  ],
+                  [
+                    0.3534005686913514,
+                    0.5399393956679712,
+                    -0.7639198171629897
+                  ],
+                  [
+                    0.0,
+                    0.8166142232636915,
+                    0.5771838618355836
+                  ]
+                ]
+              },
+              "assumptions": "Known upright 50 mm orange cube; top surface visible; camera extrinsics calibrated."
+            },
+            "method": "Actual virtual RGB-D camera -> OpenCV segmentation -> calibrated 3D backprojection -> IK -> effort-limited physics -> contact stop",
+            "autonomous_pickup": false
+          }
+        },
+        {
+          "trial": 3,
+          "configured_target_xy": [
+            0.43,
+            0.075
+          ],
+          "ground_truth_initial_for_scoring_m": [
+            0.4299999999987615,
+            0.07499999795663813,
+            0.6253914782969372
+          ],
+          "camera_estimate_m": [
+            0.43077411504348817,
+            0.07408182045116,
+            0.6260909596620114
+          ],
+          "estimation_error_mm": 1.389812294565121,
+          "success": true,
+          "control": {
+            "active": false,
+            "phase": "contact_stop",
+            "target_estimate": [
+              0.43077411504348817,
+              0.07408182045116,
+              0.6260909596620114
+            ],
+            "waypoint": [
+              0.43077411504348817,
+              0.07408182045116,
+              0.6620909596620113
+            ],
+            "result": {
+              "success": true,
+              "task": "Vision-guided approach and touch",
+              "autonomous_pickup": false,
+              "contacts": [
+                {
+                  "geom1": "object_geom",
+                  "geom2": "CentralPalmPad_collision",
+                  "distance": 0.00034147591577024744,
+                  "normal_force": 3.292592732503815,
+                  "position": [
+                    0.44440946232763107,
+                    0.07420775907404564,
+                    0.6505622161966857
+                  ]
+                },
+                {
+                  "geom1": "object_geom",
+                  "geom2": "CentralPalmPad_collision",
+                  "distance": 0.00034147591577024744,
+                  "normal_force": 3.363806996664183,
+                  "position": [
+                    0.4432375055060614,
+                    0.07308762870547422,
+                    0.6505635120667291
+                  ]
+                },
+                {
+                  "geom1": "object_geom",
+                  "geom2": "CentralPalmPad_collision",
+                  "distance": 0.00034147591577024744,
+                  "normal_force": 3.405154356763244,
+                  "position": [
+                    0.44250617060576686,
+                    0.07238783998625861,
+                    0.6505643210618092
+                  ]
+                }
+              ],
+              "elapsed_seconds": 7.853999999999492,
+              "ground_truth_object_pose_used_for_control": false
+            },
+            "events": [
+              {
+                "time_s": 0.7000000000000005,
+                "phase": "raise_clearance"
+              },
+              {
+                "time_s": 1.300000000000001,
+                "phase": "align_above_target"
+              },
+              {
+                "time_s": 3.299999999999858,
+                "phase": "descend_to_touch"
+              },
+              {
+                "time_s": 8.453999999999493,
+                "phase": "contact_stop"
+              }
+            ],
+            "detection": {
+              "detected": true,
+              "source": "rendered RGB segmentation + metric depth",
+              "ground_truth_object_pose_used": false,
+              "center_world_m": [
+                0.4262184414536626,
+                0.04882623611754744,
+                0.6225929114132118
+              ],
+              "top_surface_z_m": 0.6475929114132118,
+              "bbox_pixels": [
+                317,
+                215,
+                33,
+                23
+              ],
+              "orange_pixels": 463,
+              "top_surface_pixels": 26,
+              "calibration": {
+                "fx": 539.0488257370118,
+                "fy": 539.0488257370118,
+                "cx": 319.5,
+                "cy": 239.5,
+                "width": 640,
+                "height": 480,
+                "camera_world_position_m": [
+                  0.76,
+                  -0.9,
+                  1.3
+                ],
+                "camera_world_rotation": [
+                  [
+                    0.9354720936771068,
+                    -0.2039771050121656,
+                    0.28859193090283475
+                  ],
+                  [
+                    0.3534005686913514,
+                    0.5399393956679712,
+                    -0.7639198171629897
+                  ],
+                  [
+                    0.0,
+                    0.8166142232636915,
+                    0.5771838618355836
+                  ]
+                ]
+              },
+              "assumptions": "Known upright 50 mm orange cube; top surface visible; camera extrinsics calibrated."
+            },
+            "initial_detection": {
+              "detected": true,
+              "source": "rendered RGB segmentation + metric depth",
+              "ground_truth_object_pose_used": false,
+              "center_world_m": [
+                0.43077411504348817,
+                0.07408182045116,
+                0.6260909596620114
+              ],
+              "top_surface_z_m": 0.6510909596620115,
+              "bbox_pixels": [
+                321,
+                204,
+                29,
+                34
+              ],
+              "orange_pixels": 790,
+              "top_surface_pixels": 287,
+              "calibration": {
+                "fx": 539.0488257370118,
+                "fy": 539.0488257370118,
+                "cx": 319.5,
+                "cy": 239.5,
+                "width": 640,
+                "height": 480,
+                "camera_world_position_m": [
+                  0.76,
+                  -0.9,
+                  1.3
+                ],
+                "camera_world_rotation": [
+                  [
+                    0.9354720936771068,
+                    -0.2039771050121656,
+                    0.28859193090283475
+                  ],
+                  [
+                    0.3534005686913514,
+                    0.5399393956679712,
+                    -0.7639198171629897
+                  ],
+                  [
+                    0.0,
+                    0.8166142232636915,
+                    0.5771838618355836
+                  ]
+                ]
+              },
+              "assumptions": "Known upright 50 mm orange cube; top surface visible; camera extrinsics calibrated."
+            },
+            "method": "Actual virtual RGB-D camera -> OpenCV segmentation -> calibrated 3D backprojection -> IK -> effort-limited physics -> contact stop",
+            "autonomous_pickup": false
+          }
+        }
+      ],
+      "ground_truth_used_for_control": false,
+      "autonomous_pickup": false
+    }
+  },
+  "limitations": [
+    "A simulated human-shaped upper limb, not a fabricated robot.",
+    "Camera autonomy is controlled-environment orange-cube approach and touch; autonomous pickup is not demonstrated.",
+    "Vision assumes calibrated fixed RGB-D camera and upright 50 mm orange cube on the known worktable.",
+    "Collision shapes are separate convex hulls; mass and motor parameters are conceptual."
+  ],
+  "failed_checks": []
+}

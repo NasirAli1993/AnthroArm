@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "checks": {
+    "ray_sensor_against_known_test_fixture": {
+      "passed": true,
+      "four_cardinal_range_errors_m": [
+        0.0053540761633570355,
+        0.004336206779421481,
+        0.005815921189240347,
+        0.004766366913269593
+      ],
+      "note": "Expected wall distances are used only by this sensor test, never by mapping/control."
+    },
+    "contact_driven_wheel_motion": {
+      "passed": true,
+      "actual_travel_m": 0.6795398892585458,
+      "encoder_travel_m": 0.7849163073791805,
+      "command_m_s": 0.2,
+      "duration_s": 4,
+      "note": "Free-joint chassis is moved by wheel actuators and ground contacts; no pose teleportation."
+    },
+    "sensor_only_replay": {
+      "passed": true,
+      "observation_count": 1217,
+      "maximum_replayed_pose_component_error": 0.0,
+      "occupancy_logodds_exactly_reproduced": true,
+      "input_fields": [
+        "angle_increment",
+        "angle_min",
+        "encoder_delta",
+        "range_max",
+        "range_min",
+        "ranges",
+        "stamp",
+        "wheel_odometry",
+        "wheel_positions"
+      ],
+      "note": "Replay receives no simulator, true pose, obstacle model or goal data."
+    },
+    "occupied_goal_rejected": {
+      "passed": true,
+      "occupied_goal_m": [
+        -0.7999999999999999,
+        2.4400000000000004
+      ]
+    }
+  }
+}

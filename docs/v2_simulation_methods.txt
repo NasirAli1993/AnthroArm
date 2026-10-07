@@ -1,0 +1,40 @@
+ASTER-25 ANATOMICAL - SIMULATION METHODS AND MEASURED RESULTS
+
+Visuals: 101 exact CAD meshes in metres.
+Contacts: 40 convex hulls of CAD shells/pads.
+Visual meshes use group 1; hidden collision hulls use group 3. Floor/object use group 0.
+Hulls can fill shell cavities and small concavities; this is not exact concave CAD collision.
+
+Control: 25 position servos. A separate nominal reference follows joint speed limits.
+Modeled gravity/Coriolis bias is fed through the same effort-limited actuators.
+There are no applied external control torques and no body gravity cancellation.
+Physical hinge stops, bounded targets, actuator torque limits and self-contact remain active.
+
+Seven v2 precision/contact checks passed. All 25 axes moved independently.
+Free-space steady joint error <0.01 deg; palm target error and return spread <0.01 mm.
+These are idealized numerical model results, not physical hardware precision claims.
+Contact intentionally prevents a finger from reaching a target inside another solid.
+The isolated free-space spread check uses 0.025 rad; larger inward spread meets neighboring digits.
+
+Seeded grasp: 60 g block lifted 293.17 mm.
+Middle/ring contact retained for 100% of the 2 s hold window.
+Block is placed in the upward palm only at initial reset. No teleport or weld is used afterward.
+This validates grip retention and lift from a seeded grasp, not autonomous table pickup.
+
+Thumb-index pinch uses the actual CAD distal pad collision surfaces and nonzero contact force.
+The separate historical fingertip endpoint gap is a centreline-site distance, not the pad gap.
+MuJoCo uses a combined 0.4 mm contact margin, allowing force at a small positive gap.
+
+Reproduce using D:\RoboticArm\scripts\environment.ps1, then the D: Python executable:
+simulation/generate_model.py
+simulation/calibrate_anatomical_pinch.py
+simulation/validate_anatomical.py
+simulation/grasp_demo.py
+simulation/render_validation_stages.py
+
+Saved evidence: results/v2_precision.json, v2_grasp_validation.json, v2_gym_smoke.json.
+Gallery: results/design_stages/06_articulation.png, 07_precision.png, 08_grasp.png.
+
+Model limits: approximate masses/inertias, rigid shells, approximate pad contacts,
+unvalidated strength/tolerances/tendons, 5-axis position-only arm IK without collision-free planning.
+No trained grasping policy is included.

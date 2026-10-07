@@ -1,0 +1,405 @@
+ANTHRO 25 HUMANOID COMPONENT GUIDE
+
+Base · M8 table mounting plate
+Link: base_link
+Anchors the arm to a rigid bench. Four 9 mm clearance holes on 180 mm PCD; rear service port; central cable passage. Anchoring, mass and bolt selection require structural validation.
+
+Base · removable trim ring
+Link: base_link
+Visual trim and cover seam around the waist stage. Does not carry the arm load.
+
+J1 · waist actuator enclosure
+Link: waist_link
+Rotating waist enclosure and central cable route. Its local Z axis follows the first arm joint; bearing and actuator interfaces remain conceptual.
+
+J2 · shoulder yoke L
+Link: waist_link
+Support cheek for shoulder pivot. Bore is a placeholder for a bearing-supported output shaft; bearing seat tolerance must be designed.
+
+J2 · shoulder yoke R
+Link: waist_link
+Support cheek for shoulder pivot. Bore is a placeholder for a bearing-supported output shaft; bearing seat tolerance must be designed.
+
+Upper arm · hollow structural shell
+Link: upper_arm
+300 mm pivot spacing. Hollow concept housing with 16 mm pivot passages and a front service recess. Wall sizing and torque load paths require analysis.
+
+Upper arm · service cover
+Link: upper_arm
+Removable front cover identifies cable and actuator service area. Fasteners, cable strain relief and a complete tendon spool package are not yet detailed.
+
+Upper arm · root bearing cover
+Link: upper_arm
+External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.
+
+Upper arm · root hub ring
+Link: upper_arm
+High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.
+
+Upper arm · tip bearing cover
+Link: upper_arm
+External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.
+
+Upper arm · tip hub ring
+Link: upper_arm
+High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.
+
+Forearm · hollow structural shell
+Link: forearm
+250 mm pivot spacing. Hollow concept housing with 16 mm pivot passages and a front service recess. Wall sizing and torque load paths require analysis.
+
+Forearm · service cover
+Link: forearm
+Removable front cover identifies cable and actuator service area. Fasteners, cable strain relief and a complete tendon spool package are not yet detailed.
+
+Forearm · root bearing cover
+Link: forearm
+External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.
+
+Forearm · root hub ring
+Link: forearm
+High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.
+
+Forearm · tip bearing cover
+Link: forearm
+External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.
+
+Forearm · tip hub ring
+Link: forearm
+High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.
+
+J4 · wrist pitch housing
+Link: wrist_link
+60 mm wrist stage. Pitch follows the local Y axis; a through-bore reserves cable space for the hand.
+
+J5 · wrist roll collar
+Link: wrist_link
+Visual collar at the hand roll interface. Rotation is around the palm Z axis; a slip ring and cable turn limit must be resolved for physical construction.
+
+Wrist | rounded flexion joint cover
+Link: wrist_link
+Smooth rounded external joint cover encloses the inherited forearm-to-wrist shell intersection. This visual cover represents a future flexible boot; it is excluded from rigid collision response and does not change the validated wrist articulation.
+
+Palm | tapered metacarpal shell
+Link: palm_base
+Smooth oval-section palm widens from a 48 mm wrist to an 82–84 mm metacarpal span. Four rounded knuckle lobes meet the finger roots. This surface defines the human-like palm envelope; internal actuation remains conceptual.
+
+Index | rounded metacarpal lobe
+Link: palm_base
+Rounded palm-side knuckle transition joins the broad metacarpal contour to the corresponding articulated MCP carrier.
+
+Middle | rounded metacarpal lobe
+Link: palm_base
+Rounded palm-side knuckle transition joins the broad metacarpal contour to the corresponding articulated MCP carrier.
+
+Ring | rounded metacarpal lobe
+Link: palm_base
+Rounded palm-side knuckle transition joins the broad metacarpal contour to the corresponding articulated MCP carrier.
+
+Pinky | rounded metacarpal lobe
+Link: palm_base
+Rounded palm-side knuckle transition joins the broad metacarpal contour to the corresponding articulated MCP carrier.
+
+Palm | rounded thenar eminence
+Link: palm_base
+The rounded muscular mound at the thumb base creates the asymmetric human palm silhouette and bridges the wrist to the thumb CMC socket. It is a rigid visual/collision envelope, not simulated muscle.
+
+Palm | hypothenar contour
+Link: palm_base
+A smaller rounded mound on the little-finger side completes the palm contour and provides a curved support surface.
+
+Palm | curved compliant contact insert
+Link: palm_base
+Oval, softly domed palmar contact insert. Frictional contact is modeled in physics; real elastomer compliance, durometer and attachment are not yet engineered.
+
+Palm | curved thenar contact insert
+Link: palm_base
+Curved thumb-base contact insert follows the thenar mound, helping the palm support objects during opposition.
+
+Palm | smooth dorsal service cover
+Link: palm_base
+A thin rounded dorsal service panel follows the back-of-hand contour. Production fasteners and sealing remain to be selected.
+
+Wrist | soft annular transition
+Link: palm_base
+Narrow soft transition at the wrist preserves the natural palm taper while making the roll boundary visible.
+
+Index | rounded MCP carrier
+Link: index_knuckle
+Rounded two-axis knuckle carrier supports independent finger spread and flexion at the same MCP center. Bearing/transmission hardware remains conceptual.
+
+Index Proximal | smooth tapered shell
+Link: index_proximal
+40 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Index Proximal | soft joint crease
+Link: index_proximal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Index Proximal | hinge axis pin
+Link: index_proximal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Index Proximal | soft curved pad
+Link: index_proximal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Index Intermediate | smooth tapered shell
+Link: index_intermediate
+24 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Index Intermediate | soft joint crease
+Link: index_intermediate
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Index Intermediate | hinge axis pin
+Link: index_intermediate
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Index Intermediate | soft curved pad
+Link: index_intermediate
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Index Distal | smooth tapered shell
+Link: index_distal
+18 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Index Distal | soft joint crease
+Link: index_distal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Index Distal | hinge axis pin
+Link: index_distal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Index Distal | soft curved pad
+Link: index_distal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Index | dorsal fingertip shield
+Link: index_distal
+A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.
+
+Middle | rounded MCP carrier
+Link: middle_knuckle
+Rounded two-axis knuckle carrier supports independent finger spread and flexion at the same MCP center. Bearing/transmission hardware remains conceptual.
+
+Middle Proximal | smooth tapered shell
+Link: middle_proximal
+45 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Middle Proximal | soft joint crease
+Link: middle_proximal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Middle Proximal | hinge axis pin
+Link: middle_proximal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Middle Proximal | soft curved pad
+Link: middle_proximal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Middle Intermediate | smooth tapered shell
+Link: middle_intermediate
+25 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Middle Intermediate | soft joint crease
+Link: middle_intermediate
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Middle Intermediate | hinge axis pin
+Link: middle_intermediate
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Middle Intermediate | soft curved pad
+Link: middle_intermediate
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Middle Distal | smooth tapered shell
+Link: middle_distal
+20 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Middle Distal | soft joint crease
+Link: middle_distal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Middle Distal | hinge axis pin
+Link: middle_distal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Middle Distal | soft curved pad
+Link: middle_distal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Middle | dorsal fingertip shield
+Link: middle_distal
+A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.
+
+Ring | rounded MCP carrier
+Link: ring_knuckle
+Rounded two-axis knuckle carrier supports independent finger spread and flexion at the same MCP center. Bearing/transmission hardware remains conceptual.
+
+Ring Proximal | smooth tapered shell
+Link: ring_proximal
+40 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Ring Proximal | soft joint crease
+Link: ring_proximal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Ring Proximal | hinge axis pin
+Link: ring_proximal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Ring Proximal | soft curved pad
+Link: ring_proximal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Ring Intermediate | smooth tapered shell
+Link: ring_intermediate
+24 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Ring Intermediate | soft joint crease
+Link: ring_intermediate
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Ring Intermediate | hinge axis pin
+Link: ring_intermediate
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Ring Intermediate | soft curved pad
+Link: ring_intermediate
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Ring Distal | smooth tapered shell
+Link: ring_distal
+18 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Ring Distal | soft joint crease
+Link: ring_distal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Ring Distal | hinge axis pin
+Link: ring_distal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Ring Distal | soft curved pad
+Link: ring_distal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Ring | dorsal fingertip shield
+Link: ring_distal
+A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.
+
+Pinky | rounded MCP carrier
+Link: pinky_knuckle
+Rounded two-axis knuckle carrier supports independent finger spread and flexion at the same MCP center. Bearing/transmission hardware remains conceptual.
+
+Pinky Proximal | smooth tapered shell
+Link: pinky_proximal
+33 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Pinky Proximal | soft joint crease
+Link: pinky_proximal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Pinky Proximal | hinge axis pin
+Link: pinky_proximal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Pinky Proximal | soft curved pad
+Link: pinky_proximal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Pinky Intermediate | smooth tapered shell
+Link: pinky_intermediate
+20 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Pinky Intermediate | soft joint crease
+Link: pinky_intermediate
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Pinky Intermediate | hinge axis pin
+Link: pinky_intermediate
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Pinky Intermediate | soft curved pad
+Link: pinky_intermediate
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Pinky Distal | smooth tapered shell
+Link: pinky_distal
+17 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Pinky Distal | soft joint crease
+Link: pinky_distal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Pinky Distal | hinge axis pin
+Link: pinky_distal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Pinky Distal | soft curved pad
+Link: pinky_distal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Pinky | dorsal fingertip shield
+Link: pinky_distal
+A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.
+
+Thumb | rounded opposition socket
+Link: thumb_opposition
+Saddle-joint-inspired spherical envelope at the canonical CMC opposition axis. Together with the metacarpal flexion axis this turns the thumb across the palm.
+
+Thumb Metacarpal | smooth tapered shell
+Link: thumb_metacarpal
+30 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Thumb Metacarpal | soft joint crease
+Link: thumb_metacarpal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Thumb Metacarpal | hinge axis pin
+Link: thumb_metacarpal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Thumb Metacarpal | soft curved pad
+Link: thumb_metacarpal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Thumb Proximal | smooth tapered shell
+Link: thumb_proximal
+20 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Thumb Proximal | soft joint crease
+Link: thumb_proximal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Thumb Proximal | hinge axis pin
+Link: thumb_proximal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Thumb Proximal | soft curved pad
+Link: thumb_proximal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Thumb Distal | smooth tapered shell
+Link: thumb_distal
+15 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.
+
+Thumb Distal | soft joint crease
+Link: thumb_distal
+Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.
+
+Thumb Distal | hinge axis pin
+Link: thumb_distal
+Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.
+
+Thumb Distal | soft curved pad
+Link: thumb_distal
+Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.
+
+Thumb | dorsal fingertip shield
+Link: thumb_distal
+A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.

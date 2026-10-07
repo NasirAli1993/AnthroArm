@@ -1,0 +1,105 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>hardware/single_finger/single_finger.ino</title><style>body{margin:0;background:#0d1518;color:#dce9eb;font:14px Segoe UI,sans-serif}header{padding:23px 30px;border-bottom:1px solid #304a50;position:sticky;top:0;background:#132126}a{color:#72e0c7;margin-right:25px}h1{font:19px Segoe UI,sans-serif;margin:18px 0 8px}p{color:#abc0c6;font-size:12px}pre{font:12px/1.6 Consolas,monospace;padding:25px 30px;white-space:pre;overflow:auto}</style><header><a href="../index.html#software">Back to presentation</a><a href="firmware.ino" download>Download source snapshot</a><h1>hardware/single_finger/single_finger.ino</h1><p>Readable source snapshot from the project. This file may depend on other project files, packages and the original directory layout.</p></header><pre>/* One-finger bench demonstrator - Arduino UNO R3, D9 signal.
+   Separate regulated 6 V servo supply; common GND; physical motor-power E-stop.
+   Boot DISARMED. No automatic motion. This firmware is NOT a safety controller.
+   Default travel is deliberately restricted to 1450..1550 microseconds.
+   Loosen the tendon and check the mechanical neutral before first ARM.
+   Serial 115200: ARM, SET 1450..1550, KEEPALIVE, STATUS, DISARM.
+   Loss of valid keepalive for 750 ms detaches PWM, but does not remove power.
+*/
+#include &lt;Servo.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+const byte SERVO_PIN = 9;
+const int MIN_US = 1450;
+const int MAX_US = 1550;
+const int CENTER_US = 1500;
+const unsigned long WATCHDOG_MS = 750;
+Servo tendonServo;
+bool armed = false;
+int currentUs = CENTER_US;
+int targetUs = CENTER_US;
+unsigned long lastAlive = 0;
+unsigned long lastStep = 0;
+char commandLine[40];
+byte commandLength = 0;
+bool discardLine = false;
+
+void disarm(const __FlashStringHelper *reason) {
+  tendonServo.detach();
+  pinMode(SERVO_PIN, OUTPUT);
+  digitalWrite(SERVO_PIN, LOW);
+  digitalWrite(LED_BUILTIN, LOW);
+  armed = false;
+  Serial.println(reason);
+}
+
+void command(char *line) {
+  if (strcmp(line, &quot;DISARM&quot;) == 0) {
+    disarm(F(&quot;DISARMED&quot;));
+  } else if (strcmp(line, &quot;ARM&quot;) == 0) {
+    currentUs = targetUs = CENTER_US;
+    tendonServo.writeMicroseconds(CENTER_US);
+    tendonServo.attach(SERVO_PIN, 900, 2100);
+    lastAlive = lastStep = millis();
+    armed = true;
+    digitalWrite(LED_BUILTIN, HIGH);
+    Serial.println(F(&quot;ARMED 1500&quot;));
+  } else if (strcmp(line, &quot;KEEPALIVE&quot;) == 0) {
+    if (armed) lastAlive = millis();
+  } else if (strcmp(line, &quot;STATUS&quot;) == 0) {
+    Serial.print(armed ? F(&quot;ARMED &quot;) : F(&quot;DISARMED &quot;));
+    Serial.print(currentUs); Serial.print(&#x27; &#x27;); Serial.println(targetUs);
+  } else if (strncmp(line, &quot;SET &quot;, 4) == 0) {
+    char *end = NULL;
+    long pulse = strtol(line + 4, &amp;end, 10);
+    if (!armed) { Serial.println(F(&quot;ERROR DISARMED&quot;)); return; }
+    if (end == line + 4 || *end != &#x27;\0&#x27; || pulse &lt; MIN_US || pulse &gt; MAX_US) {
+      disarm(F(&quot;ERROR RANGE OR FORMAT; DISARMED&quot;)); return;
+    }
+    targetUs = (int)pulse;
+    lastAlive = millis();
+    Serial.print(F(&quot;TARGET &quot;)); Serial.println(targetUs);
+  } else {
+    disarm(F(&quot;ERROR COMMAND; DISARMED&quot;));
+  }
+}
+
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(115200);
+  disarm(F(&quot;READY DISARMED; D9; 1450..1550 us&quot;));
+}
+
+void loop() {
+  while (Serial.available()) {
+    char c = (char)Serial.read();
+    if (discardLine) {
+      if (c == &#x27;\n&#x27;) discardLine = false;
+      continue;
+    }
+    if (c == &#x27;\r&#x27;) continue;
+    if (c == &#x27;\n&#x27;) {
+      commandLine[commandLength] = &#x27;\0&#x27;;
+      if (commandLength) command(commandLine);
+      commandLength = 0;
+    } else if (commandLength &lt; sizeof(commandLine)-1) {
+      commandLine[commandLength++] = c;
+    } else {
+      commandLength = 0;
+      discardLine = true;
+      disarm(F(&quot;ERROR LINE TOO LONG; DISARMED&quot;));
+    }
+  }
+  unsigned long now = millis();
+  if (armed &amp;&amp; now-lastAlive &gt; WATCHDOG_MS) {
+    disarm(F(&quot;WATCHDOG; DISARMED&quot;));
+  }
+  if (armed &amp;&amp; now-lastStep &gt;= 20) {
+    lastStep = now;
+    int delta = targetUs-currentUs;
+    currentUs += constrain(delta, -2, 2);
+    tendonServo.writeMicroseconds(currentUs);
+  }
+}
+</pre></html>

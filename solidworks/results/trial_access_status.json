@@ -1,0 +1,661 @@
+{
+  "date": "2026-10-06",
+  "status": "FIFTH_SESSION_EXPIRED_NATIVE_STATIC_REMOTE_SUCCESS_HISTORICAL_NO_RECOVERED_NATIVE_OUTPUT",
+  "trial_url": "https://my.solidworks.com/try-solidworks",
+  "sign_in_host": "eu1.iam.3dexperience.3ds.com",
+  "observed_page_title": "Try SOLIDWORKS | MySolidWorks",
+  "observed_controls": [
+    "MySolidWorks feedback page after expired trial session"
+  ],
+  "user_authorized_free_trial_and_CAD_upload": true,
+  "user_authorization_quote": "Yes you can use the free online trial but I want this whole project to be done",
+  "purchase_authorized": false,
+  "local_root": "D:\\RoboticArm\\solidworks",
+  "cloud_upload_performed": true,
+  "native_solidworks_tests_run": true,
+  "screenshot": "results/full_static_v6_native_result.png",
+  "next_action": "Report the historical native static/ZIP success, failed DIP tolerance test and missing native deliverable. Retain local source geometry, generation scripts and screenshots; no fresh session is being started.",
+  "scope": "Native static build/remote ZIP PASS is historical execution evidence. Fifth session expired; no native archive or CAD output was recovered locally. DIP V6 failed and Motion/FEA did not pass.",
+  "launch_agreement_accepted": null,
+  "trial_session_launched": true,
+  "agreement_condition": "No confidential information or data, personal data, production data, or trade secrets may be uploaded. Any additional terms regarding these topics are not applicable.",
+  "observed_storage_notice": "Temporary files are erased at session end or timeout; an idle streaming session closes after 15 minutes. The page says clicking a saved temporary file downloads it.",
+  "launch_agreement_confirmation_received": true,
+  "launch_agreement_confirmation_quote": "go for it",
+  "launch_gate_observation": "The first official session launched after user approval. Following its timeout, the vendor offered Launch again and the second official session launched using the same account.",
+  "software_license_confirmation_received": true,
+  "software_license_accepted": true,
+  "uploaded_files": [
+    {
+      "source": "transfer/links/base_link.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 10734,
+      "local_sha256": "28e6985fb6a0aeee94bfb6eb1a43e3ad5d89861f2e229a38fad84b6456db2c2c",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/elbow_link.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 54682,
+      "local_sha256": "5029dc395f79639a4b0b3298cbe211aae34aedd035377a282a6ad1057150f4b3",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/forearm.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 954676,
+      "local_sha256": "97c182236583bf2355ef8a85d6c487cba2fbda8a1e8545f3d621d86c192a0e5f",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/index_distal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 178462,
+      "local_sha256": "dd080f24655fd0c46e3f6010860928e00ffe8a9842f9b1ac0a64bc61f88f429d",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/index_intermediate.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 182959,
+      "local_sha256": "a2e0017f86c034169aa05533e97749c55ae5a355d5fa99ceb7283e5cf59af220",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/index_knuckle.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 3477,
+      "local_sha256": "30035ec669c15c3b9078864c1d70b29c505eea5beb1222b294df6c35c46820f4",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/index_proximal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 183736,
+      "local_sha256": "432672ae6d6911a1a9270ee539fc14b69dd1ced4e45d654a3325cbd0ca8bffd8",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/middle_distal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 175308,
+      "local_sha256": "8b1cc7293f7d0b9803fad80f3f05f5ca281d6648889f2a16e5eb8e7f595401fe",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/middle_intermediate.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 188137,
+      "local_sha256": "8bfb0cecbc0ef329144f4598eccf871f2f178e60a43482d9d002f5392230b9a0",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/middle_knuckle.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 3477,
+      "local_sha256": "9bd4f7e0f41d5cc5d89252f8d6d66b998c07c526d15f5a5f4ef1b5dfff6b152e",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/middle_proximal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 180023,
+      "local_sha256": "776b8c8eb3e4ae799930c08deeb091ed6c2c6acaa7ebe2c0bf40c51a45da9708",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/palm_base.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 338085,
+      "local_sha256": "d662b0b1eb05903d69cd40b28861c9c52010c826c74d731d1925c47b5b7965f2",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/pinky_distal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 202845,
+      "local_sha256": "7545912224fc227b31c0fecf496835e35a06c788769fef51b643477c54a676b0",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/pinky_intermediate.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 201862,
+      "local_sha256": "653bc4bec52385c2991ed7d1d2d39cc6ce2ad74a98f3d386d17d2b432bed87c3",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/pinky_knuckle.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 3445,
+      "local_sha256": "229d89520b8149adbacf54dc4d032f8d1aed2950cb874390c30be7a8847fa4cd",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/pinky_proximal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 183150,
+      "local_sha256": "acc4e6e831f8cd03e3c15e66523c5af9d291a540eea0e70eb74388a8a697b383",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/ring_distal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 178903,
+      "local_sha256": "beec4899a5385e567566aa0c3f3cd10f1be60567c3dab8a4cb76d55f7a64d1c7",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/ring_intermediate.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 183945,
+      "local_sha256": "d967244e8e6beec85079b279b06c7e1f44ce97fc7af20ad0c918d8037705b67f",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/ring_knuckle.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 3475,
+      "local_sha256": "e045c05e25b8603d8abc55fcf613d9f83dd569b3353d61740bd43e597550b907",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/ring_proximal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 179115,
+      "local_sha256": "238ce94c5dc71024d1675ce5f1aca2f4bfbfa5c56c989cee543d03e486f20250",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/shoulder_abduction.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 23061,
+      "local_sha256": "6c6f7bc60adb34e5299414f2386d095362746fa1e750857455a3e5ca6ab819ec",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/shoulder_flexion.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 4873,
+      "local_sha256": "e828573e7985d7740c6d03f3422e3decd59635c1daab53ef72fd1e27d6bdc0df",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/thumb_distal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 183397,
+      "local_sha256": "c23bcef27d0587a735682997a265216083b144619a9edbd4342db424784763e1",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/thumb_metacarpal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 183020,
+      "local_sha256": "2758a88a6121b1eefa17f8446a0ed4991630255677d5bf7f3e97ef1854663946",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/thumb_opposition.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 10039,
+      "local_sha256": "446d38bd23210469e5fc77184c9b10709cc5e156eb3046050ec638f31f485876",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/thumb_proximal.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 179666,
+      "local_sha256": "deb2dcbc1b42a2107048107e706e4cb4885abdeac6882448370f71734474572a",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/upper_arm.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 229007,
+      "local_sha256": "0ad302d27c2291075ebcd2b074c47220744882215ba035d038eb18f62c361391",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "transfer/links/wrist_pitch.step",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 23430,
+      "local_sha256": "82b3833b003e4c36f1b582bb71e3c48d8f506797658a31a48ddf472d61486e76",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "scripts/AutoFingerImportV2.swb",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 12501,
+      "local_sha256": "14e31c49eb809606cbdd133b2579aa756a8ec50e9a0d821e50a8c40fa31197e4",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    },
+    {
+      "source": "scripts/AutoFullArmStaticV1.swb",
+      "remote_folder": "Temporary Files",
+      "session": 2,
+      "upload_observed": true,
+      "local_bytes": 34966,
+      "local_sha256": "1777436c9a42ff47b4b53e2ec975e7e0e489e1be8bb2afe0d620d8fb151b5c11",
+      "remote_availability": "Historical upload; not a current-session availability claim."
+    }
+  ],
+  "official_sessions_launched_observed": 5,
+  "software_license_confirmation_basis": "User approved the software license in the conversation; acceptance observed by the operating agent in both sessions.",
+  "current_remote_folder": "Temporary Files",
+  "product": "SOLIDWORKS",
+  "version": "2026 SP0",
+  "native_geometry_import_verified": true,
+  "native_geometry_outputs_verified": true,
+  "native_macro_compile_attempts_performed": true,
+  "native_macro_compile_success_verified": true,
+  "current_macro_source": "scripts/AutoFullArmStaticV6.swb",
+  "observation_basis": "Operating agent report, locally viewed native screenshots, and audited macro sequencing. No browser/native actions are performed by this recording script.",
+  "snapshot_is_live_state": false,
+  "screenshot_scope": "Actual SOLIDWORKS V6 completion message confirms static native saves and verified ZIP; message explicitly states all-fixed/no mates/Motion/FEA.",
+  "upload_note": "The recorded hashes identify local prepared sources. No remote checksum is available; upload observation is not native compilation/import evidence.",
+  "session_history": [
+    {
+      "id": "2026-10-06-session1-native-open",
+      "date": "2026-10-06",
+      "session": 1,
+      "event": "USER_APPROVED_LICENSE_ACCEPTED_NATIVE_APP_OPENED",
+      "observation": "Native SOLIDWORKS 2026 SP0 opened. Two finger STEP files and a macro were uploaded.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session1-compile-blocks",
+      "date": "2026-10-06",
+      "session": 1,
+      "event": "MACRO_COMPILE_ATTEMPTS_BLOCKED",
+      "observation": "First macro encountered missing SOLIDWORKS type-library references, then an invalid assignment from a void setter. No native geometry output was verified.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session1-timeout",
+      "date": "2026-10-06",
+      "session": 1,
+      "event": "SESSION_TIMED_OUT",
+      "observation": "First cloud session timed out before a verified native geometry checkpoint.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session2-open-upload",
+      "date": "2026-10-06",
+      "session": 2,
+      "event": "SECOND_OFFICIAL_SESSION_OPENED_AND_FILES_UPLOADED",
+      "observation": "Vendor-offered Launch used the same account. Same user-approved software license accepted. 28 link STEP files, AutoFingerImportV2.swb and AutoFullArmStaticV1.swb uploaded to remote Temporary Files.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session2-v2-edit",
+      "date": "2026-10-06",
+      "session": 2,
+      "event": "CORRECTED_MACRO_OPEN_FOR_EDITING",
+      "observation": "Native application is open with corrected V2 source being edited. V2 and full-static V1 have local source audits only; neither has a verified native compile or run.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session3-license",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "THIRD_NATIVE_SESSION_LICENSE_ACCEPTED",
+      "observation": "User-approved software license accepted; native SOLIDWORKS Design Premium 2026 SP0 available.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session3-v1",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "V1_NATIVE_COMPILE_SUCCEEDED_RUNTIME_PREF_FAILURE",
+      "observation": "Full-static V1 compiled natively, then stopped at preference readback.",
+      "engineering_result": null,
+      "evidence": [
+        "results/full_static_native_attempt.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session3-v2",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "V2_BASE_IMPORTED_SAVE_TRUE_FALSE_FAILURE_CHECK",
+      "observation": "V2 imported base_link. Save returned True, errors 0, warnings 0; an incorrect Boolean check falsely reported save failure. This is API evidence in the cloud, not a locally recovered file.",
+      "engineering_result": null,
+      "evidence": [
+        "results/native_save_error_tail.png",
+        "results/full_static_v2_save_error.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session3-v3",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "V3_IMPORT_LOOP_REACHED_ASSEMBLY_RUNTIME_438",
+      "observation": "V3 corrected Boolean checks and reached the first-component assembly stage after its 28-part import/save loop. Screenshots directly show index_intermediate and thumb_proximal with 12 solid bodies. Assembly stopped with runtime error 438 at Transform2 assignment; all-28 completion is control-flow inference, not individually recovered evidence.",
+      "engineering_result": null,
+      "evidence": [
+        "results/full_static_v3_native_outcome.png",
+        "results/full_static_v3_progress.png",
+        "results/full_static_v3_result.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session3-v4",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "V4_TRANSFORM_SETTER_CORRECTION_STAGED",
+      "observation": "V4 replaces Set comp.Transform2 = transform with the officially verified plain property assignment comp.Transform2 = transform. Native V4 compile/run not verified.",
+      "engineering_result": null,
+      "evidence": [
+        "scripts/AutoFullArmStaticV4_source_audit.json"
+      ]
+    },
+    {
+      "id": "2026-10-06-session3-expiry",
+      "date": "2026-10-06",
+      "session": 3,
+      "event": "EXPIRED_BEFORE_DOWNLOAD",
+      "observation": "Third session expired before native CAD was downloaded. Temporary Files are deleted under the published trial policy. No recoverable local native CAD artifact exists.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session4-plan",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "FOURTH_SESSION_PLANNED_NOT_LAUNCHED",
+      "observation": "Plan full-static V5 automatic single-ZIP packaging for prompt download. User approved a temporary browser download followed by move to D:. No fourth-session execution or download is claimed here.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session4-v5-static",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "V5_NATIVE_STATIC_GEOMETRY_BUILT_AND_SAVED",
+      "observation": "V5 completed the native 28-part/293-solid import, placement, rebuild and save gates. Full all-fixed arm and SLDASM visible. No mates, articulated movement or engineering study are implied.",
+      "engineering_result": null,
+      "evidence": [
+        "results/full_static_v5_native_result.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session4-v5-zip",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "V5_AUTOMATIC_ZIP_PACKAGING_FAILED",
+      "observation": "V5 stopped after saving geometry because ZIP packaging/validation failed; dialog noted code 124 denotes the bounded job wait expiring. Geometry remained in cloud at that point.",
+      "engineering_result": null,
+      "evidence": [
+        "results/full_static_v5_native_result.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session4-archive",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "DOCUMENTS_CLOSED_REMOTE_30_FILE_ARCHIVE_VERIFIED",
+      "observation": "After manual Window > Close All, ArchiveNativeResultsV1 succeeded and verified a remote archive of 28 parts, one assembly and original build log. Approximately 10 MB.",
+      "engineering_result": null,
+      "evidence": [
+        "results/native_archive_recovered.png"
+      ],
+      "archive_filename": "AnthroArm27_Static_20261006_095036_35436562_NATIVE_RECOVERED_20261006_102327_37407207.zip"
+    },
+    {
+      "id": "2026-10-06-session4-download",
+      "date": "2026-10-06",
+      "session": 4,
+      "event": "DOWNLOAD_TIMEOUT_BEFORE_SESSION_END",
+      "observation": "Browser download waitForEvent/click timed out; no completed local download confirmed before the fourth trial ended. No D: native CAD checkpoint is recovered.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-v6-preparation",
+      "date": "2026-10-06",
+      "event": "V6_AUTO_CLOSE_ZIP_SOURCE_IN_PREPARATION",
+      "observation": "V6 is being prepared to close saved project documents before robust allowlisted ZIP packaging. Native V6 execution has not been verified.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session5-v6",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "V6_NATIVE_STATIC_AND_AUTOMATIC_ZIP_PASS",
+      "observation": "V6 completed 28 native parts/293 solids, static assembly save, automatic close and verified 30-file ZIP. Native message explicitly labels all-fixed/static, no mates/Motion/FEA.",
+      "scoped_result": "PASS_NATIVE_STATIC_AND_REMOTE_ZIP_ONLY",
+      "evidence": [
+        "results/full_static_v6_native_result.png",
+        "results/native_v6_download_ready.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session5-download-attempts",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "AUTOMATED_DOWNLOAD_NO_CONFIRMED_FILE",
+      "observation": "Independent README click test produced no confirmed local file; downloadMedia failed and download-event wait timed out. Archive remains a remote artifact at snapshot.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session5-user-download",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "USER_MANUAL_DOWNLOAD_QUESTION_PENDING",
+      "observation": "User asked to manually download the displayed archive before reported 19:36 local expiry. No reply or completed local download is recorded.",
+      "engineering_result": null
+    },
+    {
+      "id": "2026-10-06-session5-dip-v6-failed",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "DIP_V6_SIGNED_ANGLE_TOLERANCE_CHECK_FAILED",
+      "observation": "Reached DIP_DRIVEN_10DEG.SLDASM with parent fixed, child floating and Mates created, then error -2147220784: Actual signed flexion differs from target by over 0.5 degrees. Full sweep/limit conversion/ZIP not completed or confirmed; no local native files.",
+      "result": "FAIL_NATIVE_DIP_SWEEP",
+      "evidence": [
+        "results/dip_v6_native_attempt.png"
+      ]
+    },
+    {
+      "id": "2026-10-06-session5-expired-final",
+      "date": "2026-10-06",
+      "session": 5,
+      "event": "EXPIRED_REDIRECTED_TO_FEEDBACK_NO_NATIVE_TRANSFER",
+      "observation": "At approximately 19:36 Asia/Shanghai, browser tab 17 redirected to MySolidWorks feedback. Native archive was not transferred; D:/RoboticArm/solidworks/native_results is empty. No retained cloud recovery is claimed.",
+      "engineering_result": null
+    }
+  ],
+  "macro_sources": [
+    {
+      "name": "AutoFullArmStaticV1",
+      "status": "NATIVE_COMPILED_RUNTIME_PREF_READBACK_FAILURE",
+      "native_compiled": true,
+      "native_run_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV2",
+      "status": "NATIVE_BASE_IMPORT_SAVE_TRUE_CHECK_BUG",
+      "native_compiled": true,
+      "native_run_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV3",
+      "status": "NATIVE_IMPORT_LOOP_COMPLETED_ASSEMBLY_RUNTIME_438",
+      "native_compiled": true,
+      "native_run_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV4",
+      "status": "SOURCE_CORRECTED_STAGED_NATIVE_EXECUTION_UNVERIFIED",
+      "native_compiled": false,
+      "native_run_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV5",
+      "status": "NATIVE_STATIC_SAVE_SUCCEEDED_AUTOMATIC_ZIP_FAILED",
+      "native_compiled": true,
+      "native_geometry_stage_completed": true,
+      "native_run_completed": false
+    },
+    {
+      "name": "ArchiveNativeResultsV1",
+      "status": "NATIVE_REMOTE_ARCHIVE_VERIFIED_AFTER_CLOSE_ALL",
+      "native_compiled": true,
+      "native_run_completed": true,
+      "local_download_completed": false
+    },
+    {
+      "name": "AutoFullArmStaticV6",
+      "status": "NATIVE_STATIC_REMOTE_ZIP_PASS_EXPIRED_WITHOUT_LOCAL_RECOVERY",
+      "native_compiled": true,
+      "native_run_completed": true,
+      "native_geometry_stage_completed": true,
+      "automatic_close_completed": true,
+      "remote_archive_verified": true,
+      "local_download_completed": false
+    }
+  ],
+  "launch_agreement_acceptance_note": "Launch-page confirmation was authorized and launch succeeded; a separate checkbox-acceptance action is not independently recorded. Native software-license acceptance is recorded separately and is verified.",
+  "edition": "Design Premium",
+  "latest_observed_session_expired": true,
+  "current_session_active": false,
+  "native_solidworks_tests_run_scope": "V6 native import/count/transform/rebuild/save, auto-close and remote ZIP gates completed. No DIP movement, Motion study or FEA was executed in this snapshot.",
+  "native_import_attempts_run": true,
+  "native_engineering_studies_run": false,
+  "native_geometry_import_verified_scope": "Native V5 passed required 28-part/293-solid import and static placement/save gates before entering packaging; full assembly visible in native screenshot.",
+  "native_geometry_outputs_verified_scope": "Historical fifth-session static CAD and archive verification only. Session expired; no locally recovered or presently downloadable native output.",
+  "native_macro_compile_success_scope": "V6 executed through final successful native static/ZIP message in fifth session.",
+  "local_native_cad_files_recovered": 0,
+  "native_full_assembly_completed": false,
+  "cloud_temporary_files_status": "Expired-session output is no longer available through the trial session; Temporary Files are erased under vendor policy. No retained/recoverable cloud output is claimed.",
+  "temporary_browser_download_exception_authorized": true,
+  "temporary_browser_download_exception_scope": "User approved browser temporary download followed by moving the project deliverable to D:. No actual download is recorded in this snapshot.",
+  "macro_source_note": "V6 executed static saves, document close and archive verification successfully. Its native output was not recovered before expiry; source remains on D:.",
+  "native_full_static_assembly_built_in_cloud": true,
+  "native_static_components": 28,
+  "native_imported_solids": 293,
+  "native_full_assembly_completed_scope": "All-fixed static assembly passed; requested 27-joint articulated assembly remains incomplete.",
+  "local_native_checkpoint_verified": false,
+  "remote_verified_archive": {
+    "filename": "AnthroArm27_Static_20261006_105654_39414012_NATIVE.zip",
+    "session": 5,
+    "location": "Vendor cloud Temporary Files; not a D: file",
+    "contents": {
+      "native_parts": 28,
+      "native_assemblies": 1,
+      "original_build_logs": 1,
+      "total_files": 30
+    },
+    "approximately_MB": 10,
+    "remote_archive_verified": true,
+    "verification_status": "PASS_REMOTE_ONLY",
+    "verification_basis": "V6 completed native save, CloseAllDocuments(True), no-open-document check and exact 30-file ZIP verification; success message and remote file listing captured. ZIP verification checks names, entry count, sizes and readable streams.",
+    "remote_sha256": null,
+    "download_attempted": true,
+    "download_result": "NOT_TRANSFERRED. Supported browser transfer attempts failed to confirm bytes; fifth session expired and redirected to feedback.",
+    "local_path": null,
+    "local_sha256": null,
+    "locally_reopened": false,
+    "user_download_confirmation_received": false,
+    "availability_note": "Historical generated filename only. Expired Temporary Files must not be treated as retained or recoverable.",
+    "historical_evidence_only": true,
+    "currently_downloadable": false,
+    "cloud_recovery_verified": false
+  },
+  "native_static_verification_status": "PASS_NATIVE_STATIC_ONLY",
+  "remote_archive_verification_status": "PASS_REMOTE_ONLY",
+  "manual_download_question_pending": false,
+  "manual_download_reply_received": true,
+  "reported_session_expiry_local": "2026-10-06 19:36 Asia/Shanghai",
+  "reported_session_expiry_basis": "Operating agent report; user-facing expiry was 7:36 PM. This bookkeeping script did not inspect a live timer.",
+  "manual_download_reply": "save it as you want",
+  "manual_download_reply_interpretation": "Authorization to save; not confirmation that a file was downloaded.",
+  "download_recovery_unresolved": true,
+  "browser_download_attempts_latest": [
+    "download-event wait timed out",
+    "downloadMedia could not transfer",
+    "pageAssets could not transfer"
+  ],
+  "local_native_results_directory": "D:/RoboticArm/solidworks/native_results",
+  "local_native_results_files_observed": 0,
+  "dip_attempt": {
+    "joint": "index_dip",
+    "v5_status": "FAILED_PARENT_COMPONENT_DID_NOT_BECOME_FIXED",
+    "evidence": "results/dip_v5_native_attempt.png",
+    "v6_status": "FAILED_SIGNED_FLEXION_TOLERANCE",
+    "passed": false,
+    "motion_success_verified": false,
+    "v6_error_code": -2147220784,
+    "v6_error_reason": "Actual signed flexion differs from target by over 0.5 degrees",
+    "v6_evidence": "results/dip_v6_native_attempt.png",
+    "remote_cloud_folder": "DIP_Mate_20261006_113212_41532250",
+    "remote_saved_document": "DIP_DRIVEN_10DEG.SLDASM",
+    "parent_fixed_observed": true,
+    "child_floating_observed": true,
+    "mates_created_observed": true,
+    "full_sweep_completed": false,
+    "limit_conversion_confirmed": false,
+    "DIP_zip_confirmed": false,
+    "measured_angle_numeric_available": false
+  },
+  "native_joint_sweep_passed": false,
+  "expired_at_local_approx": "2026-10-06 19:36 Asia/Shanghai",
+  "expiry_observation": "Operating agent confirmed tab 17 redirected to MySolidWorks feedback after session expiry.",
+  "manual_download_action_available": false,
+  "transfer_blocker": "Browser download-event wait, downloadMedia and pageAssets did not transfer a confirmed native file. The session expired before recovery."
+}

@@ -1,0 +1,164 @@
+FROM THE CURRENT DIGITAL ARM TO A WORKING PHYSICAL PROTOTYPE
+Evidence checked: 6 October 2026. Project files stay on D:/RoboticArm.
+
+CURRENT CAPABILITY
+The v3 camera demonstration is vision-guided approach and touch in MuJoCo.
+It detects a known upright 50 mm orange cube in a virtual RGB-D image, estimates
+its position, moves the arm towards it, and stops at contact. validation.json
+and simulation/v3/vision_reach.py explicitly set autonomous_pickup=false.
+Finger articulation and fingertip contact are separate checks. Neither proves
+that an object is securely grasped, lifted, carried and released.
+The SOLIDWORKS result was a fixed assembly. Its native finger sweep failed;
+no native Motion/FEA pass or tested physical hardware is claimed.
+
+HOW TO EXPLAIN IT TO AN AUDIENCE
+"This is a human-shaped arm and hand concept with 27 simulated controllable
+axes. The camera experiment currently demonstrates locating an object and
+approaching it until contact. Secure grasping, lifting and physical hardware
+operation still need development and testing."
+
+WHAT WOULD QUALIFY AS PICKING
+Proposed acceptance sequence, not completed results:
+1. Detect and localize the object from a calibrated camera.
+2. Choose opposing thumb/finger contacts and a reachable, clear approach.
+3. Position the open hand; close selected fingers with bounded force.
+4. Use contact/tactile feedback and joint feedback to verify the grasp.
+5. Lift a known light test object clear of its support and hold it; verify
+   separation from the table and absence of slip, rather than relying on
+   the gripper-close command. Example first test: 20 mm clear for 5 seconds.
+6. Transport a short distance, lower, release, and confirm release.
+Record object mass, geometry, surface, repeated successes/failures, drop/slip,
+force/current, motor temperature and cycle time. Simulation objects must remain
+free bodies, carried by contact/friction rather than welded to the hand or
+teleported along a prescribed path. Hardware results require physical tests.
+
+PROPOSED PHYSICAL LAYOUT -- STILL REQUIRES DETAIL DESIGN
+Shoulder / upper arm: load-bearing chassis, geared shoulder drives, joint
+bearings and encoders. Existing motor shapes are packaging placeholders.
+Elbow: geared output to a supported hinge shaft; bearings carry structural
+loads independently of an inadequately rated motor output shaft. Brakes,
+counterbalance or support may be required to control gravity loads.
+Forearm: removable hand-drive tray, tendon spools, tension adjusters and
+serviceable guides. Finger tendons run towards the wrist and palm.
+Wrist: two driven joint axes and protected tendon/wire passages. Moving the
+wrist changes cable/tendon geometry; pulley routing and compensation must be
+engineered so wrist movement does not unintentionally close the fingers.
+Palm: rigid finger-root mounts, thumb opposition mechanism, guides, sensor
+connections and a small electronics board if actual clearance allows it.
+Fingers: retained hinge pins/bushings, tendon guides, stops, tip anchors,
+soft contact pads and optional tactile sensors. Selected large bench servos
+are not intended to be installed inside each human-size finger.
+Electronics: insulated standoffs on a removable tray; connector access,
+strain relief, cooling and distance from moving tendons. No fitted PCB,
+driver board or connector harness has yet been completed for this arm.
+Bench/base initially: PC, power supply, stop controls and large controller.
+After validation, compact controllers/drivers could move into the arm; all
+electronics and batteries fitting inside is not established by this CAD.
+
+ACTUAL FIT GAP IN THE CAD
+The current forearm has 20 illustrative actuator envelopes, each
+15 x 9.5 x 24 mm, and illustrative 3.5 mm-radius spools. No catalog motor
+or reduction system is selected for these volumes.
+The separate one-finger Hitec D645MW candidate is 40.8 x 20.0 x 37.8 mm
+before horn/installation allowances. It does not fit those individual bays.
+It is a bench-prototype candidate, not a selected full-hand motor.
+The attractive shells cannot simply be printed and filled with the listed
+bench hardware. Replace every placeholder with real manufacturer geometry,
+including screws, horns, connectors, cable bends, bearings and access space.
+Source-coordinate inspection also shows overlapping placeholders: the solid
+shoulder/elbow motor envelopes share volume with the central structural tube,
+and the inner forearm actuator columns overlap the two structural rails.
+This is evidence of an unresolved arrangement, not a completed interference
+study. Two large drive envelopes do not package all seven physical arm axes.
+Separate shoulder-axis, forearm-roll and wrist transmissions remain unresolved.
+
+HOW PARTS WOULD BE FASTENED
+Build the inner chassis first. Bolt motor brackets to it and secure the
+gearbox output to a supported joint shaft. Use retained pins, bearings or
+bushings in the finger joints. Mount boards on insulating standoffs; clamp
+wiring away from moving parts and leave controlled flex loops at joints.
+Use tendon guides, rounded pulleys and adjustable terminations instead of
+letting tendons rub on sharp shell edges. Shell panels attach with serviceable
+screws and appropriately designed inserts/bosses after motion tests pass.
+The current CAD fastener shapes do not establish thread engagement, bearing
+fit, torque specification, manufacturing tolerance or load capacity.
+Check the complete motion range with cables present, then inspect friction,
+wear, voltage drop and temperatures under the intended duty cycle.
+
+ONE-FINGER PROTOTYPE THAT CAN BE DEVELOPED FIRST
+Use design/v3/printable_finger/TendonFinger_FitTest.FCStd or .step and its
+stl_mm folder. This is a separate fit-test model, not the finished v3 hand.
+Its nominal 40/24/18 mm links use 2.3 mm reference bores for M2 pins and
+1.4 mm tendon-guide channels. Printed fit and pin retention must be checked.
+Assemble and move the unpowered hinges by hand. Add a flexor tendon anchored
+at the fingertip and a measured light elastic return. Mount the servo and
+spool on a clamped bench base. Use a purchased compatible horn; check its
+bolt pattern before finalizing the spool mount.
+One servo pulls one tendon and couples three flexion hinges. This does not
+provide independent knuckle/middle/tip control or lateral finger spread.
+The 27-axis target has 7 arm and 20 hand coordinates. Reproducing all their
+independent control requires a separately engineered drive/transmission
+architecture. Motor count depends on that architecture; do not assume a
+five-servo hand is equivalent to the simulated 20-axis hand.
+
+ONE-FINGER ELECTRICAL CONNECTIONS ONLY
+PC USB -> UNO R3 USB-B: board power and serial communication.
+UNO D9 -> servo S: command pulses.
+Separate regulated 6.0 V supply + -> appropriately selected fuse ->
+DC-rated latching motor-power stop -> servo +.
+Supply - -> servo - directly.
+UNO GND -> common supply-/servo- ground reference.
+Optional USB camera -> PC USB.
+Servo positive does not connect to UNO 5V, VIN or an I/O pin.
+Confirm actual connector S/+/- markings. Wire, fuse, connector and stop
+ratings remain to be selected; do not route motor power through a breadboard.
+This is a low-voltage bench arrangement, not the full-arm power design.
+A servo has an internal controller; raw DC/BLDC motors require compatible
+external drives and feedback. The full arm will need a selected power rail,
+branch protection, regulators for logic, and rated distribution wiring.
+
+COMMISSIONING AND ASSEMBLY ORDER
+1. One finger: unpowered fit check; servo test with tendon disconnected;
+   tiny motions after reattachment; record tendon travel, joint angles,
+   current and temperature. Existing firmware starts disarmed and restricts
+   command pulses to 1450..1550 us until measured calibration justifies changes.
+   Its 750 ms watchdog detaches pulses; it does not remove motor power.
+2. Instrumented opposing thumb and finger on a fixed base: develop actual
+   contact detection, low-force gripping, holding and release tests.
+3. Full fixed hand: validate each drive, thumb opposition, tendon routing,
+   independent axes/coupling and harness. Keep covers removable.
+4. Supported wrist and arm: select drives using measured downstream mass,
+   center of mass, payload, acceleration, friction and transmission losses.
+   Validate load retention, joint limits and cable behavior one axis at a time.
+5. Integrate camera-guided approach with verified grasp control. Use calibrated
+   camera-to-base coordinates. A normal webcam alone does not directly provide
+   metric depth; use a calibrated geometric method or a depth sensor.
+6. Fit covers only after assembly, clearance, thermal and service checks pass.
+
+CONTROLLER AND SOFTWARE ROLES
+CAD (FreeCAD / SOLIDWORKS): shape, fits, structure and assembly drawings.
+MuJoCo + Python: simulated mechanics, joint controllers and contact experiments.
+OpenCV: image processing for the current simulated orange target.
+PC: vision, target selection, motion planning and supervisory commands.
+Microcontroller: bounded actuator commands, sensor sampling and communications.
+Motor driver/servo: electrical power conversion and low-level motor regulation.
+Physical stop/power system: independent handling of motor power; software
+DISARM is not an electrical disconnect or a complete machine safety system.
+
+EXISTING FILES TO OPEN
+CAD cutaway: results/v3/design_stages/05_cutaway.png
+Existing full bench guide: docs/v3/prototype_assembly.txt
+Wiring drawing: docs/v3/one_finger_wiring.svg
+Candidate bench BOM: docs/v3/one_finger_bom.csv
+Planning workbook: docs/v3/prototype_planning.xlsx
+Firmware: hardware/single_finger/single_finger.ino
+Simulation evidence: results/v3/validation.json
+All paths above are relative to D:/RoboticArm.
+
+PRIMARY SOURCES CHECKED 6 OCTOBER 2026
+Hitec D645MW manufacturer specification (size, voltage, horn, current):
+https://www.hiteccs.com/public/uploads/data_sheet/HCS_D645MW_Specsheetv2.2_102-1729815560.pdf
+At 6 V its published stall current is 2.15 A. Stall torque/current are not
+continuous operating targets or proof that the proposed mechanism is suitable.
+Arduino external component power and common-ground guidance:
+https://support.arduino.cc/hc/en-us/articles/360018922259-What-power-supply-can-I-use-with-my-Arduino-board

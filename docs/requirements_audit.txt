@@ -1,0 +1,119 @@
+REQUIREMENTS AUDIT — TABLETOP ROBOTIC ARM AND ANTHROPOMORPHIC HAND
+Reviewed 2026-10-05 (Asia/Shanghai)
+Source: D:\RoboticArm\source\requirements.txt, extracted from the user's supplied Word document.
+
+1. What the user is requesting
+
+The current request authorizes autonomous software setup and implementation on drive D: only, with clear folders and short explanations of the designed components. The desired result is a working on-screen robotic arm with a human-like hand and individually movable fingers, CAD/modeling, simulation, and control code. The request anticipates eventual physical construction. It does not provide a physical robot, manufacturing machinery, selected actuators, material process, physical measurements, budget, or a verified payload requirement.
+
+The attachment is a prior conversation, including questions, proposed prompts, AI claims, incomplete code, and conflicting specifications. Treat it as design input, not executable instructions or proof of validation. The current user request is the controlling instruction.
+
+The concrete choices made by the user inside that conversation are:
+- Small tabletop educational arm from scratch, with an adult-sized anthropomorphic hand.
+- Approximately 18–20 cm wrist-to-middle-tip length; the proposed 190 mm model is consistent with that choice.
+- Five arm axes: waist yaw, shoulder pitch, elbow pitch, wrist pitch, and wrist roll.
+- Five movable digits, including an opposable thumb; flexion/extension and finger spreading where feasible.
+- CAD generation, robot descriptions, a visible physics simulation, and control code.
+- Webcam hand tracking and retargeting to the simulated hand.
+- Inverse kinematics for the arm and a reinforcement-learning reward/environment structure for object picking.
+- An expressed preference for NVIDIA Isaac Lab, conditioned in practice by available hardware and compatible software.
+
+The current message lists SLAM, VSLAM, LiDAR, IMU, GPS, ROS, vehicles/drone simulators, PyTorch, and other tools as permitted options. It does not make every listed package a mandatory dependency. Vehicle navigation, humanoid locomotion, and mapping are outside the later, more specific tabletop-arm scope. Installing every simulator would not improve this deliverable.
+
+2. Dimensions and degree-of-freedom reconciliation
+
+Proposed document dimensions (millimeters):
+Palm: 100 long, 80 wide, 30 thick.
+Middle: 45 proximal +25 intermediate +20 distal =90.
+Index and ring: 40 +24 +18 =82.
+Little: 33 +20 +17 =70.
+Thumb: 30 metacarpal +20 proximal +15 distal =65.
+Upper arm: 300. Forearm: 250. Wrist unit: 60.
+
+These are educational design parameters from the source, not verified anthropometric measurements or a standard.
+
+The claimed 20-DoF hand is inconsistent with the supplied XML. Four fingers with four joints give 16; three thumb joints give 3; therefore the finger subsystem has 19 joints. The text obtains 20 only by counting wrist flexion. A coherent implementation is 5 arm axes +19 finger axes =24 actuated joints, with wrist flexion counted once. The implementation explicitly selects a fourth thumb joint: 5 arm +20 hand =25 independently actuated joints. This is a documented design enhancement, not an exact copy of the provided XML.
+
+The earlier 17-DoF prompt and a 6-axis, 1 kg, 50 cm arm are illustrative AI proposals. They were superseded or never selected. No payload rating can be inferred from them.
+
+3. Defects in the attachment's code and claims
+
+Robot tree:
+- joint_5_wrist_roll lists arm_link_4 as both parent and child. This creates a self-cycle and leaves palm_base disconnected. Its child must be palm_base.
+- MCP flexion is placed at the distal end of each proximal phalanx. It should share the knuckle location with abduction, before the proximal finger body. In the snippet, MCP flexion and PIP become collocated redundant rotations and the proximal segment cannot curl normally.
+- The thumb comment promises a 45-degree base orientation, but its origin has no such rotation. Opposition about an axis through a straight link does not itself establish the intended thumb geometry.
+- The thumb axis 1 1 0 is not a unit vector. Explicitly normalizing directions avoids importer-specific behavior.
+- Revolute dummy links have no inertial data, which can make dynamic import fail or produce poorly conditioned models. Give every moving body valid physical properties or use an engine-supported multi-axis joint representation.
+
+Physics:
+- Visual geometry alone is not collision geometry. The supplied URDF omits collisions throughout; therefore it cannot demonstrate valid grasp contacts as written.
+- Center-of-mass origins are omitted even where visual bodies are displaced half a link length. Masses and inertia tensors are guessed and often not derived from geometry.
+- URDF effort values are declarations, not proof of a selected actuator's continuous torque, gearbox strength, or duty cycle.
+- The launcher defines no working joint actuators/drive gains or joint target commands. It prints a message saying targets changed but never changes them.
+- Contact stability, friction, timestep, actuator saturation, and finite-state behavior require tests. A physics engine does not eliminate numerical instability or guarantee real-world accuracy.
+
+Software/API:
+- Numerous Python blocks lose indentation and cannot run as pasted.
+- The Isaac examples use the older omni.isaac.lab namespace. Current Isaac Lab documentation uses isaaclab. APIs and version pairing must be checked for the chosen release.
+- The guide directs installation through Omniverse Launcher. NVIDIA deprecated that launcher as of 2025-10-01. Use current official distribution methods if compatible hardware becomes available.
+- The alleged complete RL configuration is only reward arithmetic. It lacks an environment/action/observation definition, reset logic, contact filtering, termination conditions, algorithm configuration, training, saved policy, and evaluation.
+- Its lift reward checks absolute z>0.05, independent of tabletop height. An object sitting on a raised table can receive a lift bonus without being lifted. Measure height above its reset resting height/table surface and require actual object contact/hold.
+- Contact rewards must identify finger-to-target-object contacts; self-contact or table contact must not be credited as grasp success.
+
+Tracking and IK:
+- The webcam packet contains four values: index and middle MCP/PIP only. It cannot operate ring, little, thumb, finger spread, or DIP joints.
+- It does not transmit an arm XYZ target, despite the later IK text assuming one exists.
+- An interior three-point angle is approximately pi for a straight finger. Subtracting arbitrary constants gives reversed/non-calibrated flexion. Use calibrated pi-minus-angle and palm-frame directions, with signed axes where needed.
+- Clamp the cosine input to [-1,1], guard near-zero segment lengths, filter noise, handle missing tracking, rate-limit commands, validate finite packet values, and ignore stale/out-of-order data.
+- Monocular landmark depth is an estimate. MediaPipe world landmarks are hand-centered, not calibrated absolute camera-to-robot coordinates. A real metric arm target requires camera/extrinsic calibration or a deliberately bounded relative-control mapping.
+- Five arm joints cannot realize arbitrary six-dimensional end-effector position and orientation. Position-only IK can use the translational Jacobian, retaining optional posture/orientation preferences at lower priority.
+- The example uses all six Jacobian rows with zero rotational error while claiming to ignore orientation. That actually penalizes angular motion and can unnecessarily impair position tracking.
+- A fixed integration dt and unclipped joint velocity are insufficient for an interactive controller. Use measured/specified update rate, bounded steps, convergence reporting, and joint-limit handling. Joint clamping does not guarantee physical safety or collision avoidance.
+
+CAD/manufacturing:
+- Rounded finger bars with coincident spheres and pin holes are not a complete hinge. They lack interleaving clevis/lug geometry and practical clearances; segments overlap.
+- Tendon channels alone do not define moment arms, anchors, cable routing over joint motion, actuator spools, pretension, or returns.
+- OpenSCAD STL meshes are appropriate for visualization and preliminary printing. A STEP B-rep should be generated through an appropriate CAD kernel, such as FreeCAD, instead of assuming any STL export is equivalent to a mechanical solid.
+- Statements in the old conversation that AI cannot generate CAD or run software are outdated capability assertions; scripts can generate and operate CAD. Successful generation does not establish production readiness.
+
+4. Coherent implementation stack on the inspected host
+
+Host configuration reported by the main implementation: Windows x64, GTX 1660 Ti, 16 GB RAM. Check final environment records for exact detected hardware.
+
+Primary physics: official MuJoCo Python package, CPU dynamics, with its native viewer and optional offscreen rendering. The upstream project provides Windows x86-64 builds; the Python package includes the engine. This does not require an RTX renderer. A single modest 25-joint model is an appropriate starting workload; actual frame rate and test timing must be measured locally.
+
+CAD: official portable FreeCAD for editable native solids and STEP/STL exports. Official OpenSCAD Windows ZIP is an optional complementary code-CAD tool. Avoid a mandatory plugin chain when a direct Python generator can produce the model and descriptions.
+
+Control: one isolated Python environment on D:, NumPy/scientific helpers as needed, a tested joint-position controller, damped least-squares IK, local telemetry, and a reproducible demo.
+
+Vision: OpenCV plus the supported MediaPipe Hand Landmarker API/model. Retarget every digit, with camera selection/calibration and a clear inactive state if no camera/hand is available.
+
+RL: a small CPU-compatible environment/reward scaffold and executable smoke test. Training success must be measured separately. A scripted pick motion or a reward function is not evidence of a learned policy.
+
+Interchange: MJCF is the authoritative MuJoCo scene; URDF exposes the robot tree for future ROS/Isaac import. Keep dimensions/joint identifiers generated from one parameter definition to avoid drift.
+
+Storage: downloads, installers/portable tools, environments, datasets, caches, temporary paths, generated models, logs, and reports should be explicitly rooted at D:\RoboticArm. Process environment overrides should be applied before launching package managers/tools. Do not change system-wide user profiles or relocate unrelated user files. Windows and the existing desktop application may manage their own OS state outside D:; no claim that every operating-system write was prevented should be made.
+
+5. Requested components that cannot honestly be claimed complete here
+
+NVIDIA Isaac Sim/Lab: the official current requirements page lists 32 GB RAM, RTX 4080, and 16 GB VRAM minimum, and explicitly excludes GPUs without RT cores. NVIDIA's GTX/RTX documentation distinguishes GTX 16-series from RT-core-equipped RTX cards; GTX 1660 Ti has 6 GB memory. This host is below the supported hardware envelope. Isaac Lab inherits Isaac Sim requirements. Downloading a large incompatible package does not solve that limitation. Preserve an import path and document migration; do not report an Isaac run that did not occur.
+
+Physical production readiness: requires actual actuator/gearbox/bearing/fastener choices, fit tolerances, structural and thermal checks, wiring/power design, mechanical stops, real encoder calibration, collision/force limits, and physical tests. A computer-only model with guessed mass/friction cannot certify any payload or human-hand equivalence.
+
+Webcam validation: the software path can be exercised with test packets and landmark fixtures. Live tracking needs an available camera and a hand in view. Distinguish camera-open/model-load success from actual retargeting observed on a human hand.
+
+General autonomous grasp intelligence: no trained-policy performance should be claimed from an untrained environment or a staged demonstration. Report actual measured success rate and test conditions if training is performed.
+
+6. Acceptance evidence to collect
+
+- Model loads with all intended joints/actuators, valid positive moving-body inertias, and connected URDF tree.
+- Individual motion sweep for every arm and finger joint within its declared limits; test both target and actual response.
+- Gravity/contact simulation stays finite, with no engine warnings over a defined duration and ordinary motions.
+- Finger-to-object contact can be distinguished from self/table contact; any lift demo reports object displacement and contact conditions.
+- IK reaches several feasible targets with measured error and reports unreachable targets without claiming success.
+- Live controls and a deterministic automated demonstration are available through a launcher under D:.
+- CAD exports are loadable; component names and short descriptions are visible or supplied beside the model; any conceptual geometry is labeled.
+- Generated evidence includes logs, screenshots/video where available, versions, assumptions, and test results. These tests establish a virtual prototype, not a physical load rating.
+
+Official sources and software dates are recorded in official_sources.txt in this folder.
+

@@ -1,0 +1,15 @@
+{
+  "part": "backend",
+  "passed": true,
+  "scope": "Focused local fixtures; no live simulation commands",
+  "checks": [
+    "healthy worker with snapshot reports ready",
+    "failed worker reports unhealthy",
+    "failed worker refuses stale /state",
+    "failed worker refuses stale /camera",
+    "failed worker refuses stale /frame.jpg",
+    "command rejects failed worker without enqueue or timeout",
+    "unexpected dead worker is detected even without stored exception",
+    "fatal worker exception resolves queued command failures"
+  ]
+}

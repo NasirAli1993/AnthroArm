@@ -1,0 +1,71 @@
+AutoFingerImportV2 audit before next native session
+Audit date: 2026-10-06
+STATUS: SOURCE REVIEW ONLY. Native compile/run still NOT_EXECUTED.
+Decision: retain V2; no demonstrated remaining compile defect justifies V3.
+
+Observed source checks
+- BAS/SWB ASCII; maximum line 199 characters; six balanced Sub procedures and
+  one balanced Function; one public main entry point.
+- All application toggle setters are statement calls (void API).
+- Integer setters are allowed Boolean functions; Call discards return, then
+  readback verifies requested value. Restore calls have equivalent readbacks.
+- Explicit Long variables are appropriate for VBA 32-bit API error arguments,
+  including on 64-bit SOLIDWORKS. No external DLL Declare/PtrSafe issue exists.
+- STEP import object, LoadFile4 r sequence, GetBodies2, SaveAs six arguments,
+  typed MathUtility arrays, and returned MathPoint assignments match official
+  API usage. An actual SOLIDWORKS compile remains the decisive check.
+
+Operational gates before main
+1. Each newly converted SWP needs both installed SOLIDWORKS and constants type
+   library references. Earlier project's references do not configure another.
+2. Save SWP beside exact index_intermediate.step and index_distal.step names.
+   The macro derives its folder from GetCurrentMacroPathName; empty macro path
+   or missing siblings deliberately causes an explicit stop.
+3. Set STEP import units to File specified unit. V2 only logs unit preference;
+   it does not set it. Native Measure check is still required after import.
+4. Close any already-open source STEP only after preserving needed work.
+   The macro intentionally refuses to import an already-open source.
+5. If a template/import dialog appears, inspect it; no source guarantee rules
+   out every translator or default-template prompt in a fresh trial session.
+
+Evidence limitations / non-blocking findings
+- The log stays open until success/error completion. Abrupt remote process
+  termination can leave it incomplete; absence of log proves no success.
+- Count/save PASS occurs before preference restoration. Restoration failures
+  are warnings, so inspect the entire log, not only the success MsgBox.
+- Do not infer precision or geometry validity from GetBodyBox. It provides
+  approximate extents; this macro checks only gross scale plausibility.
+- Wording 'disable automatic healing' is broader than the setting actually
+  controlled: swImportNeutralRunDiagnostics disables automatic diagnostics.
+  The macro never calls ImportDiagnosis/repair, but does not audit every
+  translator/knitting preference. Report this as no explicit repair performed,
+  not a proof of mathematically unchanged geometry.
+- Any partial SLDPRT saved before a later failure is retained and may be useful,
+  but a two-file successful run requires BOTH_IMPORTS_COUNT_SAVE_PASS plus
+  actual nonempty native files and successful reopen/inspection.
+
+Binding decision
+Keep the typed version. Changing all variables to Object alone does not remove
+swconst dependencies; reliable complete late binding also requires verified
+numeric values for every preference enumeration, which have not all been
+established. It would lose native compile checking and add new uncertainty.
+Official documentation says recording a macro automatically sets both required
+references. A fresh record/stop SWP can therefore be used as a referenced host:
+Edit it, remove its recorded module, import V2 BAS, save, Debug > Compile.
+This is an optional shortcut, not an assertion that it was executed.
+
+Official sources
+Binding and automatically referenced recorded macros:
+https://help.solidworks.com/2021/english/api/sldworksapiprogguide/gettingstarted/early_and_late_binding.htm
+Official STEP VBA import sequence:
+https://help.solidworks.com/2018/english/api/sldworksapi/import_step_file_example_vb.htm
+CreateTransform object return and 16-element input:
+https://help.solidworks.com/2015/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IMathUtility~CreateTransform.html
+Multibody mapping enumeration (value 2):
+https://help.solidworks.com/2026/English/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swImportNeutralAssemblyStructureMapping_e.html
+See AutoFingerImportV2_README.txt for other exact signature sources.
+
+Source SHA256 preserved by this audit
+BAS C24D012B14564EAA2019268CCD0A5AF5D633E6A0F161CA9C69CBDF001798CC25
+SWB 14E31C49EB809606CBDD133B2579AA756A8EC50E9A0D821E50A8C40FA31197E4
+Native results ledger unchanged. No browser/account/native UI operated.

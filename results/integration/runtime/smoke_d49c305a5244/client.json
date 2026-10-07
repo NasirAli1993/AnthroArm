@@ -1,0 +1,15 @@
+{
+  "pid": 7424,
+  "role": "client",
+  "token": "d49c305a5244",
+  "passed": true,
+  "acknowledgements": 88,
+  "valid_ack": true,
+  "service_success": true,
+  "service_message": "ROS2 service response d49c305a5244",
+  "transform_translation": [
+    0.3,
+    0.1,
+    0.5
+  ]
+}

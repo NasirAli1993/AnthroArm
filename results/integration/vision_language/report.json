@@ -1,0 +1,40 @@
+{
+  "executed": true,
+  "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+  "revision": "7e3e67edbbed1bf9888184d9df282b700a323964",
+  "runtime": {
+    "torch": "2.8.0+cpu",
+    "device": "cpu",
+    "dtype": "float32"
+  },
+  "load_seconds": 4.671999999962281,
+  "source": "D:\\RoboticArm\\results\\integration\\vision_language\\raw_camera.png",
+  "source_type": "rendered MuJoCo RGB-D camera",
+  "roi_source": "image segmentation bbox, no object truth",
+  "motor_control_authority": false,
+  "scope": "Captioning experiment; output is model text, not a certified perception or VLA policy.",
+  "results": [
+    {
+      "view": "scene",
+      "prompt": "Describe the objects visible in this image in one sentence.",
+      "answer": "In this image we can see a marker, a box and a paper.",
+      "inference_seconds": 2.9060000000172295,
+      "input_width": 1280,
+      "input_height": 960
+    },
+    {
+      "view": "target",
+      "prompt": "What is the shape and color of the object in this image?",
+      "answer": "The object in the image is a cube.",
+      "inference_seconds": 2.4060000000172295,
+      "input_width": 59,
+      "input_height": 67
+    }
+  ],
+  "qualitative_review": {
+    "fixture_content": "Humanoid robotic arm above a table with an orange cube",
+    "target_shape_named_correctly": true,
+    "scene_arm_or_hand_named": false,
+    "limitation": "This small model misidentified the full scene in this run. Correct crop identification does not establish reliable scene understanding. No VLM output drives motors."
+  }
+}

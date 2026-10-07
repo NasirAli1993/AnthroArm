@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "local_date": "2026-10-05",
+  "url": "http://127.0.0.1:8765",
+  "observations": {
+    "dashboard_connected_and_live_image_visible": true,
+    "open_preset_and_hand_detail_camera": true,
+    "index_slider_command_rad": 0.65,
+    "index_measured_position_rad": 0.6554229935377106,
+    "position_ik_command_from_browser": "reachable target solved; measured load error displayed separately",
+    "seeded_grasp_command_from_browser": "completed lift and hold",
+    "observed_live_grasp_lift_m": 0.29261442009101246,
+    "component_selector_and_explanations": true,
+    "virtual_sensor_values_visible": true,
+    "final_browser_console_errors": [],
+    "left_running": "hand-detail gesture demonstration; webcam input disabled"
+  },
+  "screenshot": "D:\\RoboticArm\\results\\studio_dashboard.png",
+  "limitations": "Manual browser integration checks only; physical hardware and live human-hand tracking accuracy are not verified."
+}

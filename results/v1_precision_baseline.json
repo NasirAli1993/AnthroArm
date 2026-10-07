@@ -1,0 +1,110 @@
+{
+  "test": "V1 block prototype loaded home tracking after 4 s",
+  "joint_max_error_deg": 1.0192510698234258,
+  "joint_rms_error_deg": 0.2623381903829472,
+  "palm_target_error_mm": 15.653918819189059,
+  "body_gravity_compensation": false,
+  "controller": "Position servo without bias feedforward",
+  "joints": [
+    {
+      "name": "joint_1_waist",
+      "error_deg": 2.1152620834271605e-11
+    },
+    {
+      "name": "joint_2_shoulder",
+      "error_deg": -1.0192510698234258
+    },
+    {
+      "name": "joint_3_elbow",
+      "error_deg": -0.6938179237876727
+    },
+    {
+      "name": "joint_4_wrist_pitch",
+      "error_deg": -0.2840345023726815
+    },
+    {
+      "name": "joint_5_wrist_roll",
+      "error_deg": 0.024164569931821544
+    },
+    {
+      "name": "index_mcp_abduction",
+      "error_deg": 0.00010469476933305478
+    },
+    {
+      "name": "index_mcp_flexion",
+      "error_deg": -0.14844793855302627
+    },
+    {
+      "name": "index_pip",
+      "error_deg": -0.03891763487550821
+    },
+    {
+      "name": "index_dip",
+      "error_deg": -0.0068692651872745815
+    },
+    {
+      "name": "middle_mcp_abduction",
+      "error_deg": 0.00011594782494053501
+    },
+    {
+      "name": "middle_mcp_flexion",
+      "error_deg": -0.16433864308909774
+    },
+    {
+      "name": "middle_pip",
+      "error_deg": -0.041043980566135355
+    },
+    {
+      "name": "middle_dip",
+      "error_deg": -0.007637856351801296
+    },
+    {
+      "name": "ring_mcp_abduction",
+      "error_deg": 0.0001046947693330959
+    },
+    {
+      "name": "ring_mcp_flexion",
+      "error_deg": -0.14844793854935617
+    },
+    {
+      "name": "ring_pip",
+      "error_deg": -0.0389176348755715
+    },
+    {
+      "name": "ring_dip",
+      "error_deg": -0.006869265187365754
+    },
+    {
+      "name": "pinky_mcp_abduction",
+      "error_deg": 8.700327478480788e-05
+    },
+    {
+      "name": "pinky_mcp_flexion",
+      "error_deg": -0.12343459918550291
+    },
+    {
+      "name": "pinky_pip",
+      "error_deg": -0.033156460741990856
+    },
+    {
+      "name": "pinky_dip",
+      "error_deg": -0.0064801087577572355
+    },
+    {
+      "name": "thumb_cmc_opposition",
+      "error_deg": -0.08909437930494091
+    },
+    {
+      "name": "thumb_cmc_flexion",
+      "error_deg": -0.13122022537405972
+    },
+    {
+      "name": "thumb_mcp_flexion",
+      "error_deg": -0.03853990922388779
+    },
+    {
+      "name": "thumb_ip",
+      "error_deg": -0.007138152966349304
+    }
+  ]
+}

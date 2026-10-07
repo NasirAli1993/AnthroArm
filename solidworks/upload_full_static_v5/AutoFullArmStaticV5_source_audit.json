@@ -1,0 +1,26 @@
+{
+  "status": "STAGED SOURCE ONLY; not compiled or executed in SOLIDWORKS",
+  "source_manifest_sha256": "93019b023703f24cb0f3f72b139aad4c615b3da5943343cbd005c9edc32f25a7",
+  "macro_sha256": "d9b378f060d3b3e868bc682b156c752df7d6790a18dba5eee56bd3adf138ba77",
+  "links": 28,
+  "expected_solids": 293,
+  "all_embedded_transforms_match_source_audit": true,
+  "all_required_step_files_present": true,
+  "public_entrypoints": [
+    "main"
+  ],
+  "maximum_physical_line_length": 316,
+  "procedure_end_count_consistent": true,
+  "native_execution": false,
+  "scope": "28 imported multibody SLDPRT + one all-fixed static home-pose SLDASM + progressive log, if executed successfully",
+  "not_included": [
+    "mates",
+    "kinematic articulation",
+    "Motion Analysis",
+    "FEA",
+    "manufacturing qualification"
+  ],
+  "packaging": "Hidden Windows PowerShell Compress-Archive after successful native assembly save; 60-second Wait-Job bound; exact 30 ZIP file entries and uncompressed sizes, all streams read to EOF",
+  "only_behavior_change_from_v4": "Automatic verified ZIP plus explicit normalization of all IsFixed checks",
+  "source_policy": "No downloads, network, source file modifications or overwrites by packaging"
+}

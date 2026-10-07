@@ -1,0 +1,52 @@
+{
+  "scope": "Local packaging only. No CAD has been uploaded and no SOLIDWORKS native test has run.",
+  "packages": [
+    {
+      "file": "01_index_DIP_import_test.zip",
+      "bytes": 92714,
+      "sha256": "03180059f0f4020b7586770e21c5b4555c4f61e97efb67ed7826c40740b8c90c",
+      "source_files": [
+        "links/index_intermediate.step",
+        "links/index_distal.step"
+      ],
+      "zip_integrity": "PASS"
+    },
+    {
+      "file": "02_complete_arm_CAD.zip",
+      "bytes": 2254030,
+      "sha256": "9fe091a8298f03bcd78d9723a53b258639ecfb5cf99ef0a1cca12bfcab49af72",
+      "source_files": [
+        "full_arm_home_reference.step",
+        "links/base_link.step",
+        "links/elbow_link.step",
+        "links/forearm.step",
+        "links/index_distal.step",
+        "links/index_intermediate.step",
+        "links/index_knuckle.step",
+        "links/index_proximal.step",
+        "links/middle_distal.step",
+        "links/middle_intermediate.step",
+        "links/middle_knuckle.step",
+        "links/middle_proximal.step",
+        "links/palm_base.step",
+        "links/pinky_distal.step",
+        "links/pinky_intermediate.step",
+        "links/pinky_knuckle.step",
+        "links/pinky_proximal.step",
+        "links/ring_distal.step",
+        "links/ring_intermediate.step",
+        "links/ring_knuckle.step",
+        "links/ring_proximal.step",
+        "links/shoulder_abduction.step",
+        "links/shoulder_flexion.step",
+        "links/thumb_distal.step",
+        "links/thumb_metacarpal.step",
+        "links/thumb_opposition.step",
+        "links/thumb_proximal.step",
+        "links/upper_arm.step",
+        "links/wrist_pitch.step"
+      ],
+      "zip_integrity": "PASS"
+    }
+  ]
+}

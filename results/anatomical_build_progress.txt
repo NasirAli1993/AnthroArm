@@ -1,0 +1,12 @@
+01 dimensions and canonical joint frames retained: 190 mm hand; 84 mm palm; 20 hand axes.
+02 smooth palm, thenar, hypothenar and curved palmar inserts built.
+03 four digits built from smooth oval-section phalanges, crease rings and rounded tips.
+04 four-axis opposable thumb built with thenar integration.
+Rendered 01_dimensions.png
+Rendered 02_palm.png
+Rendered 03_finger.png
+Rendered 04_thumb.png
+Rendered 05_assembly.png
+Rendered 06_dorsal.png
+Rendered 07_full_arm.png
+ANATOMICAL_BUILD_COMPLETE 101 valid single-solid components.

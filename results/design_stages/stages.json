@@ -1,0 +1,424 @@
+{
+  "version": 2,
+  "title": "Humanoid robotic hand — construction and simulation",
+  "before_image": "00_before.png",
+  "status_policy": "A stage is marked available only after its real image exists; an image is not a passed engineering test.",
+  "stages": [
+    {
+      "id": "dimensions",
+      "short_title": "Proportions",
+      "layer": "Dimensions",
+      "title": "Start with human hand proportions.",
+      "kind": "Design dimensions",
+      "image": "01_dimensions.png",
+      "image_title": "01 · Nominal dimensions",
+      "summary": "Unequal finger lengths, a broad palm and a thumb placed at the side establish a human hand silhouette.",
+      "method": "The design uses a 100 mm palm datum and a middle finger with 45, 25 and 20 mm joint-center spacings. The finger roots are staggered across the palm. These values parameterize the construction; rounded shell surfaces may extend beyond the joint-center dimensions.",
+      "dimensions": [
+        {
+          "label": "Nominal hand length",
+          "value": "190"
+        },
+        {
+          "label": "Palm length",
+          "value": "100"
+        },
+        {
+          "label": "Middle finger segments",
+          "value": "45 / 25 / 20"
+        }
+      ],
+      "inspect": [
+        "Compare the middle finger with the shorter index, ring and little fingers.",
+        "Find the wrist datum and the staggered knuckle positions.",
+        "Distinguish joint-center spacing from the outer surface envelope."
+      ],
+      "components": [
+        {
+          "title": "Palm datum",
+          "description": "A shared reference locates the wrist and each finger root, keeping CAD and kinematic placement consistent."
+        },
+        {
+          "title": "Finger proportions",
+          "description": "The three segment lengths control where the knuckles bend and how far each fingertip can reach."
+        },
+        {
+          "title": "Thumb base",
+          "description": "A root on the side of the palm permits opposition across the hand."
+        }
+      ],
+      "caption": "Design parameters shown with the generated hand. Nominal dimensions describe the joint chain, not a measured human specimen.",
+      "evidence": "These are construction dimensions. The image documents geometry; it does not establish manufacturing tolerances or control precision.",
+      "status": "available",
+      "evidence_bytes": 40148,
+      "evidence_sha256": "ff841080dfddb7d6852068392c3e132633e7691768ca53c424f042c372fb5379"
+    },
+    {
+      "id": "palm",
+      "short_title": "Palm shell",
+      "layer": "Palm",
+      "title": "Shape a rounded palm and wrist.",
+      "kind": "CAD geometry",
+      "image": "02_palm.png",
+      "image_title": "02 · Palm construction",
+      "summary": "A smooth palm shell, softened edges and a tapered wrist replace the rectangular outline.",
+      "method": "The palm is constructed as a continuous rounded body around the finger roots, with a wrist transition and a fuller thumb side. The shape is intended to read as a humanoid robotic hand. Surface geometry is inspected independently of contact geometry.",
+      "dimensions": [
+        {
+          "label": "Palm datum length",
+          "value": "100"
+        },
+        {
+          "label": "Reference palm width",
+          "value": "84"
+        },
+        {
+          "label": "Reference palm depth",
+          "value": "32"
+        }
+      ],
+      "inspect": [
+        "Look for a continuous rounded outline instead of a rectangular block.",
+        "Inspect the thumb-side volume and the narrowing transition into the wrist.",
+        "Check that the shell does not conceal the finger articulation gaps."
+      ],
+      "components": [
+        {
+          "title": "Palm shell",
+          "description": "The external body establishes the hand silhouette and surrounds the finger roots."
+        },
+        {
+          "title": "Thumb-side contour",
+          "description": "A raised, curved volume gives the palm the asymmetry associated with an opposable thumb."
+        },
+        {
+          "title": "Wrist transition",
+          "description": "The narrower root joins the palm to the wrist axes and forearm. A rounded dark wrist boot covers the shell transition."
+        }
+      ],
+      "caption": "Actual saved CAD view of the palm stage. A shell's visible shape is distinct from its physics collision geometry.",
+      "evidence": "This stage concerns visible CAD geometry. Wall thickness, fasteners, structural strength and internal actuators still require a fabrication design.",
+      "status": "available",
+      "evidence_bytes": 206192,
+      "evidence_sha256": "172b6f966bba1ecf02da47bf739b441f06cf7b23cf7344b52e9ab2209f6f4c15"
+    },
+    {
+      "id": "finger",
+      "short_title": "Finger anatomy",
+      "layer": "Finger",
+      "title": "Build three rounded finger segments.",
+      "kind": "CAD geometry",
+      "image": "03_finger.png",
+      "image_title": "03 · Finger construction",
+      "summary": "Each finger tapers toward a rounded tip, with visible knuckles and separate movable segments.",
+      "method": "A finger consists of proximal, middle and distal rigid segments. The base provides sideways spread and knuckle curl; two more hinges bend the middle and tip. Rounded shells surround the segment bodies, with a fingertip contact pad and joint gaps left for motion.",
+      "dimensions": [
+        {
+          "label": "Index / ring segments",
+          "value": "40 / 24 / 18"
+        },
+        {
+          "label": "Middle segments",
+          "value": "45 / 25 / 20"
+        },
+        {
+          "label": "Little finger segments",
+          "value": "33 / 20 / 17"
+        }
+      ],
+      "inspect": [
+        "Identify the three segments and the two gaps between them.",
+        "Compare the wider base with the narrower rounded fingertip.",
+        "Inspect the contact pad and the knuckle contours from several CAD angles."
+      ],
+      "components": [
+        {
+          "title": "Proximal segment",
+          "description": "The long first segment links the main knuckle to the middle hinge. Its base can spread and curl."
+        },
+        {
+          "title": "Middle segment",
+          "description": "The second segment bends at the middle knuckle, carrying the fingertip toward the palm."
+        },
+        {
+          "title": "Distal segment + pad",
+          "description": "The final segment curls at the tip hinge. Its rounded pad provides a contact surface in the simulation."
+        }
+      ],
+      "caption": "Actual saved CAD view of the finger stage. Independent rigid segments provide articulation; the shell is not simulated skin.",
+      "evidence": "Rounded visual pads express a soft-contact design intention. A rigid-body contact approximation does not reproduce real silicone deformation.",
+      "status": "available",
+      "evidence_bytes": 108394,
+      "evidence_sha256": "c072d1e8de7df765785aff3b78aada4b4961fa792b98346ffd8ff53fa067520b"
+    },
+    {
+      "id": "thumb",
+      "short_title": "Opposable thumb",
+      "layer": "Thumb",
+      "title": "Bring the thumb across the palm.",
+      "kind": "CAD geometry",
+      "image": "04_thumb.png",
+      "image_title": "04 · Thumb construction",
+      "summary": "The thumb has its own angle, proportions and opposition axis, so it can move toward the other fingertips.",
+      "method": "A thumb root is mounted on the side of the palm. Two base axes change its opposition and flexion; the metacarpal, proximal and distal bodies carry the remaining bends. The thumb's orientation is different from the four parallel finger chains.",
+      "dimensions": [
+        {
+          "label": "Thumb segment spacings",
+          "value": "30 / 20 / 15"
+        },
+        {
+          "label": "Thumb controlled axes",
+          "value": "4",
+          "unit": "axes"
+        }
+      ],
+      "inspect": [
+        "Locate the thumb base on the side of the palm.",
+        "Identify the opposition direction that brings the thumb inward.",
+        "Inspect the broad rounded tip and the clearance between the thumb and palm."
+      ],
+      "components": [
+        {
+          "title": "Opposition axis",
+          "description": "Rotates the thumb's bending plane across the palm to face the other fingertips."
+        },
+        {
+          "title": "Base flexion",
+          "description": "Curls the thumb's metacarpal independently of opposition, adding control over its approach."
+        },
+        {
+          "title": "Thumb knuckle + tip",
+          "description": "Two additional hinges curl the proximal and distal segments for wrapping and pinch poses."
+        }
+      ],
+      "caption": "Actual saved CAD view of the thumb stage. A thumb's resting pose is only one point in its possible motion.",
+      "evidence": "Thumb appearance does not prove a successful pinch. Reach, joint tracking and collision behavior are assessed in the simulation stages.",
+      "status": "available",
+      "evidence_bytes": 213030,
+      "evidence_sha256": "3b3d8c664f530e834127980d20eead7ba88b2db4751a56c96108bafa17c74dd4"
+    },
+    {
+      "id": "assembly",
+      "short_title": "Assembled hand",
+      "layer": "Assembly",
+      "title": "Inspect the complete humanoid hand.",
+      "kind": "CAD geometry",
+      "image": "05_assembly.png",
+      "image_title": "05 · Complete assembly",
+      "summary": "The rounded palm, staggered knuckles, tapered fingers and opposable thumb now form one articulated hand.",
+      "method": "The individual bodies are assembled at their joint frames. Each finger keeps its own segment lengths, and the thumb uses a separate side-mounted chain. Rounded shells and contact pads are attached to those bodies so the visible parts follow their joint motion.",
+      "dimensions": [
+        {
+          "label": "Hand controlled axes",
+          "value": "20",
+          "unit": "axes"
+        },
+        {
+          "label": "Arm controlled axes",
+          "value": "5",
+          "unit": "axes"
+        },
+        {
+          "label": "Nominal hand length",
+          "value": "190"
+        },
+        {
+          "label": "Complete CAD assembly",
+          "value": "101",
+          "unit": "solids"
+        }
+      ],
+      "inspect": [
+        "Compare the overall silhouette with the original model using Compare original.",
+        "Check the varying finger lengths, rounded knuckles and fingertip shapes.",
+        "Inspect every joint gap before switching to the live articulation test."
+      ],
+      "components": [
+        {
+          "title": "Visible shells",
+          "description": "Smooth outer surfaces provide the humanoid form. They move with the corresponding rigid bodies."
+        },
+        {
+          "title": "Joint frames",
+          "description": "Parent-to-child reference frames define exactly where each segment rotates."
+        },
+        {
+          "title": "Physics contact shapes",
+          "description": "Simplified shapes compute contact efficiently. Use the live collision view to inspect their approximation."
+        }
+      ],
+      "caption": "Actual saved CAD view of the assembled current design. Compare original displays the saved previous model beside this view.",
+      "evidence": "This is a digital assembly. Visual quality, articulation, control precision and strength are different checks; a completed CAD image establishes only the geometry shown.",
+      "status": "available",
+      "evidence_bytes": 227964,
+      "evidence_sha256": "50b3bbb6396776f4a37150e9dcdf2e0bf3d365fad393a83c071cec04a07782ae"
+    },
+    {
+      "id": "articulation",
+      "short_title": "Joint motion",
+      "layer": "Articulation",
+      "title": "Move every finger through its joints.",
+      "kind": "Physics test",
+      "image": "06_articulation.png",
+      "image_title": "06 · Articulation in simulation",
+      "summary": "The live model drives each finger independently. Inspect the smooth surfaces, joint axes and collision shapes as it moves.",
+      "method": "Position commands drive twenty finger axes and five arm axes in MuJoCo. Individual sliders isolate one joint at a time; gesture presets coordinate multiple targets. Gravity, actuator limits and contacts affect the measured position.",
+      "dimensions": [
+        {
+          "label": "Finger axes",
+          "value": "20",
+          "unit": "controlled"
+        },
+        {
+          "label": "Arm axes",
+          "value": "5",
+          "unit": "controlled"
+        }
+      ],
+      "inspect": [
+        "Open the live simulation and select a finger in Individual joint control.",
+        "Move a single slider and compare the target with the measured joint angle.",
+        "Switch between surface, joint-axis and collision views to understand what is being simulated."
+      ],
+      "components": [
+        {
+          "title": "Joint motor target",
+          "description": "The desired angle sent to the simulated actuator; it is not itself proof that the finger reached that angle."
+        },
+        {
+          "title": "Measured joint angle",
+          "description": "The resulting position after gravity, control forces and contact act on the model."
+        },
+        {
+          "title": "Contact geometry",
+          "description": "The shapes used for collision and friction. They may be simpler than the visible CAD shells."
+        }
+      ],
+      "caption": "Actual saved simulation view. To observe continuous motion and control joints, choose Open live simulation.",
+      "evidence": "This image documents a simulation pose. The precision report provides measured tracking results and test conditions.",
+      "report_url": "/precision",
+      "status": "available",
+      "evidence_bytes": 212453,
+      "evidence_sha256": "5d99af2d1c7c7c155441ee427295cdb2dc8b4bc4a918d6cda3d5cd006fa1ce57",
+      "video_file": "results/humanoid_hand_demo.webm",
+      "video_url": "/motion.webm",
+      "video_bytes": 3434856,
+      "video_sha256": "87413f9ae3138e55f2ecbdbac417cb8fdf6cb238eb9e132ee525f6ee3ad1b440"
+    },
+    {
+      "id": "precision",
+      "short_title": "Measured precision",
+      "layer": "Precision",
+      "title": "Measure the motion, not just the pose.",
+      "kind": "Physics test",
+      "image": "07_precision.png",
+      "image_title": "07 · Precision checks",
+      "summary": "All 25 axes passed the current numerical tracking check. The results below apply to settled, contact-free simulation targets.",
+      "method": "The test commands each of the 25 axes independently, runs MuJoCo with gravity and effort-limited servos for four seconds, and compares target and measured angles. Actuator feedforward compensates the modeled bias forces within the motor limits. Contacts are absent in this tracking test; contact can prevent other poses from reaching their targets.",
+      "dimensions": [
+        {
+          "label": "Max tested joint error",
+          "value": "< 0.01",
+          "unit": "degrees"
+        },
+        {
+          "label": "Max tested palm error",
+          "value": "< 0.01",
+          "unit": "mm"
+        },
+        {
+          "label": "Settling per target",
+          "value": "4",
+          "unit": "seconds"
+        }
+      ],
+      "inspect": [
+        "Open the precision report and check that it describes the current model.",
+        "Read the measured angular error and the stated settling or test conditions.",
+        "Check for failed or excluded joints; a still image cannot establish a tolerance."
+      ],
+      "components": [
+        {
+          "title": "Joint tracking error",
+          "description": "Measures how closely a simulated joint follows its command under the tested conditions."
+        },
+        {
+          "title": "Fingertip positioning",
+          "description": "Depends on several joint errors and segment lengths. A joint-angle result alone does not prove end-point accuracy."
+        },
+        {
+          "title": "Limits of the test",
+          "description": "Simulation measurements do not include real motor backlash, manufacturing variation or sensor calibration."
+        }
+      ],
+      "caption": "Actual saved simulation evidence for the precision stage. Read the linked report for numerical results and pass/fail outcomes.",
+      "evidence": "The current v2 report passes seven checks, including all 25 individual joint tests. These are idealized numerical simulation results, rounded for readability. They are not physical hardware accuracy, fingertip positioning accuracy or a guarantee for every motion. Read the report for thresholds, raw values and conditions.",
+      "report_url": "/precision",
+      "status": "available",
+      "report_status": "passed",
+      "report_file": "results/v2_precision.json",
+      "dimension_note": "Ideal model with known parameters and no sensor noise, backlash or structural compliance. These numerical results do not establish physical accuracy.",
+      "evidence_bytes": 251022,
+      "evidence_sha256": "7ae13426050a7dc6771cc6bc6e3a7475ce7ea19fc5bf30eba83b9a65763b924b",
+      "report_sha256": "b4423b3eca521b06b48d377f92cdbe5a940361728c464cce241d264899266058"
+    },
+    {
+      "id": "grasp",
+      "short_title": "Contact & lift",
+      "layer": "Grasp",
+      "title": "Test a grasp with an actual physics object.",
+      "kind": "Physics test",
+      "image": "08_grasp.png",
+      "image_title": "08 · Seeded contact and lift",
+      "summary": "A 60 g object started in the palm, then lifted 293.2 mm with middle and ring finger contact sustained through the two-second retention observation.",
+      "method": "The seeded grasp test starts with a small object placed in the palm, closes the fingers and commands a lift. MuJoCo computes gravity, contact and friction. The outcome belongs to this starting pose, object and controller configuration.",
+      "dimensions": [
+        {
+          "label": "Measured vertical lift",
+          "value": "293.2",
+          "unit": "mm"
+        },
+        {
+          "label": "Object mass",
+          "value": "60",
+          "unit": "g"
+        },
+        {
+          "label": "Retention observation",
+          "value": "2",
+          "unit": "seconds"
+        }
+      ],
+      "inspect": [
+        "Check the starting object position before interpreting the lift.",
+        "Look for finger or palm contacts supporting the object.",
+        "Read the measured lift result and observe whether the object remains supported."
+      ],
+      "components": [
+        {
+          "title": "Test object",
+          "description": "A free rigid body responds to gravity and contact; it is not attached to the hand."
+        },
+        {
+          "title": "Finger pads",
+          "description": "Provide simulated contact and friction at the finger surfaces."
+        },
+        {
+          "title": "Lift measurement",
+          "description": "Compares the object's vertical position with its starting height during the test."
+        }
+      ],
+      "caption": "Actual saved seeded-grasp simulation view. The object starts in the palm; table pickup is a separate task.",
+      "evidence": "The current seeded-grasp test passed. Its 120 sampled retention observations had hand contact, no floor contact and middle-plus-ring contact throughout the two-second window. The object was neither welded to the hand nor repositioned after initial placement. This result applies to the recorded setup; autonomous table pickup remains a separate task.",
+      "status": "available",
+      "report_status": "passed",
+      "report_file": "results/v2_grasp_validation.json",
+      "report_url": "/grasp-results",
+      "evidence_bytes": 386652,
+      "evidence_sha256": "f39437378825ea09638bab8f4388b828840c49f01c51a73b992a304929e18be6",
+      "report_sha256": "734a70832f5f9f8a771141dd48f1ef60f01ebade45b0b06b5a33fc3ee0a68a5b"
+    }
+  ],
+  "updated_utc": "2026-10-04T18:59:45.486309+00:00",
+  "evidence_summary": "All eight real CAD or simulation stage images are present and decode successfully. Image availability does not itself establish a passed engineering test."
+}

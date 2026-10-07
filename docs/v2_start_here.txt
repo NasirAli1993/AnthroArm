@@ -1,0 +1,76 @@
+ANTHRO ARM - HUMANOID HAND, REVISION 2
+
+Project location: D:\RoboticArm
+The original Word document remains in source\requirements.docx.
+
+SEE THE DESIGN AND SIMULATION
+1. Open Design Walkthrough.cmd opens eight explained stages at
+   http://127.0.0.1:8765/design
+   Proportions -> palm -> finger -> thumb -> assembly -> motion -> precision -> grasp.
+   These are actual CAD and MuJoCo renderings. Compare original shows revision 1.
+2. Start Robotics Studio.cmd opens the live physics controls at
+   http://127.0.0.1:8765/
+   Choose Hand detail or Palm view. Use Open/Fist/Pinch/Point/Peace or select an
+   individual finger. Move sliders or type joint targets in degrees.
+   Detailed surface, Joint axes and Collision geometry show three distinct views.
+3. Open CAD.cmd opens design\AnthroArm25_Humanoid.FCStd in portable FreeCAD.
+   Select a component and read its Explanation property. All 101 native solids
+   carry descriptions and rigid-link metadata. A STEP export is alongside it.
+4. Open OpenSCAD.cmd opens design\humanoid_hand.scad. It uses the exact exported
+   anatomical meshes, with hand-only/full-arm and open/fist/point/peace views.
+5. results\humanoid_hand_demo.webm is a 27-second recording of integrated physics
+   showing each finger and thumb moving. Watch it from stage 6 of the walkthrough.
+6. Stop Robotics Studio.cmd stops the local simulation server when finished.
+
+WHAT CHANGED
+The hand now uses smooth tapered oval finger shells, round tips and knuckles,
+soft oval pads, a contoured palm, a thumb-side mound and an opposable thumb.
+The native CAD surfaces are also the surfaces shown in the simulator.
+There are 20 hand axes and 5 arm axes. Nominal wrist-to-middle-tip length is
+190 mm. This is a joint-chain design dimension, not a measured human specimen.
+40 per-component convex hulls approximate collision geometry; inspect them
+using Collision geometry. The controller keeps gravity active and applies
+modeled bias compensation through the same effort-limited actuators.
+
+VERIFIED RESULTS
+- All 101 CAD solids reopen valid in FCStd and STEP. Binary STL exports are
+  closed and match the native model in metres. See anatomical_cad_validation.json.
+- All 25 joints pass independent tracking tests. Seven geometry, effort,
+  tracking, stability and pinch/contact checks pass in v2_precision.json.
+- A seeded 60 g object is lifted approximately 293 mm and retained for 2 s,
+  with sustained middle/ring finger contacts: v2_grasp_validation.json.
+- The existing 31 HTTP/UDP control checks pass: v2_control_api_validation.json.
+- The Gymnasium interface passes its smoke check: v2_gym_smoke.json.
+All reports are in results. Precision figures describe an ideal numerical
+model with known parameters, no sensor noise, backlash or structural compliance.
+They do not establish physical accuracy or manufacturing tolerances.
+
+OTHER CONTROLS
+The live desk supports position-only arm inverse kinematics, contact forces,
+virtual IMU/wrist sensors and local webcam tracking. Webcam Control.cmd enables
+the existing local hand-landmark input. Monocular depth remains an estimate,
+and person-specific motion accuracy requires calibration. The learning
+environment is runnable but untrained. The seeded grasp starts with the object
+placed in the palm; autonomous table pickup is not implemented.
+
+EDIT AND REBUILD
+The native anatomical construction source is design\build_anatomical_cad.py.
+Canonical link frames, limits and dimensions are in design\robot_spec.json.
+Run scripts\build_cad.ps1 to rebuild the anatomical CAD, then
+scripts\validate_cad.ps1 to reopen/check it. Run scripts\rebuild_model.ps1 to
+regenerate MJCF and URDF from the canonical model and CAD manifest. Restart
+Studio after regeneration. design\generate_humanoid_scad.py regenerates the
+mesh-based OpenSCAD assembly. CAD uses mm; exported STL/URDF/MuJoCo use m.
+The original block prototype remains under revisions\v1_block_prototype.
+
+SCOPE
+This is a working digital robotic hand and arm. Physical fabrication still needs
+actuator/transmission selection, routed tendons or other drives, bearings,
+fasteners, tolerance/interference analysis, wiring, real mass/inertia data and
+hardware testing. None of those are certified by the simulation results.
+Isaac Sim/Isaac Lab remain unsuitable for the detected GTX 1660 Ti/16 GB system;
+MuJoCo is the compatible simulator allowed by the source document.
+
+Project downloads, portable software, generated files and redirected caches
+are on D:. See docs\storage_and_software.txt for the existing Windows/host-application
+managed-data boundary. No new software was required for this anatomical upgrade.

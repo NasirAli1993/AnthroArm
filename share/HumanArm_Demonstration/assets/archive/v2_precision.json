@@ -1,0 +1,482 @@
+{
+  "model": "Aster-25 Anatomical",
+  "version": "2.0",
+  "passed": true,
+  "method": "Normal 2 ms MuJoCo integration with gravity, effort-limited servos and actuator bias feedforward; no external forces or body gravity cancellation.",
+  "collision_model": "Per-component convex hulls of anatomical CAD shells and pads; exact visible CAD surfaces are shown separately.",
+  "checks": {
+    "cad_mesh_identity": {
+      "passed": true,
+      "visible_components": 101,
+      "collision_hulls": 40,
+      "mesh_files_match_manifest": true,
+      "units": "m",
+      "visible_geometry": "Exact CAD STL meshes"
+    },
+    "bounded_controller": {
+      "passed": true,
+      "body_gravcomp_zero": true,
+      "external_applied_forces_zero": true,
+      "actuator_bias_feedforward": true,
+      "total_effort_limited": true
+    },
+    "open_initial_collision_audit": {
+      "passed": true,
+      "contacts": 0,
+      "penetrations_deeper_than_50um": []
+    },
+    "all_25_independent_joint_tracking": {
+      "passed": true,
+      "max_joint_error_deg": 4.204483817563448e-07,
+      "max_palm_target_error_mm": 4.6256399505762065e-06,
+      "max_effort_fraction": 0.21097829385154038,
+      "settle_seconds": 4,
+      "acceptance_joint_deg": 0.25,
+      "acceptance_palm_mm": 0.3,
+      "results": [
+        {
+          "joint": "joint_1_waist",
+          "command_rad": 0.15,
+          "measured_rad": 0.15000000000005806,
+          "error_deg": 3.3268601968108386e-12,
+          "palm_target_error_mm": 4.075197001209521e-08,
+          "contacts": []
+        },
+        {
+          "joint": "joint_2_shoulder",
+          "command_rad": 0.65,
+          "measured_rad": 0.6499999926617914,
+          "error_deg": 4.204483817563448e-07,
+          "palm_target_error_mm": 4.6256399505762065e-06,
+          "contacts": []
+        },
+        {
+          "joint": "joint_3_elbow",
+          "command_rad": 0.8,
+          "measured_rad": 0.7999999999804613,
+          "error_deg": 1.1194852756721657e-09,
+          "palm_target_error_mm": 4.166363379749691e-06,
+          "contacts": []
+        },
+        {
+          "joint": "joint_4_wrist_pitch",
+          "command_rad": -0.6,
+          "measured_rad": -0.6000000001279322,
+          "error_deg": 7.329976291103813e-09,
+          "palm_target_error_mm": 2.9524789393745635e-06,
+          "contacts": []
+        },
+        {
+          "joint": "joint_5_wrist_roll",
+          "command_rad": 0.15,
+          "measured_rad": 0.15000000034030245,
+          "error_deg": 1.949789430818178e-08,
+          "palm_target_error_mm": 1.597973304651819e-07,
+          "contacts": []
+        },
+        {
+          "joint": "index_mcp_abduction",
+          "command_rad": 0.025,
+          "measured_rad": 0.025000000003395303,
+          "error_deg": 1.945364404603725e-10,
+          "palm_target_error_mm": 6.561464167493937e-08,
+          "contacts": []
+        },
+        {
+          "joint": "index_mcp_flexion",
+          "command_rad": 0.15,
+          "measured_rad": 0.15000000004971803,
+          "error_deg": 2.8486335851833248e-09,
+          "palm_target_error_mm": 2.801709320511554e-07,
+          "contacts": []
+        },
+        {
+          "joint": "index_pip",
+          "command_rad": 0.15,
+          "measured_rad": 0.1499999999811274,
+          "error_deg": 1.0813202097719443e-09,
+          "palm_target_error_mm": 2.9721888324794e-08,
+          "contacts": []
+        },
+        {
+          "joint": "index_dip",
+          "command_rad": 0.15,
+          "measured_rad": 0.14999999996695368,
+          "error_deg": 1.8934144171447055e-09,
+          "palm_target_error_mm": 2.1355024582884696e-08,
+          "contacts": []
+        },
+        {
+          "joint": "middle_mcp_abduction",
+          "command_rad": 0.025,
+          "measured_rad": 0.025000001747497783,
+          "error_deg": 1.0012424761108064e-07,
+          "palm_target_error_mm": 8.578939769473833e-08,
+          "contacts": []
+        },
+        {
+          "joint": "middle_mcp_flexion",
+          "command_rad": 0.15,
+          "measured_rad": 0.15000000006431669,
+          "error_deg": 3.6850749386426893e-09,
+          "palm_target_error_mm": 3.430379313680455e-07,
+          "contacts": []
+        },
+        {
+          "joint": "middle_pip",
+          "command_rad": 0.15,
+          "measured_rad": 0.14999999998511127,
+          "error_deg": 8.53061341947352e-10,
+          "palm_target_error_mm": 6.651084578197399e-09,
+          "contacts": []
+        },
+        {
+          "joint": "middle_dip",
+          "command_rad": 0.15,
+          "measured_rad": 0.1499999999941274,
+          "error_deg": 3.3647565058404764e-10,
+          "palm_target_error_mm": 2.282976038904589e-08,
+          "contacts": []
+        },
+        {
+          "joint": "ring_mcp_abduction",
+          "command_rad": 0.025,
+          "measured_rad": 0.024999999996608114,
+          "error_deg": 1.9434083634746248e-10,
+          "palm_target_error_mm": 5.335547483535118e-08,
+          "contacts": []
+        },
+        {
+          "joint": "ring_mcp_flexion",
+          "command_rad": 0.15,
+          "measured_rad": 0.15000000001116795,
+          "error_deg": 6.398767130355562e-10,
+          "palm_target_error_mm": 2.8627367403344025e-07,
+          "contacts": []
+        },
+        {
+          "joint": "ring_pip",
+          "command_rad": 0.15,
+          "measured_rad": 0.14999999997968835,
+          "error_deg": 1.1637713190568636e-09,
+          "palm_target_error_mm": 3.618106028895295e-08,
+          "contacts": []
+        },
+        {
+          "joint": "ring_dip",
+          "command_rad": 0.15,
+          "measured_rad": 0.14999999998663013,
+          "error_deg": 7.66036595030488e-10,
+          "palm_target_error_mm": 2.505463815455608e-08,
+          "contacts": []
+        },
+        {
+          "joint": "pinky_mcp_abduction",
+          "command_rad": 0.025,
+          "measured_rad": 0.024999999913506793,
+          "error_deg": 4.955695799515314e-09,
+          "palm_target_error_mm": 8.683739854257527e-08,
+          "contacts": []
+        },
+        {
+          "joint": "pinky_mcp_flexion",
+          "command_rad": 0.15,
+          "measured_rad": 0.1500000001998721,
+          "error_deg": 1.1451828852765184e-08,
+          "palm_target_error_mm": 1.9467617304029614e-07,
+          "contacts": []
+        },
+        {
+          "joint": "pinky_pip",
+          "command_rad": 0.15,
+          "measured_rad": 0.14999999998238092,
+          "error_deg": 1.0094985142324758e-09,
+          "palm_target_error_mm": 7.792676587399434e-08,
+          "contacts": []
+        },
+        {
+          "joint": "pinky_dip",
+          "command_rad": 0.15,
+          "measured_rad": 0.14999999999681154,
+          "error_deg": 1.8268469979390147e-10,
+          "palm_target_error_mm": 1.702798710279815e-08,
+          "contacts": []
+        },
+        {
+          "joint": "thumb_cmc_opposition",
+          "command_rad": 0.15,
+          "measured_rad": 0.14999999999709043,
+          "error_deg": 1.6670559307422878e-10,
+          "palm_target_error_mm": 6.521043867507576e-09,
+          "contacts": []
+        },
+        {
+          "joint": "thumb_cmc_flexion",
+          "command_rad": 0.15,
+          "measured_rad": 0.14999999999721128,
+          "error_deg": 1.597815255326827e-10,
+          "palm_target_error_mm": 6.230146751391348e-09,
+          "contacts": []
+        },
+        {
+          "joint": "thumb_mcp_flexion",
+          "command_rad": 0.15,
+          "measured_rad": 0.15000000000306232,
+          "error_deg": 1.7545847955761637e-10,
+          "palm_target_error_mm": 1.489205775787155e-07,
+          "contacts": []
+        },
+        {
+          "joint": "thumb_ip",
+          "command_rad": 0.15,
+          "measured_rad": 0.1499999999973327,
+          "error_deg": 1.5282406216698125e-10,
+          "palm_target_error_mm": 9.02156576434451e-09,
+          "contacts": []
+        }
+      ]
+    },
+    "loaded_cartesian_return_precision": {
+      "passed": true,
+      "repeatability_mm": 7.1262167626942605e-06,
+      "trials": [
+        {
+          "goal": [
+            0.4330033943486999,
+            0.06544206242487267,
+            0.5906590101042775
+          ],
+          "measured": [
+            0.4330033883813467,
+            0.06544206152247237,
+            0.5906590159833344
+          ],
+          "error_mm": 8.425374784732911e-06
+        },
+        {
+          "goal": [
+            0.4330033943486999,
+            0.06544206242487267,
+            0.5906590101042775
+          ],
+          "measured": [
+            0.4330033859353534,
+            0.06544206115258354,
+            0.5906590183952106
+          ],
+          "error_mm": 1.1880348945490751e-05
+        },
+        {
+          "goal": [
+            0.4330033943486999,
+            0.06544206242487267,
+            0.5906590101042775
+          ],
+          "measured": [
+            0.43300338333365695,
+            0.06544206075915274,
+            0.5906590209553698
+          ],
+          "error_mm": 1.5551591529264438e-05
+        }
+      ]
+    },
+    "gesture_contact_and_joint_limit_audit": {
+      "passed": true,
+      "results": [
+        {
+          "name": "open",
+          "finite": true,
+          "joint_limit_violation_deg": 0.0,
+          "max_effort_fraction": 0.11547464035249627,
+          "maximum_penetration_mm": 0.0,
+          "robot_contacts": [],
+          "pinch_surface": {
+            "distance_m": 0.10219558729217276,
+            "closest_points": [
+              [
+                0.45950147724414275,
+                0.03664118035826058,
+                0.7123129810860234
+              ],
+              [
+                0.42402468782958674,
+                0.08294845676494925,
+                0.6284024833719597
+              ]
+            ],
+            "geoms": [
+              "index_distalShell_collision",
+              "thumb_distalShell_collision"
+            ],
+            "representation": "Convex hulls of the actual CAD distal shells and pads"
+          },
+          "endpoint_gap_mm": 125.93357330251497
+        },
+        {
+          "name": "fist",
+          "finite": true,
+          "joint_limit_violation_deg": 0.0,
+          "max_effort_fraction": 0.11643003029330287,
+          "maximum_penetration_mm": 0.0,
+          "robot_contacts": [],
+          "pinch_surface": {
+            "distance_m": 0.039487432708253035,
+            "closest_points": [
+              [
+                0.46912309898241283,
+                0.028933112122098783,
+                0.6162989220854889
+              ],
+              [
+                0.44449851990020073,
+                0.016628109021322116,
+                0.5879885998407215
+              ]
+            ],
+            "geoms": [
+              "index_distalShell_collision",
+              "thumb_distalShell_collision"
+            ],
+            "representation": "Convex hulls of the actual CAD distal shells and pads"
+          },
+          "endpoint_gap_mm": 54.513508909985
+        },
+        {
+          "name": "pinch",
+          "finite": true,
+          "joint_limit_violation_deg": 0.049859063659902364,
+          "max_effort_fraction": 0.11644420722942642,
+          "maximum_penetration_mm": 0.0,
+          "robot_contacts": [
+            {
+              "geom1": "index_distalPad_collision",
+              "geom2": "thumb_distalPad_collision",
+              "distance": 0.000257875632707547,
+              "normal_force": 1.6297503319723075,
+              "position": [
+                0.46257577000153005,
+                0.043711563880137735,
+                0.6077280217328933
+              ]
+            }
+          ],
+          "pinch_surface": {
+            "distance_m": 0.0002574711854739071,
+            "closest_points": [
+              [
+                0.4626527022448431,
+                0.04360369051090269,
+                0.6076829723972204
+              ],
+              [
+                0.46252817900300697,
+                0.043828491837961184,
+                0.6076671693296479
+              ]
+            ],
+            "geoms": [
+              "index_distalPad_collision",
+              "thumb_distalPad_collision"
+            ],
+            "representation": "Convex hulls of the actual CAD distal shells and pads"
+          },
+          "endpoint_gap_mm": 13.908979934581424
+        },
+        {
+          "name": "point",
+          "finite": true,
+          "joint_limit_violation_deg": 1.2820400957925442e-08,
+          "max_effort_fraction": 0.11622743020367683,
+          "maximum_penetration_mm": 0.0,
+          "robot_contacts": [],
+          "pinch_surface": {
+            "distance_m": 0.1273230403028149,
+            "closest_points": [
+              [
+                0.4632239732771814,
+                0.02635141844340081,
+                0.7107391345236942
+              ],
+              [
+                0.43918532273626787,
+                0.013459049620958348,
+                0.586372391789673
+              ]
+            ],
+            "geoms": [
+              "index_distalShell_collision",
+              "thumb_distalShell_collision"
+            ],
+            "representation": "Convex hulls of the actual CAD distal shells and pads"
+          },
+          "endpoint_gap_mm": 160.18149318852707
+        },
+        {
+          "name": "peace",
+          "finite": true,
+          "joint_limit_violation_deg": 0.0,
+          "max_effort_fraction": 0.11600981773097109,
+          "maximum_penetration_mm": 0.0,
+          "robot_contacts": [],
+          "pinch_surface": {
+            "distance_m": 0.12833706636964104,
+            "closest_points": [
+              [
+                0.4635936199990184,
+                0.03614172885585363,
+                0.7103083984660825
+              ],
+              [
+                0.4391853224252111,
+                0.013459049626109873,
+                0.5863723920882963
+              ]
+            ],
+            "geoms": [
+              "index_distalShell_collision",
+              "thumb_distalShell_collision"
+            ],
+            "representation": "Convex hulls of the actual CAD distal shells and pads"
+          },
+          "endpoint_gap_mm": 161.535477999781
+        }
+      ],
+      "contact_penetration_acceptance_mm": 1.5
+    },
+    "anatomical_thumb_index_pinch": {
+      "passed": true,
+      "pinch_surface": {
+        "distance_m": 0.0002574711854739071,
+        "closest_points": [
+          [
+            0.4626527022448431,
+            0.04360369051090269,
+            0.6076829723972204
+          ],
+          [
+            0.46252817900300697,
+            0.043828491837961184,
+            0.6076671693296479
+          ]
+        ],
+        "geoms": [
+          "index_distalPad_collision",
+          "thumb_distalPad_collision"
+        ],
+        "representation": "Convex hulls of the actual CAD distal shells and pads"
+      },
+      "distal_contact_points": 1,
+      "distal_contact_total_normal_force_N": 1.6297503319723075,
+      "endpoint_site_gap_mm": 13.908979934581424,
+      "note": "Closest collision surface gap, not centreline-tip distance. Actual nonzero thumb-index distal contact is required. Combined 0.4 mm contact margin permits positive near-zero gaps; this is not an object pickup."
+    }
+  },
+  "limitations": [
+    "Digital model precision is not evidence of physical actuator accuracy.",
+    "CAD collision uses convex hulls per shell or pad, so a concavity can be filled.",
+    "Contacts intentionally prevent targets inside solid objects from being reached.",
+    "Mass/inertia remain conceptual estimates; hardware strength, tendon drive and tolerances need validation."
+  ],
+  "failed_checks": []
+}

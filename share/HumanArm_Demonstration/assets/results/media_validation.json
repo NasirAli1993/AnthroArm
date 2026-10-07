@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "file": "camera_autonomy.webm",
+      "frames": 201,
+      "fps": 20.0,
+      "duration_s": 10.05,
+      "bytes": 2037436,
+      "first_middle_last_decode": true
+    },
+    {
+      "file": "full_arm_articulation.webm",
+      "frames": 660,
+      "fps": 20.0,
+      "duration_s": 33.0,
+      "bytes": 4895417,
+      "first_middle_last_decode": true
+    }
+  ]
+}

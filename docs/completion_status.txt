@@ -1,0 +1,5 @@
+REVISION 2: HUMANOID CAD AND SIMULATION COMPLETE
+
+101 explained native CAD solids; 20 hand axes + 5 arm axes; eight actual construction/test stages; 27-second motion recording. Current validation inventory: results/v2_handoff.json.
+
+Open START HERE.txt for launch instructions. Physical manufacturing, real actuator/drive design, hardware calibration and autonomous table pickup remain outside the verified digital implementation.

@@ -1,0 +1,837 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="AnthroArm-27">
+  <compiler angle="radian" inertiafromgeom="false" autolimits="true" />
+  <option timestep=".002" gravity="0 0 -9.81" integrator="implicitfast" cone="elliptic" iterations="100" />
+  <visual>
+    <global offwidth="1600" offheight="1200" />
+    <quality shadowsize="2048" />
+    <headlight ambient=".35 .35 .35" diffuse=".65 .65 .65" />
+  </visual>
+  <asset>
+    <texture name="sky" type="skybox" builtin="gradient" rgb1=".04 .065 .095" rgb2=".16 .21 .27" width="128" height="768" />
+    <mesh name="ShoulderMountFlange_mesh" file="../../design/v3/meshes/ShoulderMountFlange.stl" smoothnormal="true" />
+    <mesh name="ShoulderSocket_mesh" file="../../design/v3/meshes/ShoulderSocket.stl" smoothnormal="true" />
+    <mesh name="ShoulderBearing-1_mesh" file="../../design/v3/meshes/ShoulderBearing-1.stl" smoothnormal="true" />
+    <mesh name="ShoulderCap-1_mesh" file="../../design/v3/meshes/ShoulderCap-1.stl" smoothnormal="true" />
+    <mesh name="ShoulderBearing1_mesh" file="../../design/v3/meshes/ShoulderBearing1.stl" smoothnormal="true" />
+    <mesh name="ShoulderCap1_mesh" file="../../design/v3/meshes/ShoulderCap1.stl" smoothnormal="true" />
+    <mesh name="ShoulderFlexionGimbal_mesh" file="../../design/v3/meshes/ShoulderFlexionGimbal.stl" smoothnormal="true" />
+    <mesh name="ShoulderRotationCoupler_mesh" file="../../design/v3/meshes/ShoulderRotationCoupler.stl" smoothnormal="true" />
+    <mesh name="UpperArmAnteriorShell_mesh" file="../../design/v3/meshes/UpperArmAnteriorShell.stl" smoothnormal="true" />
+    <mesh name="UpperArmPosteriorShell_mesh" file="../../design/v3/meshes/UpperArmPosteriorShell.stl" smoothnormal="true" />
+    <mesh name="UpperPanelScrew_75_-1_mesh" file="../../design/v3/meshes/UpperPanelScrew_75_-1.stl" smoothnormal="true" />
+    <mesh name="UpperPanelScrew_75_1_mesh" file="../../design/v3/meshes/UpperPanelScrew_75_1.stl" smoothnormal="true" />
+    <mesh name="UpperPanelScrew_220_-1_mesh" file="../../design/v3/meshes/UpperPanelScrew_220_-1.stl" smoothnormal="true" />
+    <mesh name="UpperPanelScrew_220_1_mesh" file="../../design/v3/meshes/UpperPanelScrew_220_1.stl" smoothnormal="true" />
+    <mesh name="HumerusCore_mesh" file="../../design/v3/meshes/HumerusCore.stl" smoothnormal="true" />
+    <mesh name="ShoulderMotorEnvelope_mesh" file="../../design/v3/meshes/ShoulderMotorEnvelope.stl" smoothnormal="true" />
+    <mesh name="ShoulderMotorBand_mesh" file="../../design/v3/meshes/ShoulderMotorBand.stl" smoothnormal="true" />
+    <mesh name="ElbowDriveEnvelope_mesh" file="../../design/v3/meshes/ElbowDriveEnvelope.stl" smoothnormal="true" />
+    <mesh name="UpperHarness-12_mesh" file="../../design/v3/meshes/UpperHarness-12.stl" smoothnormal="true" />
+    <mesh name="UpperHarness12_mesh" file="../../design/v3/meshes/UpperHarness12.stl" smoothnormal="true" />
+    <mesh name="ElbowBearingBarrel_mesh" file="../../design/v3/meshes/ElbowBearingBarrel.stl" smoothnormal="true" />
+    <mesh name="ElbowRace-1_mesh" file="../../design/v3/meshes/ElbowRace-1.stl" smoothnormal="true" />
+    <mesh name="ElbowHub-1_mesh" file="../../design/v3/meshes/ElbowHub-1.stl" smoothnormal="true" />
+    <mesh name="ElbowBolt_-1_0_mesh" file="../../design/v3/meshes/ElbowBolt_-1_0.stl" smoothnormal="true" />
+    <mesh name="ElbowBolt_-1_120_mesh" file="../../design/v3/meshes/ElbowBolt_-1_120.stl" smoothnormal="true" />
+    <mesh name="ElbowBolt_-1_240_mesh" file="../../design/v3/meshes/ElbowBolt_-1_240.stl" smoothnormal="true" />
+    <mesh name="ElbowRace1_mesh" file="../../design/v3/meshes/ElbowRace1.stl" smoothnormal="true" />
+    <mesh name="ElbowHub1_mesh" file="../../design/v3/meshes/ElbowHub1.stl" smoothnormal="true" />
+    <mesh name="ElbowBolt_1_0_mesh" file="../../design/v3/meshes/ElbowBolt_1_0.stl" smoothnormal="true" />
+    <mesh name="ElbowBolt_1_120_mesh" file="../../design/v3/meshes/ElbowBolt_1_120.stl" smoothnormal="true" />
+    <mesh name="ElbowBolt_1_240_mesh" file="../../design/v3/meshes/ElbowBolt_1_240.stl" smoothnormal="true" />
+    <mesh name="PronationBearing_mesh" file="../../design/v3/meshes/PronationBearing.stl" smoothnormal="true" />
+    <mesh name="ForearmAnteriorShell_mesh" file="../../design/v3/meshes/ForearmAnteriorShell.stl" smoothnormal="true" />
+    <mesh name="ForearmPosteriorShell_mesh" file="../../design/v3/meshes/ForearmPosteriorShell.stl" smoothnormal="true" />
+    <mesh name="ForePanelScrew_65_-1_mesh" file="../../design/v3/meshes/ForePanelScrew_65_-1.stl" smoothnormal="true" />
+    <mesh name="ForePanelScrew_65_1_mesh" file="../../design/v3/meshes/ForePanelScrew_65_1.stl" smoothnormal="true" />
+    <mesh name="ForePanelScrew_206_-1_mesh" file="../../design/v3/meshes/ForePanelScrew_206_-1.stl" smoothnormal="true" />
+    <mesh name="ForePanelScrew_206_1_mesh" file="../../design/v3/meshes/ForePanelScrew_206_1.stl" smoothnormal="true" />
+    <mesh name="RadiusUlnaRail-9_mesh" file="../../design/v3/meshes/RadiusUlnaRail-9.stl" smoothnormal="true" />
+    <mesh name="RadiusUlnaRail9_mesh" file="../../design/v3/meshes/RadiusUlnaRail9.stl" smoothnormal="true" />
+    <mesh name="HandActuator00_mesh" file="../../design/v3/meshes/HandActuator00.stl" smoothnormal="true" />
+    <mesh name="TendonSpool00_mesh" file="../../design/v3/meshes/TendonSpool00.stl" smoothnormal="true" />
+    <mesh name="TendonGuide00_mesh" file="../../design/v3/meshes/TendonGuide00.stl" smoothnormal="true" />
+    <mesh name="HandActuator01_mesh" file="../../design/v3/meshes/HandActuator01.stl" smoothnormal="true" />
+    <mesh name="TendonSpool01_mesh" file="../../design/v3/meshes/TendonSpool01.stl" smoothnormal="true" />
+    <mesh name="TendonGuide01_mesh" file="../../design/v3/meshes/TendonGuide01.stl" smoothnormal="true" />
+    <mesh name="HandActuator02_mesh" file="../../design/v3/meshes/HandActuator02.stl" smoothnormal="true" />
+    <mesh name="TendonSpool02_mesh" file="../../design/v3/meshes/TendonSpool02.stl" smoothnormal="true" />
+    <mesh name="TendonGuide02_mesh" file="../../design/v3/meshes/TendonGuide02.stl" smoothnormal="true" />
+    <mesh name="HandActuator03_mesh" file="../../design/v3/meshes/HandActuator03.stl" smoothnormal="true" />
+    <mesh name="TendonSpool03_mesh" file="../../design/v3/meshes/TendonSpool03.stl" smoothnormal="true" />
+    <mesh name="TendonGuide03_mesh" file="../../design/v3/meshes/TendonGuide03.stl" smoothnormal="true" />
+    <mesh name="HandActuator04_mesh" file="../../design/v3/meshes/HandActuator04.stl" smoothnormal="true" />
+    <mesh name="TendonSpool04_mesh" file="../../design/v3/meshes/TendonSpool04.stl" smoothnormal="true" />
+    <mesh name="TendonGuide04_mesh" file="../../design/v3/meshes/TendonGuide04.stl" smoothnormal="true" />
+    <mesh name="HandActuator05_mesh" file="../../design/v3/meshes/HandActuator05.stl" smoothnormal="true" />
+    <mesh name="TendonSpool05_mesh" file="../../design/v3/meshes/TendonSpool05.stl" smoothnormal="true" />
+    <mesh name="TendonGuide05_mesh" file="../../design/v3/meshes/TendonGuide05.stl" smoothnormal="true" />
+    <mesh name="HandActuator06_mesh" file="../../design/v3/meshes/HandActuator06.stl" smoothnormal="true" />
+    <mesh name="TendonSpool06_mesh" file="../../design/v3/meshes/TendonSpool06.stl" smoothnormal="true" />
+    <mesh name="TendonGuide06_mesh" file="../../design/v3/meshes/TendonGuide06.stl" smoothnormal="true" />
+    <mesh name="HandActuator07_mesh" file="../../design/v3/meshes/HandActuator07.stl" smoothnormal="true" />
+    <mesh name="TendonSpool07_mesh" file="../../design/v3/meshes/TendonSpool07.stl" smoothnormal="true" />
+    <mesh name="TendonGuide07_mesh" file="../../design/v3/meshes/TendonGuide07.stl" smoothnormal="true" />
+    <mesh name="HandActuator08_mesh" file="../../design/v3/meshes/HandActuator08.stl" smoothnormal="true" />
+    <mesh name="TendonSpool08_mesh" file="../../design/v3/meshes/TendonSpool08.stl" smoothnormal="true" />
+    <mesh name="TendonGuide08_mesh" file="../../design/v3/meshes/TendonGuide08.stl" smoothnormal="true" />
+    <mesh name="HandActuator09_mesh" file="../../design/v3/meshes/HandActuator09.stl" smoothnormal="true" />
+    <mesh name="TendonSpool09_mesh" file="../../design/v3/meshes/TendonSpool09.stl" smoothnormal="true" />
+    <mesh name="TendonGuide09_mesh" file="../../design/v3/meshes/TendonGuide09.stl" smoothnormal="true" />
+    <mesh name="HandActuator10_mesh" file="../../design/v3/meshes/HandActuator10.stl" smoothnormal="true" />
+    <mesh name="TendonSpool10_mesh" file="../../design/v3/meshes/TendonSpool10.stl" smoothnormal="true" />
+    <mesh name="TendonGuide10_mesh" file="../../design/v3/meshes/TendonGuide10.stl" smoothnormal="true" />
+    <mesh name="HandActuator11_mesh" file="../../design/v3/meshes/HandActuator11.stl" smoothnormal="true" />
+    <mesh name="TendonSpool11_mesh" file="../../design/v3/meshes/TendonSpool11.stl" smoothnormal="true" />
+    <mesh name="TendonGuide11_mesh" file="../../design/v3/meshes/TendonGuide11.stl" smoothnormal="true" />
+    <mesh name="HandActuator12_mesh" file="../../design/v3/meshes/HandActuator12.stl" smoothnormal="true" />
+    <mesh name="TendonSpool12_mesh" file="../../design/v3/meshes/TendonSpool12.stl" smoothnormal="true" />
+    <mesh name="TendonGuide12_mesh" file="../../design/v3/meshes/TendonGuide12.stl" smoothnormal="true" />
+    <mesh name="HandActuator13_mesh" file="../../design/v3/meshes/HandActuator13.stl" smoothnormal="true" />
+    <mesh name="TendonSpool13_mesh" file="../../design/v3/meshes/TendonSpool13.stl" smoothnormal="true" />
+    <mesh name="TendonGuide13_mesh" file="../../design/v3/meshes/TendonGuide13.stl" smoothnormal="true" />
+    <mesh name="HandActuator14_mesh" file="../../design/v3/meshes/HandActuator14.stl" smoothnormal="true" />
+    <mesh name="TendonSpool14_mesh" file="../../design/v3/meshes/TendonSpool14.stl" smoothnormal="true" />
+    <mesh name="TendonGuide14_mesh" file="../../design/v3/meshes/TendonGuide14.stl" smoothnormal="true" />
+    <mesh name="HandActuator15_mesh" file="../../design/v3/meshes/HandActuator15.stl" smoothnormal="true" />
+    <mesh name="TendonSpool15_mesh" file="../../design/v3/meshes/TendonSpool15.stl" smoothnormal="true" />
+    <mesh name="TendonGuide15_mesh" file="../../design/v3/meshes/TendonGuide15.stl" smoothnormal="true" />
+    <mesh name="HandActuator16_mesh" file="../../design/v3/meshes/HandActuator16.stl" smoothnormal="true" />
+    <mesh name="TendonSpool16_mesh" file="../../design/v3/meshes/TendonSpool16.stl" smoothnormal="true" />
+    <mesh name="TendonGuide16_mesh" file="../../design/v3/meshes/TendonGuide16.stl" smoothnormal="true" />
+    <mesh name="HandActuator17_mesh" file="../../design/v3/meshes/HandActuator17.stl" smoothnormal="true" />
+    <mesh name="TendonSpool17_mesh" file="../../design/v3/meshes/TendonSpool17.stl" smoothnormal="true" />
+    <mesh name="TendonGuide17_mesh" file="../../design/v3/meshes/TendonGuide17.stl" smoothnormal="true" />
+    <mesh name="HandActuator18_mesh" file="../../design/v3/meshes/HandActuator18.stl" smoothnormal="true" />
+    <mesh name="TendonSpool18_mesh" file="../../design/v3/meshes/TendonSpool18.stl" smoothnormal="true" />
+    <mesh name="TendonGuide18_mesh" file="../../design/v3/meshes/TendonGuide18.stl" smoothnormal="true" />
+    <mesh name="HandActuator19_mesh" file="../../design/v3/meshes/HandActuator19.stl" smoothnormal="true" />
+    <mesh name="TendonSpool19_mesh" file="../../design/v3/meshes/TendonSpool19.stl" smoothnormal="true" />
+    <mesh name="TendonGuide19_mesh" file="../../design/v3/meshes/TendonGuide19.stl" smoothnormal="true" />
+    <mesh name="WristFlexionBall_mesh" file="../../design/v3/meshes/WristFlexionBall.stl" smoothnormal="true" />
+    <mesh name="WristCarpalCoupler_mesh" file="../../design/v3/meshes/WristCarpalCoupler.stl" smoothnormal="true" />
+    <mesh name="WristFlexionCap-1_mesh" file="../../design/v3/meshes/WristFlexionCap-1.stl" smoothnormal="true" />
+    <mesh name="WristFlexionCap1_mesh" file="../../design/v3/meshes/WristFlexionCap1.stl" smoothnormal="true" />
+    <mesh name="WristDeviationSeal_mesh" file="../../design/v3/meshes/WristDeviationSeal.stl" smoothnormal="true" />
+    <mesh name="PalmAnteriorChassis_mesh" file="../../design/v3/meshes/PalmAnteriorChassis.stl" smoothnormal="true" />
+    <mesh name="PalmDorsalCover_mesh" file="../../design/v3/meshes/PalmDorsalCover.stl" smoothnormal="true" />
+    <mesh name="PalmInsetPad_mesh" file="../../design/v3/meshes/PalmInsetPad.stl" smoothnormal="true" />
+    <mesh name="PalmInternalPlate_mesh" file="../../design/v3/meshes/PalmInternalPlate.stl" smoothnormal="true" />
+    <mesh name="PalmCoverScrew_-1_18_mesh" file="../../design/v3/meshes/PalmCoverScrew_-1_18.stl" smoothnormal="true" />
+    <mesh name="PalmCoverScrew_-1_79_mesh" file="../../design/v3/meshes/PalmCoverScrew_-1_79.stl" smoothnormal="true" />
+    <mesh name="PalmCoverScrew_1_18_mesh" file="../../design/v3/meshes/PalmCoverScrew_1_18.stl" smoothnormal="true" />
+    <mesh name="PalmCoverScrew_1_79_mesh" file="../../design/v3/meshes/PalmCoverScrew_1_79.stl" smoothnormal="true" />
+    <mesh name="indexMCPMount_mesh" file="../../design/v3/meshes/indexMCPMount.stl" smoothnormal="true" />
+    <mesh name="middleMCPMount_mesh" file="../../design/v3/meshes/middleMCPMount.stl" smoothnormal="true" />
+    <mesh name="ringMCPMount_mesh" file="../../design/v3/meshes/ringMCPMount.stl" smoothnormal="true" />
+    <mesh name="pinkyMCPMount_mesh" file="../../design/v3/meshes/pinkyMCPMount.stl" smoothnormal="true" />
+    <mesh name="indexMCPUniversal_mesh" file="../../design/v3/meshes/indexMCPUniversal.stl" smoothnormal="true" />
+    <mesh name="index_proximalDorsalShell_mesh" file="../../design/v3/meshes/index_proximalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="index_proximalFlexorShell_mesh" file="../../design/v3/meshes/index_proximalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="index_proximalInsetPad_mesh" file="../../design/v3/meshes/index_proximalInsetPad.stl" smoothnormal="true" />
+    <mesh name="index_proximalCore_mesh" file="../../design/v3/meshes/index_proximalCore.stl" smoothnormal="true" />
+    <mesh name="index_proximalHingeBarrel_mesh" file="../../design/v3/meshes/index_proximalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="index_proximalCheek-1_mesh" file="../../design/v3/meshes/index_proximalCheek-1.stl" smoothnormal="true" />
+    <mesh name="index_proximalCheek1_mesh" file="../../design/v3/meshes/index_proximalCheek1.stl" smoothnormal="true" />
+    <mesh name="index_proximalPin_mesh" file="../../design/v3/meshes/index_proximalPin.stl" smoothnormal="true" />
+    <mesh name="index_proximalScrew_-1_0.24_mesh" file="../../design/v3/meshes/index_proximalScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="index_proximalScrew_-1_0.75_mesh" file="../../design/v3/meshes/index_proximalScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="index_proximalScrew_1_0.24_mesh" file="../../design/v3/meshes/index_proximalScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="index_proximalScrew_1_0.75_mesh" file="../../design/v3/meshes/index_proximalScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="index_intermediateDorsalShell_mesh" file="../../design/v3/meshes/index_intermediateDorsalShell.stl" smoothnormal="true" />
+    <mesh name="index_intermediateFlexorShell_mesh" file="../../design/v3/meshes/index_intermediateFlexorShell.stl" smoothnormal="true" />
+    <mesh name="index_intermediateInsetPad_mesh" file="../../design/v3/meshes/index_intermediateInsetPad.stl" smoothnormal="true" />
+    <mesh name="index_intermediateCore_mesh" file="../../design/v3/meshes/index_intermediateCore.stl" smoothnormal="true" />
+    <mesh name="index_intermediateHingeBarrel_mesh" file="../../design/v3/meshes/index_intermediateHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="index_intermediateCheek-1_mesh" file="../../design/v3/meshes/index_intermediateCheek-1.stl" smoothnormal="true" />
+    <mesh name="index_intermediateCheek1_mesh" file="../../design/v3/meshes/index_intermediateCheek1.stl" smoothnormal="true" />
+    <mesh name="index_intermediatePin_mesh" file="../../design/v3/meshes/index_intermediatePin.stl" smoothnormal="true" />
+    <mesh name="index_intermediateScrew_-1_0.24_mesh" file="../../design/v3/meshes/index_intermediateScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="index_intermediateScrew_-1_0.75_mesh" file="../../design/v3/meshes/index_intermediateScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="index_intermediateScrew_1_0.24_mesh" file="../../design/v3/meshes/index_intermediateScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="index_intermediateScrew_1_0.75_mesh" file="../../design/v3/meshes/index_intermediateScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="index_distalDorsalShell_mesh" file="../../design/v3/meshes/index_distalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="index_distalFlexorShell_mesh" file="../../design/v3/meshes/index_distalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="index_distalInsetPad_mesh" file="../../design/v3/meshes/index_distalInsetPad.stl" smoothnormal="true" />
+    <mesh name="index_distalCore_mesh" file="../../design/v3/meshes/index_distalCore.stl" smoothnormal="true" />
+    <mesh name="index_distalHingeBarrel_mesh" file="../../design/v3/meshes/index_distalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="index_distalCheek-1_mesh" file="../../design/v3/meshes/index_distalCheek-1.stl" smoothnormal="true" />
+    <mesh name="index_distalCheek1_mesh" file="../../design/v3/meshes/index_distalCheek1.stl" smoothnormal="true" />
+    <mesh name="index_distalPin_mesh" file="../../design/v3/meshes/index_distalPin.stl" smoothnormal="true" />
+    <mesh name="index_distalScrew_-1_0.32_mesh" file="../../design/v3/meshes/index_distalScrew_-1_0.32.stl" smoothnormal="true" />
+    <mesh name="index_distalScrew_1_0.32_mesh" file="../../design/v3/meshes/index_distalScrew_1_0.32.stl" smoothnormal="true" />
+    <mesh name="middleMCPUniversal_mesh" file="../../design/v3/meshes/middleMCPUniversal.stl" smoothnormal="true" />
+    <mesh name="middle_proximalDorsalShell_mesh" file="../../design/v3/meshes/middle_proximalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="middle_proximalFlexorShell_mesh" file="../../design/v3/meshes/middle_proximalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="middle_proximalInsetPad_mesh" file="../../design/v3/meshes/middle_proximalInsetPad.stl" smoothnormal="true" />
+    <mesh name="middle_proximalCore_mesh" file="../../design/v3/meshes/middle_proximalCore.stl" smoothnormal="true" />
+    <mesh name="middle_proximalHingeBarrel_mesh" file="../../design/v3/meshes/middle_proximalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="middle_proximalCheek-1_mesh" file="../../design/v3/meshes/middle_proximalCheek-1.stl" smoothnormal="true" />
+    <mesh name="middle_proximalCheek1_mesh" file="../../design/v3/meshes/middle_proximalCheek1.stl" smoothnormal="true" />
+    <mesh name="middle_proximalPin_mesh" file="../../design/v3/meshes/middle_proximalPin.stl" smoothnormal="true" />
+    <mesh name="middle_proximalScrew_-1_0.24_mesh" file="../../design/v3/meshes/middle_proximalScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="middle_proximalScrew_-1_0.75_mesh" file="../../design/v3/meshes/middle_proximalScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="middle_proximalScrew_1_0.24_mesh" file="../../design/v3/meshes/middle_proximalScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="middle_proximalScrew_1_0.75_mesh" file="../../design/v3/meshes/middle_proximalScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateDorsalShell_mesh" file="../../design/v3/meshes/middle_intermediateDorsalShell.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateFlexorShell_mesh" file="../../design/v3/meshes/middle_intermediateFlexorShell.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateInsetPad_mesh" file="../../design/v3/meshes/middle_intermediateInsetPad.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateCore_mesh" file="../../design/v3/meshes/middle_intermediateCore.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateHingeBarrel_mesh" file="../../design/v3/meshes/middle_intermediateHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateCheek-1_mesh" file="../../design/v3/meshes/middle_intermediateCheek-1.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateCheek1_mesh" file="../../design/v3/meshes/middle_intermediateCheek1.stl" smoothnormal="true" />
+    <mesh name="middle_intermediatePin_mesh" file="../../design/v3/meshes/middle_intermediatePin.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateScrew_-1_0.24_mesh" file="../../design/v3/meshes/middle_intermediateScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateScrew_-1_0.75_mesh" file="../../design/v3/meshes/middle_intermediateScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateScrew_1_0.24_mesh" file="../../design/v3/meshes/middle_intermediateScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="middle_intermediateScrew_1_0.75_mesh" file="../../design/v3/meshes/middle_intermediateScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="middle_distalDorsalShell_mesh" file="../../design/v3/meshes/middle_distalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="middle_distalFlexorShell_mesh" file="../../design/v3/meshes/middle_distalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="middle_distalInsetPad_mesh" file="../../design/v3/meshes/middle_distalInsetPad.stl" smoothnormal="true" />
+    <mesh name="middle_distalCore_mesh" file="../../design/v3/meshes/middle_distalCore.stl" smoothnormal="true" />
+    <mesh name="middle_distalHingeBarrel_mesh" file="../../design/v3/meshes/middle_distalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="middle_distalCheek-1_mesh" file="../../design/v3/meshes/middle_distalCheek-1.stl" smoothnormal="true" />
+    <mesh name="middle_distalCheek1_mesh" file="../../design/v3/meshes/middle_distalCheek1.stl" smoothnormal="true" />
+    <mesh name="middle_distalPin_mesh" file="../../design/v3/meshes/middle_distalPin.stl" smoothnormal="true" />
+    <mesh name="middle_distalScrew_-1_0.32_mesh" file="../../design/v3/meshes/middle_distalScrew_-1_0.32.stl" smoothnormal="true" />
+    <mesh name="middle_distalScrew_1_0.32_mesh" file="../../design/v3/meshes/middle_distalScrew_1_0.32.stl" smoothnormal="true" />
+    <mesh name="ringMCPUniversal_mesh" file="../../design/v3/meshes/ringMCPUniversal.stl" smoothnormal="true" />
+    <mesh name="ring_proximalDorsalShell_mesh" file="../../design/v3/meshes/ring_proximalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="ring_proximalFlexorShell_mesh" file="../../design/v3/meshes/ring_proximalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="ring_proximalInsetPad_mesh" file="../../design/v3/meshes/ring_proximalInsetPad.stl" smoothnormal="true" />
+    <mesh name="ring_proximalCore_mesh" file="../../design/v3/meshes/ring_proximalCore.stl" smoothnormal="true" />
+    <mesh name="ring_proximalHingeBarrel_mesh" file="../../design/v3/meshes/ring_proximalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="ring_proximalCheek-1_mesh" file="../../design/v3/meshes/ring_proximalCheek-1.stl" smoothnormal="true" />
+    <mesh name="ring_proximalCheek1_mesh" file="../../design/v3/meshes/ring_proximalCheek1.stl" smoothnormal="true" />
+    <mesh name="ring_proximalPin_mesh" file="../../design/v3/meshes/ring_proximalPin.stl" smoothnormal="true" />
+    <mesh name="ring_proximalScrew_-1_0.24_mesh" file="../../design/v3/meshes/ring_proximalScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="ring_proximalScrew_-1_0.75_mesh" file="../../design/v3/meshes/ring_proximalScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="ring_proximalScrew_1_0.24_mesh" file="../../design/v3/meshes/ring_proximalScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="ring_proximalScrew_1_0.75_mesh" file="../../design/v3/meshes/ring_proximalScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateDorsalShell_mesh" file="../../design/v3/meshes/ring_intermediateDorsalShell.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateFlexorShell_mesh" file="../../design/v3/meshes/ring_intermediateFlexorShell.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateInsetPad_mesh" file="../../design/v3/meshes/ring_intermediateInsetPad.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateCore_mesh" file="../../design/v3/meshes/ring_intermediateCore.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateHingeBarrel_mesh" file="../../design/v3/meshes/ring_intermediateHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateCheek-1_mesh" file="../../design/v3/meshes/ring_intermediateCheek-1.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateCheek1_mesh" file="../../design/v3/meshes/ring_intermediateCheek1.stl" smoothnormal="true" />
+    <mesh name="ring_intermediatePin_mesh" file="../../design/v3/meshes/ring_intermediatePin.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateScrew_-1_0.24_mesh" file="../../design/v3/meshes/ring_intermediateScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateScrew_-1_0.75_mesh" file="../../design/v3/meshes/ring_intermediateScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateScrew_1_0.24_mesh" file="../../design/v3/meshes/ring_intermediateScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="ring_intermediateScrew_1_0.75_mesh" file="../../design/v3/meshes/ring_intermediateScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="ring_distalDorsalShell_mesh" file="../../design/v3/meshes/ring_distalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="ring_distalFlexorShell_mesh" file="../../design/v3/meshes/ring_distalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="ring_distalInsetPad_mesh" file="../../design/v3/meshes/ring_distalInsetPad.stl" smoothnormal="true" />
+    <mesh name="ring_distalCore_mesh" file="../../design/v3/meshes/ring_distalCore.stl" smoothnormal="true" />
+    <mesh name="ring_distalHingeBarrel_mesh" file="../../design/v3/meshes/ring_distalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="ring_distalCheek-1_mesh" file="../../design/v3/meshes/ring_distalCheek-1.stl" smoothnormal="true" />
+    <mesh name="ring_distalCheek1_mesh" file="../../design/v3/meshes/ring_distalCheek1.stl" smoothnormal="true" />
+    <mesh name="ring_distalPin_mesh" file="../../design/v3/meshes/ring_distalPin.stl" smoothnormal="true" />
+    <mesh name="ring_distalScrew_-1_0.32_mesh" file="../../design/v3/meshes/ring_distalScrew_-1_0.32.stl" smoothnormal="true" />
+    <mesh name="ring_distalScrew_1_0.32_mesh" file="../../design/v3/meshes/ring_distalScrew_1_0.32.stl" smoothnormal="true" />
+    <mesh name="pinkyMCPUniversal_mesh" file="../../design/v3/meshes/pinkyMCPUniversal.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalDorsalShell_mesh" file="../../design/v3/meshes/pinky_proximalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalFlexorShell_mesh" file="../../design/v3/meshes/pinky_proximalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalInsetPad_mesh" file="../../design/v3/meshes/pinky_proximalInsetPad.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalCore_mesh" file="../../design/v3/meshes/pinky_proximalCore.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalHingeBarrel_mesh" file="../../design/v3/meshes/pinky_proximalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalCheek-1_mesh" file="../../design/v3/meshes/pinky_proximalCheek-1.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalCheek1_mesh" file="../../design/v3/meshes/pinky_proximalCheek1.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalPin_mesh" file="../../design/v3/meshes/pinky_proximalPin.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalScrew_-1_0.24_mesh" file="../../design/v3/meshes/pinky_proximalScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalScrew_-1_0.75_mesh" file="../../design/v3/meshes/pinky_proximalScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalScrew_1_0.24_mesh" file="../../design/v3/meshes/pinky_proximalScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="pinky_proximalScrew_1_0.75_mesh" file="../../design/v3/meshes/pinky_proximalScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateDorsalShell_mesh" file="../../design/v3/meshes/pinky_intermediateDorsalShell.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateFlexorShell_mesh" file="../../design/v3/meshes/pinky_intermediateFlexorShell.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateInsetPad_mesh" file="../../design/v3/meshes/pinky_intermediateInsetPad.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateCore_mesh" file="../../design/v3/meshes/pinky_intermediateCore.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateHingeBarrel_mesh" file="../../design/v3/meshes/pinky_intermediateHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateCheek-1_mesh" file="../../design/v3/meshes/pinky_intermediateCheek-1.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateCheek1_mesh" file="../../design/v3/meshes/pinky_intermediateCheek1.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediatePin_mesh" file="../../design/v3/meshes/pinky_intermediatePin.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateScrew_-1_0.24_mesh" file="../../design/v3/meshes/pinky_intermediateScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateScrew_-1_0.75_mesh" file="../../design/v3/meshes/pinky_intermediateScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateScrew_1_0.24_mesh" file="../../design/v3/meshes/pinky_intermediateScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="pinky_intermediateScrew_1_0.75_mesh" file="../../design/v3/meshes/pinky_intermediateScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="pinky_distalDorsalShell_mesh" file="../../design/v3/meshes/pinky_distalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="pinky_distalFlexorShell_mesh" file="../../design/v3/meshes/pinky_distalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="pinky_distalInsetPad_mesh" file="../../design/v3/meshes/pinky_distalInsetPad.stl" smoothnormal="true" />
+    <mesh name="pinky_distalCore_mesh" file="../../design/v3/meshes/pinky_distalCore.stl" smoothnormal="true" />
+    <mesh name="pinky_distalHingeBarrel_mesh" file="../../design/v3/meshes/pinky_distalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="pinky_distalCheek-1_mesh" file="../../design/v3/meshes/pinky_distalCheek-1.stl" smoothnormal="true" />
+    <mesh name="pinky_distalCheek1_mesh" file="../../design/v3/meshes/pinky_distalCheek1.stl" smoothnormal="true" />
+    <mesh name="pinky_distalPin_mesh" file="../../design/v3/meshes/pinky_distalPin.stl" smoothnormal="true" />
+    <mesh name="pinky_distalScrew_-1_0.32_mesh" file="../../design/v3/meshes/pinky_distalScrew_-1_0.32.stl" smoothnormal="true" />
+    <mesh name="pinky_distalScrew_1_0.32_mesh" file="../../design/v3/meshes/pinky_distalScrew_1_0.32.stl" smoothnormal="true" />
+    <mesh name="ThumbOppositionHub_mesh" file="../../design/v3/meshes/ThumbOppositionHub.stl" smoothnormal="true" />
+    <mesh name="ThumbOppositionRing_mesh" file="../../design/v3/meshes/ThumbOppositionRing.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalDorsalShell_mesh" file="../../design/v3/meshes/thumb_metacarpalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalFlexorShell_mesh" file="../../design/v3/meshes/thumb_metacarpalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalInsetPad_mesh" file="../../design/v3/meshes/thumb_metacarpalInsetPad.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalCore_mesh" file="../../design/v3/meshes/thumb_metacarpalCore.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalHingeBarrel_mesh" file="../../design/v3/meshes/thumb_metacarpalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalCheek-1_mesh" file="../../design/v3/meshes/thumb_metacarpalCheek-1.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalCheek1_mesh" file="../../design/v3/meshes/thumb_metacarpalCheek1.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalPin_mesh" file="../../design/v3/meshes/thumb_metacarpalPin.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalScrew_-1_0.24_mesh" file="../../design/v3/meshes/thumb_metacarpalScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalScrew_-1_0.75_mesh" file="../../design/v3/meshes/thumb_metacarpalScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalScrew_1_0.24_mesh" file="../../design/v3/meshes/thumb_metacarpalScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="thumb_metacarpalScrew_1_0.75_mesh" file="../../design/v3/meshes/thumb_metacarpalScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalDorsalShell_mesh" file="../../design/v3/meshes/thumb_proximalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalFlexorShell_mesh" file="../../design/v3/meshes/thumb_proximalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalInsetPad_mesh" file="../../design/v3/meshes/thumb_proximalInsetPad.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalCore_mesh" file="../../design/v3/meshes/thumb_proximalCore.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalHingeBarrel_mesh" file="../../design/v3/meshes/thumb_proximalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalCheek-1_mesh" file="../../design/v3/meshes/thumb_proximalCheek-1.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalCheek1_mesh" file="../../design/v3/meshes/thumb_proximalCheek1.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalPin_mesh" file="../../design/v3/meshes/thumb_proximalPin.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalScrew_-1_0.24_mesh" file="../../design/v3/meshes/thumb_proximalScrew_-1_0.24.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalScrew_-1_0.75_mesh" file="../../design/v3/meshes/thumb_proximalScrew_-1_0.75.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalScrew_1_0.24_mesh" file="../../design/v3/meshes/thumb_proximalScrew_1_0.24.stl" smoothnormal="true" />
+    <mesh name="thumb_proximalScrew_1_0.75_mesh" file="../../design/v3/meshes/thumb_proximalScrew_1_0.75.stl" smoothnormal="true" />
+    <mesh name="thumb_distalDorsalShell_mesh" file="../../design/v3/meshes/thumb_distalDorsalShell.stl" smoothnormal="true" />
+    <mesh name="thumb_distalFlexorShell_mesh" file="../../design/v3/meshes/thumb_distalFlexorShell.stl" smoothnormal="true" />
+    <mesh name="thumb_distalInsetPad_mesh" file="../../design/v3/meshes/thumb_distalInsetPad.stl" smoothnormal="true" />
+    <mesh name="thumb_distalCore_mesh" file="../../design/v3/meshes/thumb_distalCore.stl" smoothnormal="true" />
+    <mesh name="thumb_distalHingeBarrel_mesh" file="../../design/v3/meshes/thumb_distalHingeBarrel.stl" smoothnormal="true" />
+    <mesh name="thumb_distalCheek-1_mesh" file="../../design/v3/meshes/thumb_distalCheek-1.stl" smoothnormal="true" />
+    <mesh name="thumb_distalCheek1_mesh" file="../../design/v3/meshes/thumb_distalCheek1.stl" smoothnormal="true" />
+    <mesh name="thumb_distalPin_mesh" file="../../design/v3/meshes/thumb_distalPin.stl" smoothnormal="true" />
+    <mesh name="thumb_distalScrew_-1_0.32_mesh" file="../../design/v3/meshes/thumb_distalScrew_-1_0.32.stl" smoothnormal="true" />
+    <mesh name="thumb_distalScrew_1_0.32_mesh" file="../../design/v3/meshes/thumb_distalScrew_1_0.32.stl" smoothnormal="true" />
+  </asset>
+  <default>
+    <geom friction="1.2 .015 .001" condim="4" solref=".008 1" solimp=".95 .99 .001" margin=".0002" />
+    <joint solreflimit=".004 1" solimplimit=".99 .999 .0001" />
+  </default>
+  <worldbody>
+    <light pos="1 -1 2" dir="-.3 .4 -1" />
+    <light pos="-.8 .8 1.8" dir=".3 -.3 -1" diffuse=".5 .6 .7" />
+    <geom name="floor" type="plane" size="2 2 .1" rgba=".14 .19 .23 1" />
+    <geom name="worktable" type="box" size=".30 .32 .025" pos=".40 0 .575" rgba=".24 .31 .35 1" />
+    <camera name="vision_camera" pos="0.76 -0.9 1.3" xyaxes="0.9354720937 0.3534005687 -0 -0.203977105 0.5399393957 0.8166142233" fovy="48" />
+    <body name="base_link" pos="0 0 1.08" euler="3.141592654 0 0">
+      <inertial pos="0 0 0" mass="3" diaginertia="0.015625 0.015625 0.02" />
+      <geom name="ShoulderMountFlange" type="mesh" mesh="ShoulderMountFlange_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+      <body name="shoulder_abduction" pos="0 0 0" euler="0 0 0">
+        <inertial pos="0 0 0" mass="0.2" diaginertia="3e-05 3e-05 3e-05" />
+        <joint name="shoulder_abduction" type="hinge" axis="1 0 0" range="-1.35 1.35" actuatorfrclimited="true" actuatorfrcrange="-70 70" armature=".01" damping=".12" frictionloss=".015" />
+        <geom name="ShoulderSocket" type="mesh" mesh="ShoulderSocket_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+        <geom name="ShoulderSocket_collision" type="mesh" mesh="ShoulderSocket_mesh" rgba=".12 .88 .45 .3" group="3" />
+        <geom name="ShoulderBearing-1" type="mesh" mesh="ShoulderBearing-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+        <geom name="ShoulderCap-1" type="mesh" mesh="ShoulderCap-1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+        <geom name="ShoulderBearing1" type="mesh" mesh="ShoulderBearing1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+        <geom name="ShoulderCap1" type="mesh" mesh="ShoulderCap1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+        <body name="shoulder_flexion" pos="0 0 0" euler="0 0 0">
+          <inertial pos="0 0 0" mass="0.2" diaginertia="3e-05 3e-05 3e-05" />
+          <joint name="shoulder_flexion" type="hinge" axis="0 1 0" range="-1.2 2.3" actuatorfrclimited="true" actuatorfrcrange="-70 70" armature=".01" damping=".12" frictionloss=".015" />
+          <geom name="ShoulderFlexionGimbal" type="mesh" mesh="ShoulderFlexionGimbal_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="4" />
+          <body name="upper_arm" pos="0 0 0" euler="0 0 0">
+            <inertial pos="0 0 0.135" mass="1.45" diaginertia="0.01196552083 0.01208333333 0.002298854167" />
+            <joint name="shoulder_rotation" type="hinge" axis="0 0 1" range="-2.6 2.6" actuatorfrclimited="true" actuatorfrcrange="-40 40" armature=".01" damping=".12" frictionloss=".015" />
+            <geom name="ShoulderRotationCoupler" type="mesh" mesh="ShoulderRotationCoupler_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+            <geom name="UpperArmAnteriorShell" type="mesh" mesh="UpperArmAnteriorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+            <geom name="UpperArmAnteriorShell_collision" type="mesh" mesh="UpperArmAnteriorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+            <geom name="UpperArmPosteriorShell" type="mesh" mesh="UpperArmPosteriorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+            <geom name="UpperArmPosteriorShell_collision" type="mesh" mesh="UpperArmPosteriorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+            <geom name="UpperPanelScrew_75_-1" type="mesh" mesh="UpperPanelScrew_75_-1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+            <geom name="UpperPanelScrew_75_1" type="mesh" mesh="UpperPanelScrew_75_1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+            <geom name="UpperPanelScrew_220_-1" type="mesh" mesh="UpperPanelScrew_220_-1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+            <geom name="UpperPanelScrew_220_1" type="mesh" mesh="UpperPanelScrew_220_1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+            <geom name="HumerusCore" type="mesh" mesh="HumerusCore_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="4" />
+            <geom name="ShoulderMotorEnvelope" type="mesh" mesh="ShoulderMotorEnvelope_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+            <geom name="ShoulderMotorBand" type="mesh" mesh="ShoulderMotorBand_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+            <geom name="ElbowDriveEnvelope" type="mesh" mesh="ElbowDriveEnvelope_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+            <geom name="UpperHarness-12" type="mesh" mesh="UpperHarness-12_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+            <geom name="UpperHarness12" type="mesh" mesh="UpperHarness12_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+            <body name="elbow_link" pos="0 0 0.3" euler="0 0 0">
+              <inertial pos="0 0 0" mass="0.14" diaginertia="9.245833333e-05 7.729166667e-05 9.916666667e-05" />
+              <joint name="elbow_flexion" type="hinge" axis="0 1 0" range="0 2.45" actuatorfrclimited="true" actuatorfrcrange="-40 40" armature=".01" damping=".12" frictionloss=".015" />
+              <geom name="ElbowBearingBarrel" type="mesh" mesh="ElbowBearingBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowBearingBarrel_collision" type="mesh" mesh="ElbowBearingBarrel_mesh" rgba=".12 .88 .45 .3" group="3" />
+              <geom name="ElbowRace-1" type="mesh" mesh="ElbowRace-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowHub-1" type="mesh" mesh="ElbowHub-1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowBolt_-1_0" type="mesh" mesh="ElbowBolt_-1_0_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowBolt_-1_120" type="mesh" mesh="ElbowBolt_-1_120_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowBolt_-1_240" type="mesh" mesh="ElbowBolt_-1_240_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowRace1" type="mesh" mesh="ElbowRace1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowHub1" type="mesh" mesh="ElbowHub1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowBolt_1_0" type="mesh" mesh="ElbowBolt_1_0_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowBolt_1_120" type="mesh" mesh="ElbowBolt_1_120_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+              <geom name="ElbowBolt_1_240" type="mesh" mesh="ElbowBolt_1_240_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+              <body name="forearm" pos="0 0 0" euler="0 0 0">
+                <inertial pos="0 0 0.11" mass="0.9" diaginertia="0.005065575 0.0051438 0.000834375" />
+                <joint name="forearm_pronation" type="hinge" axis="0 0 1" range="-3.14 3.14" actuatorfrclimited="true" actuatorfrcrange="-12 12" armature=".01" damping=".12" frictionloss=".015" />
+                <geom name="PronationBearing" type="mesh" mesh="PronationBearing_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                <geom name="ForearmAnteriorShell" type="mesh" mesh="ForearmAnteriorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                <geom name="ForearmAnteriorShell_collision" type="mesh" mesh="ForearmAnteriorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                <geom name="ForearmPosteriorShell" type="mesh" mesh="ForearmPosteriorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                <geom name="ForearmPosteriorShell_collision" type="mesh" mesh="ForearmPosteriorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                <geom name="ForePanelScrew_65_-1" type="mesh" mesh="ForePanelScrew_65_-1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                <geom name="ForePanelScrew_65_1" type="mesh" mesh="ForePanelScrew_65_1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                <geom name="ForePanelScrew_206_-1" type="mesh" mesh="ForePanelScrew_206_-1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                <geom name="ForePanelScrew_206_1" type="mesh" mesh="ForePanelScrew_206_1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                <geom name="RadiusUlnaRail-9" type="mesh" mesh="RadiusUlnaRail-9_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="4" />
+                <geom name="RadiusUlnaRail9" type="mesh" mesh="RadiusUlnaRail9_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator00" type="mesh" mesh="HandActuator00_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool00" type="mesh" mesh="TendonSpool00_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide00" type="mesh" mesh="TendonGuide00_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator01" type="mesh" mesh="HandActuator01_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool01" type="mesh" mesh="TendonSpool01_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide01" type="mesh" mesh="TendonGuide01_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator02" type="mesh" mesh="HandActuator02_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool02" type="mesh" mesh="TendonSpool02_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide02" type="mesh" mesh="TendonGuide02_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator03" type="mesh" mesh="HandActuator03_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool03" type="mesh" mesh="TendonSpool03_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide03" type="mesh" mesh="TendonGuide03_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator04" type="mesh" mesh="HandActuator04_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool04" type="mesh" mesh="TendonSpool04_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide04" type="mesh" mesh="TendonGuide04_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator05" type="mesh" mesh="HandActuator05_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool05" type="mesh" mesh="TendonSpool05_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide05" type="mesh" mesh="TendonGuide05_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator06" type="mesh" mesh="HandActuator06_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool06" type="mesh" mesh="TendonSpool06_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide06" type="mesh" mesh="TendonGuide06_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator07" type="mesh" mesh="HandActuator07_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool07" type="mesh" mesh="TendonSpool07_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide07" type="mesh" mesh="TendonGuide07_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator08" type="mesh" mesh="HandActuator08_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool08" type="mesh" mesh="TendonSpool08_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide08" type="mesh" mesh="TendonGuide08_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator09" type="mesh" mesh="HandActuator09_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool09" type="mesh" mesh="TendonSpool09_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide09" type="mesh" mesh="TendonGuide09_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator10" type="mesh" mesh="HandActuator10_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool10" type="mesh" mesh="TendonSpool10_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide10" type="mesh" mesh="TendonGuide10_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator11" type="mesh" mesh="HandActuator11_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool11" type="mesh" mesh="TendonSpool11_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide11" type="mesh" mesh="TendonGuide11_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator12" type="mesh" mesh="HandActuator12_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool12" type="mesh" mesh="TendonSpool12_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide12" type="mesh" mesh="TendonGuide12_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator13" type="mesh" mesh="HandActuator13_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool13" type="mesh" mesh="TendonSpool13_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide13" type="mesh" mesh="TendonGuide13_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator14" type="mesh" mesh="HandActuator14_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool14" type="mesh" mesh="TendonSpool14_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide14" type="mesh" mesh="TendonGuide14_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator15" type="mesh" mesh="HandActuator15_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool15" type="mesh" mesh="TendonSpool15_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide15" type="mesh" mesh="TendonGuide15_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator16" type="mesh" mesh="HandActuator16_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool16" type="mesh" mesh="TendonSpool16_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide16" type="mesh" mesh="TendonGuide16_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator17" type="mesh" mesh="HandActuator17_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool17" type="mesh" mesh="TendonSpool17_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide17" type="mesh" mesh="TendonGuide17_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator18" type="mesh" mesh="HandActuator18_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool18" type="mesh" mesh="TendonSpool18_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide18" type="mesh" mesh="TendonGuide18_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <geom name="HandActuator19" type="mesh" mesh="HandActuator19_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonSpool19" type="mesh" mesh="TendonSpool19_mesh" rgba="0.58 0.29 0.12 1" contype="0" conaffinity="0" group="4" />
+                <geom name="TendonGuide19" type="mesh" mesh="TendonGuide19_mesh" rgba="0.13 0.28 0.34 1" contype="0" conaffinity="0" group="4" />
+                <body name="wrist_pitch" pos="0 0 0.25" euler="0 0 0">
+                  <inertial pos="0 0 0.02" mass="0.15" diaginertia="6.805e-05 5.38e-05 8.185e-05" />
+                  <joint name="wrist_flexion" type="hinge" axis="0 1 0" range="-1.25 1.25" actuatorfrclimited="true" actuatorfrcrange="-8 8" armature=".01" damping=".12" frictionloss=".015" />
+                  <geom name="WristFlexionBall" type="mesh" mesh="WristFlexionBall_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                  <geom name="WristFlexionBall_collision" type="mesh" mesh="WristFlexionBall_mesh" rgba=".12 .88 .45 .3" group="3" />
+                  <geom name="WristCarpalCoupler" type="mesh" mesh="WristCarpalCoupler_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                  <geom name="WristFlexionCap-1" type="mesh" mesh="WristFlexionCap-1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                  <geom name="WristFlexionCap1" type="mesh" mesh="WristFlexionCap1_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                  <body name="palm_base" pos="0 0 0.04" euler="0 0 0">
+                    <inertial pos="0 0 0.05" mass="0.35" diaginertia="0.0004974666667 0.0003215333333 0.0002356666667" />
+                    <joint name="wrist_deviation" type="hinge" axis="1 0 0" range="-0.65 0.65" actuatorfrclimited="true" actuatorfrcrange="-6 6" armature=".01" damping=".12" frictionloss=".015" />
+                    <geom name="WristDeviationSeal" type="mesh" mesh="WristDeviationSeal_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="PalmAnteriorChassis" type="mesh" mesh="PalmAnteriorChassis_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="PalmAnteriorChassis_collision" type="mesh" mesh="PalmAnteriorChassis_mesh" rgba=".12 .88 .45 .3" group="3" />
+                    <geom name="PalmDorsalCover" type="mesh" mesh="PalmDorsalCover_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="PalmDorsalCover_collision" type="mesh" mesh="PalmDorsalCover_mesh" rgba=".12 .88 .45 .3" group="3" />
+                    <geom name="PalmInsetPad" type="mesh" mesh="PalmInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="PalmInsetPad_collision" type="mesh" mesh="PalmInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                    <geom name="PalmInternalPlate" type="mesh" mesh="PalmInternalPlate_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="4" />
+                    <geom name="PalmCoverScrew_-1_18" type="mesh" mesh="PalmCoverScrew_-1_18_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="PalmCoverScrew_-1_79" type="mesh" mesh="PalmCoverScrew_-1_79_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="PalmCoverScrew_1_18" type="mesh" mesh="PalmCoverScrew_1_18_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="PalmCoverScrew_1_79" type="mesh" mesh="PalmCoverScrew_1_79_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="indexMCPMount" type="mesh" mesh="indexMCPMount_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="middleMCPMount" type="mesh" mesh="middleMCPMount_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="ringMCPMount" type="mesh" mesh="ringMCPMount_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                    <geom name="pinkyMCPMount" type="mesh" mesh="pinkyMCPMount_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                    <site name="palm_site" pos="0 0 .05" size=".003" rgba="0 0 0 0" />
+                    <body name="index_knuckle" pos="0 0.03 0.1" euler="0 0 0">
+                      <inertial pos="0 0 0" mass="0.008" diaginertia="1.333333333e-07 1.333333333e-07 1.333333333e-07" />
+                      <joint name="index_mcp_abduction" type="hinge" axis="1 0 0" range="-0.3 0.3" actuatorfrclimited="true" actuatorfrcrange="-0.65 0.65" armature=".000015" damping=".008" frictionloss=".001" />
+                      <geom name="indexMCPUniversal" type="mesh" mesh="indexMCPUniversal_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                      <body name="index_proximal" pos="0 0 0" euler="0 0 0">
+                        <inertial pos="0 0 0.02" mass="0.035" diaginertia="5.198229167e-06 5.086666667e-06 9.515625e-07" />
+                        <joint name="index_mcp_flexion" type="hinge" axis="0 1 0" range="0 1.5" actuatorfrclimited="true" actuatorfrcrange="-1.1 1.1" armature=".000015" damping=".008" frictionloss=".001" />
+                        <geom name="index_proximalDorsalShell" type="mesh" mesh="index_proximalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalDorsalShell_collision" type="mesh" mesh="index_proximalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="index_proximalFlexorShell" type="mesh" mesh="index_proximalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalFlexorShell_collision" type="mesh" mesh="index_proximalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="index_proximalInsetPad" type="mesh" mesh="index_proximalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalInsetPad_collision" type="mesh" mesh="index_proximalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="index_proximalCore" type="mesh" mesh="index_proximalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                        <geom name="index_proximalHingeBarrel" type="mesh" mesh="index_proximalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalCheek-1" type="mesh" mesh="index_proximalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalCheek1" type="mesh" mesh="index_proximalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalPin" type="mesh" mesh="index_proximalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalScrew_-1_0.24" type="mesh" mesh="index_proximalScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalScrew_-1_0.75" type="mesh" mesh="index_proximalScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalScrew_1_0.24" type="mesh" mesh="index_proximalScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="index_proximalScrew_1_0.75" type="mesh" mesh="index_proximalScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <body name="index_intermediate" pos="0 0 0.04" euler="0 0 0">
+                          <inertial pos="0 0 0.012" mass="0.024" diaginertia="1.47458e-06 1.44e-06 6.1058e-07" />
+                          <joint name="index_pip" type="hinge" axis="0 1 0" range="0 1.7" actuatorfrclimited="true" actuatorfrcrange="-0.85 0.85" armature=".000015" damping=".008" frictionloss=".001" />
+                          <geom name="index_intermediateDorsalShell" type="mesh" mesh="index_intermediateDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediateDorsalShell_collision" type="mesh" mesh="index_intermediateDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="index_intermediateFlexorShell" type="mesh" mesh="index_intermediateFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediateFlexorShell_collision" type="mesh" mesh="index_intermediateFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="index_intermediateInsetPad" type="mesh" mesh="index_intermediateInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediateInsetPad_collision" type="mesh" mesh="index_intermediateInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="index_intermediateCore" type="mesh" mesh="index_intermediateCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                          <geom name="index_intermediateHingeBarrel" type="mesh" mesh="index_intermediateHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediateCheek-1" type="mesh" mesh="index_intermediateCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediateCheek1" type="mesh" mesh="index_intermediateCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediatePin" type="mesh" mesh="index_intermediatePin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediateScrew_-1_0.24" type="mesh" mesh="index_intermediateScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediateScrew_-1_0.75" type="mesh" mesh="index_intermediateScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediateScrew_1_0.24" type="mesh" mesh="index_intermediateScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="index_intermediateScrew_1_0.75" type="mesh" mesh="index_intermediateScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <body name="index_distal" pos="0 0 0.024" euler="0 0 0">
+                            <inertial pos="0 0 0.009" mass="0.016" diaginertia="6.208133333e-07 6.24e-07 3.808133333e-07" />
+                            <joint name="index_dip" type="hinge" axis="0 1 0" range="0 1.4" actuatorfrclimited="true" actuatorfrcrange="-0.55 0.55" armature=".000015" damping=".008" frictionloss=".001" />
+                            <geom name="index_distalDorsalShell" type="mesh" mesh="index_distalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="index_distalDorsalShell_collision" type="mesh" mesh="index_distalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="index_distalFlexorShell" type="mesh" mesh="index_distalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="index_distalFlexorShell_collision" type="mesh" mesh="index_distalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="index_distalInsetPad" type="mesh" mesh="index_distalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="index_distalInsetPad_collision" type="mesh" mesh="index_distalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="index_distalCore" type="mesh" mesh="index_distalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                            <geom name="index_distalHingeBarrel" type="mesh" mesh="index_distalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="index_distalCheek-1" type="mesh" mesh="index_distalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="index_distalCheek1" type="mesh" mesh="index_distalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="index_distalPin" type="mesh" mesh="index_distalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="index_distalScrew_-1_0.32" type="mesh" mesh="index_distalScrew_-1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="index_distalScrew_1_0.32" type="mesh" mesh="index_distalScrew_1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <site name="index_tip" pos="0 0 0.018" size=".002" rgba="0 0 0 0" />
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                    <body name="middle_knuckle" pos="0 0.01 0.1" euler="0 0 0">
+                      <inertial pos="0 0 0" mass="0.008" diaginertia="1.333333333e-07 1.333333333e-07 1.333333333e-07" />
+                      <joint name="middle_mcp_abduction" type="hinge" axis="1 0 0" range="-0.3 0.3" actuatorfrclimited="true" actuatorfrcrange="-0.65 0.65" armature=".000015" damping=".008" frictionloss=".001" />
+                      <geom name="middleMCPUniversal" type="mesh" mesh="middleMCPUniversal_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                      <body name="middle_proximal" pos="0 0 0" euler="0 0 0">
+                        <inertial pos="0 0 0.0225" mass="0.035" diaginertia="6.4378125e-06 6.32625e-06 9.515625e-07" />
+                        <joint name="middle_mcp_flexion" type="hinge" axis="0 1 0" range="0 1.5" actuatorfrclimited="true" actuatorfrcrange="-1.1 1.1" armature=".000015" damping=".008" frictionloss=".001" />
+                        <geom name="middle_proximalDorsalShell" type="mesh" mesh="middle_proximalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalDorsalShell_collision" type="mesh" mesh="middle_proximalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="middle_proximalFlexorShell" type="mesh" mesh="middle_proximalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalFlexorShell_collision" type="mesh" mesh="middle_proximalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="middle_proximalInsetPad" type="mesh" mesh="middle_proximalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalInsetPad_collision" type="mesh" mesh="middle_proximalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="middle_proximalCore" type="mesh" mesh="middle_proximalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                        <geom name="middle_proximalHingeBarrel" type="mesh" mesh="middle_proximalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalCheek-1" type="mesh" mesh="middle_proximalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalCheek1" type="mesh" mesh="middle_proximalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalPin" type="mesh" mesh="middle_proximalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalScrew_-1_0.24" type="mesh" mesh="middle_proximalScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalScrew_-1_0.75" type="mesh" mesh="middle_proximalScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalScrew_1_0.24" type="mesh" mesh="middle_proximalScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="middle_proximalScrew_1_0.75" type="mesh" mesh="middle_proximalScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <body name="middle_intermediate" pos="0 0 0.045" euler="0 0 0">
+                          <inertial pos="0 0 0.0125" mass="0.024" diaginertia="1.57258e-06 1.538e-06 6.1058e-07" />
+                          <joint name="middle_pip" type="hinge" axis="0 1 0" range="0 1.7" actuatorfrclimited="true" actuatorfrcrange="-0.85 0.85" armature=".000015" damping=".008" frictionloss=".001" />
+                          <geom name="middle_intermediateDorsalShell" type="mesh" mesh="middle_intermediateDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediateDorsalShell_collision" type="mesh" mesh="middle_intermediateDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="middle_intermediateFlexorShell" type="mesh" mesh="middle_intermediateFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediateFlexorShell_collision" type="mesh" mesh="middle_intermediateFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="middle_intermediateInsetPad" type="mesh" mesh="middle_intermediateInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediateInsetPad_collision" type="mesh" mesh="middle_intermediateInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="middle_intermediateCore" type="mesh" mesh="middle_intermediateCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                          <geom name="middle_intermediateHingeBarrel" type="mesh" mesh="middle_intermediateHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediateCheek-1" type="mesh" mesh="middle_intermediateCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediateCheek1" type="mesh" mesh="middle_intermediateCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediatePin" type="mesh" mesh="middle_intermediatePin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediateScrew_-1_0.24" type="mesh" mesh="middle_intermediateScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediateScrew_-1_0.75" type="mesh" mesh="middle_intermediateScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediateScrew_1_0.24" type="mesh" mesh="middle_intermediateScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="middle_intermediateScrew_1_0.75" type="mesh" mesh="middle_intermediateScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <body name="middle_distal" pos="0 0 0.025" euler="0 0 0">
+                            <inertial pos="0 0 0.01" mass="0.016" diaginertia="7.221466667e-07 7.253333333e-07 3.808133333e-07" />
+                            <joint name="middle_dip" type="hinge" axis="0 1 0" range="0 1.4" actuatorfrclimited="true" actuatorfrcrange="-0.55 0.55" armature=".000015" damping=".008" frictionloss=".001" />
+                            <geom name="middle_distalDorsalShell" type="mesh" mesh="middle_distalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="middle_distalDorsalShell_collision" type="mesh" mesh="middle_distalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="middle_distalFlexorShell" type="mesh" mesh="middle_distalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="middle_distalFlexorShell_collision" type="mesh" mesh="middle_distalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="middle_distalInsetPad" type="mesh" mesh="middle_distalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="middle_distalInsetPad_collision" type="mesh" mesh="middle_distalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="middle_distalCore" type="mesh" mesh="middle_distalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                            <geom name="middle_distalHingeBarrel" type="mesh" mesh="middle_distalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="middle_distalCheek-1" type="mesh" mesh="middle_distalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="middle_distalCheek1" type="mesh" mesh="middle_distalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="middle_distalPin" type="mesh" mesh="middle_distalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="middle_distalScrew_-1_0.32" type="mesh" mesh="middle_distalScrew_-1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="middle_distalScrew_1_0.32" type="mesh" mesh="middle_distalScrew_1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <site name="middle_tip" pos="0 0 0.02" size=".002" rgba="0 0 0 0" />
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                    <body name="ring_knuckle" pos="0 -0.01 0.1" euler="0 0 0">
+                      <inertial pos="0 0 0" mass="0.008" diaginertia="1.333333333e-07 1.333333333e-07 1.333333333e-07" />
+                      <joint name="ring_mcp_abduction" type="hinge" axis="1 0 0" range="-0.3 0.3" actuatorfrclimited="true" actuatorfrcrange="-0.65 0.65" armature=".000015" damping=".008" frictionloss=".001" />
+                      <geom name="ringMCPUniversal" type="mesh" mesh="ringMCPUniversal_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                      <body name="ring_proximal" pos="0 0 0" euler="0 0 0">
+                        <inertial pos="0 0 0.02" mass="0.035" diaginertia="5.198229167e-06 5.086666667e-06 9.515625e-07" />
+                        <joint name="ring_mcp_flexion" type="hinge" axis="0 1 0" range="0 1.5" actuatorfrclimited="true" actuatorfrcrange="-1.1 1.1" armature=".000015" damping=".008" frictionloss=".001" />
+                        <geom name="ring_proximalDorsalShell" type="mesh" mesh="ring_proximalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalDorsalShell_collision" type="mesh" mesh="ring_proximalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="ring_proximalFlexorShell" type="mesh" mesh="ring_proximalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalFlexorShell_collision" type="mesh" mesh="ring_proximalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="ring_proximalInsetPad" type="mesh" mesh="ring_proximalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalInsetPad_collision" type="mesh" mesh="ring_proximalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="ring_proximalCore" type="mesh" mesh="ring_proximalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                        <geom name="ring_proximalHingeBarrel" type="mesh" mesh="ring_proximalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalCheek-1" type="mesh" mesh="ring_proximalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalCheek1" type="mesh" mesh="ring_proximalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalPin" type="mesh" mesh="ring_proximalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalScrew_-1_0.24" type="mesh" mesh="ring_proximalScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalScrew_-1_0.75" type="mesh" mesh="ring_proximalScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalScrew_1_0.24" type="mesh" mesh="ring_proximalScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="ring_proximalScrew_1_0.75" type="mesh" mesh="ring_proximalScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <body name="ring_intermediate" pos="0 0 0.04" euler="0 0 0">
+                          <inertial pos="0 0 0.012" mass="0.024" diaginertia="1.47458e-06 1.44e-06 6.1058e-07" />
+                          <joint name="ring_pip" type="hinge" axis="0 1 0" range="0 1.7" actuatorfrclimited="true" actuatorfrcrange="-0.85 0.85" armature=".000015" damping=".008" frictionloss=".001" />
+                          <geom name="ring_intermediateDorsalShell" type="mesh" mesh="ring_intermediateDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediateDorsalShell_collision" type="mesh" mesh="ring_intermediateDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="ring_intermediateFlexorShell" type="mesh" mesh="ring_intermediateFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediateFlexorShell_collision" type="mesh" mesh="ring_intermediateFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="ring_intermediateInsetPad" type="mesh" mesh="ring_intermediateInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediateInsetPad_collision" type="mesh" mesh="ring_intermediateInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="ring_intermediateCore" type="mesh" mesh="ring_intermediateCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                          <geom name="ring_intermediateHingeBarrel" type="mesh" mesh="ring_intermediateHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediateCheek-1" type="mesh" mesh="ring_intermediateCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediateCheek1" type="mesh" mesh="ring_intermediateCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediatePin" type="mesh" mesh="ring_intermediatePin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediateScrew_-1_0.24" type="mesh" mesh="ring_intermediateScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediateScrew_-1_0.75" type="mesh" mesh="ring_intermediateScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediateScrew_1_0.24" type="mesh" mesh="ring_intermediateScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="ring_intermediateScrew_1_0.75" type="mesh" mesh="ring_intermediateScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <body name="ring_distal" pos="0 0 0.024" euler="0 0 0">
+                            <inertial pos="0 0 0.009" mass="0.016" diaginertia="6.208133333e-07 6.24e-07 3.808133333e-07" />
+                            <joint name="ring_dip" type="hinge" axis="0 1 0" range="0 1.4" actuatorfrclimited="true" actuatorfrcrange="-0.55 0.55" armature=".000015" damping=".008" frictionloss=".001" />
+                            <geom name="ring_distalDorsalShell" type="mesh" mesh="ring_distalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="ring_distalDorsalShell_collision" type="mesh" mesh="ring_distalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="ring_distalFlexorShell" type="mesh" mesh="ring_distalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="ring_distalFlexorShell_collision" type="mesh" mesh="ring_distalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="ring_distalInsetPad" type="mesh" mesh="ring_distalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="ring_distalInsetPad_collision" type="mesh" mesh="ring_distalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="ring_distalCore" type="mesh" mesh="ring_distalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                            <geom name="ring_distalHingeBarrel" type="mesh" mesh="ring_distalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="ring_distalCheek-1" type="mesh" mesh="ring_distalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="ring_distalCheek1" type="mesh" mesh="ring_distalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="ring_distalPin" type="mesh" mesh="ring_distalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="ring_distalScrew_-1_0.32" type="mesh" mesh="ring_distalScrew_-1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="ring_distalScrew_1_0.32" type="mesh" mesh="ring_distalScrew_1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <site name="ring_tip" pos="0 0 0.018" size=".002" rgba="0 0 0 0" />
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                    <body name="pinky_knuckle" pos="0 -0.03 0.095" euler="0 0 0">
+                      <inertial pos="0 0 0" mass="0.008" diaginertia="1.333333333e-07 1.333333333e-07 1.333333333e-07" />
+                      <joint name="pinky_mcp_abduction" type="hinge" axis="1 0 0" range="-0.3 0.3" actuatorfrclimited="true" actuatorfrcrange="-0.65 0.65" armature=".000015" damping=".008" frictionloss=".001" />
+                      <geom name="pinkyMCPUniversal" type="mesh" mesh="pinkyMCPUniversal_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                      <body name="pinky_proximal" pos="0 0 0" euler="0 0 0">
+                        <inertial pos="0 0 0.0165" mass="0.035" diaginertia="3.7078125e-06 3.59625e-06 9.515625e-07" />
+                        <joint name="pinky_mcp_flexion" type="hinge" axis="0 1 0" range="0 1.5" actuatorfrclimited="true" actuatorfrcrange="-1.1 1.1" armature=".000015" damping=".008" frictionloss=".001" />
+                        <geom name="pinky_proximalDorsalShell" type="mesh" mesh="pinky_proximalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalDorsalShell_collision" type="mesh" mesh="pinky_proximalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="pinky_proximalFlexorShell" type="mesh" mesh="pinky_proximalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalFlexorShell_collision" type="mesh" mesh="pinky_proximalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="pinky_proximalInsetPad" type="mesh" mesh="pinky_proximalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalInsetPad_collision" type="mesh" mesh="pinky_proximalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="pinky_proximalCore" type="mesh" mesh="pinky_proximalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                        <geom name="pinky_proximalHingeBarrel" type="mesh" mesh="pinky_proximalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalCheek-1" type="mesh" mesh="pinky_proximalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalCheek1" type="mesh" mesh="pinky_proximalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalPin" type="mesh" mesh="pinky_proximalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalScrew_-1_0.24" type="mesh" mesh="pinky_proximalScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalScrew_-1_0.75" type="mesh" mesh="pinky_proximalScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalScrew_1_0.24" type="mesh" mesh="pinky_proximalScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="pinky_proximalScrew_1_0.75" type="mesh" mesh="pinky_proximalScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <body name="pinky_intermediate" pos="0 0 0.033" euler="0 0 0">
+                          <inertial pos="0 0 0.01" mass="0.024" diaginertia="1.12258e-06 1.088e-06 6.1058e-07" />
+                          <joint name="pinky_pip" type="hinge" axis="0 1 0" range="0 1.7" actuatorfrclimited="true" actuatorfrcrange="-0.85 0.85" armature=".000015" damping=".008" frictionloss=".001" />
+                          <geom name="pinky_intermediateDorsalShell" type="mesh" mesh="pinky_intermediateDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediateDorsalShell_collision" type="mesh" mesh="pinky_intermediateDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="pinky_intermediateFlexorShell" type="mesh" mesh="pinky_intermediateFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediateFlexorShell_collision" type="mesh" mesh="pinky_intermediateFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="pinky_intermediateInsetPad" type="mesh" mesh="pinky_intermediateInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediateInsetPad_collision" type="mesh" mesh="pinky_intermediateInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="pinky_intermediateCore" type="mesh" mesh="pinky_intermediateCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                          <geom name="pinky_intermediateHingeBarrel" type="mesh" mesh="pinky_intermediateHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediateCheek-1" type="mesh" mesh="pinky_intermediateCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediateCheek1" type="mesh" mesh="pinky_intermediateCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediatePin" type="mesh" mesh="pinky_intermediatePin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediateScrew_-1_0.24" type="mesh" mesh="pinky_intermediateScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediateScrew_-1_0.75" type="mesh" mesh="pinky_intermediateScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediateScrew_1_0.24" type="mesh" mesh="pinky_intermediateScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="pinky_intermediateScrew_1_0.75" type="mesh" mesh="pinky_intermediateScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <body name="pinky_distal" pos="0 0 0.02" euler="0 0 0">
+                            <inertial pos="0 0 0.0085" mass="0.016" diaginertia="5.741466667e-07 5.773333333e-07 3.808133333e-07" />
+                            <joint name="pinky_dip" type="hinge" axis="0 1 0" range="0 1.4" actuatorfrclimited="true" actuatorfrcrange="-0.55 0.55" armature=".000015" damping=".008" frictionloss=".001" />
+                            <geom name="pinky_distalDorsalShell" type="mesh" mesh="pinky_distalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="pinky_distalDorsalShell_collision" type="mesh" mesh="pinky_distalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="pinky_distalFlexorShell" type="mesh" mesh="pinky_distalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="pinky_distalFlexorShell_collision" type="mesh" mesh="pinky_distalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="pinky_distalInsetPad" type="mesh" mesh="pinky_distalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="pinky_distalInsetPad_collision" type="mesh" mesh="pinky_distalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="pinky_distalCore" type="mesh" mesh="pinky_distalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                            <geom name="pinky_distalHingeBarrel" type="mesh" mesh="pinky_distalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="pinky_distalCheek-1" type="mesh" mesh="pinky_distalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="pinky_distalCheek1" type="mesh" mesh="pinky_distalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="pinky_distalPin" type="mesh" mesh="pinky_distalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="pinky_distalScrew_-1_0.32" type="mesh" mesh="pinky_distalScrew_-1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="pinky_distalScrew_1_0.32" type="mesh" mesh="pinky_distalScrew_1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <site name="pinky_tip" pos="0 0 0.017" size=".002" rgba="0 0 0 0" />
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                    <body name="thumb_opposition" pos="0 0.048 0.025" euler="0 0 0">
+                      <inertial pos="0 0 0" mass="0.015" diaginertia="4.9e-07 4.9e-07 4.9e-07" />
+                      <joint name="thumb_cmc_opposition" type="hinge" axis="0 0 -1" range="-0.2 1.6" actuatorfrclimited="true" actuatorfrcrange="-1.1 1.1" armature=".000015" damping=".008" frictionloss=".001" />
+                      <geom name="ThumbOppositionHub" type="mesh" mesh="ThumbOppositionHub_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                      <geom name="ThumbOppositionRing" type="mesh" mesh="ThumbOppositionRing_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                      <body name="thumb_metacarpal" pos="0 0 0" euler="-0.75 0 0">
+                        <inertial pos="0 0 0.015" mass="0.038" diaginertia="3.5625e-06 3.470666667e-06 1.333166667e-06" />
+                        <joint name="thumb_cmc_flexion" type="hinge" axis="0 1 0" range="-0.25 1.3" actuatorfrclimited="true" actuatorfrcrange="-1 1" armature=".000015" damping=".008" frictionloss=".001" />
+                        <geom name="thumb_metacarpalDorsalShell" type="mesh" mesh="thumb_metacarpalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalDorsalShell_collision" type="mesh" mesh="thumb_metacarpalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="thumb_metacarpalFlexorShell" type="mesh" mesh="thumb_metacarpalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalFlexorShell_collision" type="mesh" mesh="thumb_metacarpalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="thumb_metacarpalInsetPad" type="mesh" mesh="thumb_metacarpalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalInsetPad_collision" type="mesh" mesh="thumb_metacarpalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                        <geom name="thumb_metacarpalCore" type="mesh" mesh="thumb_metacarpalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                        <geom name="thumb_metacarpalHingeBarrel" type="mesh" mesh="thumb_metacarpalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalCheek-1" type="mesh" mesh="thumb_metacarpalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalCheek1" type="mesh" mesh="thumb_metacarpalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalPin" type="mesh" mesh="thumb_metacarpalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalScrew_-1_0.24" type="mesh" mesh="thumb_metacarpalScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalScrew_-1_0.75" type="mesh" mesh="thumb_metacarpalScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalScrew_1_0.24" type="mesh" mesh="thumb_metacarpalScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <geom name="thumb_metacarpalScrew_1_0.75" type="mesh" mesh="thumb_metacarpalScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                        <body name="thumb_proximal" pos="0 0 0.03" euler="0 0 0">
+                          <inertial pos="0 0 0.01" mass="0.026" diaginertia="1.354166667e-06 1.291333333e-06 9.121666667e-07" />
+                          <joint name="thumb_mcp_flexion" type="hinge" axis="0 1 0" range="0 1.4" actuatorfrclimited="true" actuatorfrcrange="-0.7 0.7" armature=".000015" damping=".008" frictionloss=".001" />
+                          <geom name="thumb_proximalDorsalShell" type="mesh" mesh="thumb_proximalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalDorsalShell_collision" type="mesh" mesh="thumb_proximalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="thumb_proximalFlexorShell" type="mesh" mesh="thumb_proximalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalFlexorShell_collision" type="mesh" mesh="thumb_proximalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="thumb_proximalInsetPad" type="mesh" mesh="thumb_proximalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalInsetPad_collision" type="mesh" mesh="thumb_proximalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                          <geom name="thumb_proximalCore" type="mesh" mesh="thumb_proximalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                          <geom name="thumb_proximalHingeBarrel" type="mesh" mesh="thumb_proximalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalCheek-1" type="mesh" mesh="thumb_proximalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalCheek1" type="mesh" mesh="thumb_proximalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalPin" type="mesh" mesh="thumb_proximalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalScrew_-1_0.24" type="mesh" mesh="thumb_proximalScrew_-1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalScrew_-1_0.75" type="mesh" mesh="thumb_proximalScrew_-1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalScrew_1_0.24" type="mesh" mesh="thumb_proximalScrew_1_0.24_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <geom name="thumb_proximalScrew_1_0.75" type="mesh" mesh="thumb_proximalScrew_1_0.75_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                          <body name="thumb_distal" pos="0 0 0.02" euler="0 0 0">
+                            <inertial pos="0 0 0.0075" mass="0.02" diaginertia="7.5e-07 7.016666667e-07 7.016666667e-07" />
+                            <joint name="thumb_ip" type="hinge" axis="0 1 0" range="0 1.4" actuatorfrclimited="true" actuatorfrcrange="-0.7 0.7" armature=".000015" damping=".008" frictionloss=".001" />
+                            <geom name="thumb_distalDorsalShell" type="mesh" mesh="thumb_distalDorsalShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="thumb_distalDorsalShell_collision" type="mesh" mesh="thumb_distalDorsalShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="thumb_distalFlexorShell" type="mesh" mesh="thumb_distalFlexorShell_mesh" rgba="0.87 0.89 0.9 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="thumb_distalFlexorShell_collision" type="mesh" mesh="thumb_distalFlexorShell_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="thumb_distalInsetPad" type="mesh" mesh="thumb_distalInsetPad_mesh" rgba="0.13 0.15 0.17 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="thumb_distalInsetPad_collision" type="mesh" mesh="thumb_distalInsetPad_mesh" rgba=".12 .88 .45 .3" group="3" />
+                            <geom name="thumb_distalCore" type="mesh" mesh="thumb_distalCore_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="4" />
+                            <geom name="thumb_distalHingeBarrel" type="mesh" mesh="thumb_distalHingeBarrel_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="thumb_distalCheek-1" type="mesh" mesh="thumb_distalCheek-1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="thumb_distalCheek1" type="mesh" mesh="thumb_distalCheek1_mesh" rgba="0.49 0.53 0.57 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="thumb_distalPin" type="mesh" mesh="thumb_distalPin_mesh" rgba="0.7 0.73 0.76 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="thumb_distalScrew_-1_0.32" type="mesh" mesh="thumb_distalScrew_-1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <geom name="thumb_distalScrew_1_0.32" type="mesh" mesh="thumb_distalScrew_1_0.32_mesh" rgba="0.075 0.085 0.095 1" contype="0" conaffinity="0" group="1" />
+                            <site name="thumb_tip" pos="0 0 0.015" size=".002" rgba="0 0 0 0" />
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="object" pos=".44 -.04 .6255">
+      <freejoint name="object_free" />
+      <inertial mass=".06" pos="0 0 0" diaginertia=".000025 .000025 .000025" />
+      <geom name="object_geom" type="box" size=".025 .025 .025" rgba="1 .35 .025 1" friction="1.5 .02 .002" />
+    </body>
+  </worldbody>
+  <contact>
+    <exclude body1="base_link" body2="shoulder_abduction" />
+    <exclude body1="base_link" body2="shoulder_flexion" />
+    <exclude body1="base_link" body2="upper_arm" />
+    <exclude body1="shoulder_abduction" body2="upper_arm" />
+    <exclude body1="upper_arm" body2="forearm" />
+    <exclude body1="forearm" body2="palm_base" />
+    <exclude body1="palm_base" body2="index_proximal" />
+    <exclude body1="palm_base" body2="middle_proximal" />
+    <exclude body1="palm_base" body2="ring_proximal" />
+    <exclude body1="palm_base" body2="pinky_proximal" />
+    <exclude body1="palm_base" body2="thumb_metacarpal" />
+  </contact>
+  <actuator>
+    <position name="motor_shoulder_abduction" joint="shoulder_abduction" kp="550" kv="48" ctrlrange="-1.477272727 1.477272727" forcerange="-70 70" />
+    <position name="motor_shoulder_flexion" joint="shoulder_flexion" kp="550" kv="48" ctrlrange="-1.327272727 2.427272727" forcerange="-70 70" />
+    <position name="motor_shoulder_rotation" joint="shoulder_rotation" kp="400" kv="32" ctrlrange="-2.7 2.7" forcerange="-40 40" />
+    <position name="motor_elbow_flexion" joint="elbow_flexion" kp="400" kv="32" ctrlrange="-0.1 2.55" forcerange="-40 40" />
+    <position name="motor_forearm_pronation" joint="forearm_pronation" kp="150" kv="12" ctrlrange="-3.22 3.22" forcerange="-12 12" />
+    <position name="motor_wrist_flexion" joint="wrist_flexion" kp="120" kv="9" ctrlrange="-1.316666667 1.316666667" forcerange="-8 8" />
+    <position name="motor_wrist_deviation" joint="wrist_deviation" kp="100" kv="8" ctrlrange="-0.71 0.71" forcerange="-6 6" />
+    <position name="motor_index_mcp_abduction" joint="index_mcp_abduction" kp="3" kv="0.1" ctrlrange="-0.5166666667 0.5166666667" forcerange="-0.65 0.65" />
+    <position name="motor_index_mcp_flexion" joint="index_mcp_flexion" kp="5" kv="0.16" ctrlrange="-0.22 1.72" forcerange="-1.1 1.1" />
+    <position name="motor_index_pip" joint="index_pip" kp="5" kv="0.16" ctrlrange="-0.17 1.87" forcerange="-0.85 0.85" />
+    <position name="motor_index_dip" joint="index_dip" kp="5" kv="0.16" ctrlrange="-0.11 1.51" forcerange="-0.55 0.55" />
+    <position name="motor_middle_mcp_abduction" joint="middle_mcp_abduction" kp="3" kv="0.1" ctrlrange="-0.5166666667 0.5166666667" forcerange="-0.65 0.65" />
+    <position name="motor_middle_mcp_flexion" joint="middle_mcp_flexion" kp="5" kv="0.16" ctrlrange="-0.22 1.72" forcerange="-1.1 1.1" />
+    <position name="motor_middle_pip" joint="middle_pip" kp="5" kv="0.16" ctrlrange="-0.17 1.87" forcerange="-0.85 0.85" />
+    <position name="motor_middle_dip" joint="middle_dip" kp="5" kv="0.16" ctrlrange="-0.11 1.51" forcerange="-0.55 0.55" />
+    <position name="motor_ring_mcp_abduction" joint="ring_mcp_abduction" kp="3" kv="0.1" ctrlrange="-0.5166666667 0.5166666667" forcerange="-0.65 0.65" />
+    <position name="motor_ring_mcp_flexion" joint="ring_mcp_flexion" kp="5" kv="0.16" ctrlrange="-0.22 1.72" forcerange="-1.1 1.1" />
+    <position name="motor_ring_pip" joint="ring_pip" kp="5" kv="0.16" ctrlrange="-0.17 1.87" forcerange="-0.85 0.85" />
+    <position name="motor_ring_dip" joint="ring_dip" kp="5" kv="0.16" ctrlrange="-0.11 1.51" forcerange="-0.55 0.55" />
+    <position name="motor_pinky_mcp_abduction" joint="pinky_mcp_abduction" kp="3" kv="0.1" ctrlrange="-0.5166666667 0.5166666667" forcerange="-0.65 0.65" />
+    <position name="motor_pinky_mcp_flexion" joint="pinky_mcp_flexion" kp="5" kv="0.16" ctrlrange="-0.22 1.72" forcerange="-1.1 1.1" />
+    <position name="motor_pinky_pip" joint="pinky_pip" kp="5" kv="0.16" ctrlrange="-0.17 1.87" forcerange="-0.85 0.85" />
+    <position name="motor_pinky_dip" joint="pinky_dip" kp="5" kv="0.16" ctrlrange="-0.11 1.51" forcerange="-0.55 0.55" />
+    <position name="motor_thumb_cmc_opposition" joint="thumb_cmc_opposition" kp="5" kv="0.18" ctrlrange="-0.42 1.82" forcerange="-1.1 1.1" />
+    <position name="motor_thumb_cmc_flexion" joint="thumb_cmc_flexion" kp="5" kv="0.18" ctrlrange="-0.45 1.5" forcerange="-1 1" />
+    <position name="motor_thumb_mcp_flexion" joint="thumb_mcp_flexion" kp="5" kv="0.18" ctrlrange="-0.14 1.54" forcerange="-0.7 0.7" />
+    <position name="motor_thumb_ip" joint="thumb_ip" kp="5" kv="0.18" ctrlrange="-0.14 1.54" forcerange="-0.7 0.7" />
+  </actuator>
+  <sensor>
+    <framepos name="palm_position" objtype="site" objname="palm_site" />
+    <gyro name="palm_gyro" site="palm_site" />
+    <accelerometer name="palm_accelerometer" site="palm_site" />
+  </sensor>
+  <keyframe>
+    <key name="home" qpos="0.1 0.25 0 1.1 0 0.2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44 -0.04 0.6255 1 0 0 0" ctrl="0.1 0.25 0 1.1 0 0.2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
+  </keyframe>
+</mujoco>

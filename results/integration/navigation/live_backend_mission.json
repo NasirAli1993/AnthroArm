@@ -1,0 +1,61 @@
+{
+  "task": {
+    "id": 2,
+    "status": "succeeded",
+    "operation": "mission",
+    "completed_goals": 7,
+    "results": [
+      {
+        "name": "mapping_east",
+        "estimated_goal_error_m": 0.14105953781760508,
+        "evaluation_goal_error_m": 0.13899979866881976,
+        "contacts": 0,
+        "settled_speed_m_s": 0.009129644510407634
+      },
+      {
+        "name": "mapping_north",
+        "estimated_goal_error_m": 0.11536859222831355,
+        "evaluation_goal_error_m": 0.1153906240101109,
+        "contacts": 0,
+        "settled_speed_m_s": 0.0005635664586564802
+      },
+      {
+        "name": "mapping_west",
+        "estimated_goal_error_m": 0.13222572347938075,
+        "evaluation_goal_error_m": 0.1399401820486517,
+        "contacts": 0,
+        "settled_speed_m_s": 0.0026585125062121274
+      },
+      {
+        "name": "mapping_loop",
+        "estimated_goal_error_m": 0.11453224719861861,
+        "evaluation_goal_error_m": 0.1165197674133474,
+        "contacts": 0,
+        "settled_speed_m_s": 0.0021347669599792243
+      },
+      {
+        "name": "heldout_goal_1",
+        "estimated_goal_error_m": 0.13036648234918913,
+        "evaluation_goal_error_m": 0.12662688862566474,
+        "contacts": 0,
+        "settled_speed_m_s": 0.00043497588072892055
+      },
+      {
+        "name": "heldout_goal_2",
+        "estimated_goal_error_m": 0.12794743362233538,
+        "evaluation_goal_error_m": 0.1333077719313922,
+        "contacts": 0,
+        "settled_speed_m_s": 0.00791671511371483
+      },
+      {
+        "name": "heldout_goal_3",
+        "estimated_goal_error_m": 0.13388417447423012,
+        "evaluation_goal_error_m": 0.12676238380114227,
+        "contacts": 0,
+        "settled_speed_m_s": 4.870535910998557e-11
+      }
+    ]
+  },
+  "contacts": 0,
+  "true_pose_used_only_for_results": true
+}

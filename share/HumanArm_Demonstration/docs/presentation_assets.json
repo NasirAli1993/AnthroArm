@@ -1,0 +1,43 @@
+{
+  "version": 3,
+  "hero_image": "/v3results/hero_arm.png",
+  "hero_caption": "Actual v3 FreeCAD assembly export. The digital design contains seven arm axes and twenty hand axes; physical drives and load-bearing construction need separate validation.",
+  "cad_views": [
+    {
+      "title": "Front assembly",
+      "image": "/v3results/design_stages/01_full_arm_front.png"
+    },
+    {
+      "title": "Back assembly",
+      "image": "/v3results/design_stages/02_full_arm_back.png"
+    },
+    {
+      "title": "Palm view",
+      "image": "/v3results/design_stages/03_hand_palmar.png"
+    },
+    {
+      "title": "Back of hand",
+      "image": "/v3results/design_stages/04_hand_dorsal.png"
+    },
+    {
+      "title": "Cutaway",
+      "image": "/v3results/design_stages/05_cutaway.png"
+    },
+    {
+      "title": "Exploded assembly",
+      "image": "/v3results/design_stages/06_exploded.png"
+    },
+    {
+      "title": "Shoulder",
+      "image": "/v3results/design_stages/07_shoulder.png"
+    },
+    {
+      "title": "Elbow and forearm",
+      "image": "/v3results/design_stages/08_elbow_forearm.png"
+    },
+    {
+      "title": "Wrist and palm",
+      "image": "/v3results/design_stages/09_wrist_palm.png"
+    }
+  ]
+}

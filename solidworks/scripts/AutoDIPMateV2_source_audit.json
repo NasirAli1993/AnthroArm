@@ -1,0 +1,30 @@
+{
+  "status": "STAGED_NOT_COMPILED_NOT_EXECUTED",
+  "source_frames": "isolated parent identity; child Ry(+10deg) and translation [0,0,0.024] m before mates",
+  "source_counts": [
+    12,
+    10
+  ],
+  "source_limit_rad": [
+    0,
+    1.4
+  ],
+  "motion_study_created": false,
+  "files": [
+    {
+      "name": "AutoDIPMateV2.bas",
+      "bytes": 32670,
+      "sha256": "cf6445296eeef481811320cfcbbc75591389b7a15783761a0abe8541627f880a"
+    },
+    {
+      "name": "AutoDIPMateV2.swb",
+      "bytes": 32633,
+      "sha256": "174c4338e0f44829fa9eeacf29924a5d039164e43f56ca4014b91f60347a24c4"
+    }
+  ],
+  "checks": {
+    "source_ascii": true,
+    "max_line_length": 185,
+    "bad_toggle_assignment": false
+  }
+}

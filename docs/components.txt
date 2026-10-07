@@ -1,0 +1,256 @@
+ANTHRO / 25 — COMPONENT GUIDE
+
+Every description is also embedded in the FreeCAD Component > Explanation property.
+
+Base · M8 table mounting plate
+  Robot link: base_link
+  Anchors the arm to a rigid bench. Four 9 mm clearance holes on 180 mm PCD; rear service port; central cable passage. Anchoring, mass and bolt selection require structural validation.
+
+Base · removable trim ring
+  Robot link: base_link
+  Visual trim and cover seam around the waist stage. Does not carry the arm load.
+
+J1 · waist actuator enclosure
+  Robot link: waist_link
+  Rotating waist enclosure and central cable route. Its local Z axis follows the first arm joint; bearing and actuator interfaces remain conceptual.
+
+J2 · shoulder yoke L
+  Robot link: waist_link
+  Support cheek for shoulder pivot. Bore is a placeholder for a bearing-supported output shaft; bearing seat tolerance must be designed.
+
+J2 · shoulder yoke R
+  Robot link: waist_link
+  Support cheek for shoulder pivot. Bore is a placeholder for a bearing-supported output shaft; bearing seat tolerance must be designed.
+
+Upper arm · hollow structural shell
+  Robot link: upper_arm
+  300 mm pivot spacing. Hollow concept housing with 16 mm pivot passages and a front service recess. Wall sizing and torque load paths require analysis.
+
+Upper arm · service cover
+  Robot link: upper_arm
+  Removable front cover identifies cable and actuator service area. Fasteners, cable strain relief and a complete tendon spool package are not yet detailed.
+
+Upper arm · root bearing cover
+  Robot link: upper_arm
+  External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.
+
+Upper arm · root hub ring
+  Robot link: upper_arm
+  High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.
+
+Upper arm · tip bearing cover
+  Robot link: upper_arm
+  External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.
+
+Upper arm · tip hub ring
+  Robot link: upper_arm
+  High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.
+
+Forearm · hollow structural shell
+  Robot link: forearm
+  250 mm pivot spacing. Hollow concept housing with 16 mm pivot passages and a front service recess. Wall sizing and torque load paths require analysis.
+
+Forearm · service cover
+  Robot link: forearm
+  Removable front cover identifies cable and actuator service area. Fasteners, cable strain relief and a complete tendon spool package are not yet detailed.
+
+Forearm · root bearing cover
+  Robot link: forearm
+  External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.
+
+Forearm · root hub ring
+  Robot link: forearm
+  High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.
+
+Forearm · tip bearing cover
+  Robot link: forearm
+  External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.
+
+Forearm · tip hub ring
+  Robot link: forearm
+  High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.
+
+J4 · wrist pitch housing
+  Robot link: wrist_link
+  60 mm wrist stage. Pitch follows the local Y axis; a through-bore reserves cable space for the hand.
+
+J5 · wrist roll collar
+  Robot link: wrist_link
+  Visual collar at the hand roll interface. Rotation is around the palm Z axis; a slip ring and cable turn limit must be resolved for physical construction.
+
+Palm · 100 × 84 × 32 mm shell
+  Robot link: palm_base
+  Adult-scale palm with dorsal access, screw bosses and wrist cable inlet. The 100 mm palm plus 90 mm middle finger establishes the 190 mm hand scale.
+
+Palm · removable dorsal cover
+  Robot link: palm_base
+  Dorsal service lid. Four M3 clearance holes align with internal bosses; threaded inserts and screw lengths need selection.
+
+Palm · compliant contact pad concept
+  Robot link: palm_base
+  Reserved palmar contact surface. Simulation uses idealized friction; elastomer durometer, attachment and tactile sensing are unvalidated.
+
+index knuckle · lateral joint
+  Robot link: index_knuckle
+  Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.
+
+index proximal · 40 mm
+  Robot link: index_proximal
+  40 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+index proximal · hinge pin
+  Robot link: index_proximal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+index intermediate · 24 mm
+  Robot link: index_intermediate
+  24 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+index intermediate · hinge pin
+  Robot link: index_intermediate
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+index distal · 18 mm
+  Robot link: index_distal
+  18 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+index distal · hinge pin
+  Robot link: index_distal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+index distal · fingertip pad
+  Robot link: index_distal
+  Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.
+
+middle knuckle · lateral joint
+  Robot link: middle_knuckle
+  Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.
+
+middle proximal · 45 mm
+  Robot link: middle_proximal
+  45 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+middle proximal · hinge pin
+  Robot link: middle_proximal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+middle intermediate · 25 mm
+  Robot link: middle_intermediate
+  25 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+middle intermediate · hinge pin
+  Robot link: middle_intermediate
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+middle distal · 20 mm
+  Robot link: middle_distal
+  20 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+middle distal · hinge pin
+  Robot link: middle_distal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+middle distal · fingertip pad
+  Robot link: middle_distal
+  Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.
+
+ring knuckle · lateral joint
+  Robot link: ring_knuckle
+  Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.
+
+ring proximal · 40 mm
+  Robot link: ring_proximal
+  40 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+ring proximal · hinge pin
+  Robot link: ring_proximal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+ring intermediate · 24 mm
+  Robot link: ring_intermediate
+  24 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+ring intermediate · hinge pin
+  Robot link: ring_intermediate
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+ring distal · 18 mm
+  Robot link: ring_distal
+  18 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+ring distal · hinge pin
+  Robot link: ring_distal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+ring distal · fingertip pad
+  Robot link: ring_distal
+  Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.
+
+pinky knuckle · lateral joint
+  Robot link: pinky_knuckle
+  Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.
+
+pinky proximal · 33 mm
+  Robot link: pinky_proximal
+  33 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+pinky proximal · hinge pin
+  Robot link: pinky_proximal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+pinky intermediate · 20 mm
+  Robot link: pinky_intermediate
+  20 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+pinky intermediate · hinge pin
+  Robot link: pinky_intermediate
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+pinky distal · 17 mm
+  Robot link: pinky_distal
+  17 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+pinky distal · hinge pin
+  Robot link: pinky_distal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+pinky distal · fingertip pad
+  Robot link: pinky_distal
+  Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.
+
+thumb opposition · lateral joint
+  Robot link: thumb_opposition
+  Base axis enables finger spread or thumb opposition. The crossing-axis articulation is kinematically modeled; a complete miniature bearing and transmission package remains to be engineered.
+
+thumb metacarpal · 30 mm
+  Robot link: thumb_metacarpal
+  30 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+thumb metacarpal · hinge pin
+  Robot link: thumb_metacarpal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+thumb proximal · 20 mm
+  Robot link: thumb_proximal
+  20 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+thumb proximal · hinge pin
+  Robot link: thumb_proximal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+thumb distal · 15 mm
+  Robot link: thumb_distal
+  15 mm joint spacing / tip length; 2.1 mm hinge bores, 1.4 mm tendon guide bores, root tongue and distal clevis where applicable. Cable routing around moving joints and fatigue behavior are not verified.
+
+thumb distal · hinge pin
+  Robot link: thumb_distal
+  Nominal 1.96 mm pin reference for the 2.1 mm CAD bore. Actual pin tolerance, retention and bearing wear need physical testing.
+
+thumb distal · fingertip pad
+  Robot link: thumb_distal
+  Palmar fingertip contact insert. Placeholder for soft material and optional tactile sensing; no physical sensor has been selected.
+
+DESIGN STATUS
+This is a concept CAD assembly for on-screen simulation and engineering study.
+The CAD and physics share frames and lengths; mass and collision primitives remain approximations.
+Physical tendon actuation, component selection, structural loads, tolerances and safety need a separate validated hardware engineering phase.

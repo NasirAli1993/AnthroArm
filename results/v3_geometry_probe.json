@@ -1,0 +1,38 @@
+[
+  {
+    "name": "outer",
+    "valid": true,
+    "solids": 1,
+    "volume": 1209853.1545904423
+  },
+  {
+    "name": "shell",
+    "valid": true,
+    "solids": 1,
+    "volume": 225039.00882836268
+  },
+  {
+    "name": "front",
+    "valid": true,
+    "solids": 1,
+    "volume": 110631.4434207534
+  },
+  {
+    "name": "back",
+    "valid": true,
+    "solids": 1,
+    "volume": 110631.45383312629
+  },
+  {
+    "name": "finger",
+    "valid": true,
+    "solids": 1,
+    "volume": 6112.041183904944
+  },
+  {
+    "name": "pad",
+    "valid": true,
+    "solids": 1,
+    "volume": 653.875431717505
+  }
+]

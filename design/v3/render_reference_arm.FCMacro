@@ -1,0 +1,19 @@
+from pathlib import Path
+import ast,json,math,traceback
+import FreeCAD as App
+import FreeCADGui as Gui
+ROOT=Path(r'D:\RoboticArm');DESIGN=ROOT/'design'/'v3';RESULTS=ROOT/'results'/'v3';STAGES=RESULTS/'design_stages';V=App.Vector
+try:
+ spec=json.loads((DESIGN/'robot_spec.json').read_text(encoding='utf-8'));links={x['name']:x for x in spec['links']};places={}
+ doc=App.openDocument(str(DESIGN/'AnthroArm27_ReferenceV3.FCStd'))
+ components=[o for o in doc.Objects if 'RobotLink' in o.PropertiesList]
+ if hasattr(Gui.activeDocument().activeView(),'setAnimationEnabled'):Gui.activeDocument().activeView().setAnimationEnabled(False)
+ source=(DESIGN/'build_reference_arm.py').read_text(encoding='utf-8')
+ parsed=ast.parse(source)
+ for n in parsed.body:
+  if isinstance(n,ast.FunctionDef) and n.name in ['log','frame','visible','view','hand_view','shot']:exec(compile(ast.Module(body=[n],type_ignores=[]),str(DESIGN/'build_reference_arm.py'),'exec'))
+ start=source.index('external=lambda o:');end=source.index('doc.recompute();doc.saveAs',start)
+ exec(source[start:end])
+ doc.save()
+except Exception:
+ (RESULTS/'render_error.txt').write_text(traceback.format_exc(),encoding='utf-8');raise

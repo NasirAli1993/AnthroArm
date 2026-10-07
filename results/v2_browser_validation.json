@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "checks": {
+    "live_hand_closeup_visible": true,
+    "numeric_joint_target_degrees": {
+      "joint": "index_pip",
+      "entered_degrees": 30,
+      "measured_radians": 0.5235987755810453,
+      "target_radians": 0.5235987755982988
+    },
+    "surface_joint_axes_collision_views": true,
+    "walkthrough_available_stages": 8,
+    "walkthrough_navigation_compare_expand": true,
+    "browser_video_playback": {
+      "width": 1000,
+      "height": 800,
+      "duration_s": 27,
+      "observed_playback_time_s": 6.283193,
+      "ready_state": 4,
+      "error": null
+    },
+    "studio_console_errors": [],
+    "walkthrough_console_errors": [],
+    "freecad_visible_window_title": " AnthroArm25_Humanoid - FreeCAD 1.1.4",
+    "openscad_assembly_rendered": true
+  },
+  "screenshots": [
+    "results/humanoid_studio.png",
+    "results/humanoid_walkthrough.png"
+  ],
+  "method": "Browser controls and visible state inspected using CUA; native FreeCAD title checked; actual OpenSCAD PNG inspected."
+}

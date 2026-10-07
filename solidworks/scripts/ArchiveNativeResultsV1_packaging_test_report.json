@@ -1,0 +1,22 @@
+{
+  "status": "Local exact Windows archive payload tested; SOLIDWORKS archive macro native execution not yet observed by this agent",
+  "macro_sha256": "c81fe8fb15c9324af2ede72cb3a3c45c24a490b2ae273345dcd03616e6581bf9",
+  "payload_test": {
+    "Test": "Exact archive-only hidden PowerShell payload; thirty named files plus extra hidden SOLIDWORKS lock fixture",
+    "ExitCode": 0,
+    "ElapsedSeconds": 1.1483654,
+    "ZipPath": "D:\\RoboticArm\\solidworks\\results\\archive_native_v1_test_20261006_175413\\Test's recovered archive.zip",
+    "Entries": 30,
+    "FlatEntries": true,
+    "LockExcluded": true,
+    "NativeCadTest": false
+  },
+  "observed_native_folder_reported_by_root": "AnthroArm27_Static_20261006_095036_35436562",
+  "archive_scope": "Exactly 28 named SLDPRT, AnthroArm27_STATIC_HOME.SLDASM and Native_Static_Build.log; native source files unchanged",
+  "limitations": [
+    "Source selection is gated by successful V5 native log checkpoints, not an independent CAD re-open",
+    "ZIP reads all entries and checks exact names and sizes; no native CAD rebuild occurs",
+    "Test fixture contents are synthetic text, not native SOLIDWORKS files",
+    "60-second job wait excludes process startup/cleanup overhead"
+  ]
+}

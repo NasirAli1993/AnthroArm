@@ -1,0 +1,1173 @@
+V3 COMPONENT EXPLANATIONS
+
+Fixture | removable shoulder flange
+Link: base_link
+Separate four-bolt shoulder attachment flange. It is a fixture interface, not an industrial arm pedestal or a human limb segment. Mounting structure/load rating still require engineering.
+
+Shoulder | black spherical socket
+Link: shoulder_abduction
+Rounded shoulder socket establishes the proximal human silhouette. The three shoulder axes are co-located kinematically; internal bearing packaging remains conceptual.
+
+Shoulder | circular abduction bearing
+Link: shoulder_abduction
+Exposed circular bearing cover marks the shoulder abduction axis, matching the black mechanical joint language of the references.
+
+Shoulder | recessed axis cap
+Link: shoulder_abduction
+Recessed shoulder-axis cover; bearing seats, seals and shaft interfaces remain conceptual.
+
+Shoulder | circular abduction bearing
+Link: shoulder_abduction
+Exposed circular bearing cover marks the shoulder abduction axis, matching the black mechanical joint language of the references.
+
+Shoulder | recessed axis cap
+Link: shoulder_abduction
+Recessed shoulder-axis cover; bearing seats, seals and shaft interfaces remain conceptual.
+
+Shoulder | flexion gimbal ring
+Link: shoulder_flexion
+Second shoulder axis carrier inside the spherical joint envelope. This visible internal ring is a packaging concept, not a validated three-axis transmission.
+
+Shoulder | humeral rotation coupling
+Link: upper_arm
+Axial coupling for humeral rotation. Separates shoulder orientation from elbow flexion while continuing the limb silhouette.
+
+UpperArm | anterior hollow fairing
+Link: upper_arm
+Hollow smooth oval-section fairing with a 1.4 mm longitudinal service seam. The broad proximal contour tapers toward the distal joint, following references 02/03.
+
+UpperArm | posterior hollow fairing
+Link: upper_arm
+Matching rear fairing closes the human-like limb silhouette. Remove this panel in the cutaway to inspect the conceptual internal skeleton and actuators.
+
+Fastener | UpperPanelScrew_75_-1
+Link: upper_arm
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | UpperPanelScrew_75_1
+Link: upper_arm
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | UpperPanelScrew_220_-1
+Link: upper_arm
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | UpperPanelScrew_220_1
+Link: upper_arm
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Upper arm | hollow structural spine
+Link: upper_arm
+Hollow central structural spine reserves a cable passage. This skeleton is a conceptual load path; tube section and bearings must be sized from loads.
+
+Upper arm | shoulder-drive envelope
+Link: upper_arm
+Placeholder motor/reducer packaging envelope. No supplier, torque rating or verified reducer has been selected.
+
+Upper arm | winding envelope
+Link: upper_arm
+Copper-colored band distinguishes the conceptual electric motor region in the cutaway.
+
+Upper arm | elbow-drive envelope
+Link: upper_arm
+Conceptual elbow drive inside the upper arm. Reduction, brake, thermal behavior and output torque remain to be engineered.
+
+Upper arm | internal harness
+Link: upper_arm
+Illustrative electrical harness route inside the removable fairing. Cable flex loops through the joints are not solved.
+
+Upper arm | internal harness
+Link: upper_arm
+Illustrative electrical harness route inside the removable fairing. Cable flex loops through the joints are not solved.
+
+Elbow | black circular hinge barrel
+Link: elbow_link
+Exposed circular elbow hinge connects the upper-arm and forearm fairings with a recognizably human elbow silhouette. Canonical flexion axis is local Y.
+
+Elbow | concentric metal bearing race
+Link: elbow_link
+Concentric ring makes the circular elbow axis legible; this is an external bearing cover, not a selected bearing.
+
+Elbow | inset output hub
+Link: elbow_link
+Black inset elbow output hub with a circular service cap.
+
+Fastener | ElbowBolt_-1_0
+Link: elbow_link
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ElbowBolt_-1_120
+Link: elbow_link
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ElbowBolt_-1_240
+Link: elbow_link
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Elbow | concentric metal bearing race
+Link: elbow_link
+Concentric ring makes the circular elbow axis legible; this is an external bearing cover, not a selected bearing.
+
+Elbow | inset output hub
+Link: elbow_link
+Black inset elbow output hub with a circular service cap.
+
+Fastener | ElbowBolt_1_0
+Link: elbow_link
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ElbowBolt_1_120
+Link: elbow_link
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ElbowBolt_1_240
+Link: elbow_link
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Forearm | axial pronation bearing
+Link: forearm
+Axial bearing permits forearm pronation independently of elbow flexion. The forearm and hand roll together, as in human anatomy.
+
+Forearm | anterior hollow fairing
+Link: forearm
+Hollow smooth oval-section fairing with a 1.4 mm longitudinal service seam. The broad proximal contour tapers toward the distal joint, following references 02/03.
+
+Forearm | posterior hollow fairing
+Link: forearm
+Matching rear fairing closes the human-like limb silhouette. Remove this panel in the cutaway to inspect the conceptual internal skeleton and actuators.
+
+Fastener | ForePanelScrew_65_-1
+Link: forearm
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ForePanelScrew_65_1
+Link: forearm
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ForePanelScrew_206_-1
+Link: forearm
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ForePanelScrew_206_1
+Link: forearm
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Forearm | structural rail
+Link: forearm
+One of two internal longitudinal rails supporting the actuator trays and wrist. Conceptual radius/ulna-inspired structure; no load qualification.
+
+Forearm | structural rail
+Link: forearm
+One of two internal longitudinal rails supporting the actuator trays and wrist. Conceptual radius/ulna-inspired structure; no load qualification.
+
+Forearm | hand actuator envelope 01
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 01
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 01
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 02
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 02
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 02
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 03
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 03
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 03
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 04
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 04
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 04
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 05
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 05
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 05
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 06
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 06
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 06
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 07
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 07
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 07
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 08
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 08
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 08
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 09
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 09
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 09
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 10
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 10
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 10
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 11
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 11
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 11
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 12
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 12
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 12
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 13
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 13
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 13
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 14
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 14
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 14
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 15
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 15
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 15
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 16
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 16
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 16
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 17
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 17
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 17
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 18
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 18
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 18
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 19
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 19
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 19
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Forearm | hand actuator envelope 20
+Link: forearm
+One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.
+
+Forearm | conceptual tendon spool 20
+Link: forearm
+Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.
+
+Forearm | tendon route 20
+Link: forearm
+Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.
+
+Wrist | compact flexion joint
+Link: wrist_pitch
+Compact black wrist articulation keeps the forearm-to-palm transition slim. Flexion occurs about local Y.
+
+Wrist | tapered carpal coupling
+Link: wrist_pitch
+Slim coupling transitions from the forearm to the wider, flattened palm. The next co-located hand-side axis provides radial/ulnar deviation.
+
+Wrist | recessed flexion-axis cap
+Link: wrist_pitch
+Small circular wrist cap exposes the local Y flexion axis without a bulky industrial wrist drum.
+
+Wrist | recessed flexion-axis cap
+Link: wrist_pitch
+Small circular wrist cap exposes the local Y flexion axis without a bulky industrial wrist drum.
+
+Wrist | palm deviation seal
+Link: palm_base
+Dark oval seam marks the radial/ulnar deviation boundary at the palm base. Soft deformation is not simulated.
+
+Palm | hollow front chassis with pad recess
+Link: palm_base
+Asymmetric smooth palm fairing with a genuine internal cavity and recessed contact-pad pocket. The thumb-side flare integrates the thenar region into the palm body instead of using separate oval mounds.
+
+Palm | removable sculpted dorsal cover
+Link: palm_base
+Sculpted white rear cover follows the palm outline and closes the internal cavity. Small perimeter fasteners distinguish the mechanical construction.
+
+Palm | recessed continuous flexor pad
+Link: palm_base
+Dark flexor pad is seated 0.25 mm below a matching CAD pocket, sharing the palm contour. Elastomer material, tactile sensing and attachment are placeholders.
+
+Palm | internal actuator routing plate
+Link: palm_base
+Internal routing/chassis plate visible in the cutaway. Tendon terminations and electronics placement are conceptual.
+
+Fastener | PalmCoverScrew_-1_18
+Link: palm_base
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | PalmCoverScrew_-1_79
+Link: palm_base
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | PalmCoverScrew_1_18
+Link: palm_base
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | PalmCoverScrew_1_79
+Link: palm_base
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Palm | index MCP bearing seat
+Link: palm_base
+Compact palm-side bearing seat supports lateral finger spread. Its circular opening makes the two-axis MCP mechanism visible.
+
+Palm | middle MCP bearing seat
+Link: palm_base
+Compact palm-side bearing seat supports lateral finger spread. Its circular opening makes the two-axis MCP mechanism visible.
+
+Palm | ring MCP bearing seat
+Link: palm_base
+Compact palm-side bearing seat supports lateral finger spread. Its circular opening makes the two-axis MCP mechanism visible.
+
+Palm | pinky MCP bearing seat
+Link: palm_base
+Compact palm-side bearing seat supports lateral finger spread. Its circular opening makes the two-axis MCP mechanism visible.
+
+Knuckle | index spread carrier
+Link: index_knuckle
+Cross-axis MCP carrier supplies independent spread plus flexion. Axes coincide at the anatomical knuckle center.
+
+Index Proximal | DorsalShell
+Link: index_proximal
+Dorsal white shell panel with a central mechanical seam. 40 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Index Proximal | FlexorShell
+Link: index_proximal
+Flexor white shell panel with a true recessed pad opening. 40 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Index Proximal | recessed flexor pad
+Link: index_proximal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Index Proximal | internal keel
+Link: index_proximal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Index Proximal | root hinge barrel
+Link: index_proximal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Index Proximal | metal hinge cheek
+Link: index_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Index Proximal | metal hinge cheek
+Link: index_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Index Proximal | reference hinge pin
+Link: index_proximal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | index_proximalScrew_-1_0.24
+Link: index_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | index_proximalScrew_-1_0.75
+Link: index_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | index_proximalScrew_1_0.24
+Link: index_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | index_proximalScrew_1_0.75
+Link: index_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Index Intermediate | DorsalShell
+Link: index_intermediate
+Dorsal white shell panel with a central mechanical seam. 24 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Index Intermediate | FlexorShell
+Link: index_intermediate
+Flexor white shell panel with a true recessed pad opening. 24 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Index Intermediate | recessed flexor pad
+Link: index_intermediate
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Index Intermediate | internal keel
+Link: index_intermediate
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Index Intermediate | root hinge barrel
+Link: index_intermediate
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Index Intermediate | metal hinge cheek
+Link: index_intermediate
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Index Intermediate | metal hinge cheek
+Link: index_intermediate
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Index Intermediate | reference hinge pin
+Link: index_intermediate
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | index_intermediateScrew_-1_0.24
+Link: index_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | index_intermediateScrew_-1_0.75
+Link: index_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | index_intermediateScrew_1_0.24
+Link: index_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | index_intermediateScrew_1_0.75
+Link: index_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Index Distal | DorsalShell
+Link: index_distal
+Dorsal white shell panel with a central mechanical seam. 18 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Index Distal | FlexorShell
+Link: index_distal
+Flexor white shell panel with a true recessed pad opening. 18 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Index Distal | recessed flexor pad
+Link: index_distal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Index Distal | internal keel
+Link: index_distal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Index Distal | root hinge barrel
+Link: index_distal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Index Distal | metal hinge cheek
+Link: index_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Index Distal | metal hinge cheek
+Link: index_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Index Distal | reference hinge pin
+Link: index_distal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | index_distalScrew_-1_0.32
+Link: index_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | index_distalScrew_1_0.32
+Link: index_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Knuckle | middle spread carrier
+Link: middle_knuckle
+Cross-axis MCP carrier supplies independent spread plus flexion. Axes coincide at the anatomical knuckle center.
+
+Middle Proximal | DorsalShell
+Link: middle_proximal
+Dorsal white shell panel with a central mechanical seam. 45 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Middle Proximal | FlexorShell
+Link: middle_proximal
+Flexor white shell panel with a true recessed pad opening. 45 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Middle Proximal | recessed flexor pad
+Link: middle_proximal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Middle Proximal | internal keel
+Link: middle_proximal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Middle Proximal | root hinge barrel
+Link: middle_proximal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Middle Proximal | metal hinge cheek
+Link: middle_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Middle Proximal | metal hinge cheek
+Link: middle_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Middle Proximal | reference hinge pin
+Link: middle_proximal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | middle_proximalScrew_-1_0.24
+Link: middle_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | middle_proximalScrew_-1_0.75
+Link: middle_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | middle_proximalScrew_1_0.24
+Link: middle_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | middle_proximalScrew_1_0.75
+Link: middle_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Middle Intermediate | DorsalShell
+Link: middle_intermediate
+Dorsal white shell panel with a central mechanical seam. 25 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Middle Intermediate | FlexorShell
+Link: middle_intermediate
+Flexor white shell panel with a true recessed pad opening. 25 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Middle Intermediate | recessed flexor pad
+Link: middle_intermediate
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Middle Intermediate | internal keel
+Link: middle_intermediate
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Middle Intermediate | root hinge barrel
+Link: middle_intermediate
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Middle Intermediate | metal hinge cheek
+Link: middle_intermediate
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Middle Intermediate | metal hinge cheek
+Link: middle_intermediate
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Middle Intermediate | reference hinge pin
+Link: middle_intermediate
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | middle_intermediateScrew_-1_0.24
+Link: middle_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | middle_intermediateScrew_-1_0.75
+Link: middle_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | middle_intermediateScrew_1_0.24
+Link: middle_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | middle_intermediateScrew_1_0.75
+Link: middle_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Middle Distal | DorsalShell
+Link: middle_distal
+Dorsal white shell panel with a central mechanical seam. 20 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Middle Distal | FlexorShell
+Link: middle_distal
+Flexor white shell panel with a true recessed pad opening. 20 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Middle Distal | recessed flexor pad
+Link: middle_distal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Middle Distal | internal keel
+Link: middle_distal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Middle Distal | root hinge barrel
+Link: middle_distal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Middle Distal | metal hinge cheek
+Link: middle_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Middle Distal | metal hinge cheek
+Link: middle_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Middle Distal | reference hinge pin
+Link: middle_distal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | middle_distalScrew_-1_0.32
+Link: middle_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | middle_distalScrew_1_0.32
+Link: middle_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Knuckle | ring spread carrier
+Link: ring_knuckle
+Cross-axis MCP carrier supplies independent spread plus flexion. Axes coincide at the anatomical knuckle center.
+
+Ring Proximal | DorsalShell
+Link: ring_proximal
+Dorsal white shell panel with a central mechanical seam. 40 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Ring Proximal | FlexorShell
+Link: ring_proximal
+Flexor white shell panel with a true recessed pad opening. 40 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Ring Proximal | recessed flexor pad
+Link: ring_proximal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Ring Proximal | internal keel
+Link: ring_proximal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Ring Proximal | root hinge barrel
+Link: ring_proximal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Ring Proximal | metal hinge cheek
+Link: ring_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Ring Proximal | metal hinge cheek
+Link: ring_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Ring Proximal | reference hinge pin
+Link: ring_proximal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | ring_proximalScrew_-1_0.24
+Link: ring_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ring_proximalScrew_-1_0.75
+Link: ring_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ring_proximalScrew_1_0.24
+Link: ring_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ring_proximalScrew_1_0.75
+Link: ring_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Ring Intermediate | DorsalShell
+Link: ring_intermediate
+Dorsal white shell panel with a central mechanical seam. 24 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Ring Intermediate | FlexorShell
+Link: ring_intermediate
+Flexor white shell panel with a true recessed pad opening. 24 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Ring Intermediate | recessed flexor pad
+Link: ring_intermediate
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Ring Intermediate | internal keel
+Link: ring_intermediate
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Ring Intermediate | root hinge barrel
+Link: ring_intermediate
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Ring Intermediate | metal hinge cheek
+Link: ring_intermediate
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Ring Intermediate | metal hinge cheek
+Link: ring_intermediate
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Ring Intermediate | reference hinge pin
+Link: ring_intermediate
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | ring_intermediateScrew_-1_0.24
+Link: ring_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ring_intermediateScrew_-1_0.75
+Link: ring_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ring_intermediateScrew_1_0.24
+Link: ring_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ring_intermediateScrew_1_0.75
+Link: ring_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Ring Distal | DorsalShell
+Link: ring_distal
+Dorsal white shell panel with a central mechanical seam. 18 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Ring Distal | FlexorShell
+Link: ring_distal
+Flexor white shell panel with a true recessed pad opening. 18 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Ring Distal | recessed flexor pad
+Link: ring_distal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Ring Distal | internal keel
+Link: ring_distal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Ring Distal | root hinge barrel
+Link: ring_distal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Ring Distal | metal hinge cheek
+Link: ring_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Ring Distal | metal hinge cheek
+Link: ring_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Ring Distal | reference hinge pin
+Link: ring_distal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | ring_distalScrew_-1_0.32
+Link: ring_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | ring_distalScrew_1_0.32
+Link: ring_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Knuckle | pinky spread carrier
+Link: pinky_knuckle
+Cross-axis MCP carrier supplies independent spread plus flexion. Axes coincide at the anatomical knuckle center.
+
+Pinky Proximal | DorsalShell
+Link: pinky_proximal
+Dorsal white shell panel with a central mechanical seam. 33 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Pinky Proximal | FlexorShell
+Link: pinky_proximal
+Flexor white shell panel with a true recessed pad opening. 33 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Pinky Proximal | recessed flexor pad
+Link: pinky_proximal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Pinky Proximal | internal keel
+Link: pinky_proximal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Pinky Proximal | root hinge barrel
+Link: pinky_proximal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Pinky Proximal | metal hinge cheek
+Link: pinky_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Pinky Proximal | metal hinge cheek
+Link: pinky_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Pinky Proximal | reference hinge pin
+Link: pinky_proximal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | pinky_proximalScrew_-1_0.24
+Link: pinky_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | pinky_proximalScrew_-1_0.75
+Link: pinky_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | pinky_proximalScrew_1_0.24
+Link: pinky_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | pinky_proximalScrew_1_0.75
+Link: pinky_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Pinky Intermediate | DorsalShell
+Link: pinky_intermediate
+Dorsal white shell panel with a central mechanical seam. 20 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Pinky Intermediate | FlexorShell
+Link: pinky_intermediate
+Flexor white shell panel with a true recessed pad opening. 20 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Pinky Intermediate | recessed flexor pad
+Link: pinky_intermediate
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Pinky Intermediate | internal keel
+Link: pinky_intermediate
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Pinky Intermediate | root hinge barrel
+Link: pinky_intermediate
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Pinky Intermediate | metal hinge cheek
+Link: pinky_intermediate
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Pinky Intermediate | metal hinge cheek
+Link: pinky_intermediate
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Pinky Intermediate | reference hinge pin
+Link: pinky_intermediate
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | pinky_intermediateScrew_-1_0.24
+Link: pinky_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | pinky_intermediateScrew_-1_0.75
+Link: pinky_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | pinky_intermediateScrew_1_0.24
+Link: pinky_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | pinky_intermediateScrew_1_0.75
+Link: pinky_intermediate
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Pinky Distal | DorsalShell
+Link: pinky_distal
+Dorsal white shell panel with a central mechanical seam. 17 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Pinky Distal | FlexorShell
+Link: pinky_distal
+Flexor white shell panel with a true recessed pad opening. 17 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Pinky Distal | recessed flexor pad
+Link: pinky_distal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Pinky Distal | internal keel
+Link: pinky_distal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Pinky Distal | root hinge barrel
+Link: pinky_distal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Pinky Distal | metal hinge cheek
+Link: pinky_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Pinky Distal | metal hinge cheek
+Link: pinky_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Pinky Distal | reference hinge pin
+Link: pinky_distal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | pinky_distalScrew_-1_0.32
+Link: pinky_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | pinky_distalScrew_1_0.32
+Link: pinky_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Thumb | black CMC opposition hub
+Link: thumb_opposition
+Circular CMC hub connects the thumb directly to the flared palm side. Opposition turns the thumb plane around the canonical local -Z axis.
+
+Thumb | recessed CMC bearing race
+Link: thumb_opposition
+Metal CMC race identifies thumb opposition and makes the mechanical connection to the palm visible.
+
+Thumb Metacarpal | DorsalShell
+Link: thumb_metacarpal
+Dorsal white shell panel with a central mechanical seam. 30 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Thumb Metacarpal | FlexorShell
+Link: thumb_metacarpal
+Flexor white shell panel with a true recessed pad opening. 30 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Thumb Metacarpal | recessed flexor pad
+Link: thumb_metacarpal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Thumb Metacarpal | internal keel
+Link: thumb_metacarpal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Thumb Metacarpal | root hinge barrel
+Link: thumb_metacarpal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Thumb Metacarpal | metal hinge cheek
+Link: thumb_metacarpal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Thumb Metacarpal | metal hinge cheek
+Link: thumb_metacarpal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Thumb Metacarpal | reference hinge pin
+Link: thumb_metacarpal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | thumb_metacarpalScrew_-1_0.24
+Link: thumb_metacarpal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | thumb_metacarpalScrew_-1_0.75
+Link: thumb_metacarpal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | thumb_metacarpalScrew_1_0.24
+Link: thumb_metacarpal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | thumb_metacarpalScrew_1_0.75
+Link: thumb_metacarpal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Thumb Proximal | DorsalShell
+Link: thumb_proximal
+Dorsal white shell panel with a central mechanical seam. 20 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Thumb Proximal | FlexorShell
+Link: thumb_proximal
+Flexor white shell panel with a true recessed pad opening. 20 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Thumb Proximal | recessed flexor pad
+Link: thumb_proximal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Thumb Proximal | internal keel
+Link: thumb_proximal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Thumb Proximal | root hinge barrel
+Link: thumb_proximal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Thumb Proximal | metal hinge cheek
+Link: thumb_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Thumb Proximal | metal hinge cheek
+Link: thumb_proximal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Thumb Proximal | reference hinge pin
+Link: thumb_proximal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | thumb_proximalScrew_-1_0.24
+Link: thumb_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | thumb_proximalScrew_-1_0.75
+Link: thumb_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | thumb_proximalScrew_1_0.24
+Link: thumb_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | thumb_proximalScrew_1_0.75
+Link: thumb_proximal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Thumb Distal | DorsalShell
+Link: thumb_distal
+Dorsal white shell panel with a central mechanical seam. 15 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Thumb Distal | FlexorShell
+Link: thumb_distal
+Flexor white shell panel with a true recessed pad opening. 15 mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.
+
+Thumb Distal | recessed flexor pad
+Link: thumb_distal
+Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.
+
+Thumb Distal | internal keel
+Link: thumb_distal
+Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.
+
+Thumb Distal | root hinge barrel
+Link: thumb_distal
+Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.
+
+Thumb Distal | metal hinge cheek
+Link: thumb_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Thumb Distal | metal hinge cheek
+Link: thumb_distal
+Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.
+
+Thumb Distal | reference hinge pin
+Link: thumb_distal
+2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.
+
+Fastener | thumb_distalScrew_-1_0.32
+Link: thumb_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.
+
+Fastener | thumb_distalScrew_1_0.32
+Link: thumb_distal
+Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.

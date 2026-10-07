@@ -1,0 +1,242 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>simulation/v3/server.py</title><style>body{margin:0;background:#0d1518;color:#dce9eb;font:14px Segoe UI,sans-serif}header{padding:23px 30px;border-bottom:1px solid #304a50;position:sticky;top:0;background:#132126}a{color:#72e0c7;margin-right:25px}h1{font:19px Segoe UI,sans-serif;margin:18px 0 8px}p{color:#abc0c6;font-size:12px}pre{font:12px/1.6 Consolas,monospace;padding:25px 30px;white-space:pre;overflow:auto}</style><header><a href="../index.html#software">Back to presentation</a><a href="camera.py" download>Download source snapshot</a><h1>simulation/v3/server.py</h1><p>Readable source snapshot from the project. This file may depend on other project files, packages and the original directory layout.</p></header><pre>&quot;&quot;&quot;Local V3 humanoid studio. Only a virtual robot is actuated.&quot;&quot;&quot;
+from pathlib import Path
+import sys, os, json, time, threading, queue, io, math
+ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT/&#x27;simulation&#x27;/&#x27;v3&#x27;))
+sys.path.append(str(ROOT/&#x27;simulation&#x27;))
+from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
+import numpy as np
+import mujoco
+from PIL import Image
+from model import ArmSimulation
+from vision_reach import VisionReach
+from probe_camera import device_names
+
+commands=queue.Queue(maxsize=128)
+shared={&#x27;state&#x27;:{},&#x27;frame&#x27;:b&#x27;&#x27;,&#x27;vision&#x27;:b&#x27;&#x27;,&#x27;error&#x27;:&#x27;&#x27;}
+lock=threading.Lock()
+
+def jpeg(rgb):
+    b=io.BytesIO();Image.fromarray(np.asarray(rgb,dtype=np.uint8)).save(b,format=&#x27;JPEG&#x27;,quality=88);return b.getvalue()
+
+class Webcam:
+    &quot;&quot;&quot;Local video in memory only. No recordings or external image transmission.&quot;&quot;&quot;
+    def __init__(self):
+        self.thread=None;self.stop_event=threading.Event();self.frame=b&#x27;&#x27;
+        self.status={&#x27;enabled&#x27;:False,&#x27;hand_detected&#x27;:False,&#x27;frames&#x27;:0,&#x27;error&#x27;:&#x27;&#x27;,&#x27;recording&#x27;:False}
+        sources=device_names();virtual_only=bool(sources) and all(&#x27;todesk&#x27; in name.lower() or &#x27;virtual&#x27; in name.lower() for name in sources)
+        self.status.update(registered_video_sources=sources,source_type=&#x27;virtual&#x27; if virtual_only else &#x27;unverified&#x27;,physical_camera_verified=False,backend=&#x27;DirectShow / MJPG&#x27;,source_note=&#x27;Only the ToDesk virtual camera is registered; a physical webcam feed has not been verified.&#x27; if virtual_only else &#x27;Camera source must be verified by a visible live hand.&#x27;)
+        self.latest=None;self.last_detection=0
+        self.guard=threading.RLock();self.generation=0
+    def start(self):
+        old=self.thread
+        if old and old.is_alive():
+            if not self.stop_event.is_set():return
+            old.join(timeout=2.)
+            if old.is_alive():raise RuntimeError(&#x27;Previous webcam session is still releasing the device&#x27;)
+        with self.guard:
+            self.generation+=1;generation=self.generation;event=threading.Event();self.stop_event=event
+            self.latest=None;self.last_detection=0;self.frame=b&#x27;&#x27;
+            self.status.update(enabled=True,error=&#x27;&#x27;,hand_detected=False,frames=0)
+            self.thread=threading.Thread(target=self.run,args=(generation,event),daemon=True);self.thread.start()
+    def stop(self):
+        with self.guard:
+            self.generation+=1;self.stop_event.set()
+            self.status.update(enabled=False,hand_detected=False)
+            self.latest=None;self.last_detection=0;self.frame=b&#x27;&#x27;
+        if self.thread and self.thread.is_alive() and self.thread is not threading.current_thread():self.thread.join(timeout=1.)
+    def sample(self):
+        with self.guard:
+            if self.stop_event.is_set() or not self.status[&#x27;enabled&#x27;] or not self.status[&#x27;hand_detected&#x27;]:return None,0
+            return dict(self.latest) if self.latest is not None else None,self.last_detection
+    def run(self,generation,event):
+        cap=None
+        try:
+            import cv2,mediapipe as mp
+            from mediapipe.tasks import python
+            from mediapipe.tasks.python import vision
+            from webcam_teleop import Retargeter,landmark_targets,EDGES
+            sources=device_names()
+            virtual_only=bool(sources) and all(&#x27;todesk&#x27; in name.lower() or &#x27;virtual&#x27; in name.lower() for name in sources)
+            with self.guard:
+                if generation==self.generation:
+                    self.status.update(registered_video_sources=sources,source_type=&#x27;virtual&#x27; if virtual_only else &#x27;unverified&#x27;,physical_camera_verified=False,backend=&#x27;DirectShow / MJPG&#x27;,source_note=&#x27;Only the ToDesk virtual camera is registered; a physical webcam feed has not been verified.&#x27; if virtual_only else &#x27;Camera source must be verified by a visible live hand.&#x27;)
+            cap=cv2.VideoCapture(0,cv2.CAP_DSHOW)
+            if not cap.isOpened():raise RuntimeError(&#x27;Camera 0 is unavailable or in use&#x27;)
+            cap.set(cv2.CAP_PROP_FOURCC,cv2.VideoWriter_fourcc(*&#x27;MJPG&#x27;))
+            options=vision.HandLandmarkerOptions(base_options=python.BaseOptions(model_asset_path=str(ROOT/&#x27;models&#x27;/&#x27;hand_landmarker.task&#x27;)),running_mode=vision.RunningMode.VIDEO,num_hands=1,min_hand_detection_confidence=.65,min_hand_presence_confidence=.65,min_tracking_confidence=.65)
+            tracker=Retargeter();start=previous=time.monotonic();failures=0;unusable_frames=0
+            with vision.HandLandmarker.create_from_options(options) as detector:
+                while not event.is_set():
+                    ok,frame=cap.read()
+                    if event.is_set():break
+                    if not ok:
+                        failures+=1
+                        if failures&gt;15:raise RuntimeError(&#x27;Camera stopped delivering frames&#x27;)
+                        time.sleep(.03);continue
+                    failures=0;frame=cv2.flip(frame,1);now=time.monotonic()
+                    if virtual_only:
+                        gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+                        grayscale_fraction=float(np.mean((frame[:,:,0]==frame[:,:,1])&amp;(frame[:,:,1]==frame[:,:,2])))
+                        unusable=grayscale_fraction&gt;.995 and float(np.std(gray,axis=1).mean())&lt;2
+                        unusable_frames=unusable_frames+1 if unusable else 0
+                        if unusable_frames&gt;=8:
+                            raise RuntimeError(&#x27;ToDesk virtual camera is returning blank/striped frames. Enable a real camera feed in ToDesk or connect a physical webcam, then restart camera control. Live hand tracking is not verified.&#x27;)
+                    result=detector.detect_for_video(mp.Image(image_format=mp.ImageFormat.SRGB,data=cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)),int((now-start)*1000))
+                    if event.is_set():break
+                    detected=bool(result.hand_world_landmarks and result.hand_landmarks)
+                    targets=None
+                    status=&#x27;Camera live | Show an open hand to begin&#x27;
+                    if detected:
+                        points=np.array([[p.x,p.y,p.z] for p in result.hand_world_landmarks[0]])
+                        norm=np.array([[p.x,p.y,p.z] for p in result.hand_landmarks[0]])
+                        try:
+                            targets=tracker.targets(landmark_targets(points),now-previous)
+                            h,w=frame.shape[:2];px=[(int(p[0]*w),int(p[1]*h)) for p in norm]
+                            for a,b in EDGES:cv2.line(frame,px[a],px[b],(90,220,170),2)
+                            for p in px:cv2.circle(frame,p,3,(30,150,255),-1)
+                            status=&#x27;Tracking 20 finger targets | Virtual hand only&#x27;
+                        except ValueError:detected=False
+                    previous=now
+                    cv2.putText(frame,status,(12,25),cv2.FONT_HERSHEY_SIMPLEX,.53,(40,240,210),1)
+                    encoded=cv2.imencode(&#x27;.jpg&#x27;,frame,[cv2.IMWRITE_JPEG_QUALITY,85])[1].tobytes()
+                    with self.guard:
+                        if event.is_set() or generation!=self.generation:break
+                        self.latest=targets if detected else None;self.last_detection=now if detected else 0;self.frame=encoded
+                        self.status.update(hand_detected=detected,frames=self.status[&#x27;frames&#x27;]+1,width=frame.shape[1],height=frame.shape[0])
+        except Exception as e:
+            with self.guard:
+                if generation==self.generation:self.status[&#x27;error&#x27;]=str(e)
+        finally:
+            if cap is not None:cap.release()
+            with self.guard:
+                if generation==self.generation:
+                    self.status[&#x27;enabled&#x27;]=False;self.status[&#x27;hand_detected&#x27;]=False;self.latest=None;self.last_detection=0;self.frame=b&#x27;&#x27;
+
+webcam=Webcam()
+
+def checked(obj):
+    if not isinstance(obj,dict):raise ValueError(&#x27;Expected command object&#x27;)
+    action=obj.get(&#x27;action&#x27;)
+    if action not in (&#x27;reset&#x27;,&#x27;pause&#x27;,&#x27;demo&#x27;,&#x27;preset&#x27;,&#x27;targets&#x27;,&#x27;camera&#x27;,&#x27;layer&#x27;,&#x27;vision&#x27;,&#x27;webcam&#x27;,&#x27;ik&#x27;):raise ValueError(&#x27;Unknown command&#x27;)
+    if action in (&#x27;pause&#x27;,&#x27;demo&#x27;,&#x27;vision&#x27;,&#x27;webcam&#x27;) and not isinstance(obj.get(&#x27;value&#x27;),bool):raise ValueError(&#x27;value must be boolean&#x27;)
+    if action==&#x27;targets&#x27;:
+        if not isinstance(obj.get(&#x27;targets&#x27;),dict):raise ValueError(&#x27;Expected joint targets&#x27;)
+        for n,v in obj[&#x27;targets&#x27;].items():
+            if not isinstance(v,(int,float)) or isinstance(v,bool) or not math.isfinite(v):raise ValueError(&#x27;Nonfinite target&#x27;)
+    if action==&#x27;layer&#x27; and obj.get(&#x27;name&#x27;) not in (&#x27;surface&#x27;,&#x27;joints&#x27;,&#x27;collision&#x27;,&#x27;inside&#x27;):raise ValueError(&#x27;Unknown layer&#x27;)
+    if action==&#x27;camera&#x27;:
+        for k in (&#x27;distance&#x27;,&#x27;azimuth&#x27;,&#x27;elevation&#x27;):
+            if k in obj and (not isinstance(obj[k],(int,float)) or isinstance(obj[k],bool) or not math.isfinite(obj[k])):raise ValueError(&#x27;Invalid camera value&#x27;)
+        if &#x27;lookat&#x27; in obj and (not isinstance(obj[&#x27;lookat&#x27;],list) or len(obj[&#x27;lookat&#x27;])!=3 or not all(isinstance(v,(int,float)) and math.isfinite(v) and abs(v)&lt;5 for v in obj[&#x27;lookat&#x27;])):raise ValueError(&#x27;Invalid camera point&#x27;)
+    return obj
+
+class Handler(BaseHTTPRequestHandler):
+    def log_message(self,*args):pass
+    def send(self,data,typ,status=200):
+        self.send_response(status);self.send_header(&#x27;Content-Type&#x27;,typ);self.send_header(&#x27;Content-Length&#x27;,str(len(data)));self.send_header(&#x27;Cache-Control&#x27;,&#x27;no-store&#x27;);self.send_header(&#x27;X-Content-Type-Options&#x27;,&#x27;nosniff&#x27;);self.end_headers()
+        try:self.wfile.write(data)
+        except (BrokenPipeError,ConnectionResetError,ConnectionAbortedError):pass
+    def do_GET(self):
+        path=self.path.split(&#x27;?&#x27;)[0]
+        if path in (&#x27;/&#x27;,&#x27;/index.html&#x27;):return self.send((ROOT/&#x27;dashboard&#x27;/&#x27;v3.html&#x27;).read_bytes(),&#x27;text/html; charset=utf-8&#x27;)
+        if path==&#x27;/state&#x27;:
+            with lock:data=dict(shared[&#x27;state&#x27;],server_error=shared[&#x27;error&#x27;],webcam=dict(webcam.status))
+            return self.send(json.dumps(data,allow_nan=False).encode(),&#x27;application/json&#x27;)
+        if path in (&#x27;/frame.jpg&#x27;,&#x27;/vision.jpg&#x27;,&#x27;/webcam.jpg&#x27;):
+            with lock:data=webcam.frame if path==&#x27;/webcam.jpg&#x27; else shared[&#x27;frame&#x27; if path==&#x27;/frame.jpg&#x27; else &#x27;vision&#x27;]
+            if not data:data=jpeg(np.full((240,320,3),[17,26,30],dtype=np.uint8))
+            return self.send(data,&#x27;image/jpeg&#x27;)
+        self.send(b&#x27;Not found&#x27;,&#x27;text/plain&#x27;,404)
+    def do_POST(self):
+        if self.path!=&#x27;/command&#x27;:return self.send(b&#x27;Not found&#x27;,&#x27;text/plain&#x27;,404)
+        origin=self.headers.get(&#x27;Origin&#x27;,&#x27;&#x27;)
+        if origin and origin not in (&#x27;http://127.0.0.1:8766&#x27;,&#x27;http://localhost:8766&#x27;):return self.send(b&#x27;Origin rejected&#x27;,&#x27;text/plain&#x27;,403)
+        try:
+            n=int(self.headers.get(&#x27;Content-Length&#x27;,0))
+            if not 0&lt;n&lt;=16384:raise ValueError(&#x27;Invalid request size&#x27;)
+            commands.put_nowait(checked(json.loads(self.rfile.read(n))))
+            self.send(b&#x27;{&quot;queued&quot;:true}&#x27;,&#x27;application/json&#x27;)
+        except (ValueError,TypeError,OverflowError,RecursionError,queue.Full) as e:self.send(json.dumps({&#x27;error&#x27;:str(e)}).encode(),&#x27;application/json&#x27;,400)
+
+def run():
+    sim=ArmSimulation();vision=VisionReach(sim)
+    renderer=mujoco.Renderer(sim.m,height=800,width=1000)
+    option=mujoco.MjvOption();option.geomgroup[3]=0;option.geomgroup[4]=0
+    camera=mujoco.MjvCamera();mujoco.mjv_defaultCamera(camera)
+    camera.lookat[:]=[.25,0,.84];camera.distance=1.35;camera.azimuth=135;camera.elevation=-10
+    server=ThreadingHTTPServer((&#x27;127.0.0.1&#x27;,8766),Handler)
+    (ROOT/&#x27;results&#x27;/&#x27;v3&#x27;/&#x27;server.pid&#x27;).write_text(str(os.getpid()))
+    threading.Thread(target=server.serve_forever,daemon=True).start()
+    paused=False;mode=&#x27;manual&#x27;;layer=&#x27;surface&#x27;;demo_start=0;last_stage=-1;ik={};tracking=False
+    previous=time.monotonic();acc=0;last_frame=last_state=last_vision=0
+    print(&#x27;Human Arm V3 http://127.0.0.1:8766&#x27;,flush=True)
+    try:
+        while True:
+            now=time.monotonic();acc+=min(now-previous,.1);previous=now
+            while not commands.empty():
+                c=commands.get_nowait()
+                try:
+                    a=c[&#x27;action&#x27;]
+                    if a in (&#x27;reset&#x27;,&#x27;targets&#x27;,&#x27;preset&#x27;,&#x27;demo&#x27;,&#x27;ik&#x27;,&#x27;vision&#x27;):
+                        webcam.stop();tracking=False
+                    if a in (&#x27;reset&#x27;,&#x27;targets&#x27;,&#x27;preset&#x27;,&#x27;demo&#x27;,&#x27;ik&#x27;,&#x27;webcam&#x27;):
+                        vision.stop(&#x27;Manual control selected&#x27;);mode=&#x27;manual&#x27;;ik={};tracking=False
+                    if a==&#x27;reset&#x27;:sim.reset();paused=False
+                    elif a==&#x27;pause&#x27;:paused=c[&#x27;value&#x27;]
+                    elif a==&#x27;demo&#x27;:mode=&#x27;demo&#x27; if c[&#x27;value&#x27;] else &#x27;manual&#x27;;demo_start=float(sim.d.time);last_stage=-1;paused=False
+                    elif a==&#x27;targets&#x27;:sim.set_targets(c[&#x27;targets&#x27;])
+                    elif a==&#x27;preset&#x27;:sim.preset(c[&#x27;name&#x27;])
+                    elif a==&#x27;ik&#x27;:ik=sim.solve_ik(c[&#x27;target&#x27;])
+                    elif a==&#x27;webcam&#x27;:
+                        if c[&#x27;value&#x27;]:webcam.start();mode=&#x27;webcam&#x27;;sim.hold();paused=False
+                        else:webcam.stop();sim.hold()
+                    elif a==&#x27;vision&#x27;:
+                        if c[&#x27;value&#x27;]:mode=&#x27;vision&#x27;;paused=False;vision.start()
+                        else:vision.stop(&#x27;Stopped from studio&#x27;);mode=&#x27;manual&#x27;;sim.hold()
+                    elif a==&#x27;camera&#x27;:
+                        camera.azimuth=float(c.get(&#x27;azimuth&#x27;,camera.azimuth))%360
+                        camera.elevation=max(-85,min(85,float(c.get(&#x27;elevation&#x27;,camera.elevation))))
+                        camera.distance=max(.18,min(4,float(c.get(&#x27;distance&#x27;,camera.distance))))
+                        if &#x27;lookat&#x27; in c:camera.lookat[:]=c[&#x27;lookat&#x27;]
+                    elif a==&#x27;layer&#x27;:
+                        layer=c[&#x27;name&#x27;];option.geomgroup[1]=int(layer not in (&#x27;collision&#x27;,&#x27;inside&#x27;));option.geomgroup[3]=int(layer==&#x27;collision&#x27;);option.geomgroup[4]=int(layer==&#x27;inside&#x27;)
+                        option.flags[mujoco.mjtVisFlag.mjVIS_JOINT]=layer==&#x27;joints&#x27;
+                        option.flags[mujoco.mjtVisFlag.mjVIS_CONTACTPOINT]=layer==&#x27;collision&#x27;
+                    with lock:shared[&#x27;error&#x27;]=&#x27;&#x27;
+                except Exception as e:
+                    with lock:shared[&#x27;error&#x27;]=str(e)
+            if mode==&#x27;demo&#x27;:
+                stage=int((float(sim.d.time)-demo_start)/4)%6
+                if stage!=last_stage:sim.preset([&#x27;open&#x27;,&#x27;fist&#x27;,&#x27;open&#x27;,&#x27;pinch&#x27;,&#x27;point&#x27;,&#x27;peace&#x27;][stage]);last_stage=stage
+            if mode==&#x27;webcam&#x27;:
+                targets,timestamp=webcam.sample()
+                fresh=targets is not None and now-timestamp&lt;.6
+                if fresh:sim.set_targets(targets);tracking=True
+                elif tracking:sim.hold();tracking=False
+            if not paused:
+                n=min(50,int(acc/sim.m.opt.timestep))
+                if n:
+                    if mode==&#x27;vision&#x27;:vision.step(n)
+                    else:sim.step(n)
+                    acc-=n*sim.m.opt.timestep
+            else:acc=0
+            if now-last_state&gt;.1:
+                state=sim.state()
+                vs=vision.state() if callable(vision.state) else vision.state
+                state.update(ready=True,paused=paused,mode=mode,demo=mode==&#x27;demo&#x27;,vision=vs,tracking_fresh=tracking,display_layer=layer,ik=ik,camera={&#x27;azimuth&#x27;:camera.azimuth,&#x27;elevation&#x27;:camera.elevation,&#x27;distance&#x27;:camera.distance,&#x27;lookat&#x27;:camera.lookat.tolist()})
+                with lock:shared[&#x27;state&#x27;]=state
+                if vision.latest_rgb is not None:
+                    with lock:shared[&#x27;vision&#x27;]=jpeg(vision.latest_rgb)
+                last_state=now
+            if now-last_frame&gt;.06:
+                renderer.update_scene(sim.d,camera=camera,scene_option=option)
+                renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SHADOW]=False
+                frame=jpeg(renderer.render())
+                with lock:shared[&#x27;frame&#x27;]=frame
+                last_frame=now
+            time.sleep(.001)
+    finally:webcam.stop();vision.close();renderer.close();server.shutdown()
+
+if __name__==&#x27;__main__&#x27;:run()
+</pre></html>

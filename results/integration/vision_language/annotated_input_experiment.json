@@ -1,0 +1,34 @@
+{
+  "executed": true,
+  "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+  "revision": "7e3e67edbbed1bf9888184d9df282b700a323964",
+  "runtime": {
+    "torch": "2.8.0+cpu",
+    "device": "cpu",
+    "dtype": "float32"
+  },
+  "load_seconds": 1.7179999999934807,
+  "source": "D:\\RoboticArm\\results\\integration\\grasping\\camera_detection_0.png",
+  "source_type": "rendered MuJoCo RGB-D camera",
+  "roi_source": "image segmentation bbox, no object truth",
+  "motor_control_authority": false,
+  "scope": "Captioning experiment; output is model text, not a certified perception or VLA policy.",
+  "results": [
+    {
+      "view": "scene",
+      "prompt": "Describe the objects visible in this image in one sentence.",
+      "answer": "In this image we can see a table and a knife on it.",
+      "inference_seconds": 2.827999999979511,
+      "input_width": 640,
+      "input_height": 442
+    },
+    {
+      "view": "target",
+      "prompt": "What is the shape and color of the object in this image?",
+      "answer": "The image contains an orange square with a white circle in the center. The orange square has a green border.",
+      "inference_seconds": 3.202999999979511,
+      "input_width": 29,
+      "input_height": 33
+    }
+  ]
+}

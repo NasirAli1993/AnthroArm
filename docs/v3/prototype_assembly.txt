@@ -1,0 +1,172 @@
+PHYSICAL PROTOTYPE PLAN — START WITH ONE FINGER
+Project: D:\RoboticArm
+Status: build plan and candidate hardware. No physical parts are connected.
+
+WHAT THE DIGITAL MODEL MEANS
+The v3 target is seven arm axes and twenty finger axes: 27 independently
+commanded virtual joints. A virtual actuator is a mathematical torque source.
+It does not select a real motor, gearbox, bearing, encoder or power supply.
+The first bench prototype below has ONE physical servo. One tendon couples
+three flexion hinges. It cannot reproduce independent control of the three
+hinges or the finger's spread axis. The complete arm requires a separate
+mechanical design and actuator-sizing review.
+
+STARTER HARDWARE
+Controller: Arduino UNO R3, powered from the PC over USB-B.
+Servo candidate: Hitec D645MW, operated at a regulated 6.0 V for this plan.
+Power: a separate enclosed, current-limited bench DC supply. A RIGOL DP711
+is one documented example (0–30 V, 0–5 A), not a required purchase. Its maximum
+output is not the servo setting. Set and meter the output at 6.0 V before use.
+Camera: a USB webcam connected to the PC, optional for the first motor test.
+
+The Hitec manufacturer's specification at 6.0 V gives 11.3 kgf·cm stall torque,
+2.3 kgf·cm peak-efficiency torque, 0.4 A no-load running current and 2.15 A stall
+current. Stall torque is NOT a usable continuous holding rating. The sheet
+does not supply a continuous torque rating for this mechanism. Do not select
+an arm motor by multiplying this stall number by an assumed safety factor.
+The documented pulse range is 900–2100 microseconds, centered at 1500, with
+default ±60 degree travel. The supplied commissioning firmware deliberately
+uses only 1450–1550 microseconds until the actual mechanism is calibrated.
+
+MECHANICAL STARTER ASSEMBLY
+1. Use a firmly clamped base with a guarded, unloaded three-segment finger.
+   The attractive full-hand shells are visual CAD. Confirm that the selected
+   fabrication model contains actual pin bores, mating clearances, stops,
+   tendon guides and mounting holes before printing or machining it.
+2. Assemble the three flexion hinges by hand with smooth pins and retention.
+   The separate printable_finger concept uses M2 reference pins in 2.3 mm
+   nominal printed bores. Verify the actual printed fit, manufacturing
+   clearance and retention. This is not a validated bearing fit.
+3. Add one flexor tendon through the 1.4 mm guide channels on the palm
+   side of the separate prototype. Verify the tendon fit. Fix its end
+   at the distal segment. Use a light elastic return or a properly specified
+   extension tendon. The return must open the finger without motor power.
+4. Mount the servo to the base so tendon load does not bend its electrical
+   cable or side-load an unsupported drum. A purchased 25-tooth horn matches
+   the D645MW spline; a custom drum bolts to that horn. Do not assume a printed
+   spline is strong or dimensionally accurate.
+5. Choose the drum radius after measuring tendon travel. The proposed 7 mm radius
+   winds about 14.7 mm of tendon over 120 degrees.
+   This does not prove that the finger can close. For a 7 mm drum, 0.10 N·m
+   corresponds to 14.3 N ideal tendon force before friction; it is an example,
+   not an approved force setting. Keep fingers clear of the mechanism.
+6. With motor power disconnected, move every hinge over its intended travel.
+   Mark the mechanically safe open and closed tendon positions. Add hard
+   stops before an overtravel can bind a joint or pull out a tendon anchor.
+7. Leave the tendon detached for electrical commissioning. Connect it only
+   after verifying the servo direction, neutral and conservative travel.
+
+EXACT LOW-VOLTAGE CONNECTION NETS
+See one_finger_wiring.svg for the same connections.
+
+N1: PC USB port -> UNO R3 USB-B socket (data + board power).
+N2: PC USB port -> USB camera (optional; data + camera power).
+N3: UNO D9 -> servo signal pin S. This wire carries control pulses only.
+N4: DC supply positive -> inline fuse F1 -> latching normally-closed motor
+    stop S1 -> servo positive terminal. Supply set to 6.0 V.
+N5: DC supply negative -> servo negative terminal, with a direct return wire.
+N6: UNO GND -> the same supply-negative/servo-ground junction.
+
+Do not join servo positive to UNO 5V, VIN, 3V3 or any I/O pin. The USB-powered
+controller and dedicated servo supply share only their ground reference and
+the signal connection. Verify the actual servo connector's S/+/- order using
+the manufacturer's documentation and a meter; colors alone are insufficient.
+
+F1 and S1 are functional requirements, not fully selected catalog parts.
+Select F1 from the conductor/connector ampacity, startup pulse, supply fault
+current and the fuse's time-current curve. S1 must interrupt the actual DC
+motor load at the available voltage/current; a resistive AC rating is not an
+equivalent motor-load rating. Use enclosed terminals with strain relief. Do
+not carry servo power through a solderless breadboard or a thin signal lead.
+Wire gauge and connector rating remain to be finalized from length, current,
+temperature and allowable voltage drop. The manufacturer's 22 AWG servo lead
+does not automatically qualify an entire harness of arbitrary length.
+
+FIRMWARE BUILD STATUS
+The UNO R3 firmware compiled successfully: 4,900 bytes of flash and 314 bytes
+of RAM. Compilation verifies a build, not wiring, movement or hardware safety.
+No physical board has been flashed or tested.
+
+FIRST POWER AND FIRMWARE CHECK
+1. Disconnect the tendon and support the servo mechanically. Latch S1 OFF.
+2. With supply output OFF, check polarity, continuity and absence of a short
+   between positive and ground. Verify F1, wiring and S1 ratings first.
+3. Connect only USB to the UNO. Load the compiled single-finger firmware only
+   after identifying the correct board and serial port. It starts DISARMED.
+   No upload or physical test has occurred in this project without hardware.
+4. Meter the isolated supply at 6.0 V. Use current limiting for the unloaded
+   first test. A conservative starting ceiling of 0.5 A is a commissioning
+   assumption; startup may current-limit. If that happens, power off and
+   inspect the mechanism and connections before changing the limit. Do not
+   repeatedly pulse a stalled or resetting servo.
+5. Enable motor power with the tendon still detached, then ARM at 1500 us.
+   Send small SET changes within 1450–1550 us while keeping the physical stop
+   accessible. The bridge must send KEEPALIVE. DISARM detaches command pulses.
+6. Confirm the 750 ms communication timeout and software DISARM behavior with
+   an unloaded servo. A servo can keep holding or behave differently after
+   losing pulses, so these software actions are not a motor-power stop.
+7. Press S1 and verify that servo supply voltage is removed and motion stops.
+   Releasing S1 can re-energize the servo; disarm software first, keep the
+   mechanism unloaded and do not let reset alone trigger a motion command.
+8. Power down, fit the tendon with minimal preload and repeat tiny movements.
+   Log pulse, tendon travel, joint angles, current and temperature. Increase
+   the envelope only after inspecting all hinge and tendon clearances.
+9. Test an empty mechanism before low-force contact with a compliant object.
+   Determine a safe current/travel limit from measurements. No payload or
+   grip-force rating is established by the simulation's lift demonstration.
+
+EXPANDING TO THE FULL HAND AND ARM
+Use prototype_planning.xlsx: One finger BOM, Full arm plan and Actuator sizing.
+The complete subsystem plan is included from the start, but drive selections
+remain unresolved until loads are known. A practical order is:
+  one unloaded finger -> instrumented finger -> fixed full hand -> wrist ->
+  supported arm joints -> guarded full arm -> camera-guided object handling.
+
+For each physical axis, measure or calculate downstream mass, center of mass,
+payload lever arm, worst-case pose, desired speed/acceleration, friction,
+transmission ratio/efficiency, duty cycle and thermal environment. Calculate
+joint torque using gravity + inertia + external/contact load, then validate
+continuous and peak torque against a manufacturer's performance data.
+The worksheet contains editable inputs and preliminary arithmetic; a blank
+input is not treated as zero. It does not perform multibody dynamics, finite
+element analysis, gearbox selection or machine safety certification.
+
+Seven arm drives may require gear reduction, joint bearings independent of
+the motor shaft, absolute encoders, holding brakes or mechanical support,
+hard stops, cable routing and a power distribution system. Twenty virtual
+hand axes might use direct drives, remote tendons or coupled mechanisms;
+their physical motor count depends on that design. Do not buy 27 hobby servos
+and assume they can reproduce the virtual model's effort limits.
+
+For comparison only, ROBOTIS publishes an XH540-W270 smart actuator's stall
+point of 9.9 N·m at 12 V and 4.9 A. It is not selected for this arm. Stall is
+not continuous torque; compare the relevant performance curve and thermal
+duty against each joint's calculated demand. Large shoulder or elbow loads
+may exceed this actuator's usable capability. Power loss on a gravity-loaded
+arm can cause falling links; provide suitable holding/support provisions.
+
+CAMERA IMITATION AND AUTONOMY ARE DIFFERENT
+Imitation: webcam -> hand landmarks -> joint targets. A person's hand supplies
+the desired pose. It is teleoperation, not independent object selection.
+Autonomy: calibrated camera -> object detection -> depth/3D localization ->
+camera-to-robot transform -> reachable target -> collision-aware plan ->
+controller -> sensors verify outcome. A plain webcam does not directly give
+metric depth. A depth camera or calibrated multi-view method needs separate
+calibration and validation. The v3 virtual RGB-D experiment uses rendered
+sensor data; it does not demonstrate real-camera grasp reliability.
+Use fresh frame timestamps, bounded workspace, confidence checks and physical
+stop controls before connecting vision output to a physical actuator.
+
+PRIMARY SOURCES (checked 5 October 2026)
+Hitec D645MW manufacturer specification, v2.2:
+https://www.hiteccs.com/public/uploads/data_sheet/HCS_D645MW_Specsheetv2.2_102-1729815560.pdf
+Arduino UNO R3 documentation and pinout:
+https://docs.arduino.cc/hardware/uno-rev3/
+https://content.arduino.cc/assets/Pinout-UNOrev3_latest.pdf
+RIGOL DP700 supply specification:
+https://www.rigol.com/dam/global/downloads/brochures/en/data-sheet/dc-powers/DP700_DataSheet_EN.pdf
+ROBOTIS XH540-W270 e-manual and performance graph:
+https://emanual.robotis.com/docs/en/dxl/x/xh540-w270/
+
+No hardware purchase, mains wiring, real motor actuation, physical assembly
+or calibrated hardware accuracy is claimed by this plan.

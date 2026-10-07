@@ -1,0 +1,1372 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="Aster-25">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0.04" rpy="0 0 0" />
+      <mass value="3" />
+      <inertia ixx="0.016" iyy="0.016" izz="0.028800000000000003" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="base_plate_visual">
+      <origin xyz="0 0 0.04" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.12" length="0.08" />
+      </geometry>
+      <material name="base_plate_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="base_plate_collision">
+      <origin xyz="0 0 0.04" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.12" length="0.08" />
+      </geometry>
+    </collision>
+    <visual name="base_trim_visual">
+      <origin xyz="0 0 0.086" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.105" length="0.016" />
+      </geometry>
+      <material name="base_trim_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="waist_link">
+    <inertial>
+      <origin xyz="0 0 0.025" rpy="0 0 0" />
+      <mass value="0.65" />
+      <inertia ixx="0.00048208333333333344" iyy="0.00048208333333333344" izz="0.0006933333333333335" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="waist_shell_visual">
+      <origin xyz="0 0 0.026" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.046" length="0.048" />
+      </geometry>
+      <material name="waist_shell_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+    <collision name="waist_shell_collision">
+      <origin xyz="0 0 0.026" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.046" length="0.048" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_1_waist" type="revolute">
+    <parent link="base_link" />
+    <child link="waist_link" />
+    <origin xyz="0 0 0.08" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.8" upper="2.8" effort="60" velocity="2" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="upper_arm">
+    <inertial>
+      <origin xyz="0 0 0.135" rpy="0 0 0" />
+      <mass value="1.2" />
+      <inertia ixx="0.0092704" iyy="0.0092704" izz="0.0005407999999999999" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="upper_arm_shell_visual">
+      <origin xyz="0 0 0.15" rpy="0 0 0" />
+      <geometry>
+        <box size="0.052 0.052 0.248" />
+      </geometry>
+      <material name="upper_arm_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="upper_arm_shell_collision">
+      <origin xyz="0 0 0.15" rpy="0 0 0" />
+      <geometry>
+        <box size="0.052 0.052 0.248" />
+      </geometry>
+    </collision>
+    <visual name="upper_arm_spine_visual">
+      <origin xyz="-0.029 0 0.15" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.03848 0.234" />
+      </geometry>
+      <material name="upper_arm_spine_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+    <visual name="upper_arm_hub_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.03484" length="0.07072" />
+      </geometry>
+      <material name="upper_arm_hub_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+    <visual name="upper_arm_cap_a_visual">
+      <origin xyz="0 -0.03936 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.01924" length="0.006" />
+      </geometry>
+      <material name="upper_arm_cap_a_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="upper_arm_cap_b_visual">
+      <origin xyz="0 0.03936 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.01924" length="0.006" />
+      </geometry>
+      <material name="upper_arm_cap_b_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="joint_2_shoulder" type="revolute">
+    <parent link="waist_link" />
+    <child link="upper_arm" />
+    <origin xyz="0 0 0.06" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-1.75" upper="1.75" effort="60" velocity="2" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="forearm">
+    <inertial>
+      <origin xyz="0 0 0.1125" rpy="0 0 0" />
+      <mass value="0.85" />
+      <inertia ixx="0.004552033333333333" iyy="0.004552033333333333" izz="0.0002499" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="forearm_shell_visual">
+      <origin xyz="0 0 0.125" rpy="0 0 0" />
+      <geometry>
+        <box size="0.042 0.042 0.198" />
+      </geometry>
+      <material name="forearm_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="forearm_shell_collision">
+      <origin xyz="0 0 0.125" rpy="0 0 0" />
+      <geometry>
+        <box size="0.042 0.042 0.198" />
+      </geometry>
+    </collision>
+    <visual name="forearm_spine_visual">
+      <origin xyz="-0.024 0 0.125" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.03108 0.184" />
+      </geometry>
+      <material name="forearm_spine_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+    <visual name="forearm_hub_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.028140000000000002" length="0.05712000000000001" />
+      </geometry>
+      <material name="forearm_hub_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+    <visual name="forearm_cap_a_visual">
+      <origin xyz="0 -0.03256 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.01554" length="0.006" />
+      </geometry>
+      <material name="forearm_cap_a_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="forearm_cap_b_visual">
+      <origin xyz="0 0.03256 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.01554" length="0.006" />
+      </geometry>
+      <material name="forearm_cap_b_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="joint_3_elbow" type="revolute">
+    <parent link="upper_arm" />
+    <child link="forearm" />
+    <origin xyz="0 0 0.3" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-2.3" upper="2.3" effort="35" velocity="2" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="wrist_link">
+    <inertial>
+      <origin xyz="0 0 0.027" rpy="0 0 0" />
+      <mass value="0.22" />
+      <inertia ixx="9.247333333333334e-05" iyy="9.247333333333334e-05" izz="5.2946666666666666e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="wrist_link_shell_visual">
+      <origin xyz="0 0 0.03" rpy="0 0 0" />
+      <geometry>
+        <box size="0.038 0.038 0.024" />
+      </geometry>
+      <material name="wrist_link_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="wrist_link_shell_collision">
+      <origin xyz="0 0 0.03" rpy="0 0 0" />
+      <geometry>
+        <box size="0.038 0.038 0.024" />
+      </geometry>
+    </collision>
+    <visual name="wrist_link_spine_visual">
+      <origin xyz="-0.022 0 0.03" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.02812 0.02" />
+      </geometry>
+      <material name="wrist_link_spine_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+    <visual name="wrist_link_hub_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.02546" length="0.051680000000000004" />
+      </geometry>
+      <material name="wrist_link_hub_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+    <visual name="wrist_roll_shaft_visual">
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.016" length="0.03" />
+      </geometry>
+      <material name="wrist_roll_shaft_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="wrist_link_cap_a_visual">
+      <origin xyz="0 -0.02984 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.01406" length="0.006" />
+      </geometry>
+      <material name="wrist_link_cap_a_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="wrist_link_cap_b_visual">
+      <origin xyz="0 0.02984 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.01406" length="0.006" />
+      </geometry>
+      <material name="wrist_link_cap_b_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="joint_4_wrist_pitch" type="revolute">
+    <parent link="forearm" />
+    <child link="wrist_link" />
+    <origin xyz="0 0 0.25" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-1.57" upper="1.57" effort="8" velocity="2" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="palm_base">
+    <inertial>
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
+      <mass value="0.35" />
+      <inertia ixx="0.0004974666666666667" iyy="0.00032153333333333336" izz="0.00023566666666666666" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="palm_shell_visual">
+      <origin xyz="0 0 0.048" rpy="0 0 0" />
+      <geometry>
+        <box size="0.03 0.078 0.088" />
+      </geometry>
+      <material name="palm_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="palm_shell_collision">
+      <origin xyz="0 0 0.048" rpy="0 0 0" />
+      <geometry>
+        <box size="0.03 0.078 0.088" />
+      </geometry>
+    </collision>
+    <visual name="palm_pad_visual">
+      <origin xyz="0.017 0 0.052" rpy="0 0 0" />
+      <geometry>
+        <box size="0.006 0.064 0.062" />
+      </geometry>
+      <material name="palm_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="palm_pad_collision">
+      <origin xyz="0.017 0 0.052" rpy="0 0 0" />
+      <geometry>
+        <box size="0.006 0.064 0.062" />
+      </geometry>
+    </collision>
+    <visual name="palm_backplate_visual">
+      <origin xyz="-0.018 0 0.047" rpy="0 0 0" />
+      <geometry>
+        <box size="0.008 0.068 0.07" />
+      </geometry>
+      <material name="palm_backplate_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+    <visual name="palm_status_visual">
+      <origin xyz="-0.023 0 0.063" rpy="0 0 0" />
+      <geometry>
+        <box size="0.002 0.03 0.005" />
+      </geometry>
+      <material name="palm_status_material">
+        <color rgba="0.08 0.74 0.63 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="joint_5_wrist_roll" type="revolute">
+    <parent link="wrist_link" />
+    <child link="palm_base" />
+    <origin xyz="0 0 0.06" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.8" upper="2.8" effort="5" velocity="2" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="index_knuckle">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008" />
+      <inertia ixx="1.3333333333333334e-07" iyy="1.3333333333333334e-07" izz="1.3333333333333334e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="index_knuckle_bearing_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.0065" />
+      </geometry>
+      <material name="index_knuckle_bearing_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="index_mcp_abduction" type="revolute">
+    <parent link="palm_base" />
+    <child link="index_knuckle" />
+    <origin xyz="0 0.03 0.1" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3" upper="0.3" effort="0.65" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="index_proximal">
+    <inertial>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <mass value="0.035" />
+      <inertia ixx="5.198229166666667e-06" iyy="5.086666666666667e-06" izz="9.515625000000002e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="index_proximal_shell_visual">
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0135 0.032" />
+      </geometry>
+      <material name="index_proximal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="index_proximal_shell_collision">
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0135 0.032" />
+      </geometry>
+    </collision>
+    <visual name="index_proximal_pad_visual">
+      <origin xyz="0.0075 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.01161 0.028" />
+      </geometry>
+      <material name="index_proximal_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="index_proximal_pad_collision">
+      <origin xyz="0.0075 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.01161 0.028" />
+      </geometry>
+    </collision>
+    <visual name="index_proximal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="index_proximal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="index_proximal_back_visual">
+      <origin xyz="-0.007 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.00864 0.028" />
+      </geometry>
+      <material name="index_proximal_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="index_mcp_flexion" type="revolute">
+    <parent link="index_knuckle" />
+    <child link="index_proximal" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.5" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="index_intermediate">
+    <inertial>
+      <origin xyz="0 0 0.012" rpy="0 0 0" />
+      <mass value="0.024" />
+      <inertia ixx="1.47458e-06" iyy="1.44e-06" izz="6.1058e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="index_intermediate_shell_visual">
+      <origin xyz="0 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0127 0.016" />
+      </geometry>
+      <material name="index_intermediate_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="index_intermediate_shell_collision">
+      <origin xyz="0 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0127 0.016" />
+      </geometry>
+    </collision>
+    <visual name="index_intermediate_pad_visual">
+      <origin xyz="0.0075 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010922 0.012" />
+      </geometry>
+      <material name="index_intermediate_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="index_intermediate_pad_collision">
+      <origin xyz="0.0075 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010922 0.012" />
+      </geometry>
+    </collision>
+    <visual name="index_intermediate_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="index_intermediate_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="index_intermediate_back_visual">
+      <origin xyz="-0.007 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.008128 0.012" />
+      </geometry>
+      <material name="index_intermediate_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="index_pip" type="revolute">
+    <parent link="index_proximal" />
+    <child link="index_intermediate" />
+    <origin xyz="0 0 0.04" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.7" effort="0.85" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="index_distal">
+    <inertial>
+      <origin xyz="0 0 0.009" rpy="0 0 0" />
+      <mass value="0.016" />
+      <inertia ixx="6.208133333333332e-07" iyy="6.24e-07" izz="3.808133333333333e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="index_distal_shell_visual">
+      <origin xyz="0 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0119 0.01" />
+      </geometry>
+      <material name="index_distal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="index_distal_shell_collision">
+      <origin xyz="0 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0119 0.01" />
+      </geometry>
+    </collision>
+    <visual name="index_distal_pad_visual">
+      <origin xyz="0.0075 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010234 0.006" />
+      </geometry>
+      <material name="index_distal_pad_material">
+        <color rgba="0.08 0.74 0.63 1" />
+      </material>
+    </visual>
+    <collision name="index_distal_pad_collision">
+      <origin xyz="0.0075 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010234 0.006" />
+      </geometry>
+    </collision>
+    <visual name="index_distal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="index_distal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="index_distal_back_visual">
+      <origin xyz="-0.007 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.007616 0.006" />
+      </geometry>
+      <material name="index_distal_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="index_dip" type="revolute">
+    <parent link="index_intermediate" />
+    <child link="index_distal" />
+    <origin xyz="0 0 0.024" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.55" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="middle_knuckle">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008" />
+      <inertia ixx="1.3333333333333334e-07" iyy="1.3333333333333334e-07" izz="1.3333333333333334e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="middle_knuckle_bearing_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.0065" />
+      </geometry>
+      <material name="middle_knuckle_bearing_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="middle_mcp_abduction" type="revolute">
+    <parent link="palm_base" />
+    <child link="middle_knuckle" />
+    <origin xyz="0 0.01 0.1" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3" upper="0.3" effort="0.65" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="middle_proximal">
+    <inertial>
+      <origin xyz="0 0 0.0225" rpy="0 0 0" />
+      <mass value="0.035" />
+      <inertia ixx="6.437812500000001e-06" iyy="6.326250000000001e-06" izz="9.515625000000002e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="middle_proximal_shell_visual">
+      <origin xyz="0 0 0.0225" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0135 0.037" />
+      </geometry>
+      <material name="middle_proximal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="middle_proximal_shell_collision">
+      <origin xyz="0 0 0.0225" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0135 0.037" />
+      </geometry>
+    </collision>
+    <visual name="middle_proximal_pad_visual">
+      <origin xyz="0.0075 0 0.0225" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.01161 0.033" />
+      </geometry>
+      <material name="middle_proximal_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="middle_proximal_pad_collision">
+      <origin xyz="0.0075 0 0.0225" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.01161 0.033" />
+      </geometry>
+    </collision>
+    <visual name="middle_proximal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="middle_proximal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="middle_proximal_back_visual">
+      <origin xyz="-0.007 0 0.0225" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.00864 0.033" />
+      </geometry>
+      <material name="middle_proximal_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="middle_mcp_flexion" type="revolute">
+    <parent link="middle_knuckle" />
+    <child link="middle_proximal" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.5" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="middle_intermediate">
+    <inertial>
+      <origin xyz="0 0 0.0125" rpy="0 0 0" />
+      <mass value="0.024" />
+      <inertia ixx="1.5725800000000003e-06" iyy="1.5380000000000004e-06" izz="6.1058e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="middle_intermediate_shell_visual">
+      <origin xyz="0 0 0.0125" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0127 0.017" />
+      </geometry>
+      <material name="middle_intermediate_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="middle_intermediate_shell_collision">
+      <origin xyz="0 0 0.0125" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0127 0.017" />
+      </geometry>
+    </collision>
+    <visual name="middle_intermediate_pad_visual">
+      <origin xyz="0.0075 0 0.0125" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010922 0.013" />
+      </geometry>
+      <material name="middle_intermediate_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="middle_intermediate_pad_collision">
+      <origin xyz="0.0075 0 0.0125" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010922 0.013" />
+      </geometry>
+    </collision>
+    <visual name="middle_intermediate_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="middle_intermediate_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="middle_intermediate_back_visual">
+      <origin xyz="-0.007 0 0.0125" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.008128 0.013" />
+      </geometry>
+      <material name="middle_intermediate_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="middle_pip" type="revolute">
+    <parent link="middle_proximal" />
+    <child link="middle_intermediate" />
+    <origin xyz="0 0 0.045" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.7" effort="0.85" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="middle_distal">
+    <inertial>
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <mass value="0.016" />
+      <inertia ixx="7.221466666666666e-07" iyy="7.253333333333334e-07" izz="3.808133333333333e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="middle_distal_shell_visual">
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0119 0.012" />
+      </geometry>
+      <material name="middle_distal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="middle_distal_shell_collision">
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0119 0.012" />
+      </geometry>
+    </collision>
+    <visual name="middle_distal_pad_visual">
+      <origin xyz="0.0075 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010234 0.008" />
+      </geometry>
+      <material name="middle_distal_pad_material">
+        <color rgba="0.08 0.74 0.63 1" />
+      </material>
+    </visual>
+    <collision name="middle_distal_pad_collision">
+      <origin xyz="0.0075 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010234 0.008" />
+      </geometry>
+    </collision>
+    <visual name="middle_distal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="middle_distal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="middle_distal_back_visual">
+      <origin xyz="-0.007 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.007616 0.008" />
+      </geometry>
+      <material name="middle_distal_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="middle_dip" type="revolute">
+    <parent link="middle_intermediate" />
+    <child link="middle_distal" />
+    <origin xyz="0 0 0.025" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.55" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="ring_knuckle">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008" />
+      <inertia ixx="1.3333333333333334e-07" iyy="1.3333333333333334e-07" izz="1.3333333333333334e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ring_knuckle_bearing_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.0065" />
+      </geometry>
+      <material name="ring_knuckle_bearing_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ring_mcp_abduction" type="revolute">
+    <parent link="palm_base" />
+    <child link="ring_knuckle" />
+    <origin xyz="0 -0.01 0.1" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3" upper="0.3" effort="0.65" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="ring_proximal">
+    <inertial>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <mass value="0.035" />
+      <inertia ixx="5.198229166666667e-06" iyy="5.086666666666667e-06" izz="9.515625000000002e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ring_proximal_shell_visual">
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0135 0.032" />
+      </geometry>
+      <material name="ring_proximal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ring_proximal_shell_collision">
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0135 0.032" />
+      </geometry>
+    </collision>
+    <visual name="ring_proximal_pad_visual">
+      <origin xyz="0.0075 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.01161 0.028" />
+      </geometry>
+      <material name="ring_proximal_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="ring_proximal_pad_collision">
+      <origin xyz="0.0075 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.01161 0.028" />
+      </geometry>
+    </collision>
+    <visual name="ring_proximal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="ring_proximal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="ring_proximal_back_visual">
+      <origin xyz="-0.007 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.00864 0.028" />
+      </geometry>
+      <material name="ring_proximal_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ring_mcp_flexion" type="revolute">
+    <parent link="ring_knuckle" />
+    <child link="ring_proximal" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.5" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="ring_intermediate">
+    <inertial>
+      <origin xyz="0 0 0.012" rpy="0 0 0" />
+      <mass value="0.024" />
+      <inertia ixx="1.47458e-06" iyy="1.44e-06" izz="6.1058e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ring_intermediate_shell_visual">
+      <origin xyz="0 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0127 0.016" />
+      </geometry>
+      <material name="ring_intermediate_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ring_intermediate_shell_collision">
+      <origin xyz="0 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0127 0.016" />
+      </geometry>
+    </collision>
+    <visual name="ring_intermediate_pad_visual">
+      <origin xyz="0.0075 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010922 0.012" />
+      </geometry>
+      <material name="ring_intermediate_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="ring_intermediate_pad_collision">
+      <origin xyz="0.0075 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010922 0.012" />
+      </geometry>
+    </collision>
+    <visual name="ring_intermediate_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="ring_intermediate_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="ring_intermediate_back_visual">
+      <origin xyz="-0.007 0 0.012" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.008128 0.012" />
+      </geometry>
+      <material name="ring_intermediate_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ring_pip" type="revolute">
+    <parent link="ring_proximal" />
+    <child link="ring_intermediate" />
+    <origin xyz="0 0 0.04" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.7" effort="0.85" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="ring_distal">
+    <inertial>
+      <origin xyz="0 0 0.009" rpy="0 0 0" />
+      <mass value="0.016" />
+      <inertia ixx="6.208133333333332e-07" iyy="6.24e-07" izz="3.808133333333333e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ring_distal_shell_visual">
+      <origin xyz="0 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0119 0.01" />
+      </geometry>
+      <material name="ring_distal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ring_distal_shell_collision">
+      <origin xyz="0 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0119 0.01" />
+      </geometry>
+    </collision>
+    <visual name="ring_distal_pad_visual">
+      <origin xyz="0.0075 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010234 0.006" />
+      </geometry>
+      <material name="ring_distal_pad_material">
+        <color rgba="0.08 0.74 0.63 1" />
+      </material>
+    </visual>
+    <collision name="ring_distal_pad_collision">
+      <origin xyz="0.0075 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010234 0.006" />
+      </geometry>
+    </collision>
+    <visual name="ring_distal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="ring_distal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="ring_distal_back_visual">
+      <origin xyz="-0.007 0 0.009" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.007616 0.006" />
+      </geometry>
+      <material name="ring_distal_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ring_dip" type="revolute">
+    <parent link="ring_intermediate" />
+    <child link="ring_distal" />
+    <origin xyz="0 0 0.024" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.55" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="pinky_knuckle">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008" />
+      <inertia ixx="1.3333333333333334e-07" iyy="1.3333333333333334e-07" izz="1.3333333333333334e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="pinky_knuckle_bearing_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.0065" />
+      </geometry>
+      <material name="pinky_knuckle_bearing_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="pinky_mcp_abduction" type="revolute">
+    <parent link="palm_base" />
+    <child link="pinky_knuckle" />
+    <origin xyz="0 -0.03 0.095" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3" upper="0.3" effort="0.65" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="pinky_proximal">
+    <inertial>
+      <origin xyz="0 0 0.0165" rpy="0 0 0" />
+      <mass value="0.035" />
+      <inertia ixx="3.7078125000000008e-06" iyy="3.596250000000001e-06" izz="9.515625000000002e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="pinky_proximal_shell_visual">
+      <origin xyz="0 0 0.0165" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0135 0.025" />
+      </geometry>
+      <material name="pinky_proximal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="pinky_proximal_shell_collision">
+      <origin xyz="0 0 0.0165" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0135 0.025" />
+      </geometry>
+    </collision>
+    <visual name="pinky_proximal_pad_visual">
+      <origin xyz="0.0075 0 0.0165" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.01161 0.021" />
+      </geometry>
+      <material name="pinky_proximal_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="pinky_proximal_pad_collision">
+      <origin xyz="0.0075 0 0.0165" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.01161 0.021" />
+      </geometry>
+    </collision>
+    <visual name="pinky_proximal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="pinky_proximal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="pinky_proximal_back_visual">
+      <origin xyz="-0.007 0 0.0165" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.00864 0.021" />
+      </geometry>
+      <material name="pinky_proximal_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="pinky_mcp_flexion" type="revolute">
+    <parent link="pinky_knuckle" />
+    <child link="pinky_proximal" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.5" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="pinky_intermediate">
+    <inertial>
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <mass value="0.024" />
+      <inertia ixx="1.12258e-06" iyy="1.088e-06" izz="6.1058e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="pinky_intermediate_shell_visual">
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0127 0.012" />
+      </geometry>
+      <material name="pinky_intermediate_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="pinky_intermediate_shell_collision">
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0127 0.012" />
+      </geometry>
+    </collision>
+    <visual name="pinky_intermediate_pad_visual">
+      <origin xyz="0.0075 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010922 0.008" />
+      </geometry>
+      <material name="pinky_intermediate_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="pinky_intermediate_pad_collision">
+      <origin xyz="0.0075 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010922 0.008" />
+      </geometry>
+    </collision>
+    <visual name="pinky_intermediate_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="pinky_intermediate_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="pinky_intermediate_back_visual">
+      <origin xyz="-0.007 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.008128 0.008" />
+      </geometry>
+      <material name="pinky_intermediate_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="pinky_pip" type="revolute">
+    <parent link="pinky_proximal" />
+    <child link="pinky_intermediate" />
+    <origin xyz="0 0 0.033" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.7" effort="0.85" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="pinky_distal">
+    <inertial>
+      <origin xyz="0 0 0.0085" rpy="0 0 0" />
+      <mass value="0.016" />
+      <inertia ixx="5.741466666666667e-07" iyy="5.773333333333334e-07" izz="3.808133333333333e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="pinky_distal_shell_visual">
+      <origin xyz="0 0 0.0085" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0119 0.009" />
+      </geometry>
+      <material name="pinky_distal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="pinky_distal_shell_collision">
+      <origin xyz="0 0 0.0085" rpy="0 0 0" />
+      <geometry>
+        <box size="0.012 0.0119 0.009" />
+      </geometry>
+    </collision>
+    <visual name="pinky_distal_pad_visual">
+      <origin xyz="0.0075 0 0.0085" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010234 0.005" />
+      </geometry>
+      <material name="pinky_distal_pad_material">
+        <color rgba="0.08 0.74 0.63 1" />
+      </material>
+    </visual>
+    <collision name="pinky_distal_pad_collision">
+      <origin xyz="0.0075 0 0.0085" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.010234 0.005" />
+      </geometry>
+    </collision>
+    <visual name="pinky_distal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.006" length="0.0146" />
+      </geometry>
+      <material name="pinky_distal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+    <visual name="pinky_distal_back_visual">
+      <origin xyz="-0.007 0 0.0085" rpy="0 0 0" />
+      <geometry>
+        <box size="0.003 0.007616 0.005" />
+      </geometry>
+      <material name="pinky_distal_back_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="pinky_dip" type="revolute">
+    <parent link="pinky_intermediate" />
+    <child link="pinky_distal" />
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.55" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="thumb_opposition">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.015" />
+      <inertia ixx="4.900000000000001e-07" iyy="4.900000000000001e-07" izz="4.900000000000001e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="thumb_cmc_bearing_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.009" />
+      </geometry>
+      <material name="thumb_cmc_bearing_material">
+        <color rgba="0.07 0.25 0.42 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="thumb_cmc_opposition" type="revolute">
+    <parent link="palm_base" />
+    <child link="thumb_opposition" />
+    <origin xyz="0 0.048 0.025" rpy="0 0 0" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.2" upper="1.6" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="thumb_metacarpal">
+    <inertial>
+      <origin xyz="0 0 0.015" rpy="0 0 0" />
+      <mass value="0.038" />
+      <inertia ixx="3.5624999999999998e-06" iyy="3.4706666666666667e-06" izz="1.3331666666666668e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="thumb_metacarpal_shell_visual">
+      <origin xyz="0 0 0.015" rpy="0 0 0" />
+      <geometry>
+        <box size="0.014 0.015 0.022" />
+      </geometry>
+      <material name="thumb_metacarpal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="thumb_metacarpal_shell_collision">
+      <origin xyz="0 0 0.015" rpy="0 0 0" />
+      <geometry>
+        <box size="0.014 0.015 0.022" />
+      </geometry>
+    </collision>
+    <visual name="thumb_metacarpal_pad_visual">
+      <origin xyz="0.008 0 0.015" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.012 0.02" />
+      </geometry>
+      <material name="thumb_metacarpal_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="thumb_metacarpal_pad_collision">
+      <origin xyz="0.008 0 0.015" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.012 0.02" />
+      </geometry>
+    </collision>
+    <visual name="thumb_metacarpal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.0065" length="0.016" />
+      </geometry>
+      <material name="thumb_metacarpal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="thumb_cmc_flexion" type="revolute">
+    <parent link="thumb_opposition" />
+    <child link="thumb_metacarpal" />
+    <origin xyz="0 0 0" rpy="-0.75 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.25" upper="1.3" effort="1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="thumb_proximal">
+    <inertial>
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <mass value="0.026" />
+      <inertia ixx="1.3541666666666665e-06" iyy="1.2913333333333334e-06" izz="9.121666666666666e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="thumb_proximal_shell_visual">
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.014 0.015 0.012" />
+      </geometry>
+      <material name="thumb_proximal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="thumb_proximal_shell_collision">
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.014 0.015 0.012" />
+      </geometry>
+    </collision>
+    <visual name="thumb_proximal_pad_visual">
+      <origin xyz="0.008 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.012 0.01" />
+      </geometry>
+      <material name="thumb_proximal_pad_material">
+        <color rgba="0.055 0.08 0.11 1" />
+      </material>
+    </visual>
+    <collision name="thumb_proximal_pad_collision">
+      <origin xyz="0.008 0 0.01" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.012 0.01" />
+      </geometry>
+    </collision>
+    <visual name="thumb_proximal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.0065" length="0.016" />
+      </geometry>
+      <material name="thumb_proximal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="thumb_mcp_flexion" type="revolute">
+    <parent link="thumb_metacarpal" />
+    <child link="thumb_proximal" />
+    <origin xyz="0 0 0.03" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.7" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="thumb_distal">
+    <inertial>
+      <origin xyz="0 0 0.0075" rpy="0 0 0" />
+      <mass value="0.02" />
+      <inertia ixx="7.5e-07" iyy="7.016666666666667e-07" izz="7.016666666666667e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="thumb_distal_shell_visual">
+      <origin xyz="0 0 0.0075" rpy="0 0 0" />
+      <geometry>
+        <box size="0.014 0.015 0.007" />
+      </geometry>
+      <material name="thumb_distal_shell_material">
+        <color rgba="0.8 0.86 0.9 1" />
+      </material>
+    </visual>
+    <collision name="thumb_distal_shell_collision">
+      <origin xyz="0 0 0.0075" rpy="0 0 0" />
+      <geometry>
+        <box size="0.014 0.015 0.007" />
+      </geometry>
+    </collision>
+    <visual name="thumb_distal_pad_visual">
+      <origin xyz="0.008 0 0.0075" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.012 0.005" />
+      </geometry>
+      <material name="thumb_distal_pad_material">
+        <color rgba="0.08 0.74 0.63 1" />
+      </material>
+    </visual>
+    <collision name="thumb_distal_pad_collision">
+      <origin xyz="0.008 0 0.0075" rpy="0 0 0" />
+      <geometry>
+        <box size="0.004 0.012 0.005" />
+      </geometry>
+    </collision>
+    <visual name="thumb_distal_hinge_visual">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.0065" length="0.016" />
+      </geometry>
+      <material name="thumb_distal_hinge_material">
+        <color rgba="0.24 0.3 0.36 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="thumb_ip" type="revolute">
+    <parent link="thumb_proximal" />
+    <child link="thumb_distal" />
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.7" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+</robot>

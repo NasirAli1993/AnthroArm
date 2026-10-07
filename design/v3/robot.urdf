@@ -1,0 +1,3388 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="AnthroArm-27">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="3" />
+      <inertia ixx="0.015625" iyy="0.015625" izz="0.020000000000000004" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ShoulderMountFlange_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderMountFlange.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderMountFlange_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="shoulder_abduction">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.2" />
+      <inertia ixx="3e-05" iyy="3e-05" izz="3e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ShoulderSocket_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderSocket.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderSocket_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <collision name="ShoulderSocket_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderSocket.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ShoulderBearing-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderBearing-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderBearing-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ShoulderCap-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderCap-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderCap-1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ShoulderBearing1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderBearing1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderBearing1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ShoulderCap1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderCap1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderCap1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="shoulder_abduction" type="revolute">
+    <parent link="base_link" />
+    <child link="shoulder_abduction" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-1.35" upper="1.35" effort="70" velocity="1.25" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="shoulder_flexion">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.2" />
+      <inertia ixx="3e-05" iyy="3e-05" izz="3e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ShoulderFlexionGimbal_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderFlexionGimbal.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderFlexionGimbal_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="shoulder_flexion" type="revolute">
+    <parent link="shoulder_abduction" />
+    <child link="shoulder_flexion" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-1.2" upper="2.3" effort="70" velocity="1.25" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="upper_arm">
+    <inertial>
+      <origin xyz="0 0 0.135" rpy="0 0 0" />
+      <mass value="1.45" />
+      <inertia ixx="0.011965520833333333" iyy="0.012083333333333333" izz="0.0022988541666666665" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ShoulderRotationCoupler_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderRotationCoupler.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderRotationCoupler_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="UpperArmAnteriorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperArmAnteriorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="UpperArmAnteriorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="UpperArmAnteriorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperArmAnteriorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="UpperArmPosteriorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperArmPosteriorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="UpperArmPosteriorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="UpperArmPosteriorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperArmPosteriorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="UpperPanelScrew_75_-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperPanelScrew_75_-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="UpperPanelScrew_75_-1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="UpperPanelScrew_75_1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperPanelScrew_75_1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="UpperPanelScrew_75_1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="UpperPanelScrew_220_-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperPanelScrew_220_-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="UpperPanelScrew_220_-1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="UpperPanelScrew_220_1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperPanelScrew_220_1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="UpperPanelScrew_220_1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="HumerusCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HumerusCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HumerusCore_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ShoulderMotorEnvelope_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderMotorEnvelope.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderMotorEnvelope_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ShoulderMotorBand_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ShoulderMotorBand.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ShoulderMotorBand_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="ElbowDriveEnvelope_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowDriveEnvelope.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowDriveEnvelope_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="UpperHarness-12_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperHarness-12.stl" scale="1 1 1" />
+      </geometry>
+      <material name="UpperHarness-12_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="UpperHarness12_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/UpperHarness12.stl" scale="1 1 1" />
+      </geometry>
+      <material name="UpperHarness12_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="shoulder_rotation" type="revolute">
+    <parent link="shoulder_flexion" />
+    <child link="upper_arm" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.6" upper="2.6" effort="40" velocity="1.25" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="elbow_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.14" />
+      <inertia ixx="9.245833333333335e-05" iyy="7.729166666666667e-05" izz="9.916666666666669e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ElbowBearingBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowBearingBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowBearingBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <collision name="ElbowBearingBarrel_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowBearingBarrel.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ElbowRace-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowRace-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowRace-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ElbowHub-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowHub-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowHub-1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ElbowBolt_-1_0_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowBolt_-1_0.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowBolt_-1_0_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ElbowBolt_-1_120_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowBolt_-1_120.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowBolt_-1_120_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ElbowBolt_-1_240_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowBolt_-1_240.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowBolt_-1_240_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ElbowRace1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowRace1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowRace1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ElbowHub1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowHub1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowHub1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ElbowBolt_1_0_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowBolt_1_0.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowBolt_1_0_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ElbowBolt_1_120_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowBolt_1_120.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowBolt_1_120_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ElbowBolt_1_240_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ElbowBolt_1_240.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ElbowBolt_1_240_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="elbow_flexion" type="revolute">
+    <parent link="upper_arm" />
+    <child link="elbow_link" />
+    <origin xyz="0 0 0.3" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="2.45" effort="40" velocity="1.25" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="forearm">
+    <inertial>
+      <origin xyz="0 0 0.11" rpy="0 0 0" />
+      <mass value="0.9" />
+      <inertia ixx="0.005065575" iyy="0.0051438000000000005" izz="0.000834375" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="PronationBearing_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PronationBearing.stl" scale="1 1 1" />
+      </geometry>
+      <material name="PronationBearing_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ForearmAnteriorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ForearmAnteriorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ForearmAnteriorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ForearmAnteriorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ForearmAnteriorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ForearmPosteriorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ForearmPosteriorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ForearmPosteriorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ForearmPosteriorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ForearmPosteriorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ForePanelScrew_65_-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ForePanelScrew_65_-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ForePanelScrew_65_-1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ForePanelScrew_65_1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ForePanelScrew_65_1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ForePanelScrew_65_1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ForePanelScrew_206_-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ForePanelScrew_206_-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ForePanelScrew_206_-1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ForePanelScrew_206_1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ForePanelScrew_206_1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ForePanelScrew_206_1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="RadiusUlnaRail-9_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/RadiusUlnaRail-9.stl" scale="1 1 1" />
+      </geometry>
+      <material name="RadiusUlnaRail-9_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="RadiusUlnaRail9_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/RadiusUlnaRail9.stl" scale="1 1 1" />
+      </geometry>
+      <material name="RadiusUlnaRail9_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator00_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator00.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator00_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool00_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool00.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool00_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide00_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide00.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide00_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator01_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator01.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator01_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool01_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool01.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool01_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide01_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide01.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide01_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator02_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator02.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator02_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool02_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool02.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool02_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide02_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide02.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide02_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator03_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator03.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator03_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool03_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool03.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool03_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide03_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide03.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide03_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator04_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator04.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator04_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool04_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool04.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool04_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide04_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide04.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide04_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator05_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator05.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator05_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool05_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool05.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool05_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide05_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide05.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide05_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator06_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator06.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator06_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool06_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool06.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool06_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide06_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide06.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide06_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator07_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator07.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator07_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool07_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool07.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool07_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide07_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide07.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide07_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator08_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator08.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator08_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool08_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool08.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool08_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide08_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide08.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide08_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator09_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator09.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator09_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool09_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool09.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool09_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide09_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide09.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide09_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator10_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator10.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator10_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool10_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool10.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool10_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide10_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide10.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide10_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator11_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator11.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator11_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool11_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool11.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool11_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide11_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide11.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide11_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator12_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator12.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator12_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool12_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool12.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool12_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide12_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide12.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide12_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator13_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator13.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator13_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool13_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool13.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool13_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide13_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide13.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide13_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator14_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator14.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator14_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool14_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool14.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool14_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide14_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide14.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide14_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator15_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator15.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator15_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool15_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool15.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool15_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide15_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide15.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide15_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator16_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator16.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator16_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool16_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool16.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool16_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide16_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide16.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide16_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator17_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator17.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator17_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool17_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool17.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool17_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide17_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide17.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide17_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator18_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator18.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator18_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool18_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool18.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool18_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide18_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide18.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide18_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+    <visual name="HandActuator19_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/HandActuator19.stl" scale="1 1 1" />
+      </geometry>
+      <material name="HandActuator19_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="TendonSpool19_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonSpool19.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonSpool19_material">
+        <color rgba="0.58 0.29 0.12 1" />
+      </material>
+    </visual>
+    <visual name="TendonGuide19_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/TendonGuide19.stl" scale="1 1 1" />
+      </geometry>
+      <material name="TendonGuide19_material">
+        <color rgba="0.13 0.28 0.34 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="forearm_pronation" type="revolute">
+    <parent link="elbow_link" />
+    <child link="forearm" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="12" velocity="1.25" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="wrist_pitch">
+    <inertial>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <mass value="0.15" />
+      <inertia ixx="6.805e-05" iyy="5.38e-05" izz="8.185e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="WristFlexionBall_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/WristFlexionBall.stl" scale="1 1 1" />
+      </geometry>
+      <material name="WristFlexionBall_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <collision name="WristFlexionBall_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/WristFlexionBall.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="WristCarpalCoupler_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/WristCarpalCoupler.stl" scale="1 1 1" />
+      </geometry>
+      <material name="WristCarpalCoupler_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="WristFlexionCap-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/WristFlexionCap-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="WristFlexionCap-1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="WristFlexionCap1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/WristFlexionCap1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="WristFlexionCap1_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="wrist_flexion" type="revolute">
+    <parent link="forearm" />
+    <child link="wrist_pitch" />
+    <origin xyz="0 0 0.25" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-1.25" upper="1.25" effort="8" velocity="1.25" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="palm_base">
+    <inertial>
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
+      <mass value="0.35" />
+      <inertia ixx="0.0004974666666666667" iyy="0.00032153333333333336" izz="0.00023566666666666666" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="WristDeviationSeal_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/WristDeviationSeal.stl" scale="1 1 1" />
+      </geometry>
+      <material name="WristDeviationSeal_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="PalmAnteriorChassis_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmAnteriorChassis.stl" scale="1 1 1" />
+      </geometry>
+      <material name="PalmAnteriorChassis_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="PalmAnteriorChassis_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmAnteriorChassis.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="PalmDorsalCover_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmDorsalCover.stl" scale="1 1 1" />
+      </geometry>
+      <material name="PalmDorsalCover_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="PalmDorsalCover_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmDorsalCover.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="PalmInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="PalmInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="PalmInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="PalmInternalPlate_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmInternalPlate.stl" scale="1 1 1" />
+      </geometry>
+      <material name="PalmInternalPlate_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="PalmCoverScrew_-1_18_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmCoverScrew_-1_18.stl" scale="1 1 1" />
+      </geometry>
+      <material name="PalmCoverScrew_-1_18_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="PalmCoverScrew_-1_79_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmCoverScrew_-1_79.stl" scale="1 1 1" />
+      </geometry>
+      <material name="PalmCoverScrew_-1_79_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="PalmCoverScrew_1_18_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmCoverScrew_1_18.stl" scale="1 1 1" />
+      </geometry>
+      <material name="PalmCoverScrew_1_18_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="PalmCoverScrew_1_79_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/PalmCoverScrew_1_79.stl" scale="1 1 1" />
+      </geometry>
+      <material name="PalmCoverScrew_1_79_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="indexMCPMount_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/indexMCPMount.stl" scale="1 1 1" />
+      </geometry>
+      <material name="indexMCPMount_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middleMCPMount_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middleMCPMount.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middleMCPMount_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ringMCPMount_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ringMCPMount.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ringMCPMount_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinkyMCPMount_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinkyMCPMount.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinkyMCPMount_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="wrist_deviation" type="revolute">
+    <parent link="wrist_pitch" />
+    <child link="palm_base" />
+    <origin xyz="0 0 0.04" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.65" upper="0.65" effort="6" velocity="1.25" />
+    <dynamics damping="0.12" friction="0.015" />
+  </joint>
+  <link name="index_knuckle">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008" />
+      <inertia ixx="1.3333333333333334e-07" iyy="1.3333333333333334e-07" izz="1.3333333333333334e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="indexMCPUniversal_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/indexMCPUniversal.stl" scale="1 1 1" />
+      </geometry>
+      <material name="indexMCPUniversal_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="index_mcp_abduction" type="revolute">
+    <parent link="palm_base" />
+    <child link="index_knuckle" />
+    <origin xyz="0 0.03 0.1" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3" upper="0.3" effort="0.65" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="index_proximal">
+    <inertial>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <mass value="0.035" />
+      <inertia ixx="5.198229166666667e-06" iyy="5.086666666666667e-06" izz="9.515625000000002e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="index_proximalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="index_proximalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="index_proximalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="index_proximalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="index_proximalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="index_proximalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="index_proximalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_proximalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_proximalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="index_proximalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="index_proximalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="index_proximalScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_proximalScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_proximalScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_proximalScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_proximalScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_proximalScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="index_mcp_flexion" type="revolute">
+    <parent link="index_knuckle" />
+    <child link="index_proximal" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.5" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="index_intermediate">
+    <inertial>
+      <origin xyz="0 0 0.012" rpy="0 0 0" />
+      <mass value="0.024" />
+      <inertia ixx="1.47458e-06" iyy="1.44e-06" izz="6.1058e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="index_intermediateDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="index_intermediateDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="index_intermediateFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="index_intermediateFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="index_intermediateInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="index_intermediateInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="index_intermediateCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_intermediateHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_intermediateCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="index_intermediateCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="index_intermediatePin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediatePin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediatePin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="index_intermediateScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_intermediateScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_intermediateScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_intermediateScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_intermediateScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_intermediateScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="index_pip" type="revolute">
+    <parent link="index_proximal" />
+    <child link="index_intermediate" />
+    <origin xyz="0 0 0.04" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.7" effort="0.85" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="index_distal">
+    <inertial>
+      <origin xyz="0 0 0.009" rpy="0 0 0" />
+      <mass value="0.016" />
+      <inertia ixx="6.208133333333332e-07" iyy="6.24e-07" izz="3.808133333333333e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="index_distalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="index_distalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="index_distalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="index_distalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="index_distalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="index_distalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="index_distalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_distalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_distalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="index_distalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="index_distalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="index_distalScrew_-1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalScrew_-1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalScrew_-1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="index_distalScrew_1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/index_distalScrew_1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="index_distalScrew_1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="index_dip" type="revolute">
+    <parent link="index_intermediate" />
+    <child link="index_distal" />
+    <origin xyz="0 0 0.024" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.55" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="middle_knuckle">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008" />
+      <inertia ixx="1.3333333333333334e-07" iyy="1.3333333333333334e-07" izz="1.3333333333333334e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="middleMCPUniversal_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middleMCPUniversal.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middleMCPUniversal_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="middle_mcp_abduction" type="revolute">
+    <parent link="palm_base" />
+    <child link="middle_knuckle" />
+    <origin xyz="0 0.01 0.1" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3" upper="0.3" effort="0.65" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="middle_proximal">
+    <inertial>
+      <origin xyz="0 0 0.0225" rpy="0 0 0" />
+      <mass value="0.035" />
+      <inertia ixx="6.437812500000001e-06" iyy="6.326250000000001e-06" izz="9.515625000000002e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="middle_proximalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="middle_proximalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="middle_proximalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="middle_proximalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="middle_proximalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="middle_proximalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="middle_proximalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_proximalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_proximalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="middle_proximalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="middle_proximalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="middle_proximalScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_proximalScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_proximalScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_proximalScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_proximalScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_proximalScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="middle_mcp_flexion" type="revolute">
+    <parent link="middle_knuckle" />
+    <child link="middle_proximal" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.5" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="middle_intermediate">
+    <inertial>
+      <origin xyz="0 0 0.0125" rpy="0 0 0" />
+      <mass value="0.024" />
+      <inertia ixx="1.5725800000000003e-06" iyy="1.5380000000000004e-06" izz="6.1058e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="middle_intermediateDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="middle_intermediateDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="middle_intermediateFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="middle_intermediateFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="middle_intermediateInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="middle_intermediateInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="middle_intermediateCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_intermediateHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_intermediateCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="middle_intermediateCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="middle_intermediatePin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediatePin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediatePin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="middle_intermediateScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_intermediateScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_intermediateScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_intermediateScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_intermediateScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_intermediateScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="middle_pip" type="revolute">
+    <parent link="middle_proximal" />
+    <child link="middle_intermediate" />
+    <origin xyz="0 0 0.045" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.7" effort="0.85" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="middle_distal">
+    <inertial>
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <mass value="0.016" />
+      <inertia ixx="7.221466666666666e-07" iyy="7.253333333333334e-07" izz="3.808133333333333e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="middle_distalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="middle_distalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="middle_distalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="middle_distalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="middle_distalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="middle_distalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="middle_distalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_distalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_distalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="middle_distalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="middle_distalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="middle_distalScrew_-1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalScrew_-1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalScrew_-1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="middle_distalScrew_1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/middle_distalScrew_1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="middle_distalScrew_1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="middle_dip" type="revolute">
+    <parent link="middle_intermediate" />
+    <child link="middle_distal" />
+    <origin xyz="0 0 0.025" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.55" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="ring_knuckle">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008" />
+      <inertia ixx="1.3333333333333334e-07" iyy="1.3333333333333334e-07" izz="1.3333333333333334e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ringMCPUniversal_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ringMCPUniversal.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ringMCPUniversal_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ring_mcp_abduction" type="revolute">
+    <parent link="palm_base" />
+    <child link="ring_knuckle" />
+    <origin xyz="0 -0.01 0.1" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3" upper="0.3" effort="0.65" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="ring_proximal">
+    <inertial>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <mass value="0.035" />
+      <inertia ixx="5.198229166666667e-06" iyy="5.086666666666667e-06" izz="9.515625000000002e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ring_proximalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ring_proximalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ring_proximalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ring_proximalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ring_proximalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="ring_proximalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ring_proximalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_proximalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_proximalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ring_proximalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ring_proximalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="ring_proximalScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_proximalScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_proximalScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_proximalScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_proximalScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_proximalScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ring_mcp_flexion" type="revolute">
+    <parent link="ring_knuckle" />
+    <child link="ring_proximal" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.5" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="ring_intermediate">
+    <inertial>
+      <origin xyz="0 0 0.012" rpy="0 0 0" />
+      <mass value="0.024" />
+      <inertia ixx="1.47458e-06" iyy="1.44e-06" izz="6.1058e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ring_intermediateDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ring_intermediateDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ring_intermediateFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ring_intermediateFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ring_intermediateInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="ring_intermediateInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ring_intermediateCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_intermediateHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_intermediateCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ring_intermediateCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ring_intermediatePin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediatePin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediatePin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="ring_intermediateScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_intermediateScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_intermediateScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_intermediateScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_intermediateScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_intermediateScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ring_pip" type="revolute">
+    <parent link="ring_proximal" />
+    <child link="ring_intermediate" />
+    <origin xyz="0 0 0.04" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.7" effort="0.85" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="ring_distal">
+    <inertial>
+      <origin xyz="0 0 0.009" rpy="0 0 0" />
+      <mass value="0.016" />
+      <inertia ixx="6.208133333333332e-07" iyy="6.24e-07" izz="3.808133333333333e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ring_distalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ring_distalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ring_distalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="ring_distalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ring_distalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="ring_distalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="ring_distalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_distalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_distalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ring_distalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="ring_distalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="ring_distalScrew_-1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalScrew_-1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalScrew_-1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ring_distalScrew_1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ring_distalScrew_1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ring_distalScrew_1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ring_dip" type="revolute">
+    <parent link="ring_intermediate" />
+    <child link="ring_distal" />
+    <origin xyz="0 0 0.024" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.55" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="pinky_knuckle">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008" />
+      <inertia ixx="1.3333333333333334e-07" iyy="1.3333333333333334e-07" izz="1.3333333333333334e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="pinkyMCPUniversal_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinkyMCPUniversal.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinkyMCPUniversal_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="pinky_mcp_abduction" type="revolute">
+    <parent link="palm_base" />
+    <child link="pinky_knuckle" />
+    <origin xyz="0 -0.03 0.095" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3" upper="0.3" effort="0.65" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="pinky_proximal">
+    <inertial>
+      <origin xyz="0 0 0.0165" rpy="0 0 0" />
+      <mass value="0.035" />
+      <inertia ixx="3.7078125000000008e-06" iyy="3.596250000000001e-06" izz="9.515625000000002e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="pinky_proximalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="pinky_proximalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="pinky_proximalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="pinky_proximalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="pinky_proximalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="pinky_proximalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="pinky_proximalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_proximalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_proximalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="pinky_proximalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="pinky_proximalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="pinky_proximalScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_proximalScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_proximalScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_proximalScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_proximalScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_proximalScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="pinky_mcp_flexion" type="revolute">
+    <parent link="pinky_knuckle" />
+    <child link="pinky_proximal" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.5" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="pinky_intermediate">
+    <inertial>
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <mass value="0.024" />
+      <inertia ixx="1.12258e-06" iyy="1.088e-06" izz="6.1058e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="pinky_intermediateDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="pinky_intermediateDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="pinky_intermediateFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="pinky_intermediateFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="pinky_intermediateInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="pinky_intermediateInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="pinky_intermediateCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_intermediateHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_intermediateCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="pinky_intermediateCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="pinky_intermediatePin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediatePin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediatePin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="pinky_intermediateScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_intermediateScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_intermediateScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_intermediateScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_intermediateScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_intermediateScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="pinky_pip" type="revolute">
+    <parent link="pinky_proximal" />
+    <child link="pinky_intermediate" />
+    <origin xyz="0 0 0.033" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.7" effort="0.85" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="pinky_distal">
+    <inertial>
+      <origin xyz="0 0 0.0085" rpy="0 0 0" />
+      <mass value="0.016" />
+      <inertia ixx="5.741466666666667e-07" iyy="5.773333333333334e-07" izz="3.808133333333333e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="pinky_distalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="pinky_distalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="pinky_distalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="pinky_distalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="pinky_distalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="pinky_distalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="pinky_distalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_distalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_distalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="pinky_distalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="pinky_distalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="pinky_distalScrew_-1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalScrew_-1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalScrew_-1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="pinky_distalScrew_1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pinky_distalScrew_1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="pinky_distalScrew_1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="pinky_dip" type="revolute">
+    <parent link="pinky_intermediate" />
+    <child link="pinky_distal" />
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.55" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="thumb_opposition">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.015" />
+      <inertia ixx="4.900000000000001e-07" iyy="4.900000000000001e-07" izz="4.900000000000001e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="ThumbOppositionHub_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ThumbOppositionHub.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ThumbOppositionHub_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="ThumbOppositionRing_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ThumbOppositionRing.stl" scale="1 1 1" />
+      </geometry>
+      <material name="ThumbOppositionRing_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="thumb_cmc_opposition" type="revolute">
+    <parent link="palm_base" />
+    <child link="thumb_opposition" />
+    <origin xyz="0 0.048 0.025" rpy="0 0 0" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.2" upper="1.6" effort="1.1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="thumb_metacarpal">
+    <inertial>
+      <origin xyz="0 0 0.015" rpy="0 0 0" />
+      <mass value="0.038" />
+      <inertia ixx="3.5624999999999998e-06" iyy="3.4706666666666667e-06" izz="1.3331666666666668e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="thumb_metacarpalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="thumb_metacarpalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="thumb_metacarpalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="thumb_metacarpalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="thumb_metacarpalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="thumb_metacarpalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="thumb_metacarpalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_metacarpalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_metacarpalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="thumb_metacarpalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="thumb_metacarpalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="thumb_metacarpalScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_metacarpalScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_metacarpalScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_metacarpalScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_metacarpalScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_metacarpalScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="thumb_cmc_flexion" type="revolute">
+    <parent link="thumb_opposition" />
+    <child link="thumb_metacarpal" />
+    <origin xyz="0 0 0" rpy="-0.75 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.25" upper="1.3" effort="1" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="thumb_proximal">
+    <inertial>
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+      <mass value="0.026" />
+      <inertia ixx="1.3541666666666665e-06" iyy="1.2913333333333334e-06" izz="9.121666666666666e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="thumb_proximalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="thumb_proximalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="thumb_proximalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="thumb_proximalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="thumb_proximalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="thumb_proximalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="thumb_proximalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_proximalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_proximalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="thumb_proximalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="thumb_proximalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="thumb_proximalScrew_-1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalScrew_-1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalScrew_-1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_proximalScrew_-1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalScrew_-1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalScrew_-1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_proximalScrew_1_0.24_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalScrew_1_0.24.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalScrew_1_0.24_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_proximalScrew_1_0.75_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_proximalScrew_1_0.75.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_proximalScrew_1_0.75_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="thumb_mcp_flexion" type="revolute">
+    <parent link="thumb_metacarpal" />
+    <child link="thumb_proximal" />
+    <origin xyz="0 0 0.03" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.7" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="thumb_distal">
+    <inertial>
+      <origin xyz="0 0 0.0075" rpy="0 0 0" />
+      <mass value="0.02" />
+      <inertia ixx="7.5e-07" iyy="7.016666666666667e-07" izz="7.016666666666667e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="thumb_distalDorsalShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalDorsalShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="thumb_distalDorsalShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalDorsalShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="thumb_distalFlexorShell_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalFlexorShell_material">
+        <color rgba="0.87 0.89 0.9 1" />
+      </material>
+    </visual>
+    <collision name="thumb_distalFlexorShell_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalFlexorShell.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="thumb_distalInsetPad_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalInsetPad_material">
+        <color rgba="0.13 0.15 0.17 1" />
+      </material>
+    </visual>
+    <collision name="thumb_distalInsetPad_collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalInsetPad.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="thumb_distalCore_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalCore.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalCore_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_distalHingeBarrel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalHingeBarrel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalHingeBarrel_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_distalCheek-1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalCheek-1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalCheek-1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="thumb_distalCheek1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalCheek1.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalCheek1_material">
+        <color rgba="0.49 0.53 0.57 1" />
+      </material>
+    </visual>
+    <visual name="thumb_distalPin_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalPin.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalPin_material">
+        <color rgba="0.7 0.73 0.76 1" />
+      </material>
+    </visual>
+    <visual name="thumb_distalScrew_-1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalScrew_-1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalScrew_-1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+    <visual name="thumb_distalScrew_1_0.32_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/thumb_distalScrew_1_0.32.stl" scale="1 1 1" />
+      </geometry>
+      <material name="thumb_distalScrew_1_0.32_material">
+        <color rgba="0.075 0.085 0.095 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="thumb_ip" type="revolute">
+    <parent link="thumb_proximal" />
+    <child link="thumb_distal" />
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.4" effort="0.7" velocity="5" />
+    <dynamics damping="0.008" friction="0.001" />
+  </joint>
+  <link name="world" />
+  <joint name="shoulder_anchor" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+    <origin xyz="0 0 1.08" rpy="3.141592654 0 0" />
+  </joint>
+</robot>

@@ -1,0 +1,41 @@
+{
+  "targets": {
+    "index_mcp_abduction": 0.2999906614140697,
+    "index_mcp_flexion": 1.4999911677616267,
+    "index_pip": 1.4256308175171188,
+    "index_dip": 0.005815244212092886,
+    "thumb_cmc_opposition": 1.3414168533958162,
+    "thumb_cmc_flexion": 0.1668905358401232,
+    "thumb_mcp_flexion": 0.0068594854179051794,
+    "thumb_ip": 0.0008536023279065604
+  },
+  "method": "Closest distance between actual V3 inset-pad convex CAD surfaces; small commanded compression; effort limits and collision solver retained",
+  "passed": true,
+  "actual_surface_gap_m": 0.00034529280576981055,
+  "contacts": [
+    {
+      "geom1": "index_distalFlexorShell_collision",
+      "geom2": "thumb_distalFlexorShell_collision",
+      "distance": 0.00034551162095814624,
+      "normal_force": 0.5005481594580636,
+      "position": [
+        0.42796980228444215,
+        -0.013174766520870589,
+        0.7740085633694622
+      ]
+    },
+    {
+      "geom1": "index_distalFlexorShell_collision",
+      "geom2": "thumb_distalFlexorShell_collision",
+      "distance": 0.00034551162095814624,
+      "normal_force": 0.5005481374276062,
+      "position": [
+        0.4279568738188596,
+        -0.013163925640806318,
+        0.774005373562195
+      ]
+    }
+  ],
+  "contact_location": "Distal flexor shell convex hulls",
+  "limitation": "Convex shell hulls fill the inset pad pockets. Fingertip contact is demonstrated; isolated rubber-pad deformation/contact is not."
+}

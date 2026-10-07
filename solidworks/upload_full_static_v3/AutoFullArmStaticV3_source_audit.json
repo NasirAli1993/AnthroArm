@@ -1,0 +1,23 @@
+{
+  "status": "STAGED SOURCE ONLY; not compiled or executed in SOLIDWORKS",
+  "source_manifest_sha256": "93019b023703f24cb0f3f72b139aad4c615b3da5943343cbd005c9edc32f25a7",
+  "macro_sha256": "4135763d80de9b37ece72817f4c09799a6bc6d06001a709132c9122d4895c9f9",
+  "links": 28,
+  "expected_solids": 293,
+  "all_embedded_transforms_match_source_audit": true,
+  "all_required_step_files_present": true,
+  "public_entrypoints": [
+    "main"
+  ],
+  "maximum_physical_line_length": 316,
+  "procedure_end_count_consistent": true,
+  "native_execution": false,
+  "scope": "28 imported multibody SLDPRT + one all-fixed static home-pose SLDASM + progressive log, if executed successfully",
+  "not_included": [
+    "mates",
+    "kinematic articulation",
+    "Motion Analysis",
+    "FEA",
+    "manufacturing qualification"
+  ]
+}

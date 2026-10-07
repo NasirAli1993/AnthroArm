@@ -1,0 +1,11 @@
+from pathlib import Path
+import traceback
+root=Path(r'D:\RoboticArm')
+(root/'results'/'v3').mkdir(parents=True,exist_ok=True)
+try:
+ (root/'results'/'v3'/'build_error.txt').unlink(missing_ok=True)
+ (root/'results'/'v3'/'build_progress.txt').write_text('',encoding='utf-8')
+ exec(compile((root/'design'/'v3'/'build_reference_arm.py').read_text(encoding='utf-8'),str(root/'design'/'v3'/'build_reference_arm.py'),'exec'))
+except Exception:
+ (root/'results'/'v3'/'build_error.txt').write_text(traceback.format_exc(),encoding='utf-8')
+ raise

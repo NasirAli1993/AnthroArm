@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:/RoboticArm/design/v3/validate_reference_arm.py", line 24, in <module>
+    o=named[c['name']]
+      ~~~~~^^^^^^^^^^^
+KeyError: 'ShoulderBearing-1'

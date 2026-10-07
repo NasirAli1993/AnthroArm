@@ -1,0 +1,640 @@
+{
+  "trials": 6,
+  "successes": 6,
+  "all_passed": true,
+  "ground_truth_used_for_control": false,
+  "known_size_assumption": true,
+  "max_camera_estimate_error_m": 0.00148303058858815,
+  "results": [
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.036,
+      "mass_kg": 0.06,
+      "xy": [
+        0.4,
+        0
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.03446666666666669,
+        0.0,
+        0.02255238095238096,
+        1.3493333333333337,
+        1.5420952380952389,
+        1.2529523809523817,
+        1.2529523809523817,
+        0.4819047619047621,
+        0.6746666666666669,
+        0.6746666666666669
+      ],
+      "object_estimate_xyz_m": [
+        0.4007380558976928,
+        -0.00093410421016012,
+        0.6190646496626977
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0007380558976927687,
+        -0.00093410421016012,
+        0.0006731713655935279
+      ],
+      "minimum_hold_lift_m": 0.15394579086835547,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.00036832104167641445,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 70.3343587295122,
+      "max_joint_limit_violation_rad": 0.0006597771376863399,
+      "max_contact_penetration_m": 0.0005621423732196796,
+      "max_normal_contact_force_n": 52.385571031457516,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "detection": {
+        "detected": true,
+        "source": "rendered RGB segmentation + metric depth",
+        "ground_truth_object_pose_used": false,
+        "center_world_m": [
+          0.4007380558976928,
+          -0.00093410421016012,
+          0.6190646496626977
+        ],
+        "top_surface_z_m": 0.6370646496626977,
+        "bbox_pixels": [
+          301,
+          226,
+          21,
+          25
+        ],
+        "orange_pixels": 440,
+        "top_surface_pixels": 173,
+        "calibration": {
+          "fx": 539.0488257370118,
+          "fy": 539.0488257370118,
+          "cx": 319.5,
+          "cy": 239.5,
+          "width": 640,
+          "height": 480,
+          "camera_world_position_m": [
+            0.76,
+            -0.9,
+            1.3
+          ],
+          "camera_world_rotation": [
+            [
+              0.9354720936771068,
+              -0.2039771050121656,
+              0.28859193090283475
+            ],
+            [
+              0.3534005686913514,
+              0.5399393956679712,
+              -0.7639198171629897
+            ],
+            [
+              0.0,
+              0.8166142232636915,
+              0.5771838618355836
+            ]
+          ]
+        },
+        "assumptions": "Known upright 36 mm orange cube; visible top surface; calibrated RGB-D camera.",
+        "known_object_size_m": 0.036
+      },
+      "estimate_error_norm_m": 0.0013676391596517685
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.033,
+      "mass_kg": 0.06,
+      "xy": [
+        0.385,
+        -0.017
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.0338666666666667,
+        0.0,
+        0.022209523809523814,
+        1.337333333333334,
+        1.5283809523809533,
+        1.2418095238095246,
+        1.2418095238095246,
+        0.4776190476190479,
+        0.668666666666667,
+        0.668666666666667
+      ],
+      "object_estimate_xyz_m": [
+        0.38566996221630984,
+        -0.01787905201323763,
+        0.6175605595189092
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0006699622163098273,
+        -0.000879052013237628,
+        0.0006690812218010933
+      ],
+      "minimum_hold_lift_m": 0.150798685687628,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0005845142392465181,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 63.58607727790013,
+      "max_joint_limit_violation_rad": 0.000509765821333411,
+      "max_contact_penetration_m": 0.0010461084873313099,
+      "max_normal_contact_force_n": 41.94978217480818,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "detection": {
+        "detected": true,
+        "source": "rendered RGB segmentation + metric depth",
+        "ground_truth_object_pose_used": false,
+        "center_world_m": [
+          0.38566996221630984,
+          -0.01787905201323763,
+          0.6175605595189092
+        ],
+        "top_surface_z_m": 0.6340605595189092,
+        "bbox_pixels": [
+          292,
+          230,
+          20,
+          24
+        ],
+        "orange_pixels": 383,
+        "top_surface_pixels": 147,
+        "calibration": {
+          "fx": 539.0488257370118,
+          "fy": 539.0488257370118,
+          "cx": 319.5,
+          "cy": 239.5,
+          "width": 640,
+          "height": 480,
+          "camera_world_position_m": [
+            0.76,
+            -0.9,
+            1.3
+          ],
+          "camera_world_rotation": [
+            [
+              0.9354720936771068,
+              -0.2039771050121656,
+              0.28859193090283475
+            ],
+            [
+              0.3534005686913514,
+              0.5399393956679712,
+              -0.7639198171629897
+            ],
+            [
+              0.0,
+              0.8166142232636915,
+              0.5771838618355836
+            ]
+          ]
+        },
+        "assumptions": "Known upright 33 mm orange cube; visible top surface; calibrated RGB-D camera.",
+        "known_object_size_m": 0.033
+      },
+      "estimate_error_norm_m": 0.0012919951604502032
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.035,
+      "mass_kg": 0.06,
+      "xy": [
+        0.405,
+        0.016
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.03426666666666669,
+        0.0,
+        0.022438095238095243,
+        1.345333333333334,
+        1.5375238095238102,
+        1.249238095238096,
+        1.249238095238096,
+        0.48047619047619067,
+        0.672666666666667,
+        0.672666666666667
+      ],
+      "object_estimate_xyz_m": [
+        0.40574182685262783,
+        0.014910189645882404,
+        0.6185707323287241
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0007418268526278027,
+        -0.0010898103541175964,
+        0.0006792540316159501
+      ],
+      "minimum_hold_lift_m": 0.1532152534862662,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0004959123809114529,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 73.19297862031748,
+      "max_joint_limit_violation_rad": 0.0006987097397592443,
+      "max_contact_penetration_m": 0.00064099144590946,
+      "max_normal_contact_force_n": 48.94121623843855,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "detection": {
+        "detected": true,
+        "source": "rendered RGB segmentation + metric depth",
+        "ground_truth_object_pose_used": false,
+        "center_world_m": [
+          0.40574182685262783,
+          0.014910189645882404,
+          0.6185707323287241
+        ],
+        "top_surface_z_m": 0.636070732328724,
+        "bbox_pixels": [
+          306,
+          223,
+          21,
+          25
+        ],
+        "orange_pixels": 409,
+        "top_surface_pixels": 157,
+        "calibration": {
+          "fx": 539.0488257370118,
+          "fy": 539.0488257370118,
+          "cx": 319.5,
+          "cy": 239.5,
+          "width": 640,
+          "height": 480,
+          "camera_world_position_m": [
+            0.76,
+            -0.9,
+            1.3
+          ],
+          "camera_world_rotation": [
+            [
+              0.9354720936771068,
+              -0.2039771050121656,
+              0.28859193090283475
+            ],
+            [
+              0.3534005686913514,
+              0.5399393956679712,
+              -0.7639198171629897
+            ],
+            [
+              0.0,
+              0.8166142232636915,
+              0.5771838618355836
+            ]
+          ]
+        },
+        "assumptions": "Known upright 35 mm orange cube; visible top surface; calibrated RGB-D camera.",
+        "known_object_size_m": 0.035
+      },
+      "estimate_error_norm_m": 0.00148303058858815
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.037,
+      "mass_kg": 0.06,
+      "xy": [
+        0.395,
+        -0.021
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.034666666666666686,
+        0.0,
+        0.022666666666666672,
+        1.3533333333333337,
+        1.5466666666666673,
+        1.2566666666666673,
+        1.2566666666666673,
+        0.4833333333333335,
+        0.6766666666666669,
+        0.6766666666666669
+      ],
+      "object_estimate_xyz_m": [
+        0.3957625981592564,
+        -0.021926828084937313,
+        0.6195572786553394
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0007625981592563891,
+        -0.0009268280849373117,
+        0.0006658003582312721
+      ],
+      "minimum_hold_lift_m": 0.15373437021682812,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.000557104178434876,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 71.2242458010747,
+      "max_joint_limit_violation_rad": 0.0005615614135692094,
+      "max_contact_penetration_m": 0.0005660623322517758,
+      "max_normal_contact_force_n": 56.39669721269379,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "detection": {
+        "detected": true,
+        "source": "rendered RGB segmentation + metric depth",
+        "ground_truth_object_pose_used": false,
+        "center_world_m": [
+          0.3957625981592564,
+          -0.021926828084937313,
+          0.6195572786553394
+        ],
+        "top_surface_z_m": 0.6380572786553393,
+        "bbox_pixels": [
+          294,
+          230,
+          23,
+          27
+        ],
+        "orange_pixels": 488,
+        "top_surface_pixels": 186,
+        "calibration": {
+          "fx": 539.0488257370118,
+          "fy": 539.0488257370118,
+          "cx": 319.5,
+          "cy": 239.5,
+          "width": 640,
+          "height": 480,
+          "camera_world_position_m": [
+            0.76,
+            -0.9,
+            1.3
+          ],
+          "camera_world_rotation": [
+            [
+              0.9354720936771068,
+              -0.2039771050121656,
+              0.28859193090283475
+            ],
+            [
+              0.3534005686913514,
+              0.5399393956679712,
+              -0.7639198171629897
+            ],
+            [
+              0.0,
+              0.8166142232636915,
+              0.5771838618355836
+            ]
+          ]
+        },
+        "assumptions": "Known upright 37 mm orange cube; visible top surface; calibrated RGB-D camera.",
+        "known_object_size_m": 0.037
+      },
+      "estimate_error_norm_m": 0.0013725364725757521
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.039,
+      "mass_kg": 0.06,
+      "xy": [
+        0.41,
+        0.021
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.035066666666666683,
+        0.0,
+        0.0228952380952381,
+        1.3613333333333335,
+        1.5558095238095244,
+        1.2640952380952386,
+        1.2640952380952386,
+        0.48619047619047634,
+        0.6806666666666668,
+        0.6806666666666668
+      ],
+      "object_estimate_xyz_m": [
+        0.41079984237243516,
+        0.020054908561076876,
+        0.6205713162682113
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0007998423724351889,
+        -0.0009450914389231256,
+        0.0006798379711031588
+      ],
+      "minimum_hold_lift_m": 0.15386231839117792,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0005503951781783962,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 80.64352144269589,
+      "max_joint_limit_violation_rad": 0.0006741481618117934,
+      "max_contact_penetration_m": 0.0008514286135330106,
+      "max_normal_contact_force_n": 57.046443039990926,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "detection": {
+        "detected": true,
+        "source": "rendered RGB segmentation + metric depth",
+        "ground_truth_object_pose_used": false,
+        "center_world_m": [
+          0.41079984237243516,
+          0.020054908561076876,
+          0.6205713162682113
+        ],
+        "top_surface_z_m": 0.6400713162682112,
+        "bbox_pixels": [
+          307,
+          221,
+          24,
+          27
+        ],
+        "orange_pixels": 504,
+        "top_surface_pixels": 192,
+        "calibration": {
+          "fx": 539.0488257370118,
+          "fy": 539.0488257370118,
+          "cx": 319.5,
+          "cy": 239.5,
+          "width": 640,
+          "height": 480,
+          "camera_world_position_m": [
+            0.76,
+            -0.9,
+            1.3
+          ],
+          "camera_world_rotation": [
+            [
+              0.9354720936771068,
+              -0.2039771050121656,
+              0.28859193090283475
+            ],
+            [
+              0.3534005686913514,
+              0.5399393956679712,
+              -0.7639198171629897
+            ],
+            [
+              0.0,
+              0.8166142232636915,
+              0.5771838618355836
+            ]
+          ]
+        },
+        "assumptions": "Known upright 39 mm orange cube; visible top surface; calibrated RGB-D camera.",
+        "known_object_size_m": 0.039
+      },
+      "estimate_error_norm_m": 0.0014124890497353227
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.041,
+      "mass_kg": 0.06,
+      "xy": [
+        0.395,
+        0.013
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.03546666666666668,
+        0.0,
+        0.02312380952380953,
+        1.3693333333333335,
+        1.5649523809523815,
+        1.27152380952381,
+        1.27152380952381,
+        0.4890476190476191,
+        0.6846666666666668,
+        0.6846666666666668
+      ],
+      "object_estimate_xyz_m": [
+        0.39567629491273126,
+        0.012152856394270568,
+        0.6215706483760934
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0006762949127312456,
+        -0.0008471436057294317,
+        0.000679170078985325
+      ],
+      "minimum_hold_lift_m": 0.15402926131104921,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0010214910879802583,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 94.95957703366248,
+      "max_joint_limit_violation_rad": 0.013299944018271281,
+      "max_contact_penetration_m": 0.0007509330259395279,
+      "max_normal_contact_force_n": 53.119198774251245,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "detection": {
+        "detected": true,
+        "source": "rendered RGB segmentation + metric depth",
+        "ground_truth_object_pose_used": false,
+        "center_world_m": [
+          0.39567629491273126,
+          0.012152856394270568,
+          0.6215706483760934
+        ],
+        "top_surface_z_m": 0.6420706483760934,
+        "bbox_pixels": [
+          299,
+          220,
+          25,
+          29
+        ],
+        "orange_pixels": 578,
+        "top_surface_pixels": 215,
+        "calibration": {
+          "fx": 539.0488257370118,
+          "fy": 539.0488257370118,
+          "cx": 319.5,
+          "cy": 239.5,
+          "width": 640,
+          "height": 480,
+          "camera_world_position_m": [
+            0.76,
+            -0.9,
+            1.3
+          ],
+          "camera_world_rotation": [
+            [
+              0.9354720936771068,
+              -0.2039771050121656,
+              0.28859193090283475
+            ],
+            [
+              0.3534005686913514,
+              0.5399393956679712,
+              -0.7639198171629897
+            ],
+            [
+              0.0,
+              0.8166142232636915,
+              0.5771838618355836
+            ]
+          ]
+        },
+        "assumptions": "Known upright 41 mm orange cube; visible top surface; calibrated RGB-D camera.",
+        "known_object_size_m": 0.041
+      },
+      "estimate_error_norm_m": 0.0012791790703038251
+    }
+  ]
+}

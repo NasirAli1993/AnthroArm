@@ -1,0 +1,127 @@
+ANTHRO ARM — EIGHT-MINUTE PRESENTATION GUIDE
+Open http://127.0.0.1:8765/presentation while the local project servers run.
+Use Presentation mode for a larger reading view. This guide also supports a
+five-minute overview or a ten-minute demonstration with audience questions.
+
+BEFORE THE PRESENTATION
+Open the native CAD assembly in FreeCAD, the v3 live studio and this page.
+Keep the current version's JSON report and a recorded video available. A
+recording is a dependable presentation fallback if live rendering is slow.
+Do not connect or energize physical motors merely to demonstrate the page.
+
+0:00–1:00 — WHAT THE PROJECT IS
+“This is an editable digital humanoid arm and hand, plus a staged plan for a
+physical prototype. The v3 model uses seven arm joints and twenty finger
+joints. Those are virtual control axes, not 27 already-selected real motors.
+We can inspect the geometry, control the digital joints and read the measured
+test results. The first physical step is a single tendon-driven finger.”
+Show the actual current CAD export. Describe rounded phalanges, knuckles,
+finger lengths, thumb opposition and wrist/arm connections. If the image is
+still pending, show the native FreeCAD view; do not substitute a concept
+render and call it an assembled physical robot.
+
+1:00–2:00 — HOW THE TOOLS CONNECT
+“The parameter file supplies lengths and joint frames. A Python CAD script
+creates editable solids in FreeCAD. STEP exports solids; STL exports their
+surface triangles. Another Python layer turns bodies, joint transforms,
+mass properties and actuator limits into the MuJoCo simulation. The local
+browser displays its frames and controls. Saved JSON reports record tests.”
+Show these source groups, explaining their purpose rather than reading code:
+  design/v3/robot_spec.json — dimensions, links and joint definitions.
+  design/v3/build_reference_arm.py — generated CAD construction.
+  simulation/v3/generate_model.py — physics model generation.
+  simulation/v3/model.py — state, targets and simulation behavior.
+  simulation/v3/vision_reach.py — camera-based experiment.
+  hardware/single_finger/single_finger.ino — future UNO servo controller.
+  hardware/servo_console.py — PC serial command interface.
+Paths are relative to D:\RoboticArm. Confirm actual filenames in the project
+before opening a source file; the presentation hub links available resources.
+
+2:00–4:00 — LIVE MOTION
+Open http://127.0.0.1:8765/v3/live .
+Start with an open hand. Select one finger axis and move it a small amount.
+“This slider is a target; the displayed joint angle is the measured model
+state. Gravity, actuator effort limits and contact determine the result.”
+Show a coordinated curl, then thumb opposition. Identify the independent
+arm axes and avoid claiming a physical motor inside each rendered shape.
+Show surface, joint and collision views where those controls are available.
+“Visible shells show shape. Collision geometry computes interaction. Their
+agreement is a modeling question we inspect and test.”
+Read current validation results at /v3/results . State the model version and
+what passed or failed. The current report passes seven checks. Recorded
+tracking error below 0.01 degrees applies to the independent-axis test without
+object contact. It does not describe contact poses, where blocked targets can
+remain unmet. Numerical tracking is not a physical robot accuracy specification.
+
+4:00–5:00 — CAMERAS
+“There are two different goals. Webcam imitation maps a person's hand pose
+into joint targets. Autonomous vision estimates an object's location, plans
+a reachable movement and checks its outcome. A virtual RGB-D camera gives
+rendered color and depth in a known world. A real webcam does not directly
+give calibrated metric depth.”
+On this computer, only the ToDesk virtual camera was found. Its frames were
+distorted; live hand imitation has not been validated. The separate virtual
+RGB-D approach-and-touch experiment is recorded and validated.
+Open /v3/vision and show the actual image and detection overlay if available.
+Explain intrinsics, depth and camera-to-robot transformation with one plain
+example: a pixel location must become a position in the robot's coordinates.
+The recorded experiment uses a known upright 50 mm orange target. Three trials
+approached and touched it; position estimation was within 1.5 mm in those
+trials. The blue-target negative test held the joints with no target detected.
+Show the actual 10.05-second recording. Autonomous pickup was not demonstrated.
+
+5:00–7:00 — THE FIRST PHYSICAL FINGER
+Open docs/v3/one_finger_wiring.svg and the separate printable finger model.
+“One servo pulls one tendon, so the three finger bends are coupled. This
+bench prototype tests mechanics, current, travel and control before the
+full hand. It does not reproduce all four virtual axes of a finger.”
+Point out UNO R3 USB power, D9 signal, the dedicated fused 6 V servo supply,
+common ground and the physical motor-power stop. Explain why servo power
+cannot pass through an I/O pin or the UNO's 5 V rail.
+“The firmware starts disarmed and initially permits only 1450–1550 us around
+1500 us. Communication loss detaches pulses after 750 ms. The physical stop
+cuts motor power; software disarm alone cannot guarantee a servo releases.”
+The UNO R3 firmware compiled at 4,900 bytes flash and 314 bytes RAM; no board
+has been flashed or tested.
+Show the BOM, assembly sequence and amber input cells in the sizing sheet.
+All drive and structure selections must be checked against actual loads.
+
+7:00–8:00 — EVIDENCE, LIMITATIONS AND NEXT STEP
+“The evidence is divided by model version and test. CAD reports verify the
+geometry exported. Physics reports describe the conditions actually tested.
+The hardware plan specifies the first bench stage and exposes the choices
+still needed for a full arm. The next physical milestone is a measured,
+unloaded finger test, followed by bounded low-force contact.”
+Share the native CAD, STEP, relevant STL parts, recorded video, reports,
+assembly guide and planning workbook together. Keep filenames/version labels.
+
+FIVE-MINUTE VERSION
+Spend one minute each on geometry, code-to-physics, live movement, the camera
+distinction and the hardware/evidence boundary. Skip optional CAD history.
+
+TEN-MINUTE VERSION
+Add one minute showing a code function and its visible effect, and one minute
+reading a measurement log. Use real results, not a predicted payload claim.
+
+LIKELY QUESTIONS
+Is it a real assembled robot? No. The delivered working system is digital;
+the physical starter includes plans/code/CAD that still require parts and tests.
+Can it move every finger? Inspect the current model's independent controls
+and current validation record. Physical coupled tendons have different control.
+Does the webcam make it autonomous? Imitation follows the user. Object-driven
+autonomy also needs detection, calibrated localization, planning and verification.
+Can we manufacture the full model directly? Smooth display geometry is not a
+complete production drawing. Use the separate bench part set and verify fits;
+full-arm loads, transmissions, bearings and electronics remain to be engineered.
+How accurate is it? Quote only the current report's measured conditions.
+Numerical precision in an ideal model does not establish real-world accuracy.
+Why not install every simulator? Each tool needs a purpose. MuJoCo serves the
+current fixed-arm physics task; other tools can be added for a defined test.
+
+LOCAL VIEWING AND SHARING
+127.0.0.1 links open on this computer only. Do not present them as public links.
+For another viewer, share exported files and recordings or the packaged local
+project with its instructions. Opening an HTML overview alone does not launch
+Python, FreeCAD or a physics server. Check third-party software/model licenses
+before redistributing bundled runtimes. Do not publicly expose an unauthenticated
+motor-control server to make a presentation link.

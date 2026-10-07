@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "checks": {
+    "loaded_model": {
+      "passed": true,
+      "dof": 27,
+      "version": "3.0"
+    },
+    "vision_start": {
+      "passed": true,
+      "phase": "raise_clearance",
+      "target_estimate": [
+        0.44075570498314637,
+        -0.04084637209053656,
+        0.6260397325662792
+      ]
+    },
+    "live_frames": {
+      "passed": true,
+      "dimensions": {
+        "/frame.jpg": [
+          1000,
+          800
+        ],
+        "/vision.jpg": [
+          640,
+          480
+        ]
+      }
+    },
+    "vision_cancel_holds_targets": {
+      "passed": true,
+      "max_target_change_rad": 0.0
+    },
+    "manual_preset_cancels_vision": {
+      "passed": true
+    },
+    "reset_clears_control_modes": {
+      "passed": true
+    }
+  },
+  "physical_camera_toggled": false
+}

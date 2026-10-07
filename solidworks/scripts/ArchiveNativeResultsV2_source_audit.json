@@ -1,0 +1,13 @@
+{
+  "status": "Staged source; native execution pending",
+  "change_from_v1": "Preflight all 30 saved files; CloseAllDocuments(True), log normalized Boolean return, require GetFirstDocument() Nothing; package with unchanged allowlist payload",
+  "authorization_scope": "Parent confirms this dedicated trial session contains only our generated project documents and explicitly requests close-all to release native file locks",
+  "no_automatic_save": true,
+  "source_file_changes": false,
+  "maximum_physical_line_length": 766,
+  "macro_sha256": "1ecf7936c532fab04bb585c9524bab9fb6a07f13ce07911d2e12095cbf028ad6",
+  "references": [
+    "https://help.solidworks.com/2021/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISldWorks~CloseAllDocuments.html",
+    "https://help.solidworks.com/2018/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISldWorks~GetFirstDocument.html"
+  ]
+}

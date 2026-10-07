@@ -1,0 +1,27 @@
+{
+  "status": "SECOND OFFLINE SOURCE REVIEW ONLY; not compiler/API execution",
+  "all_checks_passed": true,
+  "source_sha256": "1777436c9a42ff47b4b53e2ec975e7e0e489e1be8bb2afe0d620d8fb151b5c11",
+  "checks": {
+    "sole_public_main": true,
+    "no_void_preference_setter_assignment": true,
+    "no_void_fix_assignment": true,
+    "no_dict_runtime_dependency": true,
+    "separate_object_null_checks": true,
+    "addcomponent5_exact_8_arguments": true,
+    "correct_newdocument_signature": true,
+    "file_units_setter": true,
+    "all_names_counts_matrices_points": true,
+    "all_procedures_closed": true,
+    "line_lengths_below_1024": true,
+    "physical_line_quotes_balanced": true,
+    "flat_package_source_identical": true
+  },
+  "remaining_runtime_prerequisites": [
+    "Actual VBA compile with SOLIDWORKS core and constants references",
+    "Assembly template configured",
+    "28 STEP siblings beside saved running macro",
+    "Native API/import/save/placement execution"
+  ],
+  "assessment": "No additional likely blocker identified; preserve early-bound source. No unsafe object And chain or void setter assignment."
+}

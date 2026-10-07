@@ -1,0 +1,169 @@
+{
+  "file": "learned_contact_grasp.webm",
+  "fps": 20,
+  "frames": 372,
+  "decoded_frames": 372,
+  "duration_s": 18.6,
+  "events": [
+    {
+      "phase": "raise",
+      "video_time_s": 0.05,
+      "simulation_time_s": 0.6500000000000005
+    },
+    {
+      "phase": "approach",
+      "video_time_s": 1.5,
+      "simulation_time_s": 2.0999999999999903
+    },
+    {
+      "phase": "descend",
+      "video_time_s": 3.5,
+      "simulation_time_s": 4.0999999999997705
+    },
+    {
+      "phase": "close",
+      "video_time_s": 5.5,
+      "simulation_time_s": 6.09999999999955
+    },
+    {
+      "phase": "lift",
+      "video_time_s": 7.3,
+      "simulation_time_s": 7.899999999999352
+    },
+    {
+      "phase": "hold",
+      "video_time_s": 9.8,
+      "simulation_time_s": 10.400000000000142
+    },
+    {
+      "phase": "lower",
+      "video_time_s": 11.3,
+      "simulation_time_s": 11.900000000000643
+    },
+    {
+      "phase": "release",
+      "video_time_s": 13.8,
+      "simulation_time_s": 14.400000000001478
+    },
+    {
+      "phase": "retreat",
+      "video_time_s": 15.6,
+      "simulation_time_s": 16.2000000000019
+    },
+    {
+      "phase": "settle",
+      "video_time_s": 17.6,
+      "simulation_time_s": 18.20000000000079
+    },
+    {
+      "phase": "complete",
+      "video_time_s": 18.6,
+      "simulation_time_s": 19.200000000000237
+    }
+  ],
+  "result": {
+    "success": true,
+    "grasp_success": true,
+    "release_success": true,
+    "phase": "complete",
+    "error": "",
+    "size_m": 0.037,
+    "mass_kg": 0.06,
+    "xy": [
+      0.4,
+      0
+    ],
+    "estimate_error_m": [
+      0,
+      0,
+      0
+    ],
+    "parameters": [
+      -0.034666666666666686,
+      0.0,
+      0.022666666666666672,
+      1.3533333333333337,
+      1.5466666666666673,
+      1.2566666666666673,
+      1.2566666666666673,
+      0.4833333333333335,
+      0.6766666666666669,
+      0.6766666666666669
+    ],
+    "object_estimate_xyz_m": [
+      0.40070773959073946,
+      -0.0011031983164123127,
+      0.6195663577725941
+    ],
+    "measured_initial_estimate_error_m": [
+      0.0007077395907394424,
+      -0.0011031983164123127,
+      0.0006748794754859455
+    ],
+    "minimum_hold_lift_m": 0.15378790444197743,
+    "hold_duration_s": 1.5,
+    "hold_hand_contact_fraction": 1.0,
+    "hold_slip_m": 0.0005652144022100252,
+    "max_effort_fraction": 1.0,
+    "max_external_force": 0.0,
+    "mean_hold_normal_force_n": 71.52361980958052,
+    "max_joint_limit_violation_rad": 0.0006385134854818482,
+    "max_contact_penetration_m": 0.0006617754733594621,
+    "max_normal_contact_force_n": 55.35485018595017,
+    "object_is_free": true,
+    "equality_constraints": 0,
+    "body_gravcomp_max": 0.0,
+    "initial_detection": {
+      "detected": true,
+      "source": "rendered RGB segmentation + metric depth",
+      "ground_truth_object_pose_used": false,
+      "center_world_m": [
+        0.40070773959073946,
+        -0.0011031983164123127,
+        0.6195663577725941
+      ],
+      "top_surface_z_m": 0.638066357772594,
+      "bbox_pixels": [
+        300,
+        226,
+        22,
+        26
+      ],
+      "orange_pixels": 470,
+      "top_surface_pixels": 180,
+      "calibration": {
+        "fx": 539.0488257370118,
+        "fy": 539.0488257370118,
+        "cx": 319.5,
+        "cy": 239.5,
+        "width": 640,
+        "height": 480,
+        "camera_world_position_m": [
+          0.76,
+          -0.9,
+          1.3
+        ],
+        "camera_world_rotation": [
+          [
+            0.9354720936771068,
+            -0.2039771050121656,
+            0.28859193090283475
+          ],
+          [
+            0.3534005686913514,
+            0.5399393956679712,
+            -0.7639198171629897
+          ],
+          [
+            0.0,
+            0.8166142232636915,
+            0.5771838618355836
+          ]
+        ]
+      },
+      "assumptions": "Known upright 37 mm orange cube; visible top surface; calibrated RGB-D camera.",
+      "known_object_size_m": 0.037
+    }
+  },
+  "source": "MuJoCo physics frames with exact V3 CAD mesh surfaces"
+}

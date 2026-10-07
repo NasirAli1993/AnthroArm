@@ -1,0 +1,40 @@
+{
+  "date_local": "2026-10-05",
+  "timezone": "Asia/Shanghai",
+  "retargeting": {
+    "geometric_flexion": "passed",
+    "joint_targets": 20,
+    "bounds_and_rate_limit": "passed"
+  },
+  "mediapipe": {
+    "official_model_loaded": true,
+    "blank_image_inference_passed": true,
+    "blank_frame_hand_count": 0,
+    "model_sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
+    "runtime_notes": "TensorFlow Lite emitted feedback tensor and projection warnings; inference completed."
+  },
+  "camera": {
+    "index": 0,
+    "backend": "DirectShow",
+    "opened": true,
+    "frame_received": true,
+    "frame_shape": [480,640,3],
+    "images_recorded": false,
+    "live_human_hand_tracking_verified": false
+  },
+  "gymnasium": {
+    "check_env": "passed",
+    "smoke_steps": 100,
+    "observation_size": 142,
+    "action_size": 25,
+    "all_rewards_finite": true,
+    "final_state_finite": true,
+    "dropped": false,
+    "final_lift_m": 3.220999855724216e-13,
+    "final_finger_object_contacts": 0,
+    "final_lift_reward": 0.0,
+    "final_success": false,
+    "notes": "Checker warns about unbounded continuous observation space; deterministic reset and step checks pass. No trained policy or learned grasp success is claimed."
+  },
+  "scope": "Virtual software interface and model-loading validation. Physical actuation, learned grasp performance and live human retargeting remain unvalidated."
+}

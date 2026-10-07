@@ -1,0 +1,29 @@
+<mujoco model="Differential drive navigation laboratory">
+<compiler angle="radian"/><option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast"/>
+<visual><global offwidth="960" offheight="720"/><headlight ambient=".5 .5 .5" diffuse=".6 .6 .6"/></visual>
+<default><geom friction="1.2 .002 .0001" condim="3" solref=".008 1"/><joint damping=".01"/></default>
+<asset><texture name="floor" type="2d" builtin="checker" width="128" height="128" rgb1=".16 .22 .25" rgb2=".19 .26 .28"/>
+<material name="floor" texture="floor" texrepeat="12 10"/></asset>
+<worldbody><light pos="0 0 5"/>
+<geom name="floor" type="plane" size="4 3 .1" material="floor"/>
+<geom name="wall_south" type="box" pos="0 -2.55 .3" size="3.1 .05 .3" rgba=".45 .55 .59 1"/>
+<geom name="wall_north" type="box" pos="0 2.55 .3" size="3.1 .05 .3" rgba=".45 .55 .59 1"/>
+<geom name="wall_west" type="box" pos="-3.05 0 .3" size=".05 2.5 .3" rgba=".45 .55 .59 1"/>
+<geom name="wall_east" type="box" pos="3.05 0 .3" size=".05 2.5 .3" rgba=".45 .55 .59 1"/>
+<geom name="obstacle_a" type="box" pos="-.55 -.25 .3" size=".35 .58 .3" rgba=".87 .56 .25 1"/>
+<geom name="obstacle_b" type="box" pos="1.25 .75 .3" size=".32 .5 .3" rgba=".36 .62 .7 1"/>
+<geom name="obstacle_c" type="cylinder" pos="-.65 1.5 .3" size=".25 .3" rgba=".57 .46 .68 1"/>
+<body name="base" pos="-2.2 -1.8 .162"><freejoint name="base_free"/>
+<geom name="chassis" type="box" size=".19 .16 .055" pos="0 0 0" mass="3" rgba=".15 .76 .63 1"/>
+<geom name="lidar_housing" type="cylinder" pos="0 0 .09" size=".055 .035" mass=".1" rgba=".07 .1 .12 1"/>
+<geom name="front_marker" type="box" pos=".15 0 .06" size=".035 .08 .009" mass=".01" rgba=".95 .94 .75 1" contype="0" conaffinity="0"/>
+<site name="lidar" pos="0 0 .12" size=".005"/>
+<body name="left_wheel" pos="0 .185 -.057"><joint name="left_wheel" type="hinge" axis="0 1 0"/>
+<geom name="left_tire" type="cylinder" quat=".70710678 .70710678 0 0" size=".105 .025" mass=".25" rgba=".05 .07 .08 1"/></body>
+<body name="right_wheel" pos="0 -.185 -.057"><joint name="right_wheel" type="hinge" axis="0 1 0"/>
+<geom name="right_tire" type="cylinder" quat=".70710678 .70710678 0 0" size=".105 .025" mass=".25" rgba=".05 .07 .08 1"/></body>
+<geom name="caster_front" type="sphere" pos=".155 0 -.12" size=".04" mass=".03" friction=".005 .001 .00001" rgba=".6 .66 .68 1"/>
+<geom name="caster_back" type="sphere" pos="-.155 0 -.12" size=".04" mass=".03" friction=".005 .001 .00001" rgba=".6 .66 .68 1"/>
+</body></worldbody>
+<actuator><velocity name="left_motor" joint="left_wheel" kv="4" forcerange="-2 2" ctrlrange="-12 12"/><velocity name="right_motor" joint="right_wheel" kv="4" forcerange="-2 2" ctrlrange="-12 12"/></actuator>
+</mujoco>

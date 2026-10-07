@@ -1,0 +1,9 @@
+PUBLICATION SNAPSHOT
+
+D:\RoboticArm_GitHub is the prepared publication snapshot. The original
+D:\RoboticArm remains the local runtime workspace and was preserved.
+Later changes in either directory do not synchronize automatically.
+
+Follow docs/SETUP.md for reproduction in a separate, correctly prepared
+environment. Do not run the publication copy beside the original as an
+arbitrary-path portability test; preserved scripts can target D:\RoboticArm.

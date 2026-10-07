@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-07",
+  "method": "Observed browser UI interactions through browser automation controls",
+  "dashboard_url": "http://127.0.0.1:8770/",
+  "checks": {
+    "results_metrics_loaded": {"passed": true, "observed": "27 axes; 10/10 grasp; 7/7 navigation; 6/6 camera"},
+    "live_arm_reset": {"passed": true, "observed": "Reset accepted; simulation time rewound to 0.6 s"},
+    "live_camera_grasp": {"passed": true, "observed": "Experiment accepted; stage complete; task idle"},
+    "live_mobile_reset": {"passed": true, "observed": "Reset accepted"},
+    "live_mobile_mission": {"passed": true, "observed": "succeeded; 7/7 goals; 0 obstacle contact steps"},
+    "presentation_video_playback": {"passed": true, "duration_seconds": 28.9, "observed_playback_seconds": 11.607097, "paused": false, "ready_state": 4, "media_error": null},
+    "visual_review": {"passed": true, "observed": "Results page, live-control layout and combined-mission presentation inspected as rendered screenshots"}
+  },
+  "scope": "UI operation and playback checks. Physical success metrics are in the independent physics and ROS reports.",
+  "passed": true
+}

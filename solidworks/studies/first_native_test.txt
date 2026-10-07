@@ -1,0 +1,92 @@
+FIRST NATIVE SOLIDWORKS TEST: ISOLATED INDEX DIP
+Prepared 2026-10-06 | STATUS: NOT_EXECUTED
+This is a proposed kinematic import/mate/animation smoke test. It is not a
+SOLIDWORKS result, physical motor test, torque test, or full-arm validation.
+The existing native_results_ledger.json is preserved; do not regenerate it.
+
+EXACT INPUT FILES
+D:\RoboticArm\solidworks\transfer\links\index_intermediate.step  (12 solids)
+D:\RoboticArm\solidworks\transfer\links\index_distal.step        (10 solids)
+Source frames/limits:
+D:\RoboticArm\solidworks\transfer\assembly_manifest.json
+
+IMPORT AND SAVE
+1. Use file-specified units: millimetres. Import each link as ONE multibody part,
+   preserving its origin. Do not split the 12 or 10 bodies into individual parts.
+   Check Import Diagnostics and actual solid count. A graphics body is not a
+   successful editable solid import. Save separate index_intermediate.SLDPRT and
+   index_distal.SLDPRT files in the trial workspace.
+2. Create DIP_smoke_test.SLDASM. Insert intermediate at assembly origin and fix
+   it. Insert distal, float it, and give it the same orientation with its origin
+   at [0,0,24] mm in the intermediate frame. This isolated test deliberately uses
+   an easy local frame; do not apply the full-arm shoulder/world transform here.
+
+DATUM AXES AND MATES
+3. Define the parent hinge axis through [0,0,24] mm parallel to +Y; define the
+   child hinge axis through its [0,0,0] origin parallel to local +Y. Reference
+   axes/3D sketch lines are preferable to guessing axes from decorative shells.
+4. Make those axes concentric, with rotation unlocked. Make the two local XZ
+   datum planes (Y=0, normal +Y) coincident to remove axial sliding. Confirm the
+   child now has only rotation about Y. Do not add a lock mate or leave it fixed.
+   Mechanical Hinge is an alternative only if the required Motion add-in is
+   available; the official Hinge documentation requires Motion for study use.
+5. Define zero as parallel parent/child +Z directions with the child extending
+   toward parent +Z. Add one named angle mate DIP_angle using suitable datum
+   planes containing the Y axis (for example, the two YZ planes). Check its
+   chosen alignment/solution with a small positive move: +Y right-hand flexion
+   moves the child's +Z direction toward parent +X. Avoid a 180-degree flip.
+   Source home = 0 degrees; permitted source range = 0..80.214091 degrees.
+   For this first driven test, do not add redundant angle/lock constraints.
+   Audit full travel limits separately once this repeatable test works.
+
+NATIVE ANIMATION DATA ENTRY
+6. In a new Motion Study, select the actual available Animation type. Name it
+   DIP_0_10_0. Keep gravity, loads, springs and contact out of this kinematic test.
+7. At time 0 s set DIP_angle to 0 degrees; at 2 s set it to 10 degrees; at 4 s
+   set it back to 0 degrees. Confirm all three angle-mate key points exist on the
+   timeline. Use continuous interpolation and Calculate/Play from Start.
+8. Run from the start twice. Independently measure the angle at 0, 2 and 4 s;
+   record actual readings, not just the values typed into the mate. Confirm no
+   unintended translation or axis tilt and no red timeline/solver failure.
+   Proposed import-test tolerance: 0.5 degrees maximum target-angle error.
+   The hinge reference point must stay at [0,0,24] mm throughout the isolated test.
+9. Save the native study/assembly and both parts. Download all dependent files to
+   D:\RoboticArm\solidworks\project\native_cloud\DIP_smoke_test\
+   Use the trial's observed export controls; its remote workspace is not D:.
+
+REQUIRED EVIDENCE
+- SOLIDWORKS product/version and selected study type.
+- Import options, 12+10 actual solid counts, units and diagnostic warnings.
+- Both native part files plus the assembly, with local file sizes/SHA256.
+- Mate tree, datum/zero definition and observed positive flexion direction.
+- Actual measured angles at 0/2/4 seconds in both runs.
+- Hinge position/no unintended sliding, solver warnings and screenshots/video.
+- Reopened checkpoint if supported. Keep the result scoped to one DIP joint.
+Record the smoke test separately from the full 8-second conservative sweep in
+joint_register.json; a successful smoke test does not complete all 27 axes.
+
+API COORDINATE WARNING IF MACROS ARE AVAILABLE
+The manifest uses column vectors p_world=R*p_local+t, with translations in mm.
+SOLIDWORKS MathTransform ArrayData stores the three transformed axes as rows,
+followed by translation and scale. For a manifest matrix M, derive the array as:
+ [M00,M10,M20, M01,M11,M21, M02,M12,M22,
+  M03/1000,M13/1000,M23/1000, 1,0,0,0]
+Transpose the rotation storage and convert translations to metres. Keep scale=1;
+the STEP import already converts its file-specified mm into SOLIDWORKS units.
+Do not scale the rotation, all geometry, or the scale field by 0.001.
+Component.Transform2 uses ROOT assembly coordinates, including for nested parts.
+Use world_from_link_home_matrix_mm for the full flat native arm; do not pass a
+parent-local matrix as a root transform. The isolated test instead uses identity
+for intermediate and translation [0,0,0.024] metres for distal.
+Verify with MathPoint.MultiplyTransform on origin and local +X/+Y/+Z test points
+before placing all 28 links. Direct Transform2 placement is not a mate or study.
+PresentationTransform changes the picture only; do not use it as geometry proof.
+
+OFFICIAL REFERENCES CHECKED
+https://help.solidworks.com/2025/english/SolidWorks/sldworks/t_reading_step_iges_acis_sw.htm?id=18.17.8
+https://help.solidworks.com/2024/English/SolidWorks/motionstudies/c_Using_Mates_Anims_SWMotion.htm
+https://help.solidworks.com/2025/english/SolidWorks/motionstudies/t_hinge_mates.htm
+https://help.solidworks.com/2019/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IMathTransform.html
+https://help.solidworks.com/2019/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IComponent2~Transform2.html
+https://help.solidworks.com/2016/english/api/sldworksapi/Transform_Point_from_Component_Space_to_Assembly_Space_Example_CSharp.htm
+https://help.solidworks.com/2025/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IComponent2~PresentationTransform.html

@@ -1,0 +1,33 @@
+{
+  "model": "Aster-25 Anatomical",
+  "sources": [
+    "06_articulation.png",
+    "07_precision.png",
+    "08_grasp.png"
+  ],
+  "precision_passed": true,
+  "seeded_grasp_phases": [
+    {
+      "phase": "1  Settle",
+      "object_z_m": 0.4326505494019325,
+      "time_s": 0.6000000000000004
+    },
+    {
+      "phase": "2  Close fingers",
+      "object_z_m": 0.4330958728865123,
+      "time_s": 2.3999999999999573
+    },
+    {
+      "phase": "3  Lift",
+      "object_z_m": 0.7265619092851621,
+      "time_s": 4.899999999999682
+    },
+    {
+      "phase": "4  Hold",
+      "object_z_m": 0.726268327347087,
+      "time_s": 6.899999999999462
+    }
+  ],
+  "lift_mm": 293.1724544605747,
+  "render_source": "Current MuJoCo CAD mesh geometry; normally hidden collision group3 omitted"
+}

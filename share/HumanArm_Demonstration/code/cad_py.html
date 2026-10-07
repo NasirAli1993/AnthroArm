@@ -1,0 +1,248 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>design/v3/build_reference_arm.py</title><style>body{margin:0;background:#0d1518;color:#dce9eb;font:14px Segoe UI,sans-serif}header{padding:23px 30px;border-bottom:1px solid #304a50;position:sticky;top:0;background:#132126}a{color:#72e0c7;margin-right:25px}h1{font:19px Segoe UI,sans-serif;margin:18px 0 8px}p{color:#abc0c6;font-size:12px}pre{font:12px/1.6 Consolas,monospace;padding:25px 30px;white-space:pre;overflow:auto}</style><header><a href="../index.html#software">Back to presentation</a><a href="cad.py" download>Download source snapshot</a><h1>design/v3/build_reference_arm.py</h1><p>Readable source snapshot from the project. This file may depend on other project files, packages and the original directory layout.</p></header><pre>&quot;&quot;&quot;V3 reference-led 27-axis humanoid arm. Run in portable FreeCAD.
+
+CAD dimensions: millimetres. Exported articulated STL coordinates: metres.
+Reference 02/03: continuous white limb fairings, exposed black round bearings.
+Reference 10: recessed finger pads, visible hinge cheeks and small fasteners.
+Engineering concept; placeholder motors, tendons and joint packages are explicit.
+&quot;&quot;&quot;
+from pathlib import Path
+import json, math, struct, traceback
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part, MeshPart
+ROOT=Path(r&#x27;D:\RoboticArm&#x27;);DESIGN=ROOT/&#x27;design&#x27;/&#x27;v3&#x27;;MESHES=DESIGN/&#x27;meshes&#x27;;RESULTS=ROOT/&#x27;results&#x27;/&#x27;v3&#x27;;STAGES=RESULTS/&#x27;design_stages&#x27;
+for path in [MESHES,STAGES]:path.mkdir(parents=True,exist_ok=True)
+V=App.Vector
+WHITE=(.87,.89,.90);BLACK=(.075,.085,.095);RUBBER=(.13,.15,.17);METAL=(.49,.53,.57);STEEL=(.70,.73,.76);COPPER=(.58,.29,.12);WIRE=(.13,.28,.34)
+spec=json.loads((DESIGN/&#x27;robot_spec.json&#x27;).read_text(encoding=&#x27;utf-8&#x27;));links={x[&#x27;name&#x27;]:x for x in spec[&#x27;links&#x27;]};places={}
+components=[];manifest=[];groups={};locals_by_name={}
+doc=App.newDocument(&#x27;AnthroArm27_ReferenceV3&#x27;);doc.Label=&#x27;ANTHRO 27 | reference-led humanoid arm&#x27;
+if hasattr(Gui.activeDocument().activeView(),&#x27;setAnimationEnabled&#x27;):Gui.activeDocument().activeView().setAnimationEnabled(False)
+for name,label in [(&#x27;Fixture&#x27;,&#x27;00 | separate shoulder mounting fixture&#x27;),(&#x27;Shoulder&#x27;,&#x27;01 | three-axis shoulder&#x27;),(&#x27;UpperArm&#x27;,&#x27;02 | continuous upper-arm shells&#x27;),(&#x27;Elbow&#x27;,&#x27;03 | circular elbow and pronation&#x27;),(&#x27;Forearm&#x27;,&#x27;04 | tapered forearm&#x27;),(&#x27;Wrist&#x27;,&#x27;05 | compact two-axis wrist&#x27;),(&#x27;Palm&#x27;,&#x27;06 | palm chassis and inset pads&#x27;),(&#x27;Fingers&#x27;,&#x27;07 | four articulated fingers&#x27;),(&#x27;Thumb&#x27;,&#x27;08 | opposable thumb&#x27;),(&#x27;Internal&#x27;,&#x27;09 | conceptual motors, cables and skeleton&#x27;),(&#x27;Reference&#x27;,&#x27;10 | dimensions and source notes&#x27;)]:
+ g=doc.addObject(&#x27;App::DocumentObjectGroup&#x27;,name);g.Label=label;groups[name]=g
+
+def log(txt):
+ with (RESULTS/&#x27;build_progress.txt&#x27;).open(&#x27;a&#x27;,encoding=&#x27;utf-8&#x27;) as f:f.write(txt+&#x27;\n&#x27;)
+ print(txt)
+def frame(name):
+ if name in places:return places[name]
+ l=links[name];parent=frame(l[&#x27;parent&#x27;]) if l.get(&#x27;parent&#x27;) else App.Placement()
+ r,p,y=[math.degrees(v) for v in l.get(&#x27;origin_rpy&#x27;,[0,0,0])]
+ rot=App.Rotation(V(0,0,1),y).multiply(App.Rotation(V(0,1,0),p)).multiply(App.Rotation(V(1,0,0),r))
+ j=l.get(&#x27;joint&#x27;) or {};rot=rot.multiply(App.Rotation(V(*j.get(&#x27;axis&#x27;,[0,0,1])),math.degrees(j.get(&#x27;home&#x27;,0))))
+ places[name]=parent.multiply(App.Placement(V(*[v*1000 for v in l.get(&#x27;origin_xyz&#x27;,[0,0,0])]),rot));return places[name]
+def ellipse(z,rx,ry,cx=0,cy=0):
+ e=Part.Ellipse(V(),max(rx,ry),min(rx,ry)).toShape()
+ if ry&gt;rx:e.rotate(V(),V(0,0,1),90)
+ e.translate(V(cx,cy,z));return Part.Wire([e])
+def loft(sections):return Part.makeLoft([ellipse(*s) for s in sections],True,False)
+def ellipsoid(rx,ry,rz,pos=(0,0,0)):
+ m=App.Matrix();m.A11=rx;m.A22=ry;m.A33=rz
+ s=Part.makeSphere(1).transformGeometry(m);s.translate(V(*pos));return s
+def cyl(r,L,pos=(0,0,0),axis=(0,0,1)):return Part.makeCylinder(r,L,V(*pos),V(*axis))
+def ring(ro,ri,L,pos=(0,0,0),axis=(0,0,1)):
+ p=V(*pos);v=V(*axis);return cyl(ro,L,pos,axis).cut(cyl(ri,L+2,tuple(p-v),axis))
+def rounded_box(dx,dy,dz,pos,r=1):
+ s=Part.makeBox(dx,dy,dz,V(*pos))
+ if r:
+  try:s=s.makeFillet(min(r,min(dx,dy,dz)/2-.05),s.Edges)
+  except Exception:pass
+ return s
+def line_cylinder(a,b,r):
+ a=V(*a);b=V(*b);return Part.makeCylinder(r,(b-a).Length,a,b-a)
+def stl(shape,path,scale=.001):
+ mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.07,AngularDeflection=.13,Relative=False)
+ with path.open(&#x27;wb&#x27;) as f:
+  f.write((&#x27;ANTHRO27 V3 &#x27;+(&#x27;METRES&#x27; if scale==.001 else &#x27;MILLIMETRES&#x27;)).encode().ljust(80,b&#x27; &#x27;));f.write(struct.pack(&#x27;&lt;I&#x27;,mesh.CountFacets))
+  for fac in mesh.Facets:
+   n=fac.Normal;pts=[c*scale for p in fac.Points for c in p];f.write(struct.pack(&#x27;&lt;12fH&#x27;,n.x,n.y,n.z,*pts,0))
+ return mesh.CountFacets
+def add(name,label,shape,link,explanation,color=WHITE,group=&#x27;Fingers&#x27;,collision=False,category=&#x27;exterior&#x27;,dims=None):
+ if shape.isNull() or not shape.isValid() or len(shape.Solids)!=1 or shape.Volume&lt;=0:raise ValueError(&#x27;Invalid single solid &#x27;+name+&#x27; solids=&#x27;+str(len(shape.Solids)))
+ o=doc.addObject(&#x27;Part::Feature&#x27;,name);o.Label=label;o.Shape=shape;o.Placement=frame(link).multiply(shape.Placement)
+ for p,value in [(&#x27;Explanation&#x27;,explanation),(&#x27;RobotLink&#x27;,link),(&#x27;Category&#x27;,category),(&#x27;ParametricSource&#x27;,str(DESIGN/&#x27;build_reference_arm.py&#x27;)),(&#x27;CoordinateFrame&#x27;,&#x27;Local +Z along limb to fingertips; +X palmar. CAD mm; mesh m.&#x27;),(&#x27;DesignStatus&#x27;,&#x27;Digital concept. Joint packages, motors, cable routing, tolerances and strength require prototype validation.&#x27;)]:
+  o.addProperty(&#x27;App::PropertyString&#x27;,p,&#x27;Component&#x27;);setattr(o,p,value)
+ j=links[link].get(&#x27;joint&#x27;) or {}
+ o.addProperty(&#x27;App::PropertyString&#x27;,&#x27;JointName&#x27;,&#x27;Kinematics&#x27;).JointName=j.get(&#x27;name&#x27;,&#x27;fixed&#x27;)
+ o.addProperty(&#x27;App::PropertyVector&#x27;,&#x27;JointAxis&#x27;,&#x27;Kinematics&#x27;).JointAxis=V(*j.get(&#x27;axis&#x27;,[0,0,0]))
+ o.addProperty(&#x27;App::PropertyString&#x27;,&#x27;JointRangeRad&#x27;,&#x27;Kinematics&#x27;).JointRangeRad=str(j.get(&#x27;range&#x27;,[]))
+ for p,v in (dims or {}).items():o.addProperty(&#x27;App::PropertyLength&#x27;,p,&#x27;Design dimensions&#x27;);setattr(o,p,v)
+ o.ViewObject.ShapeColor=color;o.ViewObject.DisplayMode=&#x27;Shaded&#x27;;o.ViewObject.Deviation=.07;o.ViewObject.AngularDeflection=8
+ groups[group].addObject(o);components.append(o);locals_by_name[name]=shape.copy()
+ path=Path(&#x27;meshes&#x27;)/(name+&#x27;.stl&#x27;);facets=stl(shape,DESIGN/path);b=shape.BoundBox
+ manifest.append(dict(name=name,cad_name=o.Name,label=label,link=link,file=path.as_posix(),rgba=list(color[:3])+[1],explanation=explanation,collision_candidate=collision,category=category,valid=True,solid_count=1,volume_mm3=shape.Volume,facets=facets,bounds_m=[b.XMin*.001,b.YMin*.001,b.ZMin*.001,b.XMax*.001,b.YMax*.001,b.ZMax*.001],dimensions_mm=dims or {}))
+ return o
+def screw(name,link,pos,r=1.5,axis=(1,0,0),group=&#x27;Fingers&#x27;):
+ h=cyl(r,.75,pos,axis);a=V(*axis);p=V(*pos)
+ # Small recessed socket makes this a mechanical fastener, not a painted dot.
+ socket=cyl(r*.40,.5,tuple(p+a*.40),axis);h=h.cut(socket)
+ return add(name,&#x27;Fastener | &#x27;+name,h,link,&#x27;Recessed-head panel fastener envelope. Thread engagement and retention are not yet specified.&#x27;,BLACK,group,False,&#x27;fastener&#x27;,{&#x27;HeadDiameter&#x27;:r*2})
+def pair_shell(prefix,link,sections,group,wall=3.5):
+ outer=loft(sections)
+ inner=[]
+ for i,row in enumerate(sections):
+  z,rx,ry,*center=row;z=z-1 if i==0 else z+1 if i==len(sections)-1 else z
+  inner.append((z,rx-wall,ry-wall,*center))
+ hollow=outer.cut(loft(inner))
+ front=hollow.common(Part.makeBox(200,300,500,V(.7,-150,-60)))
+ back=hollow.common(Part.makeBox(200,300,500,V(-200.7,-150,-60)))
+ add(prefix+&#x27;AnteriorShell&#x27;,prefix+&#x27; | anterior hollow fairing&#x27;,front,link,&#x27;Hollow smooth oval-section fairing with a 1.4 mm longitudinal service seam. The broad proximal contour tapers toward the distal joint, following references 02/03.&#x27;,WHITE,group,True,&#x27;removable_shell&#x27;,{&#x27;NominalWall&#x27;:wall})
+ add(prefix+&#x27;PosteriorShell&#x27;,prefix+&#x27; | posterior hollow fairing&#x27;,back,link,&#x27;Matching rear fairing closes the human-like limb silhouette. Remove this panel in the cutaway to inspect the conceptual internal skeleton and actuators.&#x27;,WHITE,group,True,&#x27;removable_shell&#x27;,{&#x27;NominalWall&#x27;:wall})
+ return outer
+
+log(&#x27;01 | shoulder and human arm frame contract: 7 arm + 20 hand axes.&#x27;)
+# Shoulder flange is a detachable fixture, not part of the anatomical limb.
+mount=cyl(43,12,(0,-72,0),(0,1,0)).cut(cyl(17,14,(0,-73,0),(0,1,0)))
+for x,z in [(26,26),(-26,26),(26,-26),(-26,-26)]:mount=mount.cut(cyl(3.3,14,(x,-73,z),(0,1,0)))
+add(&#x27;ShoulderMountFlange&#x27;,&#x27;Fixture | removable shoulder flange&#x27;,mount,&#x27;base_link&#x27;,&#x27;Separate four-bolt shoulder attachment flange. It is a fixture interface, not an industrial arm pedestal or a human limb segment. Mounting structure/load rating still require engineering.&#x27;,METAL,&#x27;Fixture&#x27;,False,&#x27;fixture&#x27;,{&#x27;BoltHoleDiameter&#x27;:6.6,&#x27;FlangeDiameter&#x27;:86})
+add(&#x27;ShoulderSocket&#x27;,&#x27;Shoulder | black spherical socket&#x27;,ellipsoid(49,54,49),&#x27;shoulder_abduction&#x27;,&#x27;Rounded shoulder socket establishes the proximal human silhouette. The three shoulder axes are co-located kinematically; internal bearing packaging remains conceptual.&#x27;,BLACK,&#x27;Shoulder&#x27;,True)
+for s in [-1,1]:
+ add(&#x27;ShoulderBearing&#x27;+str(s),&#x27;Shoulder | circular abduction bearing&#x27;,ring(28,18,5,(s*45,0,0),(1,0,0)),&#x27;shoulder_abduction&#x27;,&#x27;Exposed circular bearing cover marks the shoulder abduction axis, matching the black mechanical joint language of the references.&#x27;,METAL,&#x27;Shoulder&#x27;,False)
+ add(&#x27;ShoulderCap&#x27;+str(s),&#x27;Shoulder | recessed axis cap&#x27;,cyl(17,5,(s*46,0,0),(1,0,0)),&#x27;shoulder_abduction&#x27;,&#x27;Recessed shoulder-axis cover; bearing seats, seals and shaft interfaces remain conceptual.&#x27;,BLACK,&#x27;Shoulder&#x27;,False)
+add(&#x27;ShoulderFlexionGimbal&#x27;,&#x27;Shoulder | flexion gimbal ring&#x27;,ring(41,34,13,(0,-6.5,0),(0,1,0)),&#x27;shoulder_flexion&#x27;,&#x27;Second shoulder axis carrier inside the spherical joint envelope. This visible internal ring is a packaging concept, not a validated three-axis transmission.&#x27;,STEEL,&#x27;Internal&#x27;,False,&#x27;internal&#x27;)
+add(&#x27;ShoulderRotationCoupler&#x27;,&#x27;Shoulder | humeral rotation coupling&#x27;,ring(31,19,24,(0,0,15)),&#x27;upper_arm&#x27;,&#x27;Axial coupling for humeral rotation. Separates shoulder orientation from elbow flexion while continuing the limb silhouette.&#x27;,BLACK,&#x27;Shoulder&#x27;,False)
+upper_sections=[(34,30,34),(58,41,46),(112,43,49),(172,38,44),(226,30,35),(264,24,28)]
+pair_shell(&#x27;UpperArm&#x27;,&#x27;upper_arm&#x27;,upper_sections,&#x27;UpperArm&#x27;,3.5)
+for z,rx,ry in [(75,42,47),(220,31,36)]:
+ for side in [-1,1]:screw(&#x27;UpperPanelScrew_&#x27;+str(z)+&#x27;_&#x27;+str(side),&#x27;upper_arm&#x27;,(rx*.81,side*ry*.56,z),2.1,group=&#x27;UpperArm&#x27;)
+add(&#x27;HumerusCore&#x27;,&#x27;Upper arm | hollow structural spine&#x27;,ring(16,11,224,(0,0,38)),&#x27;upper_arm&#x27;,&#x27;Hollow central structural spine reserves a cable passage. This skeleton is a conceptual load path; tube section and bearings must be sized from loads.&#x27;,METAL,&#x27;Internal&#x27;,False,&#x27;internal&#x27;,{&#x27;OuterDiameter&#x27;:32,&#x27;InnerDiameter&#x27;:22})
+add(&#x27;ShoulderMotorEnvelope&#x27;,&#x27;Upper arm | shoulder-drive envelope&#x27;,cyl(23,58,(0,0,47)),&#x27;upper_arm&#x27;,&#x27;Placeholder motor/reducer packaging envelope. No supplier, torque rating or verified reducer has been selected.&#x27;,BLACK,&#x27;Internal&#x27;,False,&#x27;internal&#x27;,{&#x27;EnvelopeDiameter&#x27;:46,&#x27;EnvelopeLength&#x27;:58})
+add(&#x27;ShoulderMotorBand&#x27;,&#x27;Upper arm | winding envelope&#x27;,ring(23.3,22.8,22,(0,0,64)),&#x27;upper_arm&#x27;,&#x27;Copper-colored band distinguishes the conceptual electric motor region in the cutaway.&#x27;,COPPER,&#x27;Internal&#x27;,False,&#x27;internal&#x27;)
+add(&#x27;ElbowDriveEnvelope&#x27;,&#x27;Upper arm | elbow-drive envelope&#x27;,cyl(19,65,(0,0,170)),&#x27;upper_arm&#x27;,&#x27;Conceptual elbow drive inside the upper arm. Reduction, brake, thermal behavior and output torque remain to be engineered.&#x27;,BLACK,&#x27;Internal&#x27;,False,&#x27;internal&#x27;)
+for y in [-12,12]:add(&#x27;UpperHarness&#x27;+str(y),&#x27;Upper arm | internal harness&#x27;,line_cylinder((17,y,105),(14,y,260),1.4),&#x27;upper_arm&#x27;,&#x27;Illustrative electrical harness route inside the removable fairing. Cable flex loops through the joints are not solved.&#x27;,WIRE,&#x27;Internal&#x27;,False,&#x27;internal&#x27;)
+
+log(&#x27;02 | hollow upper-arm fairings and exposed circular elbow built.&#x27;)
+add(&#x27;ElbowBearingBarrel&#x27;,&#x27;Elbow | black circular hinge barrel&#x27;,cyl(31,64,(0,-32,0),(0,1,0)),&#x27;elbow_link&#x27;,&#x27;Exposed circular elbow hinge connects the upper-arm and forearm fairings with a recognizably human elbow silhouette. Canonical flexion axis is local Y.&#x27;,BLACK,&#x27;Elbow&#x27;,True, dims={&#x27;BearingEnvelopeDiameter&#x27;:62})
+for side in [-1,1]:
+ y=side*32
+ add(&#x27;ElbowRace&#x27;+str(side),&#x27;Elbow | concentric metal bearing race&#x27;,ring(26,21,2.5,(0,y,0),(0,1,0)),&#x27;elbow_link&#x27;,&#x27;Concentric ring makes the circular elbow axis legible; this is an external bearing cover, not a selected bearing.&#x27;,METAL,&#x27;Elbow&#x27;,False)
+ add(&#x27;ElbowHub&#x27;+str(side),&#x27;Elbow | inset output hub&#x27;,cyl(17,3,(0,y+side*.8,0),(0,1,0)),&#x27;elbow_link&#x27;,&#x27;Black inset elbow output hub with a circular service cap.&#x27;,BLACK,&#x27;Elbow&#x27;,False)
+ for ang in [0,120,240]:
+  a=math.radians(ang);screw(&#x27;ElbowBolt_&#x27;+str(side)+&#x27;_&#x27;+str(ang),&#x27;elbow_link&#x27;,(22*math.cos(a),y+side*2,22*math.sin(a)),1.5,(0,1,0),&#x27;Elbow&#x27;)
+add(&#x27;PronationBearing&#x27;,&#x27;Forearm | axial pronation bearing&#x27;,ring(27,18,23,(0,0,21)),&#x27;forearm&#x27;,&#x27;Axial bearing permits forearm pronation independently of elbow flexion. The forearm and hand roll together, as in human anatomy.&#x27;,BLACK,&#x27;Elbow&#x27;,False)
+fore_sections=[(34,26,29),(58,31,35),(99,30,34),(151,26,30),(201,21,25),(238,17,21)]
+pair_shell(&#x27;Forearm&#x27;,&#x27;forearm&#x27;,fore_sections,&#x27;Forearm&#x27;,3.0)
+for z,rx,ry in [(65,31,35),(206,20.5,24.5)]:
+ for side in [-1,1]:screw(&#x27;ForePanelScrew_&#x27;+str(z)+&#x27;_&#x27;+str(side),&#x27;forearm&#x27;,(rx*.81,side*ry*.56,z),1.7,group=&#x27;Forearm&#x27;)
+for y in [-9,9]:add(&#x27;RadiusUlnaRail&#x27;+str(y),&#x27;Forearm | structural rail&#x27;,rounded_box(8,5,198,(-4,y-2.5,37),1.3),&#x27;forearm&#x27;,&#x27;One of two internal longitudinal rails supporting the actuator trays and wrist. Conceptual radius/ulna-inspired structure; no load qualification.&#x27;,METAL,&#x27;Internal&#x27;,False,&#x27;internal&#x27;)
+for row,z in enumerate([54,86,118,150,182]):
+ for col,y in enumerate([-18,-6,6,18]):
+  i=row*4+col
+  add(&#x27;HandActuator%02d&#x27;%i,&#x27;Forearm | hand actuator envelope %02d&#x27;%(i+1),rounded_box(15,9.5,24,(-7.5,y-4.75,z),1.0),&#x27;forearm&#x27;,&#x27;One of twenty small actuator packaging envelopes for the independently controlled hand axes. This is an arrangement study; actual motors, transmissions, tendons and heat rejection are unselected.&#x27;,BLACK,&#x27;Internal&#x27;,False,&#x27;internal&#x27;,{&#x27;EnvelopeDepth&#x27;:15,&#x27;EnvelopeWidth&#x27;:9.5,&#x27;EnvelopeLength&#x27;:24})
+  add(&#x27;TendonSpool%02d&#x27;%i,&#x27;Forearm | conceptual tendon spool %02d&#x27;%(i+1),cyl(3.5,8.5,(8,y-4.25,z+20),(0,1,0)),&#x27;forearm&#x27;,&#x27;Conceptual spool marks the motor-to-tendon conversion. Twenty independent simulation actuators are not claimed to be a fabricated tendon drive.&#x27;,COPPER,&#x27;Internal&#x27;,False,&#x27;internal&#x27;)
+  add(&#x27;TendonGuide%02d&#x27;%i,&#x27;Forearm | tendon route %02d&#x27;%(i+1),line_cylinder((10,y,z+20),(10,y*.55,233),.45),&#x27;forearm&#x27;,&#x27;Illustrative tendon route to the wrist guide. Joint-crossing pulley geometry, antagonistic routing and pretension still require design.&#x27;,WIRE,&#x27;Internal&#x27;,False,&#x27;internal&#x27;)
+
+log(&#x27;03 | tapered hollow forearm, internal drive bank and slim two-axis wrist built.&#x27;)
+add(&#x27;WristFlexionBall&#x27;,&#x27;Wrist | compact flexion joint&#x27;,ellipsoid(19,22,19),&#x27;wrist_pitch&#x27;,&#x27;Compact black wrist articulation keeps the forearm-to-palm transition slim. Flexion occurs about local Y.&#x27;,BLACK,&#x27;Wrist&#x27;,True)
+add(&#x27;WristCarpalCoupler&#x27;,&#x27;Wrist | tapered carpal coupling&#x27;,loft([(9,15,18),(18,13,19),(30,11,22),(39,10.5,24)]),&#x27;wrist_pitch&#x27;,&#x27;Slim coupling transitions from the forearm to the wider, flattened palm. The next co-located hand-side axis provides radial/ulnar deviation.&#x27;,METAL,&#x27;Wrist&#x27;,False)
+for side in [-1,1]:add(&#x27;WristFlexionCap&#x27;+str(side),&#x27;Wrist | recessed flexion-axis cap&#x27;,cyl(6,2,(0,side*22,0),(0,1,0)),&#x27;wrist_pitch&#x27;,&#x27;Small circular wrist cap exposes the local Y flexion axis without a bulky industrial wrist drum.&#x27;,BLACK,&#x27;Wrist&#x27;,False)
+add(&#x27;WristDeviationSeal&#x27;,&#x27;Wrist | palm deviation seal&#x27;,loft([(-3,10.5,23),(0,11.1,24),(3,11.4,24.5)]),&#x27;palm_base&#x27;,&#x27;Dark oval seam marks the radial/ulnar deviation boundary at the palm base. Soft deformation is not simulated.&#x27;,BLACK,&#x27;Wrist&#x27;,False)
+
+def rounded_prism(dx,dy,dz,pos,r=1.2):return rounded_box(dx,dy,dz,pos,r)
+def inset(body,pocket,recess=.22):
+ pad=body.common(pocket);rest=body.cut(pocket)
+ pad.translate(V(-recess,0,0))
+ return rest,pad
+
+palm_outer=loft([(0,10.5,24,0,0),(12,12.5,28,0,2),(31,14,35,0,5),(59,14,40,0,1),(84,12,41,0,0),(98,8.5,37,0,0)])
+# A true internal cavity, plus real pad pocket and a split dorsal access panel.
+palm_cavity=loft([(8,7.3,21,0,0),(30,10.3,29,0,3),(59,10.3,34,0,0),(85,8.4,34,0,0),(92,5,30,0,0)])
+palm_hollow=palm_outer.cut(palm_cavity)
+pocket=rounded_prism(12,55,54,(7.5,-29,36),6)
+palm_cut,palm_pad=inset(palm_hollow,pocket,.25)
+front=palm_cut.common(Part.makeBox(100,160,130,V(.5,-80,-10)))
+back=palm_cut.common(Part.makeBox(100,160,130,V(-100.5,-80,-10)))
+add(&#x27;PalmAnteriorChassis&#x27;,&#x27;Palm | hollow front chassis with pad recess&#x27;,front,&#x27;palm_base&#x27;,&#x27;Asymmetric smooth palm fairing with a genuine internal cavity and recessed contact-pad pocket. The thumb-side flare integrates the thenar region into the palm body instead of using separate oval mounds.&#x27;,WHITE,&#x27;Palm&#x27;,True,&#x27;removable_shell&#x27;,{&#x27;PalmLength&#x27;:100,&#x27;PalmWidth&#x27;:84,&#x27;NominalWall&#x27;:3.5})
+add(&#x27;PalmDorsalCover&#x27;,&#x27;Palm | removable sculpted dorsal cover&#x27;,back,&#x27;palm_base&#x27;,&#x27;Sculpted white rear cover follows the palm outline and closes the internal cavity. Small perimeter fasteners distinguish the mechanical construction.&#x27;,WHITE,&#x27;Palm&#x27;,True,&#x27;removable_shell&#x27;)
+add(&#x27;PalmInsetPad&#x27;,&#x27;Palm | recessed continuous flexor pad&#x27;,palm_pad,&#x27;palm_base&#x27;,&#x27;Dark flexor pad is seated 0.25 mm below a matching CAD pocket, sharing the palm contour. Elastomer material, tactile sensing and attachment are placeholders.&#x27;,RUBBER,&#x27;Palm&#x27;,True)
+add(&#x27;PalmInternalPlate&#x27;,&#x27;Palm | internal actuator routing plate&#x27;,rounded_box(3,54,71,(-1.5,-27,17),3),&#x27;palm_base&#x27;,&#x27;Internal routing/chassis plate visible in the cutaway. Tendon terminations and electronics placement are conceptual.&#x27;,METAL,&#x27;Internal&#x27;,False,&#x27;internal&#x27;)
+for side in [-1,1]:
+ for z in [18,79]:screw(&#x27;PalmCoverScrew_&#x27;+str(side)+&#x27;_&#x27;+str(z),&#x27;palm_base&#x27;,(-11,side*25,z),1.1,(-1,0,0),&#x27;Palm&#x27;)
+for digit,y,z in [(&#x27;index&#x27;,30,100),(&#x27;middle&#x27;,10,100),(&#x27;ring&#x27;,-10,100),(&#x27;pinky&#x27;,-30,95)]:
+ add(digit+&#x27;MCPMount&#x27;,&#x27;Palm | &#x27;+digit+&#x27; MCP bearing seat&#x27;,cyl(7.6,14.5,(-7.25,y,z),(1,0,0)),&#x27;palm_base&#x27;,&#x27;Compact palm-side bearing seat supports lateral finger spread. Its circular opening makes the two-axis MCP mechanism visible.&#x27;,BLACK,&#x27;Palm&#x27;,False)
+
+def finger_length(name):
+ c=[l for l in links.values() if l.get(&#x27;parent&#x27;)==name and l.get(&#x27;origin_xyz&#x27;,[0,0,0])[2]&gt;.001]
+ if c:return max(l[&#x27;origin_xyz&#x27;][2]*1000 for l in c)
+ return {&#x27;index&#x27;:18,&#x27;middle&#x27;:20,&#x27;ring&#x27;:18,&#x27;pinky&#x27;:17,&#x27;thumb&#x27;:15}[name.split(&#x27;_&#x27;)[0]]
+def finger(link,width,depth):
+ L=finger_length(link);rx=depth/2;ry=width/2;distal=link.endswith(&#x27;distal&#x27;);group=&#x27;Thumb&#x27; if link.startswith(&#x27;thumb&#x27;) else &#x27;Fingers&#x27;
+ if distal:sections=[(1.2,rx*.86,ry*.94),(3,rx*.99,ry),(L*.42,rx,ry*.97),(L*.70,rx*.86,ry*.83),(L*.90,rx*.50,ry*.52),(L*.99,rx*.12,ry*.14),(L,.04,.05)]
+ else:sections=[(1.8,rx*.88,ry*.95),(L*.15,rx,ry),(L*.42,rx*.98,ry*.97),(L*.72,rx*.94,ry*.94),(L-1.8,rx*.87,ry*.91)]
+ body=loft(sections)
+ # Two explicit longitudinal tendon-guide bores in every phalanx envelope.
+ for x in [-2.5,2.5]:body=body.cut(cyl(.7,L+2,(x,0,-1)))
+ pL=L*(.55 if distal else .59);pY=width*.60
+ pocket=rounded_prism(9,pY,pL,(rx*.56,-pY/2,L*.49-pL/2),min(1.6,pL/5))
+ body,pad=inset(body,pocket,.23)
+ dorsal=body.common(Part.makeBox(70,70,L+10,V(-70.25,-35,-3)))
+ flexor=body.common(Part.makeBox(70,70,L+10,V(.25,-35,-3)))
+ for suffix,part,description in [(&#x27;DorsalShell&#x27;,dorsal,&#x27;Dorsal white shell panel with a central mechanical seam.&#x27;),(&#x27;FlexorShell&#x27;,flexor,&#x27;Flexor white shell panel with a true recessed pad opening.&#x27;)]:
+  add(link+suffix,link.replace(&#x27;_&#x27;,&#x27; &#x27;).title()+&#x27; | &#x27;+suffix,part,link,description+f&#x27; {L:g} mm nominal joint spacing/tip length; oval tapered cross sections, two 1.4 mm tendon-guide bores. Actuator packaging and joint-crossing tendons remain conceptual.&#x27;,WHITE,group,True,dims={&#x27;JointSpacing&#x27;:L,&#x27;Width&#x27;:width,&#x27;Depth&#x27;:depth,&#x27;TendonGuideDiameter&#x27;:1.4})
+ add(link+&#x27;InsetPad&#x27;,link.replace(&#x27;_&#x27;,&#x27; &#x27;).title()+&#x27; | recessed flexor pad&#x27;,pad,link,&#x27;Flush-contour black flexor insert seated 0.23 mm below its matching rounded rectangular pocket. Friction is modeled; soft deformation and tactile electronics are not.&#x27;,RUBBER,group,True)
+ add(link+&#x27;Core&#x27;,link.replace(&#x27;_&#x27;,&#x27; &#x27;).title()+&#x27; | internal keel&#x27;,cyl(2.7,max(3,L-7),(0,0,3.5)),link,&#x27;Dark internal keel is visible in the panel seam. Full internal phalanx structure and tendon pulleys require mechanical development.&#x27;,BLACK,&#x27;Internal&#x27;,False,&#x27;internal&#x27;)
+ # Exposed metallic hinge cheeks and real through bores flank the soft knuckle.
+ add(link+&#x27;HingeBarrel&#x27;,link.replace(&#x27;_&#x27;,&#x27; &#x27;).title()+&#x27; | root hinge barrel&#x27;,cyl(4.0,width*.61,(0,-width*.305,0),(0,1,0)).cut(cyl(1.2,width*.7,(0,-width*.35,0),(0,1,0))),link,&#x27;Root hinge barrel has a real 2.4 mm transverse pin bore. This is a mechanical hinge envelope; complete bearing fits are not qualified.&#x27;,BLACK,group,False,dims={&#x27;PinBoreDiameter&#x27;:2.4})
+ for side in [-1,1]:
+  y=side*(width*.43)
+  add(link+&#x27;Cheek&#x27;+str(side),link.replace(&#x27;_&#x27;,&#x27; &#x27;).title()+&#x27; | metal hinge cheek&#x27;,ring(3.4,1.2,1.6,(0,y,0),(0,1,0)),link,&#x27;Exposed ring-shaped hinge cheek and pin opening echo the mechanical detail in reference 10.&#x27;,METAL,group,False)
+ add(link+&#x27;Pin&#x27;,link.replace(&#x27;_&#x27;,&#x27; &#x27;).title()+&#x27; | reference hinge pin&#x27;,cyl(1.05,width+2,(0,-width/2-1,0),(0,1,0)),link,&#x27;2.1 mm diameter reference pin in the 2.4 mm concept bore. Production tolerances and retention must be tested.&#x27;,STEEL,group,False,dims={&#x27;PinDiameter&#x27;:2.1})
+ for side in [-1,1]:
+  for frac in ([.32] if distal else [.24,.75]):screw(link+&#x27;Screw_&#x27;+str(side)+&#x27;_&#x27;+str(frac),link,(rx*.80,side*ry*.57,L*frac),.58,group=group)
+ return body
+
+log(&#x27;04 | hollow palm, recessed pads and detailed finger shell panels built.&#x27;)
+for digit,w in [(&#x27;index&#x27;,17.8),(&#x27;middle&#x27;,18.2),(&#x27;ring&#x27;,17.2),(&#x27;pinky&#x27;,15.2)]:
+ add(digit+&#x27;MCPUniversal&#x27;,&#x27;Knuckle | &#x27;+digit+&#x27; spread carrier&#x27;,cyl(6.5,12,(-6,0,0),(1,0,0)),digit+&#x27;_knuckle&#x27;,&#x27;Cross-axis MCP carrier supplies independent spread plus flexion. Axes coincide at the anatomical knuckle center.&#x27;,METAL,&#x27;Fingers&#x27;,False)
+ for seg,f,d in [(&#x27;proximal&#x27;,1,14),(&#x27;intermediate&#x27;,.89,12.6),(&#x27;distal&#x27;,.82,11.8)]:finger(digit+&#x27;_&#x27;+seg,w*f,d if digit!=&#x27;pinky&#x27; else d*.90)
+add(&#x27;ThumbOppositionHub&#x27;,&#x27;Thumb | black CMC opposition hub&#x27;,cyl(11,13,(0,0,-6.5)),&#x27;thumb_opposition&#x27;,&#x27;Circular CMC hub connects the thumb directly to the flared palm side. Opposition turns the thumb plane around the canonical local -Z axis.&#x27;,BLACK,&#x27;Thumb&#x27;,False)
+add(&#x27;ThumbOppositionRing&#x27;,&#x27;Thumb | recessed CMC bearing race&#x27;,ring(10,7.5,1.5,(0,0,6)),&#x27;thumb_opposition&#x27;,&#x27;Metal CMC race identifies thumb opposition and makes the mechanical connection to the palm visible.&#x27;,METAL,&#x27;Thumb&#x27;,False)
+for seg,w,d in [(&#x27;metacarpal&#x27;,20,16),(&#x27;proximal&#x27;,18,14.4),(&#x27;distal&#x27;,17,13.8)]:finger(&#x27;thumb_&#x27;+seg,w,d)
+
+note=doc.addObject(&#x27;App::FeaturePython&#x27;,&#x27;DesignNotes&#x27;);note.Label=&#x27;READ ME | V3 design intent and engineering limits&#x27;
+note.addProperty(&#x27;App::PropertyStringList&#x27;,&#x27;Notes&#x27;,&#x27;Project&#x27;).Notes=[
+ &#x27;27 commanded axes: shoulder3, elbow1, forearm1, wrist2, hand20.&#x27;,
+ &#x27;References 02/03 guide full-limb proportions and white fairings; reference10 guides hand details.&#x27;,
+ &#x27;Every STL is the exact corresponding native solid in local body coordinates; CAD mm, simulation m.&#x27;,
+ &#x27;Hollow limb fairings, palm cavity, recessed pad pockets and tendon-guide holes are real CAD geometry.&#x27;,
+ &#x27;Internal motors, reducer bodies, spools and cables are packaging envelopes, not certified hardware.&#x27;,
+ &#x27;No strength, thermal, bearing, tendon, fabrication-fit or physical safety validation is implied.&#x27;,
+ &#x27;Select a component for Explanation, RobotLink, joint metadata and nominal dimensions.&#x27;
+];groups[&#x27;Reference&#x27;].addObject(note)
+doc.recompute()
+def visible(pred):
+ for o in components:o.ViewObject.Visibility=pred(o)
+ Gui.updateGui()
+def view(back):
+ b=V(*back);b.normalize();r=V(0,0,1).cross(b);r.normalize();u=b.cross(r)
+ Gui.activeDocument().activeView().setCameraOrientation(App.Rotation(r,u,b,&#x27;ZXY&#x27;).Q);Gui.activeDocument().activeView().fitAll()
+def hand_view(palmar=True):
+ p=frame(&#x27;palm_base&#x27;).Rotation;r=App.Rotation(V(0,1 if palmar else -1,0),V(0,0,1),V(1 if palmar else -1,0,0),&#x27;ZXY&#x27;)
+ Gui.activeDocument().activeView().setCameraOrientation(p.multiply(r).Q);Gui.activeDocument().activeView().fitAll()
+def shot(filename):
+ Gui.updateGui();Gui.activeDocument().activeView().saveImage(str(STAGES/filename),1800,1400,&#x27;White&#x27;);log(&#x27;Rendered &#x27;+filename)
+external=lambda o:o.Category!=&#x27;internal&#x27; and o.Category!=&#x27;fixture&#x27;
+visible(external);view((1.3,-2.1,.7));shot(&#x27;01_full_arm_front.png&#x27;)
+view((-1.3,2.1,.7));shot(&#x27;02_full_arm_back.png&#x27;)
+ishand=lambda o:o.RobotLink==&#x27;palm_base&#x27; or o.RobotLink.startswith((&#x27;index&#x27;,&#x27;middle&#x27;,&#x27;ring&#x27;,&#x27;pinky&#x27;,&#x27;thumb&#x27;))
+visible(lambda o:ishand(o) and o.Category!=&#x27;internal&#x27;);hand_view(True);shot(&#x27;03_hand_palmar.png&#x27;)
+hand_view(False);shot(&#x27;04_hand_dorsal.png&#x27;)
+visible(lambda o:o.Category!=&#x27;fixture&#x27; and not (&#x27;AnteriorShell&#x27; in o.Name or o.Name==&#x27;PalmAnteriorChassis&#x27; or o.Name.endswith(&#x27;FlexorShell&#x27;)));view((1.4,-2,.8));shot(&#x27;05_cutaway.png&#x27;)
+original={o.Name:o.Placement for o in components}
+visible(lambda o:o.Category!=&#x27;fixture&#x27;)
+for o in components:
+ if o.Category==&#x27;removable_shell&#x27;:
+  direction=1 if (&#x27;Anterior&#x27; in o.Name) else -1
+  delta=frame(o.RobotLink).Rotation.multVec(V(85*direction,0,0));p=o.Placement;p.Base=p.Base+delta;o.Placement=p
+view((1.3,-2.1,.7));shot(&#x27;06_exploded.png&#x27;)
+for o in components:o.Placement=original[o.Name]
+visible(lambda o:o.RobotLink in [&#x27;base_link&#x27;,&#x27;shoulder_abduction&#x27;,&#x27;shoulder_flexion&#x27;,&#x27;upper_arm&#x27;] and o.Category!=&#x27;internal&#x27;);view((1.4,-2,.8));shot(&#x27;07_shoulder.png&#x27;)
+visible(lambda o:o.RobotLink in [&#x27;elbow_link&#x27;,&#x27;forearm&#x27;] and o.Category!=&#x27;internal&#x27;);view((1.4,-2,.7));shot(&#x27;08_elbow_forearm.png&#x27;)
+visible(lambda o:o.RobotLink in [&#x27;wrist_pitch&#x27;,&#x27;palm_base&#x27;] and o.Category!=&#x27;internal&#x27;);hand_view(True);shot(&#x27;09_wrist_palm.png&#x27;)
+visible(external);view((1.3,-2.1,.7))
+doc.recompute();doc.saveAs(str(DESIGN/&#x27;AnthroArm27_ReferenceV3.FCStd&#x27;));Part.export(components,str(DESIGN/&#x27;AnthroArm27_ReferenceV3.step&#x27;))
+payload={&#x27;schema_version&#x27;:3,&#x27;mesh_units&#x27;:&#x27;m&#x27;,&#x27;cad_units&#x27;:&#x27;mm&#x27;,&#x27;spec&#x27;:&#x27;robot_spec.json&#x27;,&#x27;components&#x27;:manifest,&#x27;count&#x27;:len(manifest),&#x27;valid&#x27;:all(c[&#x27;valid&#x27;] for c in manifest),&#x27;arm_dof&#x27;:7,&#x27;hand_dof&#x27;:20,&#x27;total_dof&#x27;:27,&#x27;meshing&#x27;:{&#x27;linear_deflection_mm&#x27;:.07,&#x27;angular_deflection_rad&#x27;:.13},&#x27;references&#x27;:[&#x27;reference_02.png&#x27;,&#x27;reference_03.png&#x27;,&#x27;reference_10.png&#x27;],&#x27;limitations&#x27;:&#x27;Digital concept. Motors, tendons, transmissions and structural sizes are illustrative; not fabrication-ready or safety-certified.&#x27;}
+(DESIGN/&#x27;anatomical_manifest.json&#x27;).write_text(json.dumps(payload,indent=2),encoding=&#x27;utf-8&#x27;)
+(DESIGN/&#x27;components.txt&#x27;).write_text(&#x27;V3 COMPONENT EXPLANATIONS\n\n&#x27;+&#x27;\n\n&#x27;.join(c[&#x27;label&#x27;]+&#x27;\nLink: &#x27;+c[&#x27;link&#x27;]+&#x27;\n&#x27;+c[&#x27;explanation&#x27;] for c in manifest),encoding=&#x27;utf-8&#x27;)
+log(&#x27;V3_BUILD_COMPLETE &#x27;+str(len(manifest))+&#x27; valid solids. All files in D:\\RoboticArm\\design\\v3.&#x27;)
+</pre></html>

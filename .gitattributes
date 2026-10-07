@@ -1,0 +1,22 @@
+# Preserve exact artifact bytes and the recorded checksum provenance.
+* -text
+*.FCStd binary
+*.FCStd1 binary
+*.step binary
+*.stp binary
+*.stl binary
+*.SLDPRT binary
+*.SLDASM binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webm binary
+*.mp4 binary
+*.zip binary
+*.xlsx binary
+*.docx binary
+*.pdf binary
+*.npy binary
+*.npz binary
+*.task binary

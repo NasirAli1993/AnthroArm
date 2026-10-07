@@ -1,0 +1,33 @@
+# Generated runtime state and software downloads stay local.
+/cache/
+/downloads/
+/profile/
+/temp/
+/logs/
+/ros_logs/
+/github_preparation/
+__pycache__/
+*.py[cod]
+*.log
+*.pid
+.venv/
+venv/
+.env
+.env.*
+
+# Preserve the small reconstruction manifests, not installed environments.
+/software/*
+!/software/requirements-lock.txt
+!/software/ros2/
+/software/ros2/*
+!/software/ros2/pixi.toml
+!/software/ros2/pixi.lock
+!/software/ros2/.pixi/
+/software/ros2/.pixi/*
+!/software/ros2/.pixi/config.toml
+!/software/python/
+/software/python/*
+!/software/python/python312._pth
+
+# Obtain pinned weights through integration/download_vlm.py.
+/models/SmolVLM-256M-Instruct/model.safetensors

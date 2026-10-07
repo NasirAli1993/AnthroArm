@@ -1,0 +1,3429 @@
+{
+  "name": "Aster-25",
+  "version": "1.0",
+  "units": {
+    "length": "m",
+    "angle": "rad",
+    "mass": "kg"
+  },
+  "description": "Fixed-base five-axis arm with twenty independently actuated hand joints. Concept design with physically simulated rigid bodies; hardware engineering remains unvalidated.",
+  "arm_dof": 5,
+  "hand_dof": 20,
+  "total_dof": 25,
+  "hand_length_m": 0.19,
+  "arm_lengths_m": [
+    0.3,
+    0.25
+  ],
+  "palm_dimensions_m": [
+    0.032,
+    0.084,
+    0.1
+  ],
+  "finger_lengths_m": {
+    "index": [
+      0.04,
+      0.024,
+      0.018
+    ],
+    "middle": [
+      0.045,
+      0.025,
+      0.02
+    ],
+    "ring": [
+      0.04,
+      0.024,
+      0.018
+    ],
+    "pinky": [
+      0.033,
+      0.02,
+      0.017
+    ]
+  },
+  "thumb_lengths_m": [
+    0.03,
+    0.02,
+    0.015
+  ],
+  "coordinate_convention": "Right handed; local +Z along each link; palm +X palmar; +Y index/thumb side. Joint origins are parent-local; origin_rpy fixed XYZ roll pitch yaw.",
+  "links": [
+    {
+      "name": "base_link",
+      "parent": null,
+      "origin_xyz": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": null,
+      "mass": 3,
+      "com": [
+        0,
+        0,
+        0.04
+      ],
+      "inertia": [
+        0.016,
+        0.016,
+        0.028800000000000003
+      ],
+      "geoms": [
+        {
+          "name": "base_plate",
+          "type": "cylinder",
+          "size": [
+            0.12,
+            0.04
+          ],
+          "pos": [
+            0,
+            0,
+            0.04
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "base_trim",
+          "type": "cylinder",
+          "size": [
+            0.105,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0.086
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Bench-mounted base; conceptual plate requires bolts to a rigid work surface."
+    },
+    {
+      "name": "waist_link",
+      "parent": "base_link",
+      "origin_xyz": [
+        0,
+        0,
+        0.08
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "joint_1_waist",
+        "label": "Waist rotation",
+        "group": "Arm",
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "range": [
+          -2.8,
+          2.8
+        ],
+        "home": 0,
+        "effort": 60,
+        "kp": 400,
+        "kv": 40,
+        "velocity": 2
+      },
+      "mass": 0.65,
+      "com": [
+        0,
+        0,
+        0.025
+      ],
+      "inertia": [
+        0.00048208333333333344,
+        0.00048208333333333344,
+        0.0006933333333333335
+      ],
+      "geoms": [
+        {
+          "name": "waist_shell",
+          "type": "cylinder",
+          "size": [
+            0.046,
+            0.024
+          ],
+          "pos": [
+            0,
+            0,
+            0.026
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": true
+        }
+      ],
+      "description": "Vertical yaw axis turns the entire arm left and right."
+    },
+    {
+      "name": "upper_arm",
+      "parent": "waist_link",
+      "origin_xyz": [
+        0,
+        0,
+        0.06
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "joint_2_shoulder",
+        "label": "Shoulder pitch",
+        "group": "Arm",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          -1.75,
+          1.75
+        ],
+        "home": 0.5,
+        "effort": 60,
+        "kp": 400,
+        "kv": 40,
+        "velocity": 2
+      },
+      "mass": 1.2,
+      "com": [
+        0,
+        0,
+        0.135
+      ],
+      "inertia": [
+        0.0092704,
+        0.0092704,
+        0.0005407999999999999
+      ],
+      "geoms": [
+        {
+          "name": "upper_arm_shell",
+          "type": "box",
+          "size": [
+            0.026,
+            0.026,
+            0.124
+          ],
+          "pos": [
+            0,
+            0,
+            0.15
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "upper_arm_spine",
+          "type": "box",
+          "size": [
+            0.005,
+            0.01924,
+            0.11699999999999999
+          ],
+          "pos": [
+            -0.028999999999999998,
+            0,
+            0.15
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "upper_arm_hub",
+          "type": "cylinder",
+          "size": [
+            0.03484,
+            0.03536
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "upper_arm_cap_a",
+          "type": "cylinder",
+          "size": [
+            0.01924,
+            0.003
+          ],
+          "pos": [
+            0,
+            -0.039360000000000006,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "upper_arm_cap_b",
+          "type": "cylinder",
+          "size": [
+            0.01924,
+            0.003
+          ],
+          "pos": [
+            0,
+            0.039360000000000006,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "300 mm upper arm transfers shoulder torque to the elbow."
+    },
+    {
+      "name": "forearm",
+      "parent": "upper_arm",
+      "origin_xyz": [
+        0,
+        0,
+        0.3
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "joint_3_elbow",
+        "label": "Elbow pitch",
+        "group": "Arm",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          -2.3,
+          2.3
+        ],
+        "home": 0.65,
+        "effort": 35,
+        "kp": 300,
+        "kv": 28,
+        "velocity": 2
+      },
+      "mass": 0.85,
+      "com": [
+        0,
+        0,
+        0.1125
+      ],
+      "inertia": [
+        0.004552033333333333,
+        0.004552033333333333,
+        0.0002499
+      ],
+      "geoms": [
+        {
+          "name": "forearm_shell",
+          "type": "box",
+          "size": [
+            0.021,
+            0.021,
+            0.099
+          ],
+          "pos": [
+            0,
+            0,
+            0.125
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "forearm_spine",
+          "type": "box",
+          "size": [
+            0.005,
+            0.01554,
+            0.092
+          ],
+          "pos": [
+            -0.024,
+            0,
+            0.125
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "forearm_hub",
+          "type": "cylinder",
+          "size": [
+            0.028140000000000002,
+            0.028560000000000006
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "forearm_cap_a",
+          "type": "cylinder",
+          "size": [
+            0.01554,
+            0.003
+          ],
+          "pos": [
+            0,
+            -0.032560000000000006,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "forearm_cap_b",
+          "type": "cylinder",
+          "size": [
+            0.01554,
+            0.003
+          ],
+          "pos": [
+            0,
+            0.032560000000000006,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "250 mm forearm extends the elbow toward the wrist."
+    },
+    {
+      "name": "wrist_link",
+      "parent": "forearm",
+      "origin_xyz": [
+        0,
+        0,
+        0.25
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "joint_4_wrist_pitch",
+        "label": "Wrist pitch",
+        "group": "Arm",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          -1.57,
+          1.57
+        ],
+        "home": -0.75,
+        "effort": 8,
+        "kp": 100,
+        "kv": 8,
+        "velocity": 2
+      },
+      "mass": 0.22,
+      "com": [
+        0,
+        0,
+        0.027
+      ],
+      "inertia": [
+        9.247333333333334e-05,
+        9.247333333333334e-05,
+        5.2946666666666666e-05
+      ],
+      "geoms": [
+        {
+          "name": "wrist_link_shell",
+          "type": "box",
+          "size": [
+            0.019,
+            0.019,
+            0.012
+          ],
+          "pos": [
+            0,
+            0,
+            0.03
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "wrist_link_spine",
+          "type": "box",
+          "size": [
+            0.005,
+            0.01406,
+            0.01
+          ],
+          "pos": [
+            -0.022,
+            0,
+            0.03
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "wrist_link_hub",
+          "type": "cylinder",
+          "size": [
+            0.02546,
+            0.025840000000000002
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "wrist_roll_shaft",
+          "type": "cylinder",
+          "size": [
+            0.016,
+            0.015
+          ],
+          "pos": [
+            0,
+            0,
+            0.05
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "wrist_link_cap_a",
+          "type": "cylinder",
+          "size": [
+            0.01406,
+            0.003
+          ],
+          "pos": [
+            0,
+            -0.029840000000000002,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "wrist_link_cap_b",
+          "type": "cylinder",
+          "size": [
+            0.01406,
+            0.003
+          ],
+          "pos": [
+            0,
+            0.029840000000000002,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Wrist pitch tilts the palm; a five-axis arm cannot independently achieve every 6D pose."
+    },
+    {
+      "name": "palm_base",
+      "parent": "wrist_link",
+      "origin_xyz": [
+        0,
+        0,
+        0.06
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "joint_5_wrist_roll",
+        "label": "Wrist roll",
+        "group": "Arm",
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "range": [
+          -2.8,
+          2.8
+        ],
+        "home": 0,
+        "effort": 5,
+        "kp": 65,
+        "kv": 5,
+        "velocity": 2
+      },
+      "mass": 0.35,
+      "com": [
+        0,
+        0,
+        0.05
+      ],
+      "inertia": [
+        0.0004974666666666667,
+        0.00032153333333333336,
+        0.00023566666666666666
+      ],
+      "geoms": [
+        {
+          "name": "palm_shell",
+          "type": "box",
+          "size": [
+            0.015,
+            0.039,
+            0.044
+          ],
+          "pos": [
+            0,
+            0,
+            0.048
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "palm_pad",
+          "type": "box",
+          "size": [
+            0.003,
+            0.032,
+            0.031
+          ],
+          "pos": [
+            0.017,
+            0,
+            0.052
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "palm_backplate",
+          "type": "box",
+          "size": [
+            0.004,
+            0.034,
+            0.035
+          ],
+          "pos": [
+            -0.018,
+            0,
+            0.047
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "palm_status",
+          "type": "box",
+          "size": [
+            0.001,
+            0.015,
+            0.0025
+          ],
+          "pos": [
+            -0.023,
+            0,
+            0.063
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.08,
+            0.74,
+            0.63,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "100 mm palm houses tendon paths and supports four finger bases and the opposable thumb. Palmar surface is +X."
+    },
+    {
+      "name": "index_knuckle",
+      "parent": "palm_base",
+      "origin_xyz": [
+        0,
+        0.03,
+        0.1
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "index_mcp_abduction",
+        "label": "Index spread",
+        "group": "Index",
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "range": [
+          -0.3,
+          0.3
+        ],
+        "home": 0,
+        "effort": 0.65,
+        "kp": 3,
+        "kv": 0.1,
+        "velocity": 5
+      },
+      "mass": 0.008,
+      "com": [
+        0,
+        0,
+        0
+      ],
+      "inertia": [
+        1.3333333333333334e-07,
+        1.3333333333333334e-07,
+        1.3333333333333334e-07
+      ],
+      "geoms": [
+        {
+          "name": "index_knuckle_bearing",
+          "type": "sphere",
+          "size": [
+            0.0065
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Co-located MCP spread carrier. Flexion hinge is at the same knuckle, not at the distal end of the proximal phalanx."
+    },
+    {
+      "name": "index_proximal",
+      "parent": "index_knuckle",
+      "origin_xyz": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "index_mcp_flexion",
+        "label": "Index MCP curl",
+        "group": "Index",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.5
+        ],
+        "home": 0,
+        "effort": 1.1,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.035,
+      "com": [
+        0,
+        0,
+        0.02
+      ],
+      "inertia": [
+        5.198229166666667e-06,
+        5.086666666666667e-06,
+        9.515625000000002e-07
+      ],
+      "geoms": [
+        {
+          "name": "index_proximal_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.00675,
+            0.016
+          ],
+          "pos": [
+            0,
+            0,
+            0.02
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "index_proximal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005805,
+            0.014
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.02
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "index_proximal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "index_proximal_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.00432,
+            0.014
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.02
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Index proximal phalanx, 40 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "index_intermediate",
+      "parent": "index_proximal",
+      "origin_xyz": [
+        0,
+        0,
+        0.04
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "index_pip",
+        "label": "Index PIP curl",
+        "group": "Index",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.7
+        ],
+        "home": 0,
+        "effort": 0.85,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.024,
+      "com": [
+        0,
+        0,
+        0.012
+      ],
+      "inertia": [
+        1.47458e-06,
+        1.44e-06,
+        6.1058e-07
+      ],
+      "geoms": [
+        {
+          "name": "index_intermediate_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.00635,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0.012
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "index_intermediate_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005461,
+            0.006
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.012
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "index_intermediate_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "index_intermediate_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.004064,
+            0.006
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.012
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Index intermediate phalanx, 24 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "index_distal",
+      "parent": "index_intermediate",
+      "origin_xyz": [
+        0,
+        0,
+        0.024
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "index_dip",
+        "label": "Index DIP curl",
+        "group": "Index",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.4
+        ],
+        "home": 0,
+        "effort": 0.55,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.016,
+      "com": [
+        0,
+        0,
+        0.009
+      ],
+      "inertia": [
+        6.208133333333332e-07,
+        6.24e-07,
+        3.808133333333333e-07
+      ],
+      "geoms": [
+        {
+          "name": "index_distal_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.0059499999999999996,
+            0.004999999999999999
+          ],
+          "pos": [
+            0,
+            0,
+            0.009
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "index_distal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005116999999999999,
+            0.002999999999999999
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.009
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.08,
+            0.74,
+            0.63,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "index_distal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "index_distal_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.0038079999999999998,
+            0.002999999999999999
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.009
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Index distal phalanx, 18 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "middle_knuckle",
+      "parent": "palm_base",
+      "origin_xyz": [
+        0,
+        0.01,
+        0.1
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "middle_mcp_abduction",
+        "label": "Middle spread",
+        "group": "Middle",
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "range": [
+          -0.3,
+          0.3
+        ],
+        "home": 0,
+        "effort": 0.65,
+        "kp": 3,
+        "kv": 0.1,
+        "velocity": 5
+      },
+      "mass": 0.008,
+      "com": [
+        0,
+        0,
+        0
+      ],
+      "inertia": [
+        1.3333333333333334e-07,
+        1.3333333333333334e-07,
+        1.3333333333333334e-07
+      ],
+      "geoms": [
+        {
+          "name": "middle_knuckle_bearing",
+          "type": "sphere",
+          "size": [
+            0.0065
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Co-located MCP spread carrier. Flexion hinge is at the same knuckle, not at the distal end of the proximal phalanx."
+    },
+    {
+      "name": "middle_proximal",
+      "parent": "middle_knuckle",
+      "origin_xyz": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "middle_mcp_flexion",
+        "label": "Middle MCP curl",
+        "group": "Middle",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.5
+        ],
+        "home": 0,
+        "effort": 1.1,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.035,
+      "com": [
+        0,
+        0,
+        0.0225
+      ],
+      "inertia": [
+        6.437812500000001e-06,
+        6.326250000000001e-06,
+        9.515625000000002e-07
+      ],
+      "geoms": [
+        {
+          "name": "middle_proximal_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.00675,
+            0.0185
+          ],
+          "pos": [
+            0,
+            0,
+            0.0225
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "middle_proximal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005805,
+            0.0165
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.0225
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "middle_proximal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "middle_proximal_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.00432,
+            0.0165
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.0225
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Middle proximal phalanx, 45 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "middle_intermediate",
+      "parent": "middle_proximal",
+      "origin_xyz": [
+        0,
+        0,
+        0.045
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "middle_pip",
+        "label": "Middle PIP curl",
+        "group": "Middle",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.7
+        ],
+        "home": 0,
+        "effort": 0.85,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.024,
+      "com": [
+        0,
+        0,
+        0.0125
+      ],
+      "inertia": [
+        1.5725800000000003e-06,
+        1.5380000000000004e-06,
+        6.1058e-07
+      ],
+      "geoms": [
+        {
+          "name": "middle_intermediate_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.00635,
+            0.0085
+          ],
+          "pos": [
+            0,
+            0,
+            0.0125
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "middle_intermediate_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005461,
+            0.006500000000000001
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.0125
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "middle_intermediate_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "middle_intermediate_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.004064,
+            0.006500000000000001
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.0125
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Middle intermediate phalanx, 25 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "middle_distal",
+      "parent": "middle_intermediate",
+      "origin_xyz": [
+        0,
+        0,
+        0.025
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "middle_dip",
+        "label": "Middle DIP curl",
+        "group": "Middle",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.4
+        ],
+        "home": 0,
+        "effort": 0.55,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.016,
+      "com": [
+        0,
+        0,
+        0.01
+      ],
+      "inertia": [
+        7.221466666666666e-07,
+        7.253333333333334e-07,
+        3.808133333333333e-07
+      ],
+      "geoms": [
+        {
+          "name": "middle_distal_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.0059499999999999996,
+            0.006
+          ],
+          "pos": [
+            0,
+            0,
+            0.01
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "middle_distal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005116999999999999,
+            0.004
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.01
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.08,
+            0.74,
+            0.63,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "middle_distal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "middle_distal_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.0038079999999999998,
+            0.004
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.01
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Middle distal phalanx, 20 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "ring_knuckle",
+      "parent": "palm_base",
+      "origin_xyz": [
+        0,
+        -0.01,
+        0.1
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "ring_mcp_abduction",
+        "label": "Ring spread",
+        "group": "Ring",
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "range": [
+          -0.3,
+          0.3
+        ],
+        "home": 0,
+        "effort": 0.65,
+        "kp": 3,
+        "kv": 0.1,
+        "velocity": 5
+      },
+      "mass": 0.008,
+      "com": [
+        0,
+        0,
+        0
+      ],
+      "inertia": [
+        1.3333333333333334e-07,
+        1.3333333333333334e-07,
+        1.3333333333333334e-07
+      ],
+      "geoms": [
+        {
+          "name": "ring_knuckle_bearing",
+          "type": "sphere",
+          "size": [
+            0.0065
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Co-located MCP spread carrier. Flexion hinge is at the same knuckle, not at the distal end of the proximal phalanx."
+    },
+    {
+      "name": "ring_proximal",
+      "parent": "ring_knuckle",
+      "origin_xyz": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "ring_mcp_flexion",
+        "label": "Ring MCP curl",
+        "group": "Ring",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.5
+        ],
+        "home": 0,
+        "effort": 1.1,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.035,
+      "com": [
+        0,
+        0,
+        0.02
+      ],
+      "inertia": [
+        5.198229166666667e-06,
+        5.086666666666667e-06,
+        9.515625000000002e-07
+      ],
+      "geoms": [
+        {
+          "name": "ring_proximal_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.00675,
+            0.016
+          ],
+          "pos": [
+            0,
+            0,
+            0.02
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "ring_proximal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005805,
+            0.014
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.02
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "ring_proximal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "ring_proximal_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.00432,
+            0.014
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.02
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Ring proximal phalanx, 40 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "ring_intermediate",
+      "parent": "ring_proximal",
+      "origin_xyz": [
+        0,
+        0,
+        0.04
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "ring_pip",
+        "label": "Ring PIP curl",
+        "group": "Ring",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.7
+        ],
+        "home": 0,
+        "effort": 0.85,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.024,
+      "com": [
+        0,
+        0,
+        0.012
+      ],
+      "inertia": [
+        1.47458e-06,
+        1.44e-06,
+        6.1058e-07
+      ],
+      "geoms": [
+        {
+          "name": "ring_intermediate_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.00635,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0.012
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "ring_intermediate_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005461,
+            0.006
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.012
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "ring_intermediate_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "ring_intermediate_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.004064,
+            0.006
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.012
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Ring intermediate phalanx, 24 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "ring_distal",
+      "parent": "ring_intermediate",
+      "origin_xyz": [
+        0,
+        0,
+        0.024
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "ring_dip",
+        "label": "Ring DIP curl",
+        "group": "Ring",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.4
+        ],
+        "home": 0,
+        "effort": 0.55,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.016,
+      "com": [
+        0,
+        0,
+        0.009
+      ],
+      "inertia": [
+        6.208133333333332e-07,
+        6.24e-07,
+        3.808133333333333e-07
+      ],
+      "geoms": [
+        {
+          "name": "ring_distal_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.0059499999999999996,
+            0.004999999999999999
+          ],
+          "pos": [
+            0,
+            0,
+            0.009
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "ring_distal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005116999999999999,
+            0.002999999999999999
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.009
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.08,
+            0.74,
+            0.63,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "ring_distal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "ring_distal_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.0038079999999999998,
+            0.002999999999999999
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.009
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Ring distal phalanx, 18 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "pinky_knuckle",
+      "parent": "palm_base",
+      "origin_xyz": [
+        0,
+        -0.03,
+        0.095
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "pinky_mcp_abduction",
+        "label": "Pinky spread",
+        "group": "Pinky",
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "range": [
+          -0.3,
+          0.3
+        ],
+        "home": 0,
+        "effort": 0.65,
+        "kp": 3,
+        "kv": 0.1,
+        "velocity": 5
+      },
+      "mass": 0.008,
+      "com": [
+        0,
+        0,
+        0
+      ],
+      "inertia": [
+        1.3333333333333334e-07,
+        1.3333333333333334e-07,
+        1.3333333333333334e-07
+      ],
+      "geoms": [
+        {
+          "name": "pinky_knuckle_bearing",
+          "type": "sphere",
+          "size": [
+            0.0065
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Co-located MCP spread carrier. Flexion hinge is at the same knuckle, not at the distal end of the proximal phalanx."
+    },
+    {
+      "name": "pinky_proximal",
+      "parent": "pinky_knuckle",
+      "origin_xyz": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "pinky_mcp_flexion",
+        "label": "Pinky MCP curl",
+        "group": "Pinky",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.5
+        ],
+        "home": 0,
+        "effort": 1.1,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.035,
+      "com": [
+        0,
+        0,
+        0.0165
+      ],
+      "inertia": [
+        3.7078125000000008e-06,
+        3.596250000000001e-06,
+        9.515625000000002e-07
+      ],
+      "geoms": [
+        {
+          "name": "pinky_proximal_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.00675,
+            0.0125
+          ],
+          "pos": [
+            0,
+            0,
+            0.0165
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "pinky_proximal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005805,
+            0.0105
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.0165
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "pinky_proximal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "pinky_proximal_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.00432,
+            0.0105
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.0165
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Pinky proximal phalanx, 33 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "pinky_intermediate",
+      "parent": "pinky_proximal",
+      "origin_xyz": [
+        0,
+        0,
+        0.033
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "pinky_pip",
+        "label": "Pinky PIP curl",
+        "group": "Pinky",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.7
+        ],
+        "home": 0,
+        "effort": 0.85,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.024,
+      "com": [
+        0,
+        0,
+        0.01
+      ],
+      "inertia": [
+        1.12258e-06,
+        1.088e-06,
+        6.1058e-07
+      ],
+      "geoms": [
+        {
+          "name": "pinky_intermediate_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.00635,
+            0.006
+          ],
+          "pos": [
+            0,
+            0,
+            0.01
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "pinky_intermediate_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005461,
+            0.004
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.01
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "pinky_intermediate_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "pinky_intermediate_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.004064,
+            0.004
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.01
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Pinky intermediate phalanx, 20 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "pinky_distal",
+      "parent": "pinky_intermediate",
+      "origin_xyz": [
+        0,
+        0,
+        0.02
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "pinky_dip",
+        "label": "Pinky DIP curl",
+        "group": "Pinky",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.4
+        ],
+        "home": 0,
+        "effort": 0.55,
+        "kp": 5,
+        "kv": 0.16,
+        "velocity": 5
+      },
+      "mass": 0.016,
+      "com": [
+        0,
+        0,
+        0.0085
+      ],
+      "inertia": [
+        5.741466666666667e-07,
+        5.773333333333334e-07,
+        3.808133333333333e-07
+      ],
+      "geoms": [
+        {
+          "name": "pinky_distal_shell",
+          "type": "box",
+          "size": [
+            0.006,
+            0.0059499999999999996,
+            0.0045000000000000005
+          ],
+          "pos": [
+            0,
+            0,
+            0.0085
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "pinky_distal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.005116999999999999,
+            0.0025000000000000005
+          ],
+          "pos": [
+            0.0075,
+            0,
+            0.0085
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.08,
+            0.74,
+            0.63,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "pinky_distal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.006,
+            0.0073
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        },
+        {
+          "name": "pinky_distal_back",
+          "type": "box",
+          "size": [
+            0.0015,
+            0.0038079999999999998,
+            0.0025000000000000005
+          ],
+          "pos": [
+            -0.007,
+            0,
+            0.0085
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Pinky distal phalanx, 17 mm hinge spacing; dark/teal pad contacts objects."
+    },
+    {
+      "name": "thumb_opposition",
+      "parent": "palm_base",
+      "origin_xyz": [
+        0,
+        0.048,
+        0.025
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "thumb_cmc_opposition",
+        "label": "Thumb opposition",
+        "group": "Thumb",
+        "axis": [
+          0,
+          0,
+          -1
+        ],
+        "range": [
+          -0.2,
+          1.6
+        ],
+        "home": 0,
+        "effort": 1.1,
+        "kp": 5,
+        "kv": 0.18,
+        "velocity": 5
+      },
+      "mass": 0.015,
+      "com": [
+        0,
+        0,
+        0
+      ],
+      "inertia": [
+        4.900000000000001e-07,
+        4.900000000000001e-07,
+        4.900000000000001e-07
+      ],
+      "geoms": [
+        {
+          "name": "thumb_cmc_bearing",
+          "type": "sphere",
+          "size": [
+            0.009
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.07,
+            0.25,
+            0.42,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Thumb CMC opposition rotates the thumb plane across the palm."
+    },
+    {
+      "name": "thumb_metacarpal",
+      "parent": "thumb_opposition",
+      "origin_xyz": [
+        0,
+        0,
+        0
+      ],
+      "origin_rpy": [
+        -0.75,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "thumb_cmc_flexion",
+        "label": "Thumb CMC flexion",
+        "group": "Thumb",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          -0.25,
+          1.3
+        ],
+        "home": 0,
+        "effort": 1,
+        "kp": 5,
+        "kv": 0.18,
+        "velocity": 5
+      },
+      "mass": 0.038,
+      "com": [
+        0,
+        0,
+        0.015
+      ],
+      "inertia": [
+        3.5624999999999998e-06,
+        3.4706666666666667e-06,
+        1.3331666666666668e-06
+      ],
+      "geoms": [
+        {
+          "name": "thumb_metacarpal_shell",
+          "type": "box",
+          "size": [
+            0.007,
+            0.0075,
+            0.011
+          ],
+          "pos": [
+            0,
+            0,
+            0.015
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "thumb_metacarpal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.006,
+            0.009999999999999998
+          ],
+          "pos": [
+            0.008,
+            0,
+            0.015
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "thumb_metacarpal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.0065,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Thumb metacarpal, 30 mm; independent flexion with an additional CMC opposition axis."
+    },
+    {
+      "name": "thumb_proximal",
+      "parent": "thumb_metacarpal",
+      "origin_xyz": [
+        0,
+        0,
+        0.03
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "thumb_mcp_flexion",
+        "label": "Thumb MCP curl",
+        "group": "Thumb",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.4
+        ],
+        "home": 0,
+        "effort": 0.7,
+        "kp": 5,
+        "kv": 0.18,
+        "velocity": 5
+      },
+      "mass": 0.026,
+      "com": [
+        0,
+        0,
+        0.01
+      ],
+      "inertia": [
+        1.3541666666666665e-06,
+        1.2913333333333334e-06,
+        9.121666666666666e-07
+      ],
+      "geoms": [
+        {
+          "name": "thumb_proximal_shell",
+          "type": "box",
+          "size": [
+            0.007,
+            0.0075,
+            0.006
+          ],
+          "pos": [
+            0,
+            0,
+            0.01
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "thumb_proximal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.006,
+            0.005
+          ],
+          "pos": [
+            0.008,
+            0,
+            0.01
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.055,
+            0.08,
+            0.11,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "thumb_proximal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.0065,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Thumb proximal, 20 mm; independent flexion with an additional CMC opposition axis."
+    },
+    {
+      "name": "thumb_distal",
+      "parent": "thumb_proximal",
+      "origin_xyz": [
+        0,
+        0,
+        0.02
+      ],
+      "origin_rpy": [
+        0,
+        0,
+        0
+      ],
+      "joint": {
+        "name": "thumb_ip",
+        "label": "Thumb IP curl",
+        "group": "Thumb",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "range": [
+          0,
+          1.4
+        ],
+        "home": 0,
+        "effort": 0.7,
+        "kp": 5,
+        "kv": 0.18,
+        "velocity": 5
+      },
+      "mass": 0.02,
+      "com": [
+        0,
+        0,
+        0.0075
+      ],
+      "inertia": [
+        7.5e-07,
+        7.016666666666667e-07,
+        7.016666666666667e-07
+      ],
+      "geoms": [
+        {
+          "name": "thumb_distal_shell",
+          "type": "box",
+          "size": [
+            0.007,
+            0.0075,
+            0.0034999999999999996
+          ],
+          "pos": [
+            0,
+            0,
+            0.0075
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.8,
+            0.86,
+            0.9,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "thumb_distal_pad",
+          "type": "box",
+          "size": [
+            0.002,
+            0.006,
+            0.0024999999999999996
+          ],
+          "pos": [
+            0.008,
+            0,
+            0.0075
+          ],
+          "rpy": [
+            0,
+            0,
+            0
+          ],
+          "rgba": [
+            0.08,
+            0.74,
+            0.63,
+            1
+          ],
+          "collision": true
+        },
+        {
+          "name": "thumb_distal_hinge",
+          "type": "cylinder",
+          "size": [
+            0.0065,
+            0.008
+          ],
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "rpy": [
+            1.5707963267948966,
+            0,
+            0
+          ],
+          "rgba": [
+            0.24,
+            0.3,
+            0.36,
+            1
+          ],
+          "collision": false
+        }
+      ],
+      "description": "Thumb distal, 15 mm; independent flexion with an additional CMC opposition axis."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "scope": "LOCAL_DUMMY_FIXTURES_ONLY_NOT_SOLIDWORKS_RESULTS",
+  "status": "THREE_LOCAL_PACKAGING_CASES_PASSED",
+  "native_execution": false,
+  "fixture_folder": "D:\\RoboticArm\\solidworks\\scripts\\packaging_tests\\DIP V4 O'Brien 20261006_175100",
+  "payload_sha256": "db7d672e10ea229f70c1744c5c61ca48daa208f46dacb31714c180a99e9a190d",
+  "archive_filenames": [
+    "index_intermediate.SLDPRT",
+    "index_distal.SLDPRT",
+    "DIP_PLACEMENT_ONLY.SLDASM",
+    "DIP_HINGE_MATED.SLDASM",
+    "DIP_DRIVEN_10DEG.SLDASM",
+    "DIP_DRIVEN_RETURN_ZERO.SLDASM",
+    "DIP_LIMITED_0_TO_80DEG.SLDASM",
+    "Native_DIP_Mate.log",
+    "native_pose_measurements.csv"
+  ],
+  "archive_sha256": "2bf4fbb7c26090983688c98abeafd5f18a0b9d39094f92cdec5c2ff876b77467",
+  "case_results": [
+    {
+      "case": "success_with_space_apostrophe_and_extra_lock_file",
+      "exit_code": 0,
+      "elapsed_seconds": 1.516,
+      "stdout": "0",
+      "stderr": ""
+    },
+    {
+      "case": "existing_zip_refused_without_overwrite",
+      "exit_code": 1,
+      "elapsed_seconds": 0.657,
+      "stdout": "1",
+      "stderr": ""
+    },
+    {
+      "case": "missing_required_assembly_refused",
+      "exit_code": 1,
+      "elapsed_seconds": 1.125,
+      "stdout": "1",
+      "stderr": ""
+    }
+  ]
+}

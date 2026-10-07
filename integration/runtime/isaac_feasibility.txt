@@ -1,0 +1,30 @@
+Isaac Sim / Isaac Lab feasibility review
+Reviewed 7 October 2026. No Isaac software or drivers were installed.
+
+Observed host: Windows 11, NVIDIA GeForce GTX 1660 Ti with 6 GB VRAM,
+approximately 15.9 GB system RAM (hardware audit already recorded by project).
+
+NVIDIA's current Isaac Sim requirements list Windows 11 or Ubuntu, 32 GB RAM,
+an RTX 4080 and 16 GB VRAM as the minimum x86-64 configuration. GPUs without
+RT cores are unsupported. This computer is below those requirements and the
+GTX 1660 Ti has no RT cores. An installation would not establish a supported
+local rendering, sensor or Isaac Lab training workflow. Headless execution is
+not a demonstrated workaround for that hardware limitation.
+
+Isaac Lab depends on a compatible Isaac Sim installation; a dedicated Python
+environment must match its selected Isaac Sim version. The official Lab pip
+guide currently illustrates Isaac Sim 5.1.0 with Python 3.11, while the current
+Sim documentation describes a newer generation. Do not mix those instructions
+or install Lab into this ROS Python 3.12 environment. Select a documented,
+mutually compatible release pair on a supported RTX workstation first.
+
+Current usable local path: MuJoCo physics and RGB-D, learned grasp controller,
+and native ROS 2 Jazzy on D:. An Isaac migration remains future work: import
+the current robot model, inspect inertias/joints/collision pairs, recreate
+camera/contact observations and action ordering, retune actuator gains for
+PhysX, validate the ROS topics/actions, then define and test the training task.
+Installing a package or copying a URDF alone does not complete that migration.
+
+Sources:
+https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html
+https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/pip_installation.html

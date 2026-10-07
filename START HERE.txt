@@ -1,0 +1,103 @@
+ANTHRO ARM - CURRENT SIMULATION RESULTS, 7 OCTOBER 2026
+
+The new software-only integration adds actual learned contact grasping,
+ROS 2 Jazzy, lidar mapping/navigation, and a continuous mounted-arm mobile
+docking/pickup experiment to the existing V3 human-shaped CAD arm.
+
+START HERE NOW
+1. Double-click D:\RoboticArm\START_SIMULATION.cmd.
+2. Open http://127.0.0.1:8770 for the results, three physics recordings,
+   live arm controls, live mapping/navigation and explanations.
+3. For a portable demonstration, extract
+   D:\RoboticArm\share\Simulation_Demo_2026-10-07.zip and open index.html.
+   This contains recorded results, not the installed live physics software.
+4. STOP_SIMULATION.ps1 stops only these integration services.
+
+VERIFIED IN THE NEW SIMULATIONS
+Learned contact grasp: 10/10 held-out trials passed.
+Actual RGB-D-guided grasp/lift/hold/set-down/release: 6/6 passed.
+ROS arm integration: all 23 checks passed, including a ROS-triggered grasp.
+Mobile navigation: 4 mapping and 3 new destination goals, no obstacle contact;
+8.0 mm localization RMSE in the tested world, with exact sensor-only replay.
+Combined wheel docking + mounted-arm pickup/release: 3/3 passed.
+Recordings use real MuJoCo simulation, free objects, bounded actuators,
+contact friction and gravity. No object attachment or lifting-force trick.
+
+SCOPE
+These are bounded simulation experiments, not a fabricated robot or a general
+commercial autonomy system. The learned policy is supervised regression for
+known upright cubes; task stages and IK are scripted. Navigation uses custom
+lidar ICP/A*, not Nav2 or visual SLAM. Combined docking uses an unobstructed
+lane, heavy base, fixed external camera and ideal base pose for arm IK.
+The local VLM recognized the cropped cube but misdescribed the full scene;
+its output does not control motion. No general VLA policy is claimed.
+Jetson hardware execution and sim-to-real transfer were not performed.
+Isaac Sim/Lab were not run: this GTX 1660 Ti lacks the supported RTX hardware.
+See integration\runtime\isaac_feasibility.txt for the official-source review.
+
+All new source, software, model downloads, caches and results are under D:\RoboticArm.
+Detailed guides: integration\grasping\README.md,
+integration\navigation\README.txt, integration\mobile_manipulation\README.txt,
+integration\runtime\README.txt and SIMULATION_RESULTS.txt.
+Raw evidence: results\integration. Existing CAD files remain design\v3.
+
+--------------------------------------------------------------------------
+EARLIER V3 CAD / APPROACH-AND-TOUCH BASELINE NOTES (PRESERVED FOR REFERENCE)
+
+Everything for this project is in D:\RoboticArm.
+The source Word document is source\requirements.docx. It is requirements/reference material, not proof that a physical robot has been built.
+
+OPEN THE CURRENT PROJECT
+1. Double-click Start Human Arm Studio.cmd.
+   Presentation: http://127.0.0.1:8765/presentation
+   Live current model: http://127.0.0.1:8766/
+   Camera-guided approach and touch: http://127.0.0.1:8766/?mode=vision
+2. Double-click Open Human Arm CAD.cmd.
+   This opens the full-arm CAD and the separate single-finger fit-test design in portable FreeCAD.
+3. Open the component tree in FreeCAD, select a part, and read its Explanation property.
+4. Start with Open, Hand detail and a selected finger in the live studio. Use Full arm for the arm axes.
+5. Use Camera-guided reach after Reset to show rendered RGB + metric depth -> detection -> inverse kinematics -> contact-limited motion.
+6. Start webcam hand control enables the real local camera for hand imitation. It sends only virtual finger commands. Stop webcam releases the camera. No webcam images are recorded.
+7. Stop Human Arm Studio.cmd stops both project simulation services.
+
+SHOW SOMEONE ELSE
+Use the presentation page's eight-minute sequence and docs\v3\presentation_guide.txt.
+Share share\HumanArm_Demonstration.zip. The recipient extracts the complete folder and opens index.html in a desktop browser. Recorded media, CAD views, source viewers and documents are local. Interactive live physics requires this project's installed runtime and server; it is not embedded in the ZIP.
+The ZIP is an exported presentation and engineering evidence package, not an application installer.
+
+CURRENT FILES
+CAD: design\v3\AnthroArm27_ReferenceV3.FCStd and .step
+Component explanations: design\v3\components.txt
+Robot description: design\v3\robot.urdf and simulation\v3\robot.xml
+CAD generator: design\v3\build_reference_arm.py
+Physics and controller: simulation\v3\model.py
+Camera perception and reach: simulation\v3\vision_reach.py
+Local camera and web service: simulation\v3\server.py
+Arduino C++ firmware: hardware\single_finger\single_finger.ino
+Explicit-port Python serial console: hardware\servo_console.py
+Actual motion recordings: results\v3\full_arm_articulation.webm and camera_autonomy.webm
+Measurement records: results\v3\validation.json and service_validation.json
+
+WHAT WAS VERIFIED
+293 CAD solids; 7 arm axes plus 20 hand axes; all 27 virtual joints independently exercised.
+Seven simulation validation checks pass. Three known-target camera tests estimate position with 1.26 to 1.40 mm error under the specified simulation conditions. A blue target is rejected and held.
+Recordings are real MuJoCo runs. They demonstrate movement and camera-guided approach/touch, not autonomous pickup.
+The single-finger Arduino sketch compiles for UNO R3: 4900 bytes program, 314 bytes RAM. It has not been uploaded to physical hardware.
+
+FIRST PHYSICAL PROTOTYPE
+design\v3\printable_finger contains the native CAD, STEP, eight millimetre STL print parts and READ_ME_FIRST.txt.
+Start with the hinge fit test; install M2 pins, route a flexor cord and elastic return, and check travel manually. Measure the actual servo mount and purchased horn before adapting the generic cradle and drum.
+docs\v3\prototype_assembly.txt explains assembly, wiring and commissioning.
+docs\v3\one_finger_wiring.svg shows D9 signal, common ground, separate 6 V motor power, fuse and physical power stop.
+docs\v3\prototype_planning.xlsx contains the starter BOM, full-arm plan and actuator sizing worksheet.
+One servo couples the three finger hinges. It does not reproduce all independent simulated finger axes.
+
+LIMITS TO EXPLAIN HONESTLY
+The full arm is a digital concept and physics model. Motors, cable shapes, inertias and effort ratings are engineering assumptions. Full-arm load-bearing structure, drives, harness, thermal performance and stopping system are not fabricated or validated.
+The starter finger has passed CAD topology/export and limited-angle interference checks, but has not been printed, fitted to a purchased servo or load-tested.
+Simulation precision is not physical accuracy. RGB-D autonomy assumes the known upright orange 50 mm cube, calibrated fixed camera and worktable. It does not demonstrate arbitrary-object recognition or autonomous grasping.
+
+VERSION HISTORY
+Earlier launchers Start Robotics Studio.cmd, Open CAD.cmd and Open Design Walkthrough.cmd still open VERSION 2. Its arm has 5 axes and should not be presented as the new 7-axis human-shaped arm.
+Version 1 remains under revisions\v1_block_prototype. Earlier files are retained for comparison.
+The current version's launchers contain Human Arm in their names.

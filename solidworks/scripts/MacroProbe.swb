@@ -1,0 +1,10 @@
+Sub main()
+Dim swApp As Object
+On Error GoTo Failed
+MsgBox "MacroProbe entry reached", 64
+Set swApp = Application.SldWorks
+MsgBox "Connected; revision " & swApp.RevisionNumber, 64
+Exit Sub
+Failed:
+MsgBox "MacroProbe error " & CStr(Err.Number) & ": " & Err.Description, 48
+End Sub

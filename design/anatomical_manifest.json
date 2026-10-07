@@ -1,0 +1,2838 @@
+{
+  "schema_version": 2,
+  "mesh_units": "m",
+  "cad_units": "mm",
+  "spec": "robot_spec.json",
+  "components": [
+    {
+      "name": "BaseFixture",
+      "label": "Base \u00b7 M8 table mounting plate",
+      "link": "base_link",
+      "file": "meshes/humanoid/BaseFixture.stl",
+      "rgba": [
+        0.0784313753247261,
+        0.10588235408067703,
+        0.12941177189350128,
+        1
+      ],
+      "explanation": "Anchors the arm to a rigid bench. Four 9 mm clearance holes on 180 mm PCD; rear service port; central cable passage. Anchoring, mass and bolt selection require structural validation.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3519252.1705427226,
+      "facets": 8980,
+      "bounds_m": [
+        -0.1199702151920711,
+        -0.11999255356697876,
+        0.0,
+        0.12,
+        0.11999255356697876,
+        0.08
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "BaseAccent",
+      "label": "Base \u00b7 removable trim ring",
+      "link": "base_link",
+      "file": "meshes/humanoid/BaseAccent.stl",
+      "rgba": [
+        0.9803921580314636,
+        0.501960813999176,
+        0.16078431904315948,
+        1
+      ],
+      "explanation": "Visual trim and cover seam around the waist stage. Does not carry the arm load.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 19415.042599184904,
+      "facets": 1044,
+      "bounds_m": [
+        -0.108,
+        -0.10797031999186013,
+        0.07805,
+        0.108,
+        0.10797031999186013,
+        0.08105
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "WaistHousing",
+      "label": "J1 \u00b7 waist actuator enclosure",
+      "link": "waist_link",
+      "file": "meshes/humanoid/WaistHousing.stl",
+      "rgba": [
+        0.10980392247438431,
+        0.239215686917305,
+        0.34117648005485535,
+        1
+      ],
+      "explanation": "Rotating waist enclosure and central cable route. Its local Z axis follows the first arm joint; bearing and actuator interfaces remain conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 308919.08881279145,
+      "facets": 840,
+      "bounds_m": [
+        -0.04597941188504116,
+        -0.04599485268327258,
+        0.0,
+        0.046,
+        0.04599485268327258,
+        0.052000000000000005
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ShoulderYokeL",
+      "label": "J2 \u00b7 shoulder yoke L",
+      "link": "waist_link",
+      "file": "meshes/humanoid/ShoulderYokeL.stl",
+      "rgba": [
+        0.7607843279838562,
+        0.8117647171020508,
+        0.8509804010391235,
+        1
+      ],
+      "explanation": "Support cheek for shoulder pivot. Bore is a placeholder for a bearing-supported output shaft; bearing seat tolerance must be designed.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 13463.241981909783,
+      "facets": 7064,
+      "bounds_m": [
+        -0.025,
+        -0.035500000000000004,
+        0.027,
+        0.025,
+        -0.0265,
+        0.062
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ShoulderYokeR",
+      "label": "J2 \u00b7 shoulder yoke R",
+      "link": "waist_link",
+      "file": "meshes/humanoid/ShoulderYokeR.stl",
+      "rgba": [
+        0.7607843279838562,
+        0.8117647171020508,
+        0.8509804010391235,
+        1
+      ],
+      "explanation": "Support cheek for shoulder pivot. Bore is a placeholder for a bearing-supported output shaft; bearing seat tolerance must be designed.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 13463.241981909776,
+      "facets": 7064,
+      "bounds_m": [
+        -0.025,
+        0.0265,
+        0.027,
+        0.025,
+        0.035500000000000004,
+        0.062
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "upperShell",
+      "label": "Upper arm \u00b7 hollow structural shell",
+      "link": "upper_arm",
+      "file": "meshes/humanoid/upperShell.stl",
+      "rgba": [
+        0.9098039269447327,
+        0.9411764740943909,
+        0.9607843160629272,
+        1
+      ],
+      "explanation": "300 mm pivot spacing. Hollow concept housing with 16 mm pivot passages and a front service recess. Wall sizing and torque load paths require analysis.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 367807.1369987568,
+      "facets": 2332,
+      "bounds_m": [
+        -0.029,
+        -0.024,
+        -0.02898726425875504,
+        0.029000000000000015,
+        0.024,
+        0.329
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "upperCover",
+      "label": "Upper arm \u00b7 service cover",
+      "link": "upper_arm",
+      "file": "meshes/humanoid/upperCover.stl",
+      "rgba": [
+        0.10980392247438431,
+        0.239215686917305,
+        0.34117648005485535,
+        1
+      ],
+      "explanation": "Removable front cover identifies cable and actuator service area. Fasteners, cable strain relief and a complete tendon spool package are not yet detailed.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 20796.15332421659,
+      "facets": 6620,
+      "bounds_m": [
+        0.024000000000000007,
+        -0.0155,
+        0.036999999999999984,
+        0.027000000000000007,
+        0.0155,
+        0.26300000000000007
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "upperRootBearingCover",
+      "label": "Upper arm \u00b7 root bearing cover",
+      "link": "upper_arm",
+      "file": "meshes/humanoid/upperRootBearingCover.stl",
+      "rgba": [
+        0.10980392247438431,
+        0.239215686917305,
+        0.34117648005485535,
+        1
+      ],
+      "explanation": "External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 6333.450789637024,
+      "facets": 840,
+      "bounds_m": [
+        -0.02299742634163629,
+        -0.028,
+        -0.02298970594252058,
+        0.02299742634163629,
+        -0.024,
+        0.023000000000000013
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "upperRootHubRing",
+      "label": "Upper arm \u00b7 root hub ring",
+      "link": "upper_arm",
+      "file": "meshes/humanoid/upperRootHubRing.stl",
+      "rgba": [
+        0.9803921580314636,
+        0.501960813999176,
+        0.16078431904315948,
+        1
+      ],
+      "explanation": "High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 263.89378290154264,
+      "facets": 840,
+      "bounds_m": [
+        -0.008998992916292461,
+        -0.029500000000000002,
+        -0.00899597189055153,
+        0.008998992916292461,
+        -0.028,
+        0.009000000000000015
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "upperTipBearingCover",
+      "label": "Upper arm \u00b7 tip bearing cover",
+      "link": "upper_arm",
+      "file": "meshes/humanoid/upperTipBearingCover.stl",
+      "rgba": [
+        0.10980392247438431,
+        0.239215686917305,
+        0.34117648005485535,
+        1
+      ],
+      "explanation": "External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 6333.450789637023,
+      "facets": 840,
+      "bounds_m": [
+        -0.02299742634163629,
+        -0.028,
+        0.27701029405747946,
+        0.02299742634163629,
+        -0.024,
+        0.323
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "upperTipHubRing",
+      "label": "Upper arm \u00b7 tip hub ring",
+      "link": "upper_arm",
+      "file": "meshes/humanoid/upperTipHubRing.stl",
+      "rgba": [
+        0.9803921580314636,
+        0.501960813999176,
+        0.16078431904315948,
+        1
+      ],
+      "explanation": "High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 263.8937829015424,
+      "facets": 840,
+      "bounds_m": [
+        -0.008998992916292461,
+        -0.029500000000000002,
+        0.2910040281094485,
+        0.008998992916292461,
+        -0.028,
+        0.309
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "forearmShell",
+      "label": "Forearm \u00b7 hollow structural shell",
+      "link": "forearm",
+      "file": "meshes/humanoid/forearmShell.stl",
+      "rgba": [
+        0.9098039269447327,
+        0.9411764740943909,
+        0.9607843160629272,
+        1
+      ],
+      "explanation": "250 mm pivot spacing. Hollow concept housing with 16 mm pivot passages and a front service recess. Wall sizing and torque load paths require analysis.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 230632.93302887905,
+      "facets": 2304,
+      "bounds_m": [
+        -0.024,
+        -0.02,
+        -0.023989460076211066,
+        0.024000000000000056,
+        0.02,
+        0.2740000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "forearmCover",
+      "label": "Forearm \u00b7 service cover",
+      "link": "forearm",
+      "file": "meshes/humanoid/forearmCover.stl",
+      "rgba": [
+        0.10980392247438431,
+        0.239215686917305,
+        0.34117648005485535,
+        1
+      ],
+      "explanation": "Removable front cover identifies cable and actuator service area. Fasteners, cable strain relief and a complete tendon spool package are not yet detailed.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 12653.356876844286,
+      "facets": 6620,
+      "bounds_m": [
+        0.019,
+        -0.0115,
+        0.032,
+        0.022,
+        0.0115,
+        0.21800000000000005
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "forearmRootBearingCover",
+      "label": "Forearm \u00b7 root bearing cover",
+      "link": "forearm",
+      "file": "meshes/humanoid/forearmRootBearingCover.stl",
+      "rgba": [
+        0.10980392247438431,
+        0.239215686917305,
+        0.34117648005485535,
+        1
+      ],
+      "explanation": "External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3757.3448136933926,
+      "facets": 840,
+      "bounds_m": [
+        -0.017997985832584922,
+        -0.024,
+        -0.01799194378110306,
+        0.017997985832584922,
+        -0.02,
+        0.018000000000000002
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "forearmRootHubRing",
+      "label": "Forearm \u00b7 root hub ring",
+      "link": "forearm",
+      "file": "meshes/humanoid/forearmRootHubRing.stl",
+      "rgba": [
+        0.9803921580314636,
+        0.501960813999176,
+        0.16078431904315948,
+        1
+      ],
+      "explanation": "High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 263.89378290154264,
+      "facets": 840,
+      "bounds_m": [
+        -0.008998992916292461,
+        -0.025500000000000005,
+        -0.00899597189055153,
+        0.008998992916292461,
+        -0.024,
+        0.009000000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "forearmTipBearingCover",
+      "label": "Forearm \u00b7 tip bearing cover",
+      "link": "forearm",
+      "file": "meshes/humanoid/forearmTipBearingCover.stl",
+      "rgba": [
+        0.10980392247438431,
+        0.239215686917305,
+        0.34117648005485535,
+        1
+      ],
+      "explanation": "External bearing cover and joint-axis marker. The orange bore ring is a visual reference, not a selected commercial bearing.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3757.3448136933935,
+      "facets": 840,
+      "bounds_m": [
+        -0.017997985832584922,
+        -0.024,
+        0.23200805621889695,
+        0.017997985832584922,
+        -0.02,
+        0.26800000000000007
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "forearmTipHubRing",
+      "label": "Forearm \u00b7 tip hub ring",
+      "link": "forearm",
+      "file": "meshes/humanoid/forearmTipHubRing.stl",
+      "rgba": [
+        0.9803921580314636,
+        0.501960813999176,
+        0.16078431904315948,
+        1
+      ],
+      "explanation": "High-contrast marker makes the simulated hinge axis visible when inspecting the mechanism.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 263.8937829015426,
+      "facets": 840,
+      "bounds_m": [
+        -0.008998992916292461,
+        -0.025500000000000005,
+        0.2410040281094485,
+        0.008998992916292461,
+        -0.024,
+        0.25900000000000006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "WristPitchHousing",
+      "label": "J4 \u00b7 wrist pitch housing",
+      "link": "wrist_link",
+      "file": "meshes/humanoid/WristPitchHousing.stl",
+      "rgba": [
+        0.10980392247438431,
+        0.239215686917305,
+        0.34117648005485535,
+        1
+      ],
+      "explanation": "60 mm wrist stage. Pitch follows the local Y axis; a through-bore reserves cable space for the hand.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 124836.80240269593,
+      "facets": 1330,
+      "bounds_m": [
+        -0.029,
+        -0.029,
+        0.0,
+        0.02900000000000003,
+        0.029,
+        0.06
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "WristRollCollar",
+      "label": "J5 \u00b7 wrist roll collar",
+      "link": "wrist_link",
+      "file": "meshes/humanoid/WristRollCollar.stl",
+      "rgba": [
+        0.9803921580314636,
+        0.501960813999176,
+        0.16078431904315948,
+        1
+      ],
+      "explanation": "Visual collar at the hand roll interface. Rotation is around the palm Z axis; a slip ring and cable turn limit must be resolved for physical construction.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3230.0599027148783,
+      "facets": 840,
+      "bounds_m": [
+        -0.03198567783307211,
+        -0.03199641925792875,
+        0.053,
+        0.032,
+        0.03199641925792875,
+        0.059000000000000004
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "WristFlexionBoot",
+      "label": "Wrist | rounded flexion joint cover",
+      "link": "wrist_link",
+      "file": "meshes/humanoid/WristFlexionBoot.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Smooth rounded external joint cover encloses the inherited forearm-to-wrist shell intersection. This visual cover represents a future flexible boot; it is excluded from rigid collision response and does not change the validated wrist articulation.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 141347.52362228886,
+      "facets": 15446,
+      "bounds_m": [
+        -0.032999999999999995,
+        -0.03098717335230171,
+        -0.033,
+        0.03299482735068505,
+        0.030987173352301705,
+        0.033
+      ],
+      "dimensions_mm": {
+        "CoverWidth": 62,
+        "CoverDepth": 66,
+        "CoverHeight": 66
+      }
+    },
+    {
+      "name": "AnatomicalPalm",
+      "label": "Palm | tapered metacarpal shell",
+      "link": "palm_base",
+      "file": "meshes/humanoid/AnatomicalPalm.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "Smooth oval-section palm widens from a 48 mm wrist to an 82\u201384 mm metacarpal span. Four rounded knuckle lobes meet the finger roots. This surface defines the human-like palm envelope; internal actuation remains conceptual.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 144689.44565477644,
+      "facets": 8400,
+      "bounds_m": [
+        -0.013999999978426434,
+        -0.0410265674681944,
+        0.0,
+        0.015253811623001434,
+        0.04104472773527387,
+        0.098
+      ],
+      "dimensions_mm": {
+        "PalmLength": 100,
+        "PalmWidth": 84,
+        "WristWidth": 48
+      }
+    },
+    {
+      "name": "IndexMetacarpalLobe",
+      "label": "Index | rounded metacarpal lobe",
+      "link": "palm_base",
+      "file": "meshes/humanoid/IndexMetacarpalLobe.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "Rounded palm-side knuckle transition joins the broad metacarpal contour to the corresponding articulated MCP carrier.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2242.116143835294,
+      "facets": 3410,
+      "bounds_m": [
+        -0.008499999999999999,
+        0.021006659268392368,
+        0.089,
+        0.008498111255650179,
+        0.03899334073160763,
+        0.10300000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "MiddleMetacarpalLobe",
+      "label": "Middle | rounded metacarpal lobe",
+      "link": "palm_base",
+      "file": "meshes/humanoid/MiddleMetacarpalLobe.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "Rounded palm-side knuckle transition joins the broad metacarpal contour to the corresponding articulated MCP carrier.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2242.116143835294,
+      "facets": 3416,
+      "bounds_m": [
+        -0.008499999999999999,
+        0.001006659268392367,
+        0.09,
+        0.008498111255650179,
+        0.018993340731607633,
+        0.10400000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "RingMetacarpalLobe",
+      "label": "Ring | rounded metacarpal lobe",
+      "link": "palm_base",
+      "file": "meshes/humanoid/RingMetacarpalLobe.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "Rounded palm-side knuckle transition joins the broad metacarpal contour to the corresponding articulated MCP carrier.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2242.116143835294,
+      "facets": 3414,
+      "bounds_m": [
+        -0.008499999999999999,
+        -0.018993340731607633,
+        0.09,
+        0.008498111255650179,
+        -0.001006659268392367,
+        0.10400000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "PinkyMetacarpalLobe",
+      "label": "Pinky | rounded metacarpal lobe",
+      "link": "palm_base",
+      "file": "meshes/humanoid/PinkyMetacarpalLobe.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "Rounded palm-side knuckle transition joins the broad metacarpal contour to the corresponding articulated MCP carrier.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2117.5541358444448,
+      "facets": 3394,
+      "bounds_m": [
+        -0.008499999999999999,
+        -0.03849371069096277,
+        0.085,
+        0.008498111255650179,
+        -0.021506289309037235,
+        0.099
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ThenarEminence",
+      "label": "Palm | rounded thenar eminence",
+      "link": "palm_base",
+      "file": "meshes/humanoid/ThenarEminence.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "The rounded muscular mound at the thumb base creates the asymmetric human palm silhouette and bridges the wrist to the thumb CMC socket. It is a rigid visual/collision envelope, not simulated muscle.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 24248.768715260703,
+      "facets": 8882,
+      "bounds_m": [
+        -0.008499999999999999,
+        0.011501113548220313,
+        0.007,
+        0.01348478285255076,
+        0.05049888645177969,
+        0.061
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "HypothenarEminence",
+      "label": "Palm | hypothenar contour",
+      "link": "palm_base",
+      "file": "meshes/humanoid/HypothenarEminence.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "A smaller rounded mound on the little-finger side completes the palm contour and provides a curved support surface.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 8704.686205478203,
+      "facets": 9754,
+      "bounds_m": [
+        3.552713678800501e-18,
+        -0.03999825828049241,
+        0.013000000000000001,
+        0.013994546458116269,
+        -0.018001741719507594,
+        0.067
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "CentralPalmPad",
+      "label": "Palm | curved compliant contact insert",
+      "link": "palm_base",
+      "file": "meshes/humanoid/CentralPalmPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Oval, softly domed palmar contact insert. Frictional contact is modeled in physics; real elastomer compliance, durometer and attachment are not yet engineered.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 6705.832336072095,
+      "facets": 16044,
+      "bounds_m": [
+        0.010199999999999999,
+        -0.02199972449759232,
+        0.038,
+        0.015789623892168238,
+        0.02199972449759232,
+        0.09
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ThenarPad",
+      "label": "Palm | curved thenar contact insert",
+      "link": "palm_base",
+      "file": "meshes/humanoid/ThenarPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Curved thumb-base contact insert follows the thenar mound, helping the palm support objects during opposition.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1870.6282729449363,
+      "facets": 12512,
+      "bounds_m": [
+        0.009700000000000002,
+        0.016500131489785484,
+        0.0165,
+        0.014284627678099245,
+        0.037499868510214515,
+        0.0535
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "DorsalPalmPanel",
+      "label": "Palm | smooth dorsal service cover",
+      "link": "palm_base",
+      "file": "meshes/humanoid/DorsalPalmPanel.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "A thin rounded dorsal service panel follows the back-of-hand contour. Production fasteners and sealing remain to be selected.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 7683.905783691004,
+      "facets": 32336,
+      "bounds_m": [
+        -0.0146,
+        -0.030999819720802107,
+        0.015,
+        -0.011414329750589597,
+        0.030999819720802093,
+        0.089
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "WristSoftSeal",
+      "label": "Wrist | soft annular transition",
+      "link": "palm_base",
+      "file": "meshes/humanoid/WristSoftSeal.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Narrow soft transition at the wrist preserves the natural palm taper while making the roll boundary visible.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 4942.354061076566,
+      "facets": 1470,
+      "bounds_m": [
+        -0.011299199569437535,
+        -0.024399907315696395,
+        -0.003,
+        0.011297659781039542,
+        0.024399999999999998,
+        0.003
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "indexMCPBall",
+      "label": "Index | rounded MCP carrier",
+      "link": "index_knuckle",
+      "file": "meshes/humanoid/indexMCPBall.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Rounded two-axis knuckle carrier supports independent finger spread and flexion at the same MCP center. Bearing/transmission hardware remains conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1717.1218225594405,
+      "facets": 3190,
+      "bounds_m": [
+        -0.007199999999999999,
+        -0.008893414723478658,
+        -0.0064,
+        0.007199982032327689,
+        0.008893414723478658,
+        0.0064
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "index_proximalShell",
+      "label": "Index Proximal | smooth tapered shell",
+      "link": "index_proximal",
+      "file": "meshes/humanoid/index_proximalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "40 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 7243.472992822001,
+      "facets": 3848,
+      "bounds_m": [
+        -0.007128948375548769,
+        -0.009131467156991962,
+        0.0007,
+        0.007128948375548753,
+        0.009132589858463247,
+        0.03935
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 40.0,
+        "NominalWidth": 17.8,
+        "NominalDepth": 14
+      }
+    },
+    {
+      "name": "index_proximalCrease",
+      "label": "Index Proximal | soft joint crease",
+      "link": "index_proximal",
+      "file": "meshes/humanoid/index_proximalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 160.83377408831032,
+      "facets": 7490,
+      "bounds_m": [
+        -0.005809835004012532,
+        -0.007926657545816706,
+        -0.00055,
+        0.0058099646897988065,
+        0.007927413380767908,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "index_proximalPin",
+      "label": "Index Proximal | hinge axis pin",
+      "link": "index_proximal",
+      "file": "meshes/humanoid/index_proximalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 61.99854562043119,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.008950000000000001,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.008950000000000001,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "index_proximalPad",
+      "label": "Index Proximal | soft curved pad",
+      "link": "index_proximal",
+      "file": "meshes/humanoid/index_proximalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 453.8746484108936,
+      "facets": 13444,
+      "bounds_m": [
+        0.004569999999999999,
+        -0.00622992198272728,
+        0.0084,
+        0.007464359176292451,
+        0.006229921982727277,
+        0.0324
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "index_intermediateShell",
+      "label": "Index Intermediate | smooth tapered shell",
+      "link": "index_intermediate",
+      "file": "meshes/humanoid/index_intermediateShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "24 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3405.1547255463156,
+      "facets": 3062,
+      "bounds_m": [
+        -0.0064350986107733115,
+        -0.008138515619483767,
+        0.0007,
+        0.006435098610773312,
+        0.008147605589693374,
+        0.023350000000000003
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 24.0,
+        "NominalWidth": 15.842,
+        "NominalDepth": 12.6
+      }
+    },
+    {
+      "name": "index_intermediateCrease",
+      "label": "Index Intermediate | soft joint crease",
+      "link": "index_intermediate",
+      "file": "meshes/humanoid/index_intermediateCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 128.74822979450528,
+      "facets": 6666,
+      "bounds_m": [
+        -0.005229867339205639,
+        -0.00705712577282758,
+        -0.00055,
+        0.0052297379753907915,
+        0.007057689369747042,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "index_intermediatePin",
+      "label": "Index Intermediate | hinge axis pin",
+      "link": "index_intermediate",
+      "file": "meshes/humanoid/index_intermediatePin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 55.216805267090166,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.007971,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.007971,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "index_intermediatePad",
+      "label": "Index Intermediate | soft curved pad",
+      "link": "index_intermediate",
+      "file": "meshes/humanoid/index_intermediatePad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 242.36906225141715,
+      "facets": 7782,
+      "bounds_m": [
+        0.003968,
+        -0.005544630564627278,
+        0.005040000000000001,
+        0.006867026933872995,
+        0.005544630564627279,
+        0.01944
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "index_distalShell",
+      "label": "Index Distal | smooth tapered shell",
+      "link": "index_distal",
+      "file": "meshes/humanoid/index_distalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "18 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1777.1633079030912,
+      "facets": 2556,
+      "bounds_m": [
+        -0.005991542474904198,
+        -0.007356469132477035,
+        0.0006500000000000001,
+        0.005991542474904209,
+        0.007357157280697891,
+        0.018000000000000002
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 18,
+        "NominalWidth": 14.596,
+        "NominalDepth": 11.8
+      }
+    },
+    {
+      "name": "index_distalCrease",
+      "label": "Index Distal | soft joint crease",
+      "link": "index_distal",
+      "file": "meshes/humanoid/index_distalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 111.05302994524506,
+      "facets": 6012,
+      "bounds_m": [
+        -0.004898444793553596,
+        -0.006503693283902028,
+        -0.00055,
+        0.00489855853502046,
+        0.006504146529663934,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "index_distalPin",
+      "label": "Index Distal | hinge axis pin",
+      "link": "index_distal",
+      "file": "meshes/humanoid/index_distalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 50.90115231496406,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.007348,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.007348,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "index_distalPad",
+      "label": "Index Distal | soft curved pad",
+      "link": "index_distal",
+      "file": "meshes/humanoid/index_distalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 189.81037796543575,
+      "facets": 6174,
+      "bounds_m": [
+        0.0036239999999999996,
+        -0.005108381000532667,
+        0.00306,
+        0.006523761249013907,
+        0.005108364988105418,
+        0.015300000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "index_distalNail",
+      "label": "Index | dorsal fingertip shield",
+      "link": "index_distal",
+      "file": "meshes/humanoid/index_distalNail.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 63.93931161542134,
+      "facets": 8876,
+      "bounds_m": [
+        -0.006768000000000001,
+        -0.0045247033371693555,
+        0.005040000000000001,
+        -0.005269275828623032,
+        0.0045247033371693555,
+        0.01404
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "middleMCPBall",
+      "label": "Middle | rounded MCP carrier",
+      "link": "middle_knuckle",
+      "file": "meshes/humanoid/middleMCPBall.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Rounded two-axis knuckle carrier supports independent finger spread and flexion at the same MCP center. Bearing/transmission hardware remains conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1755.7088298079666,
+      "facets": 3220,
+      "bounds_m": [
+        -0.007199999999999999,
+        -0.009093266739736604,
+        -0.0064,
+        0.007199982032327689,
+        0.009093266739736604,
+        0.0064
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "middle_proximalShell",
+      "label": "Middle Proximal | smooth tapered shell",
+      "link": "middle_proximal",
+      "file": "meshes/humanoid/middle_proximalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "45 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 8362.519084949694,
+      "facets": 4118,
+      "bounds_m": [
+        -0.007125692182567882,
+        -0.009334696968080971,
+        0.0007,
+        0.0071256921825678925,
+        0.00933733101778186,
+        0.04435
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 45.0,
+        "NominalWidth": 18.2,
+        "NominalDepth": 14
+      }
+    },
+    {
+      "name": "middle_proximalCrease",
+      "label": "Middle Proximal | soft joint crease",
+      "link": "middle_proximal",
+      "file": "meshes/humanoid/middle_proximalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 164.46383028216871,
+      "facets": 7532,
+      "bounds_m": [
+        -0.005809604577172601,
+        -0.008104441260078548,
+        -0.00055,
+        0.005809898764293004,
+        0.00810527683885919,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "middle_proximalPin",
+      "label": "Middle Proximal | hinge axis pin",
+      "link": "middle_proximal",
+      "file": "meshes/humanoid/middle_proximalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 63.38398798066429,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.00915,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.00915,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "middle_proximalPad",
+      "label": "Middle Proximal | soft curved pad",
+      "link": "middle_proximal",
+      "file": "meshes/humanoid/middle_proximalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 522.0833385512947,
+      "facets": 16432,
+      "bounds_m": [
+        0.004569999999999999,
+        -0.006369920229530139,
+        0.00945,
+        0.007461605968094952,
+        0.006369920229530137,
+        0.03645
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "middle_intermediateShell",
+      "label": "Middle Intermediate | smooth tapered shell",
+      "link": "middle_intermediate",
+      "file": "meshes/humanoid/middle_intermediateShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "25 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3634.8175166683613,
+      "facets": 3064,
+      "bounds_m": [
+        -0.0064331284565191426,
+        -0.008320148708961155,
+        0.0007,
+        0.0064331284565191365,
+        0.00832945628284863,
+        0.024350000000000004
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 25.0,
+        "NominalWidth": 16.198,
+        "NominalDepth": 12.6
+      }
+    },
+    {
+      "name": "middle_intermediateCrease",
+      "label": "Middle Intermediate | soft joint crease",
+      "link": "middle_intermediate",
+      "file": "meshes/humanoid/middle_intermediateCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 131.65120861235394,
+      "facets": 6812,
+      "bounds_m": [
+        -0.005229760882289527,
+        -0.007215354453506794,
+        -0.00055,
+        0.005229616309983441,
+        0.007216063074039618,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "middle_intermediatePin",
+      "label": "Middle Intermediate | hinge axis pin",
+      "link": "middle_intermediate",
+      "file": "meshes/humanoid/middle_intermediatePin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 56.44984896769762,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.008149000000000002,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.008149000000000002,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "middle_intermediatePad",
+      "label": "Middle Intermediate | soft curved pad",
+      "link": "middle_intermediate",
+      "file": "meshes/humanoid/middle_intermediatePad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 258.1412062836957,
+      "facets": 7126,
+      "bounds_m": [
+        0.003968,
+        -0.005669229004281824,
+        0.00525,
+        0.00686346881610652,
+        0.005669229004281824,
+        0.02025
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "middle_distalShell",
+      "label": "Middle Distal | smooth tapered shell",
+      "link": "middle_distal",
+      "file": "meshes/humanoid/middle_distalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "20 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2036.9394793385475,
+      "facets": 2630,
+      "bounds_m": [
+        -0.0060279630591942085,
+        -0.007548422139261723,
+        0.0006500000000000001,
+        0.006027963059194219,
+        0.007548108118558815,
+        0.02
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 20,
+        "NominalWidth": 14.923999999999998,
+        "NominalDepth": 11.8
+      }
+    },
+    {
+      "name": "middle_distalCrease",
+      "label": "Middle Distal | soft joint crease",
+      "link": "middle_distal",
+      "file": "meshes/humanoid/middle_distalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 113.55547011418616,
+      "facets": 6140,
+      "bounds_m": [
+        -0.0048978005526857556,
+        -0.0066495013253145335,
+        -0.00055,
+        0.004898405587071977,
+        0.006650081929260595,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "middle_distalPin",
+      "label": "Middle Distal | hinge axis pin",
+      "link": "middle_distal",
+      "file": "meshes/humanoid/middle_distalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 52.037215050355194,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.007511999999999999,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.007511999999999999,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "middle_distalPad",
+      "label": "Middle Distal | soft curved pad",
+      "link": "middle_distal",
+      "file": "meshes/humanoid/middle_distalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 215.63975524163106,
+      "facets": 6962,
+      "bounds_m": [
+        0.0036239999999999996,
+        -0.005223334588214713,
+        0.0033999999999999985,
+        0.006523758751634951,
+        0.005223334588214713,
+        0.017
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "middle_distalNail",
+      "label": "Middle | dorsal fingertip shield",
+      "link": "middle_distal",
+      "file": "meshes/humanoid/middle_distalNail.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 72.64016675409914,
+      "facets": 10018,
+      "bounds_m": [
+        -0.006768000000000001,
+        -0.004626382063847319,
+        0.005600000000000002,
+        -0.005271693008184334,
+        0.004626382063847318,
+        0.015600000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ringMCPBall",
+      "label": "Ring | rounded MCP carrier",
+      "link": "ring_knuckle",
+      "file": "meshes/humanoid/ringMCPBall.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Rounded two-axis knuckle carrier supports independent finger spread and flexion at the same MCP center. Bearing/transmission hardware remains conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1659.24131168665,
+      "facets": 3298,
+      "bounds_m": [
+        -0.007199999999999999,
+        -0.008593636699091736,
+        -0.0064,
+        0.007199982032327689,
+        0.008593636699091738,
+        0.0064
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ring_proximalShell",
+      "label": "Ring Proximal | smooth tapered shell",
+      "link": "ring_proximal",
+      "file": "meshes/humanoid/ring_proximalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "40 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 6999.3177949162055,
+      "facets": 4124,
+      "bounds_m": [
+        -0.007129011639814248,
+        -0.00882370059316801,
+        0.0007,
+        0.007129011639814243,
+        0.008822685361328008,
+        0.03935
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 40.0,
+        "NominalWidth": 17.2,
+        "NominalDepth": 14
+      }
+    },
+    {
+      "name": "ring_proximalCrease",
+      "label": "Ring Proximal | soft joint crease",
+      "link": "ring_proximal",
+      "file": "meshes/humanoid/ring_proximalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 155.39070772253802,
+      "facets": 7370,
+      "bounds_m": [
+        -0.005810119829104776,
+        -0.0076599720113667705,
+        -0.00055,
+        0.005810168567128125,
+        0.007660770414521956,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ring_proximalPin",
+      "label": "Ring Proximal | hinge axis pin",
+      "link": "ring_proximal",
+      "file": "meshes/humanoid/ring_proximalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 59.92038208008154,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.00865,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.00865,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "ring_proximalPad",
+      "label": "Ring Proximal | soft curved pad",
+      "link": "ring_proximal",
+      "file": "meshes/humanoid/ring_proximalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 438.57550295884096,
+      "facets": 14488,
+      "bounds_m": [
+        0.004569999999999999,
+        -0.006019924612522988,
+        0.0084,
+        0.007464359176292451,
+        0.006019924612522987,
+        0.0324
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ring_intermediateShell",
+      "label": "Ring Intermediate | smooth tapered shell",
+      "link": "ring_intermediate",
+      "file": "meshes/humanoid/ring_intermediateShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "24 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3290.388094041985,
+      "facets": 3052,
+      "bounds_m": [
+        -0.006435267424851163,
+        -0.007864282725395437,
+        0.0007,
+        0.006435267424851162,
+        0.007872354042742266,
+        0.023350000000000003
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 24.0,
+        "NominalWidth": 15.308,
+        "NominalDepth": 12.6
+      }
+    },
+    {
+      "name": "ring_intermediateCrease",
+      "label": "Ring Intermediate | soft joint crease",
+      "link": "ring_intermediate",
+      "file": "meshes/humanoid/ring_intermediateCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 124.39508162721965,
+      "facets": 6718,
+      "bounds_m": [
+        -0.00523004286692631,
+        -0.0068196982367265315,
+        -0.00055,
+        0.005230067013591015,
+        0.006820342269969018,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ring_intermediatePin",
+      "label": "Ring Intermediate | hinge axis pin",
+      "link": "ring_intermediate",
+      "file": "meshes/humanoid/ring_intermediatePin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 53.36723971617898,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.007704,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.007704,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "ring_intermediatePad",
+      "label": "Ring Intermediate | soft curved pad",
+      "link": "ring_intermediate",
+      "file": "meshes/humanoid/ring_intermediatePad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 234.19931858002107,
+      "facets": 8712,
+      "bounds_m": [
+        0.003968,
+        -0.005357732905145461,
+        0.005040000000000001,
+        0.006867026933872995,
+        0.005357732905145459,
+        0.01944
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ring_distalShell",
+      "label": "Ring Distal | smooth tapered shell",
+      "link": "ring_distal",
+      "file": "meshes/humanoid/ring_distalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "18 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1717.2991600272876,
+      "facets": 2530,
+      "bounds_m": [
+        -0.005991856584823018,
+        -0.0071023075927713385,
+        0.0006500000000000001,
+        0.005991856584823009,
+        0.007109544087484318,
+        0.018000000000000002
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 18,
+        "NominalWidth": 14.104,
+        "NominalDepth": 11.8
+      }
+    },
+    {
+      "name": "ring_distalCrease",
+      "label": "Ring Distal | soft joint crease",
+      "link": "ring_distal",
+      "file": "meshes/humanoid/ring_distalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 107.30033585304179,
+      "facets": 6056,
+      "bounds_m": [
+        -0.004898719958152535,
+        -0.006284877544953489,
+        -0.00055,
+        0.004898612484650667,
+        0.00628537878703245,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ring_distalPin",
+      "label": "Ring Distal | hinge axis pin",
+      "link": "ring_distal",
+      "file": "meshes/humanoid/ring_distalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 49.19705821187735,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.007102,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.007102,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "ring_distalPad",
+      "label": "Ring Distal | soft curved pad",
+      "link": "ring_distal",
+      "file": "meshes/humanoid/ring_distalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 183.41227533738729,
+      "facets": 6298,
+      "bounds_m": [
+        0.0036239999999999996,
+        -0.004936183183931621,
+        0.00306,
+        0.006523761249013907,
+        0.004936183183931622,
+        0.015300000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ring_distalNail",
+      "label": "Ring | dorsal fingertip shield",
+      "link": "ring_distal",
+      "file": "meshes/humanoid/ring_distalNail.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 61.7840539205195,
+      "facets": 8802,
+      "bounds_m": [
+        -0.006768000000000001,
+        -0.00437218524715241,
+        0.005040000000000001,
+        -0.005269275828623032,
+        0.0043721852471524094,
+        0.01404
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "pinkyMCPBall",
+      "label": "Pinky | rounded MCP carrier",
+      "link": "pinky_knuckle",
+      "file": "meshes/humanoid/pinkyMCPBall.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Rounded two-axis knuckle carrier supports independent finger spread and flexion at the same MCP center. Bearing/transmission hardware remains conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1466.3062754440164,
+      "facets": 3132,
+      "bounds_m": [
+        -0.007199999999999999,
+        -0.007594376617802,
+        -0.0064,
+        0.007199982032327689,
+        0.0075943766178020004,
+        0.0064
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "pinky_proximalShell",
+      "label": "Pinky Proximal | smooth tapered shell",
+      "link": "pinky_proximal",
+      "file": "meshes/humanoid/pinky_proximalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "33 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 4560.722756117066,
+      "facets": 3506,
+      "bounds_m": [
+        -0.00642247293363489,
+        -0.007801276610670083,
+        0.0007,
+        0.006422472933634881,
+        0.007808175213411568,
+        0.032350000000000004
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 33.0,
+        "NominalWidth": 15.2,
+        "NominalDepth": 12.6
+      }
+    },
+    {
+      "name": "pinky_proximalCrease",
+      "label": "Pinky Proximal | soft joint crease",
+      "link": "pinky_proximal",
+      "file": "meshes/humanoid/pinky_proximalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 123.51485790318785,
+      "facets": 6704,
+      "bounds_m": [
+        -0.005230150767855786,
+        -0.006771730435540319,
+        -0.00055,
+        0.005230145205702364,
+        0.006772319004356582,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "pinky_proximalPin",
+      "label": "Pinky Proximal | hinge axis pin",
+      "link": "pinky_proximal",
+      "file": "meshes/humanoid/pinky_proximalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 52.99317027891604,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.00765,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.00765,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "pinky_proximalPad",
+      "label": "Pinky Proximal | soft curved pad",
+      "link": "pinky_proximal",
+      "file": "meshes/humanoid/pinky_proximalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 319.7521399478991,
+      "facets": 12752,
+      "bounds_m": [
+        0.003968,
+        -0.005319933378508687,
+        0.006930000000000001,
+        0.006858546795666849,
+        0.005319933378508688,
+        0.026730000000000004
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "pinky_intermediateShell",
+      "label": "Pinky Intermediate | smooth tapered shell",
+      "link": "pinky_intermediate",
+      "file": "meshes/humanoid/pinky_intermediateShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "20 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2156.7197034338305,
+      "facets": 3076,
+      "bounds_m": [
+        -0.005802283030623506,
+        -0.006956052426376061,
+        0.0007,
+        0.00580228303062351,
+        0.006965163625000544,
+        0.019350000000000003
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 20.0,
+        "NominalWidth": 13.527999999999999,
+        "NominalDepth": 11.34
+      }
+    },
+    {
+      "name": "pinky_intermediateCrease",
+      "label": "Pinky Intermediate | soft joint crease",
+      "link": "pinky_intermediate",
+      "file": "meshes/humanoid/pinky_intermediateCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 98.89174576637296,
+      "facets": 5576,
+      "bounds_m": [
+        -0.004708209107048382,
+        -0.006029095619289723,
+        -0.00055,
+        0.0047082502805492685,
+        0.006029512162764102,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "pinky_intermediatePin",
+      "label": "Pinky Intermediate | hinge axis pin",
+      "link": "pinky_intermediate",
+      "file": "meshes/humanoid/pinky_intermediatePin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 47.202021213141684,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.006813999999999999,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.006813999999999999,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "pinky_intermediatePad",
+      "label": "Pinky Intermediate | soft curved pad",
+      "link": "pinky_intermediate",
+      "file": "meshes/humanoid/pinky_intermediatePad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 172.47236639613953,
+      "facets": 6654,
+      "bounds_m": [
+        0.0034262,
+        -0.004734508179568391,
+        0.0042,
+        0.006326187264861947,
+        0.00473450817956839,
+        0.0162
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "pinky_distalShell",
+      "label": "Pinky Distal | smooth tapered shell",
+      "link": "pinky_distal",
+      "file": "meshes/humanoid/pinky_distalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "17 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1283.7854326221461,
+      "facets": 2476,
+      "bounds_m": [
+        -0.005378118855017008,
+        -0.006255759323596324,
+        0.0006500000000000001,
+        0.005378118855016998,
+        0.006273701471629314,
+        0.017
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 17,
+        "NominalWidth": 12.463999999999999,
+        "NominalDepth": 10.620000000000001
+      }
+    },
+    {
+      "name": "pinky_distalCrease",
+      "label": "Pinky Distal | soft joint crease",
+      "link": "pinky_distal",
+      "file": "meshes/humanoid/pinky_distalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 85.30916319071547,
+      "facets": 4842,
+      "bounds_m": [
+        -0.004409989697715249,
+        -0.0055563304422693765,
+        -0.00055,
+        0.004410069025138965,
+        0.005556759560166622,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "pinky_distalPin",
+      "label": "Pinky Distal | hinge axis pin",
+      "link": "pinky_distal",
+      "file": "meshes/humanoid/pinky_distalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 43.516744534921635,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.006281999999999999,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.006281999999999999,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "pinky_distalPad",
+      "label": "Pinky Distal | soft curved pad",
+      "link": "pinky_distal",
+      "file": "meshes/humanoid/pinky_distalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 153.08052954515784,
+      "facets": 7316,
+      "bounds_m": [
+        0.0031166,
+        -0.004361827981693557,
+        0.0028899999999999998,
+        0.006016232993842454,
+        0.004361827981693556,
+        0.01445
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "pinky_distalNail",
+      "label": "Pinky | dorsal fingertip shield",
+      "link": "pinky_distal",
+      "file": "meshes/humanoid/pinky_distalNail.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 51.56653595950334,
+      "facets": 9064,
+      "bounds_m": [
+        -0.006166200000000001,
+        -0.003863791613762596,
+        0.0047599999999999995,
+        -0.004667225975174488,
+        0.0038637916137625955,
+        0.01326
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "ThumbCMCSocket",
+      "label": "Thumb | rounded opposition socket",
+      "link": "thumb_opposition",
+      "file": "meshes/humanoid/ThumbCMCSocket.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Saddle-joint-inspired spherical envelope at the canonical CMC opposition axis. Together with the metacarpal flexion axis this turns the thumb across the palm.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3391.4361839525454,
+      "facets": 3930,
+      "bounds_m": [
+        -0.008999999999999998,
+        -0.009992600812897368,
+        -0.009000000000000001,
+        0.008999954698071543,
+        0.009992600812897368,
+        0.009000000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "thumb_metacarpalShell",
+      "label": "Thumb Metacarpal | smooth tapered shell",
+      "link": "thumb_metacarpal",
+      "file": "meshes/humanoid/thumb_metacarpalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "30 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 6899.416050639065,
+      "facets": 3008,
+      "bounds_m": [
+        -0.008156617119930086,
+        -0.010265714094696466,
+        0.0007,
+        0.00815661711993008,
+        0.010275161612910437,
+        0.02935
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 30.0,
+        "NominalWidth": 20,
+        "NominalDepth": 16
+      }
+    },
+    {
+      "name": "thumb_metacarpalCrease",
+      "label": "Thumb Metacarpal | soft joint crease",
+      "link": "thumb_metacarpal",
+      "file": "meshes/humanoid/thumb_metacarpalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 206.70166504883605,
+      "facets": 8078,
+      "bounds_m": [
+        -0.006639384596132499,
+        -0.008903458416392994,
+        -0.00055,
+        0.006639313297502449,
+        0.008904565497155605,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "thumb_metacarpalPin",
+      "label": "Thumb Metacarpal | hinge axis pin",
+      "link": "thumb_metacarpal",
+      "file": "meshes/humanoid/thumb_metacarpalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 69.61847860171324,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.010050000000000002,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.010050000000000002,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "thumb_metacarpalPad",
+      "label": "Thumb Metacarpal | soft curved pad",
+      "link": "thumb_metacarpal",
+      "file": "meshes/humanoid/thumb_metacarpalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 382.4786363013149,
+      "facets": 8088,
+      "bounds_m": [
+        0.00543,
+        -0.0069999123401430115,
+        0.006300000000000001,
+        0.00832134263705768,
+        0.0069999123401430115,
+        0.024300000000000002
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "thumb_proximalShell",
+      "label": "Thumb Proximal | smooth tapered shell",
+      "link": "thumb_proximal",
+      "file": "meshes/humanoid/thumb_proximalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "20 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and rounded distal knuckle. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 3643.427518719238,
+      "facets": 3168,
+      "bounds_m": [
+        -0.00736093000507269,
+        -0.009251571239452364,
+        0.0007,
+        0.007360930005072701,
+        0.009262028177790267,
+        0.019350000000000003
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 20.0,
+        "NominalWidth": 18,
+        "NominalDepth": 14.4
+      }
+    },
+    {
+      "name": "thumb_proximalCrease",
+      "label": "Thumb Proximal | soft joint crease",
+      "link": "thumb_proximal",
+      "file": "meshes/humanoid/thumb_proximalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 167.3050539694377,
+      "facets": 7542,
+      "bounds_m": [
+        -0.005975916701054698,
+        -0.008015291730323558,
+        -0.00055,
+        0.005975792935091155,
+        0.008016158986184803,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "thumb_proximalPin",
+      "label": "Thumb Proximal | hinge axis pin",
+      "link": "thumb_proximal",
+      "file": "meshes/humanoid/thumb_proximalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 62.69126680054774,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.00905,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.00905,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "thumb_proximalPad",
+      "label": "Thumb Proximal | soft curved pad",
+      "link": "thumb_proximal",
+      "file": "meshes/humanoid/thumb_proximalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 229.48718178078886,
+      "facets": 5508,
+      "bounds_m": [
+        0.004742,
+        -0.006299921106128708,
+        0.0042,
+        0.007641987264861947,
+        0.006299921106128709,
+        0.0162
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "thumb_distalShell",
+      "label": "Thumb Distal | smooth tapered shell",
+      "link": "thumb_distal",
+      "file": "meshes/humanoid/thumb_distalShell.stl",
+      "rgba": [
+        0.89,
+        0.91,
+        0.92,
+        1
+      ],
+      "explanation": "15 mm joint spacing / terminal tip length. Smooth oval cross sections create a rounded knuckle, narrowed shaft and fully rounded fingertip. The shell follows its actual articulation frame; it is a solid digital envelope, not a fabrication-ready tendon housing.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1985.6259996115477,
+      "facets": 2428,
+      "bounds_m": [
+        -0.006957093524468191,
+        -0.008512420867360995,
+        0.0006500000000000001,
+        0.0069570935244681964,
+        0.008525732492976916,
+        0.015
+      ],
+      "dimensions_mm": {
+        "JointSpacing": 15,
+        "NominalWidth": 17,
+        "NominalDepth": 13.8
+      }
+    },
+    {
+      "name": "thumb_distalCrease",
+      "label": "Thumb Distal | soft joint crease",
+      "link": "thumb_distal",
+      "file": "meshes/humanoid/thumb_distalCrease.stl",
+      "rgba": [
+        0.13,
+        0.16,
+        0.18,
+        1
+      ],
+      "explanation": "Short oval soft seam marks the flexion boundary and conceals the hinge interior. Rotation remains about the exact canonical Y hinge; soft deformation is not simulated.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 151.37878166416388,
+      "facets": 7220,
+      "bounds_m": [
+        -0.0057272467322279615,
+        -0.0075711505413830855,
+        -0.00055,
+        0.005727279391700144,
+        0.007571961511682553,
+        0.0006
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "thumb_distalPin",
+      "label": "Thumb Distal | hinge axis pin",
+      "link": "thumb_distal",
+      "file": "meshes/humanoid/thumb_distalPin.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "Brushed-metal 2.1 mm reference pin makes the anatomical hinge axis visible. Pin fits, bearings and retention are conceptual.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 59.227660899964995,
+      "facets": 416,
+      "bounds_m": [
+        -0.0010498825069007872,
+        -0.00855,
+        -0.0010495300538976785,
+        0.0010498825069007872,
+        0.00855,
+        0.0010500000000000002
+      ],
+      "dimensions_mm": {
+        "PinDiameter": 2.1
+      }
+    },
+    {
+      "name": "thumb_distalPad",
+      "label": "Thumb Distal | soft curved pad",
+      "link": "thumb_distal",
+      "file": "meshes/humanoid/thumb_distalPad.stl",
+      "rgba": [
+        0.31,
+        0.34,
+        0.36,
+        1
+      ],
+      "explanation": "Rounded oval palmar pad with domed contact surface. The contact shape and hinge follow the CAD mesh; friction is idealized and no tactile electronics are yet specified.",
+      "collision_candidate": true,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 184.22720981846666,
+      "facets": 4978,
+      "bounds_m": [
+        0.004484,
+        -0.005949925489121559,
+        0.0025499999999999997,
+        0.007381305213964181,
+        0.005949925489121558,
+        0.012750000000000001
+      ],
+      "dimensions_mm": {}
+    },
+    {
+      "name": "thumb_distalNail",
+      "label": "Thumb | dorsal fingertip shield",
+      "link": "thumb_distal",
+      "file": "meshes/humanoid/thumb_distalNail.stl",
+      "rgba": [
+        0.63,
+        0.67,
+        0.71,
+        1
+      ],
+      "explanation": "A thin rounded dorsal fingertip shield echoes a human nail and protects the terminal shell; it is rigid and moves with the distal phalanx.",
+      "collision_candidate": false,
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 62.05857183829832,
+      "facets": 5826,
+      "bounds_m": [
+        -0.007788000000000001,
+        -0.0052699340046505234,
+        0.004200000000000001,
+        -0.006290297298996602,
+        0.0052699340046505234,
+        0.0117
+      ],
+      "dimensions_mm": {}
+    }
+  ],
+  "count": 101,
+  "valid": true,
+  "geometry": "smooth solid oval-section lofts and ellipsoids; all exported in canonical local body coordinates",
+  "hand_scale_mm": 190,
+  "limitations": "Digital concept; geometry validity does not establish hardware tolerances, structural capacity, compliance or manufacturability."
+}

@@ -1,0 +1,8 @@
+from pathlib import Path
+import traceback
+try:
+    Path(r"D:\RoboticArm\results\cad_error.txt").unlink(missing_ok=True)
+    exec(compile(Path(r"D:\RoboticArm\design\build_freecad.py").read_text(encoding="utf-8"), r"D:\RoboticArm\design\build_freecad.py", "exec"))
+except Exception:
+    Path(r"D:\RoboticArm\results\cad_error.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    raise

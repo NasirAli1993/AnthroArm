@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "video_frames": 243,
+  "fps": 10.0,
+  "duration_s": 24.3,
+  "frame_checks": [
+    {
+      "frame": 0,
+      "decoded": true,
+      "width": 1440,
+      "height": 800
+    },
+    {
+      "frame": 121,
+      "decoded": true,
+      "width": 1440,
+      "height": 800
+    },
+    {
+      "frame": 242,
+      "decoded": true,
+      "width": 1440,
+      "height": 800
+    }
+  ],
+  "file_sha256": {
+    "navigation_demo.webm": "df1edb8bfee73e7ac00ff8809c4110dfbdb2d62e4f48e07778697fb838944819",
+    "navigation_validation.json": "69671621f997159fb952e962c34ac5cf45f2a5722da53d75acfd4a78d14afbb0",
+    "implementation_checks.json": "272bb7c9acbdfe1c6c45314a2715486c180ad8b2891305d15128331f7402aacf",
+    "sensor_observations.json.gz": "286a0553aa7df89d9e86b4c67f1ca42fd44f1a5c720cdbbef9c0811d9bc3af7b",
+    "trajectory.json": "49e6b4a89bb05106ff80085dc882ee0647338c9c9d1f9272978a86f5f86ae4af",
+    "navigation_map.png": "af73d490c559bf2225d2ac2a3b04a4b6a84573e4d09ea916abefbbc92fc33f13"
+  },
+  "source_sha256": {
+    "navigation.py": "90459976409b43770cd89222a082b32ac21cdaefe92120abeda5347067dbe33c",
+    "run_mission.py": "fd0f8ee2d69082c9b5ab6d97b1897f5d00920be70b8e7c0ead5716b4086a7714",
+    "validate_navigation.py": "40d145154f00c2499d2052bf3ca1f445c055dd18dadbfc37578a941f046098d1"
+  }
+}

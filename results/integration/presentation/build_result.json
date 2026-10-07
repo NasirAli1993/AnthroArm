@@ -1,0 +1,52 @@
+{
+  "index": "D:\\RoboticArm\\results\\integration\\presentation\\index.html",
+  "zip": "D:\\RoboticArm\\share\\Simulation_Demo_2026-10-07.zip",
+  "zip_bytes": 11874899,
+  "zip_files": 31,
+  "relative_references": 45,
+  "videos": [
+    {
+      "file": "media/mobile.webm",
+      "frames": 289,
+      "decoded_frames": 289,
+      "fps": 10.0,
+      "duration_s": 28.9,
+      "height_width": [
+        900,
+        1440
+      ]
+    },
+    {
+      "file": "media/grasp.webm",
+      "frames": 372,
+      "decoded_frames": 372,
+      "fps": 20.0,
+      "duration_s": 18.6,
+      "height_width": [
+        900,
+        1440
+      ]
+    },
+    {
+      "file": "media/navigation.webm",
+      "frames": 243,
+      "decoded_frames": 243,
+      "fps": 10.0,
+      "duration_s": 24.3,
+      "height_width": [
+        800,
+        1440
+      ]
+    }
+  ],
+  "total_decoded_frames": 904,
+  "metrics": {
+    "grasp_heldout": "10/10",
+    "camera_grasp": "6/6",
+    "mobile": "3/3",
+    "arm_ros_checks": 23,
+    "navigation_ros_groups": 6
+  },
+  "zip_crc_passed": true,
+  "public_export_note": "Archive size regenerated after neutral presentation metadata cleanup."
+}

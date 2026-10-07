@@ -1,0 +1,236 @@
+{
+  "project": "AnthroArm-27 SOLIDWORKS study handoff",
+  "prepared_date": "2026-10-05",
+  "status": "ALL STUDIES UNEXECUTED",
+  "purpose": "Test specification only. JSON files do not import as native SOLIDWORKS studies.",
+  "studies": [
+    {
+      "id": "SW00",
+      "name": "Import, units, axes and mate audit",
+      "status": "UNEXECUTED",
+      "native_solidworks_study_created": false,
+      "executed": false,
+      "tool_required": "SOLIDWORKS CAD assembly",
+      "inputs_required": [
+        "STEP geometry",
+        "joint_register.json",
+        "link-to-component mapping",
+        "authorized SOLIDWORKS access"
+      ],
+      "planned_settings": {},
+      "outputs_required": [
+        "scale measurements",
+        "mate tree",
+        "27-axis sign audit",
+        "rebuild log"
+      ],
+      "acceptance_criteria": [
+        "300/250/40 mm arm spans within 0.1 mm import check",
+        "27 intended rotations and no unintended translation with driving mates suppressed",
+        "no import or rebuild errors"
+      ],
+      "actual_result": null,
+      "passed": null
+    },
+    {
+      "id": "SW01",
+      "name": "27 individual conservative sweeps",
+      "status": "UNEXECUTED",
+      "native_solidworks_study_created": false,
+      "executed": false,
+      "tool_required": "Animation for kinematic review; Motion Analysis add-in for quantitative dynamics",
+      "inputs_required": [
+        "SW00 passed",
+        "joint_register.json",
+        "mass/inertia/friction/drive evidence for dynamics only"
+      ],
+      "planned_settings": {
+        "duration_per_joint_s": 8,
+        "smooth_transitions": true,
+        "complete_range_sweep": "follow only after conservative sweep, with interference review"
+      },
+      "outputs_required": [
+        "27 joint-angle curves",
+        "27 videos",
+        "wrist and fingertip paths",
+        "solver warnings",
+        "required torque/reaction curves only if defensible dynamics inputs exist"
+      ],
+      "acceptance_criteria": [
+        "angle deviation <= 0.5 degrees from scheduled values",
+        "correct sign and continuous paths",
+        "no unexplained motion or solver error",
+        "motor torque/speed/payload acceptance remains pending actual drive ratings"
+      ],
+      "actual_result": null,
+      "passed": null
+    },
+    {
+      "id": "SW02",
+      "name": "Shell clearance and interference",
+      "status": "UNEXECUTED",
+      "native_solidworks_study_created": false,
+      "executed": false,
+      "tool_required": "Interference Detection and Clearance Verification; collision/contact review for moving edges",
+      "inputs_required": [
+        "SW00 passed",
+        "pose sample set",
+        "documented intended-contact/exclusion list",
+        "manufacturing-specific fit requirements"
+      ],
+      "planned_settings": {
+        "maximum_joint_sample_interval_deg": 5,
+        "refine_near_contact": true,
+        "nominal_shell_review_target_mm": 0.5
+      },
+      "outputs_required": [
+        "component-pair intersections and volumes",
+        "minimum distances",
+        "joint poses",
+        "screenshots",
+        "reason for each excluded pair"
+      ],
+      "acceptance_criteria": [
+        "zero unexplained intersections",
+        ">=0.5 mm nominal non-contacting shell gap as provisional design-review target",
+        "pin/pad/bearing fit criteria separately specified",
+        "sampling alone does not prove continuous clearance"
+      ],
+      "actual_result": null,
+      "passed": null
+    },
+    {
+      "id": "SW03",
+      "name": "Single tendon finger small-angle fit",
+      "status": "UNEXECUTED",
+      "native_solidworks_study_created": false,
+      "executed": false,
+      "tool_required": "SOLIDWORKS assembly and Animation; Motion Analysis for modeled tendon dynamics",
+      "inputs_required": [
+        "TendonFinger_FitTest.step",
+        "physical servo/horn measurements before transmission fit claim",
+        "real cord routing/stiffness/pretension and elastic return for coupled study"
+      ],
+      "planned_settings": {
+        "hinge_targets_deg": [
+          0,
+          5,
+          10,
+          15,
+          0
+        ],
+        "sample_interval_deg": 1,
+        "subsequent_virtual_drum_range_deg": [
+          -5,
+          5
+        ],
+        "bore_diameter_mm": 2.3,
+        "reference_pin_diameter_mm": 2,
+        "clevis_gap_mm": 6,
+        "tongue_width_mm": 5.2,
+        "tendon_channel_diameter_mm": 1.4,
+        "drum_radius_mm": 7,
+        "warning": "Straight cord reference solids do not implement a deformable tendon. PWM microseconds are not calibrated joint degrees."
+      },
+      "outputs_required": [
+        "each hinge-angle plot",
+        "min-clearance table",
+        "stop-tab review",
+        "tendon travel",
+        "torque/tension only after transmission model exists"
+      ],
+      "acceptance_criteria": [
+        "free 0/5/10/15 degree individual hinge movement and return without unintended contact",
+        "retainer/screw envelopes clear",
+        "modeled transmission explains all 3 hinge motions",
+        "physical printed fit and stop angle remain unvalidated"
+      ],
+      "actual_result": null,
+      "passed": null
+    },
+    {
+      "id": "SW04",
+      "name": "Structural load cases and actuator sizing",
+      "status": "UNEXECUTED",
+      "native_solidworks_study_created": false,
+      "executed": false,
+      "tool_required": "Appropriate SOLIDWORKS Simulation; SimulationXpress only for a separate single solid-body linear first pass",
+      "inputs_required": [
+        "final load-bearing geometry and supports",
+        "material/process/print-orientation properties",
+        "payload and COM",
+        "target fingertip force",
+        "tendon pretension and max tension",
+        "drive/transmission/thermal ratings",
+        "duty cycle and acceleration",
+        "allowable stress/deflection/fatigue criteria"
+      ],
+      "planned_settings": {
+        "payload_kg": null,
+        "fingertip_force_N": null,
+        "cord_pretension_N": null,
+        "cord_max_tension_N": null,
+        "material": null,
+        "allowable_deflection_mm": null,
+        "required_safety_factor": null,
+        "mesh_levels_min": 3,
+        "physical_approval": "NOT ESTABLISHED"
+      },
+      "outputs_required": [
+        "stress/strain/displacement fields with units",
+        "reaction forces",
+        "3-level mesh-convergence report",
+        "load/support/material sources",
+        "peak/RMS/holding drive comparisons",
+        "solver warnings"
+      ],
+      "acceptance_criteria": [
+        "reaction balance <=1% proposed numerical review target",
+        "meaningful non-singular stress and deflection last-refinement change <5%",
+        "hardware-specific safety/deflection/fatigue criteria satisfied only after selected",
+        "correct linear/nonlinear/dynamic assumptions"
+      ],
+      "actual_result": null,
+      "passed": null
+    },
+    {
+      "id": "SW05",
+      "name": "Vision/controller replay boundary",
+      "status": "UNEXECUTED",
+      "native_solidworks_study_created": false,
+      "executed": false,
+      "tool_required": "Separate documented API/co-simulation bridge would be needed",
+      "inputs_required": [
+        "authorized coupling design",
+        "time synchronization",
+        "camera/controller interface",
+        "collision policy"
+      ],
+      "planned_settings": {
+        "bridge_implemented": false,
+        "live_camera_solidworks_test": false
+      },
+      "outputs_required": [
+        "coupling test log",
+        "latency/dropout metrics",
+        "closed-loop evidence"
+      ],
+      "acceptance_criteria": [
+        "trajectory playback labeled replay, never autonomous vision proof",
+        "existing MuJoCo camera results remain labeled MuJoCo results"
+      ],
+      "actual_result": null,
+      "passed": null
+    }
+  ],
+  "results_root": "D:/RoboticArm/solidworks/results",
+  "official_sources": [
+    "https://help.solidworks.com/2026/english/SolidWorks/motionstudies/c_Introduction_to_Motion_Studies.htm?id=22.0",
+    "https://help.solidworks.com/2026/english/SolidWorks/motionstudies/c_motion_study_elements_overview.htm?id=22.3.0",
+    "https://blogs.solidworks.com/products/solidworks/solidworks-motion-analysis-use-cases/",
+    "https://help.solidworks.com/2022/english/SolidWorks/cosmosxpresshelp/c_Overview_of_SOLIDWORKS_SimulationXpress.htm?id=32.0",
+    "https://help.solidworks.com/2026/english/SolidWorks/sldworks/t_detecting_interferences.htm?id=7.14.3.0",
+    "https://help.solidworks.com/2026/english/SolidWorks/sldworks/c_Clearance_Verification_SWassy.htm?id=7.14.0",
+    "https://help.solidworks.com/2026/English/SolidWorks/Cworks/c_When_to_Use_Nonlinear_Analysis.htm"
+  ]
+}

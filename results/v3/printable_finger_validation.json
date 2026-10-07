@@ -1,0 +1,167 @@
+{
+  "topology_passed": true,
+  "step_valid": true,
+  "step_solid_count": 18,
+  "native_component_count": 18,
+  "printable_count": 8,
+  "no_hard_intersections_in_checked_poses": true,
+  "checked_poses": [
+    {
+      "each_joint_angle_deg": 0,
+      "hard_intersections": []
+    },
+    {
+      "each_joint_angle_deg": 10,
+      "hard_intersections": []
+    },
+    {
+      "each_joint_angle_deg": 20,
+      "hard_intersections": []
+    }
+  ],
+  "parts": [
+    {
+      "name": "BenchPlate",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true,
+      "stl_closed": true,
+      "stl_facets": 7532
+    },
+    {
+      "name": "FingerRootClevis",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true,
+      "stl_closed": true,
+      "stl_facets": 9652
+    },
+    {
+      "name": "ProximalPhalanx",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true,
+      "stl_closed": true,
+      "stl_facets": 7338
+    },
+    {
+      "name": "ProximalReferencePin",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    },
+    {
+      "name": "MiddlePhalanx",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true,
+      "stl_closed": true,
+      "stl_facets": 5712
+    },
+    {
+      "name": "MiddleReferencePin",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    },
+    {
+      "name": "DistalPhalanx",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true,
+      "stl_closed": true,
+      "stl_facets": 5494
+    },
+    {
+      "name": "DistalReferencePin",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    },
+    {
+      "name": "GenericServoCradle",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true,
+      "stl_closed": true,
+      "stl_facets": 1708
+    },
+    {
+      "name": "ServoEnvelope",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    },
+    {
+      "name": "HornMountedDrum",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true,
+      "stl_closed": true,
+      "stl_facets": 2840
+    },
+    {
+      "name": "RedirectPulley",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true,
+      "stl_closed": true,
+      "stl_facets": 776
+    },
+    {
+      "name": "RedirectAxle",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    },
+    {
+      "name": "FlexorRoute0",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    },
+    {
+      "name": "FlexorRoute1",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    },
+    {
+      "name": "FlexorRoute2",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    },
+    {
+      "name": "FlexorRoute3",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    },
+    {
+      "name": "ElasticReturnRoute",
+      "native_valid": true,
+      "single_solid": true,
+      "positive_volume": true,
+      "explanation_persisted": true
+    }
+  ],
+  "scope": "Geometry/export validity and static Boolean overlap checks at 0,10,20 degrees per hinge. Excludes print tolerances, retained hardware, tendon wrap/contact forces, motor fit, loads and powered behavior."
+}

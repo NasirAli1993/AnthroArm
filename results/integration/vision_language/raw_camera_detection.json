@@ -1,0 +1,51 @@
+{
+  "detected": true,
+  "source": "rendered RGB segmentation + metric depth",
+  "ground_truth_object_pose_used": false,
+  "center_world_m": [
+    0.4004863026177602,
+    -0.0005054143588307872,
+    0.6187284284262602
+  ],
+  "top_surface_z_m": 0.6367284284262602,
+  "bbox_pixels": [
+    601,
+    452,
+    43,
+    51
+  ],
+  "orange_pixels": 1771,
+  "top_surface_pixels": 703,
+  "calibration": {
+    "fx": 1078.0976514740237,
+    "fy": 1078.0976514740237,
+    "cx": 639.5,
+    "cy": 479.5,
+    "width": 1280,
+    "height": 960,
+    "camera_world_position_m": [
+      0.76,
+      -0.9,
+      1.3
+    ],
+    "camera_world_rotation": [
+      [
+        0.9354720936771068,
+        -0.2039771050121656,
+        0.28859193090283475
+      ],
+      [
+        0.3534005686913514,
+        0.5399393956679712,
+        -0.7639198171629897
+      ],
+      [
+        0.0,
+        0.8166142232636915,
+        0.5771838618355836
+      ]
+    ]
+  },
+  "assumptions": "Known upright 36 mm orange cube; visible top surface; calibrated RGB-D camera.",
+  "known_object_size_m": 0.036
+}

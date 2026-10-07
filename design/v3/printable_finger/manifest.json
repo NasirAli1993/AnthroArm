@@ -1,0 +1,198 @@
+{
+  "units": "mm",
+  "status": "FIT-TEST PROTOTYPE; not proven motor-compatible or ready for powered operation",
+  "parts": [
+    {
+      "name": "BenchPlate",
+      "label": "01 | bench plate",
+      "explanation": "Separate bench plate with four 3.5 mm holes. Clamp securely for manual and low-power fit testing; no load rating is claimed.",
+      "printable": true,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 36923.671664203895,
+      "file": "stl_mm/BenchPlate.stl"
+    },
+    {
+      "name": "FingerRootClevis",
+      "label": "02 | root clevis and guide",
+      "explanation": "5.2 mm moving tongue fits a 6.0 mm clevis gap (0.4 mm nominal per side). Real 2.3 mm M2 pin bores, 1.4 mm flexor guide and rear stop tabs. Printed fit and actual stop angle require hand testing.",
+      "printable": true,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 8861.82999666129,
+      "file": "stl_mm/FingerRootClevis.stl"
+    },
+    {
+      "name": "ProximalPhalanx",
+      "label": "Finger | proximal phalanx",
+      "explanation": "40 mm nominal joint spacing/tip length. 2.3 mm transverse M2 pin bore; 1.4 mm flexor channel at x=3 mm; 1.6 mm dorsal elastic anchor. Clevis stop tabs limit hyperextension after fit testing.",
+      "printable": true,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 5430.502272999478,
+      "file": "stl_mm/ProximalPhalanx.stl"
+    },
+    {
+      "name": "ProximalReferencePin",
+      "label": "Hardware | M2 pin at proximal joint",
+      "explanation": "Unprinted M2 smooth-shank pin or screw reference. Select length and retain both ends without squeezing the hinge; do not use printed pins.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 62.83185307179585
+    },
+    {
+      "name": "MiddlePhalanx",
+      "label": "Finger | middle phalanx",
+      "explanation": "24 mm nominal joint spacing/tip length. 2.3 mm transverse M2 pin bore; 1.4 mm flexor channel at x=3 mm; 1.6 mm dorsal elastic anchor. Clevis stop tabs limit hyperextension after fit testing.",
+      "printable": true,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3166.1435131836247,
+      "file": "stl_mm/MiddlePhalanx.stl"
+    },
+    {
+      "name": "MiddleReferencePin",
+      "label": "Hardware | M2 pin at middle joint",
+      "explanation": "Unprinted M2 smooth-shank pin or screw reference. Select length and retain both ends without squeezing the hinge; do not use printed pins.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 62.83185307179585
+    },
+    {
+      "name": "DistalPhalanx",
+      "label": "Finger | distal phalanx",
+      "explanation": "18 mm nominal joint spacing/tip length. 2.3 mm transverse M2 pin bore; 1.4 mm flexor channel at x=3 mm; 1.6 mm dorsal elastic anchor. Clevis stop tabs limit hyperextension after fit testing.",
+      "printable": true,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1795.8208548781292,
+      "file": "stl_mm/DistalPhalanx.stl"
+    },
+    {
+      "name": "DistalReferencePin",
+      "label": "Hardware | M2 pin at distal joint",
+      "explanation": "Unprinted M2 smooth-shank pin or screw reference. Select length and retain both ends without squeezing the hinge; do not use printed pins.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 62.83185307179585
+    },
+    {
+      "name": "GenericServoCradle",
+      "label": "03 | generic slotted servo cradle",
+      "explanation": "Generic side-mounted cradle with 42 mm clear body length and adjustable strap/bolt slots. Hitec D645MW official body envelope is 40.8 x 20.0 x 37.8 mm; flange span and output offset are NOT modeled as a verified fit. Measure the actual servo/horn before printing or drilling.",
+      "printable": true,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 11735.176998353085,
+      "file": "stl_mm/GenericServoCradle.stl"
+    },
+    {
+      "name": "ServoEnvelope",
+      "label": "Reference | D645MW body envelope",
+      "explanation": "Unprinted reference envelope from official Hitec drawing: 40.8 x 20.0 x 37.8 mm, shown on its side. Output/horn position here is illustrative, not verified.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 30761.5002699272
+    },
+    {
+      "name": "HornMountedDrum",
+      "label": "04 | 7 mm-radius tendon drum",
+      "explanation": "7 mm effective winding radius, 9 mm flanges, center clearance and two 2.3 mm generic horn fixing holes on 10 mm spacing. This is NOT a printed 25T spline. Drill/match the purchased horn and verify fastener clearance before assembly.",
+      "printable": true,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1606.3962009873844,
+      "file": "stl_mm/HornMountedDrum.stl"
+    },
+    {
+      "name": "RedirectPulley",
+      "label": "05 | flexor redirect pulley",
+      "explanation": "Small unpowered redirect pulley with 2.3 mm bore. The flexor passes from the vertical x=3 mm finger channel around this pulley toward the drum. A smooth bushing/bearing may be required after fit testing.",
+      "printable": true,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 297.31247475410413,
+      "file": "stl_mm/RedirectPulley.stl"
+    },
+    {
+      "name": "RedirectAxle",
+      "label": "Hardware | redirect axle",
+      "explanation": "Unprinted M2 smooth-shank axle reference. Add retained supports/washer stack after a dry-fit check.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 62.83185307179585
+    },
+    {
+      "name": "FlexorRoute0",
+      "label": "Route | single flexor tendon",
+      "explanation": "Illustrative 0.5\u20130.8 mm cord route; actual joint wrap and knot position must be fitted by hand.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 43.09636802194478
+    },
+    {
+      "name": "FlexorRoute1",
+      "label": "Route | single flexor tendon",
+      "explanation": "Illustrative 0.5\u20130.8 mm cord route; actual joint wrap and knot position must be fitted by hand.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.3797103820833059
+    },
+    {
+      "name": "FlexorRoute2",
+      "label": "Route | single flexor tendon",
+      "explanation": "Illustrative 0.5\u20130.8 mm cord route; actual joint wrap and knot position must be fitted by hand.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.8869853332153066
+    },
+    {
+      "name": "FlexorRoute3",
+      "label": "Route | single flexor tendon",
+      "explanation": "Illustrative 0.5\u20130.8 mm cord route; actual joint wrap and knot position must be fitted by hand.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 19.05313112549138
+    },
+    {
+      "name": "ElasticReturnRoute",
+      "label": "Route | external elastic return",
+      "explanation": "Illustrative external elastic return path along the dorsal side. Lace/anchor to transverse dorsal holes; choose only enough pretension to reopen the unloaded finger.",
+      "printable": false,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 132.38671442227383
+    }
+  ],
+  "printable_count": 8,
+  "hinge_pin_diameter_mm": 2.0,
+  "hinge_bore_mm": 2.3,
+  "clevis_gap_mm": 6.0,
+  "tongue_width_mm": 5.2,
+  "tendon_guide_diameter_mm": 1.4,
+  "drum_effective_radius_mm": 7.0,
+  "servo_body_envelope_mm": [
+    40.8,
+    20.0,
+    37.8
+  ],
+  "servo_source": "https://www.hiteccs.com/public/uploads/data_sheet/HCS_D645MW_Specsheetv2.2_102-1729815560.pdf",
+  "unvalidated": [
+    "Printed fit and supports",
+    "Servo flange and output-shaft offsets",
+    "Purchased horn fixing holes",
+    "Tendon joint wrap and knots",
+    "Elastic return anchors and pretension",
+    "Stop angle and range",
+    "Loads and fatigue"
+  ]
+}

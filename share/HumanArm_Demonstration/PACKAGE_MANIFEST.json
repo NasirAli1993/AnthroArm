@@ -1,0 +1,348 @@
+{
+  "title": "HumanArm Demonstration",
+  "model": {
+    "model": "AnthroArm-27",
+    "version": "3.0",
+    "passed": true,
+    "checks": 7
+  },
+  "scope": "Offline presentation; physical hardware unbuilt; camera approach and touch, no autonomous pickup",
+  "files": [
+    {
+      "path": "assets/archive/humanoid_hand_demo.webm",
+      "bytes": 3434856,
+      "sha256": "87413f9ae3138e55f2ecbdbac417cb8fdf6cb238eb9e132ee525f6ee3ad1b440"
+    },
+    {
+      "path": "assets/archive/v2_grasp_validation.json",
+      "bytes": 155682,
+      "sha256": "734a70832f5f9f8a771141dd48f1ef60f01ebade45b0b06b5a33fc3ee0a68a5b"
+    },
+    {
+      "path": "assets/archive/v2_precision.json",
+      "bytes": 16147,
+      "sha256": "b4423b3eca521b06b48d377f92cdbe5a940361728c464cce241d264899266058"
+    },
+    {
+      "path": "assets/results/anatomical_cad_validation.json",
+      "bytes": 142391,
+      "sha256": "5b40d90522a29c0da9a8d3899a22f9bdbafa99f12cc20146c1743f45ef4c44ee"
+    },
+    {
+      "path": "assets/results/arduino_install.json",
+      "bytes": 353,
+      "sha256": "245802837afefeb78f6ba354b05eaf5b32c58f6589928f4acd8ee56dd816fa75"
+    },
+    {
+      "path": "assets/results/articulation_0.png",
+      "bytes": 122353,
+      "sha256": "dc623a607433a866631d821fa958909b490d50a3dde617d03d8d212ccdd5d4b4"
+    },
+    {
+      "path": "assets/results/articulation_video.json",
+      "bytes": 1653,
+      "sha256": "f9a845fea4a210923f0f3ec189d4f0cd440079429818dfca9df351de78dd89a7"
+    },
+    {
+      "path": "assets/results/camera_autonomy.webm",
+      "bytes": 2037436,
+      "sha256": "0deb3c23f4157e30e073c0d83e07ec20208e055c39c84e25693f05dc2541cac2"
+    },
+    {
+      "path": "assets/results/camera_autonomy_video.json",
+      "bytes": 1303,
+      "sha256": "94c5cbeedf240e3515c6a348aac325cc6048bcbd5d4b28f17754aae917510931"
+    },
+    {
+      "path": "assets/results/camera_diagnosis.json",
+      "bytes": 3059,
+      "sha256": "3e66e2fd3e22a7cd55f93431d2f5543bff05c84b377a38ed87b0834cca21cd6a"
+    },
+    {
+      "path": "assets/results/design_stages/01_full_arm_front.png",
+      "bytes": 97040,
+      "sha256": "85f8a9f7038ceb758f095c7e48a2871ddfc3645de08c2b2b8992b38343919e40"
+    },
+    {
+      "path": "assets/results/design_stages/02_full_arm_back.png",
+      "bytes": 80269,
+      "sha256": "c7598b6aa3239dd19187277bee6f37b23e95718998d126e0eec2146f39c30cb1"
+    },
+    {
+      "path": "assets/results/design_stages/03_hand_palmar.png",
+      "bytes": 203787,
+      "sha256": "0e96f187f0c2ed7af7d84e4c0365bfb74f5f0989d8fab1e660680bc71e0f75f3"
+    },
+    {
+      "path": "assets/results/design_stages/04_hand_dorsal.png",
+      "bytes": 216520,
+      "sha256": "a7828bea8eca3e6e0156013738a5fdd2cd4a3d128fd23ce7baa25e222572cb96"
+    },
+    {
+      "path": "assets/results/design_stages/05_cutaway.png",
+      "bytes": 127448,
+      "sha256": "9127e34383cfff65226413369b8537870386b1f4c2f79406bb8782b28fa4bbb2"
+    },
+    {
+      "path": "assets/results/design_stages/06_exploded.png",
+      "bytes": 142000,
+      "sha256": "b3f814fb343b6617cba95cfc4ce73ee457d6963ea1a1746d737816b30ff25a3d"
+    },
+    {
+      "path": "assets/results/design_stages/07_shoulder.png",
+      "bytes": 116348,
+      "sha256": "3b99eceefad87976e0b11bc075259b9c84fb0ab9b0f5467d2a0b8fb10f4e851f"
+    },
+    {
+      "path": "assets/results/design_stages/08_elbow_forearm.png",
+      "bytes": 117751,
+      "sha256": "b198ecc34c5cc0ba643825308775573fd6ba8e41262a7357c8d124090f26c1d0"
+    },
+    {
+      "path": "assets/results/design_stages/09_wrist_palm.png",
+      "bytes": 136388,
+      "sha256": "30399a1336afa913d99f38dc480ae2e5dd5452cf7c6473e982480ea0ee212f11"
+    },
+    {
+      "path": "assets/results/full_arm_articulation.webm",
+      "bytes": 4895417,
+      "sha256": "8f4076e048bf85033f5101359f91d6bd68da4f7533e23af1578303ee926234cd"
+    },
+    {
+      "path": "assets/results/hero_arm.png",
+      "bytes": 144752,
+      "sha256": "a11b49d520428f9696f38a0fa24b2f44c69f086319a854e281ad3940fbe0813b"
+    },
+    {
+      "path": "assets/results/media_validation.json",
+      "bytes": 424,
+      "sha256": "8c863bed578e6c5a4212b6bb32391b7743c5610a8c34adadb899352733857594"
+    },
+    {
+      "path": "assets/results/printable_finger_assembled.png",
+      "bytes": 136128,
+      "sha256": "943f8d9636f380c7b10177c23dc00cbdf49d70eb83e5abec693716fedd77aaa4"
+    },
+    {
+      "path": "assets/results/printable_finger_build.json",
+      "bytes": 149,
+      "sha256": "2a111e88338614cece946c58df023bd4d801407e2201b90c8b3f514b5f6b60d1"
+    },
+    {
+      "path": "assets/results/printable_finger_exploded.png",
+      "bytes": 121148,
+      "sha256": "dcf3ae691005c90c75aea3f1347b154e56b643fe2c6ca468ffd736fbcf54b5a8"
+    },
+    {
+      "path": "assets/results/service_validation.json",
+      "bytes": 853,
+      "sha256": "2f11dc6b15e82b27f5b4bc1e9655c7f04170e25f4ba42570bcdeed8b3c346e63"
+    },
+    {
+      "path": "assets/results/validation.json",
+      "bytes": 25674,
+      "sha256": "033e372a8305e2681a68181780fb07c0fa1de71699e9a3f8c9d82c1372a90f4b"
+    },
+    {
+      "path": "assets/results/vision_autonomy_poster.png",
+      "bytes": 202215,
+      "sha256": "cdfc8afe5a780bf0eb20651e9e89f9a46614c0452808e7a804a2b0be56705794"
+    },
+    {
+      "path": "CAD/AnthroArm27_ReferenceV3.FCStd",
+      "bytes": 1760248,
+      "sha256": "163edcb99d696d17fd435d978ad1c08bbe7e39d26428295e23a2763bd7b337ab"
+    },
+    {
+      "path": "CAD/AnthroArm27_ReferenceV3.step",
+      "bytes": 4982211,
+      "sha256": "baf81b8871eee0e59d5f607235d51785e817dce0aa427ef2fad7ed36ea109f94"
+    },
+    {
+      "path": "CAD/components.txt",
+      "bytes": 56415,
+      "sha256": "b1199352e1031ae2dafecf2d5aca4a4932b8e242b97934d08534df2be6dac8d4"
+    },
+    {
+      "path": "CAD/printable_finger/manifest.json",
+      "bytes": 8135,
+      "sha256": "cca96ad75643cc34f877a38f26d99ee7d6b910858938e75e3e920e391d59caf8"
+    },
+    {
+      "path": "CAD/printable_finger/READ_ME_FIRST.txt",
+      "bytes": 1578,
+      "sha256": "3fde0d5d7a5b278713d46c42163d63b635926c091d834fb29f413de9df741679"
+    },
+    {
+      "path": "CAD/printable_finger/stl_mm/BenchPlate.stl",
+      "bytes": 376684,
+      "sha256": "bfa558e29a2e6eb30255ac1eb4b429ad673c857fdb485a0c78147bb8979df67a"
+    },
+    {
+      "path": "CAD/printable_finger/stl_mm/DistalPhalanx.stl",
+      "bytes": 274784,
+      "sha256": "283ad4740c69e6b9554f1d0a38b61f2061f428b62c41d004da61e37bf7e5a786"
+    },
+    {
+      "path": "CAD/printable_finger/stl_mm/FingerRootClevis.stl",
+      "bytes": 482684,
+      "sha256": "1d41f61e4209ef64b0f19dfdbaaa29704aca08ae3524841a406d0918613f6c8e"
+    },
+    {
+      "path": "CAD/printable_finger/stl_mm/GenericServoCradle.stl",
+      "bytes": 85484,
+      "sha256": "71cd62d77af41ab3abfcc3f6faee0cf56dd8d8da3c00e4d96d4aeddf0e80c1f2"
+    },
+    {
+      "path": "CAD/printable_finger/stl_mm/HornMountedDrum.stl",
+      "bytes": 142084,
+      "sha256": "087352bbac88b7e0ff3d8444b3e6a45d463dec9ac2e54c894b0a60c674b538b4"
+    },
+    {
+      "path": "CAD/printable_finger/stl_mm/MiddlePhalanx.stl",
+      "bytes": 285684,
+      "sha256": "3bb721d156c43aea43863f6fe563782cb42f92a209465d250774cd965453127d"
+    },
+    {
+      "path": "CAD/printable_finger/stl_mm/ProximalPhalanx.stl",
+      "bytes": 366984,
+      "sha256": "2a0fd5760cafaa83c8203cffabb52bc88734a3010af08de40ef934f5022e0963"
+    },
+    {
+      "path": "CAD/printable_finger/stl_mm/RedirectPulley.stl",
+      "bytes": 38884,
+      "sha256": "70531ded026e413aeeee3bd68dcf5081985caca5aa62eb5b34e34d48033aaa64"
+    },
+    {
+      "path": "CAD/printable_finger/TendonFinger_FitTest.FCStd",
+      "bytes": 198004,
+      "sha256": "a4277f1841cdcce8bac43f180eb28f39e5fc9147476617bd718a6a74dbaae6a7"
+    },
+    {
+      "path": "CAD/printable_finger/TendonFinger_FitTest.step",
+      "bytes": 512618,
+      "sha256": "b4e8d6b9a420e8446bd45e2c6d4e94067c45e62bf9693e72c0fbdbae2af68719"
+    },
+    {
+      "path": "CAD/robot_spec.json",
+      "bytes": 223794,
+      "sha256": "2850f291586aa453369e61996ef1ed964985b4dc31eb6f3f331ae6f245559762"
+    },
+    {
+      "path": "code/bridge.py",
+      "bytes": 2575,
+      "sha256": "b04ab772cc976c2c58fb724631b76b0cb61a2d35cff6a184f503e914c1450076"
+    },
+    {
+      "path": "code/bridge_py.html",
+      "bytes": 3836,
+      "sha256": "15bddf5820aabd9c1f734fe5103dd0e02ea2b46f509d57e61f570ece9b0e5460"
+    },
+    {
+      "path": "code/cad.py",
+      "bytes": 26074,
+      "sha256": "e5ad1a6759a5ebd04132fba466d5f2cea78b2c889fa13fb9f42f5cce16f930bb"
+    },
+    {
+      "path": "code/cad_py.html",
+      "bytes": 31992,
+      "sha256": "8f3aefdf42466b93629e9c2f8b78ee37e44576b1085e00a1ae29ea0028e83322"
+    },
+    {
+      "path": "code/camera.py",
+      "bytes": 15897,
+      "sha256": "be0f019e0262aa005f1fd6b701b3bb0a294338efc80a1d7acbaf82dd77ce74ad"
+    },
+    {
+      "path": "code/camera_py.html",
+      "bytes": 19163,
+      "sha256": "3f0624dc9779763fd2dbe8e223b346a8f675c1a224ed49a1c5be69472b138eae"
+    },
+    {
+      "path": "code/firmware.ino",
+      "bytes": 3279,
+      "sha256": "38ebf266c3c819b9bcb91e23459e4c64cf38fa9ff4248541ff9621964f2ce18d"
+    },
+    {
+      "path": "code/firmware_ino.html",
+      "bytes": 4494,
+      "sha256": "81184414ec1ea41cba84f771d76591d12e19b05146a4561893faf67907b76777"
+    },
+    {
+      "path": "code/physics.py",
+      "bytes": 5615,
+      "sha256": "6d116c0bbb784be89767d774b5c003db93e7fb55001d4cf636088e24da02d183"
+    },
+    {
+      "path": "code/physics_py.html",
+      "bytes": 6948,
+      "sha256": "8d02514c0cf700902f8031110b76315ede1bd0cab02739773744309be58caabe"
+    },
+    {
+      "path": "code/probe_camera.py",
+      "bytes": 2497,
+      "sha256": "b1cdc1889b8102e22a1732a46dc6ad85327541577314b01f61085cd8a4670026"
+    },
+    {
+      "path": "code/vision.py",
+      "bytes": 10437,
+      "sha256": "407613dc54635c95cddc7d45f98309725393052ce69555fa49d51f9a64491927"
+    },
+    {
+      "path": "code/vision_py.html",
+      "bytes": 12302,
+      "sha256": "01cf83451562d143ca4d4483107435924cd0371a574d8c06ca8ae5e6b494c6c6"
+    },
+    {
+      "path": "docs/component_reference.txt",
+      "bytes": 56415,
+      "sha256": "b1199352e1031ae2dafecf2d5aca4a4932b8e242b97934d08534df2be6dac8d4"
+    },
+    {
+      "path": "docs/one_finger_bom.csv",
+      "bytes": 3578,
+      "sha256": "6a38948479f7a374967f88756a9f6d5fc2fced1b215bf5b289232d013371b0d3"
+    },
+    {
+      "path": "docs/one_finger_wiring.svg",
+      "bytes": 5037,
+      "sha256": "b54e59352341a64f45b1f739cf302a93d8319bacac37ef376ed208b4a3c98c86"
+    },
+    {
+      "path": "docs/presentation_assets.json",
+      "bytes": 1263,
+      "sha256": "a9f74739d7503f72098c55b030ca43ecd70f6fc5ce75d9b0333e95731a546545"
+    },
+    {
+      "path": "docs/presentation_guide.txt",
+      "bytes": 8014,
+      "sha256": "d03c5f40586bfbaa24bc76fe8f1a750795bbb2a9454811deef1e8d4045bdc5b0"
+    },
+    {
+      "path": "docs/prototype_assembly.txt",
+      "bytes": 11002,
+      "sha256": "510c557931bb42d68386cad979a6316979d491f9f62302b8d7728d931debfc13"
+    },
+    {
+      "path": "docs/prototype_planning.xlsx",
+      "bytes": 15583,
+      "sha256": "6c17099cdfc481237aa4dfd9b3ae5f3e8f3e2981ed0cb23980c54fd48a8f89b4"
+    },
+    {
+      "path": "docs/reference_review.txt",
+      "bytes": 1347,
+      "sha256": "7adb01854b55c81faee615a960525297aa5c4856f55cf196ee9c899a42d556ee"
+    },
+    {
+      "path": "index.html",
+      "bytes": 35866,
+      "sha256": "5e22131075920dca62df1966ec5da259498c343f1d3b7b9fb56947f65492dca6"
+    },
+    {
+      "path": "OPEN FIRST.txt",
+      "bytes": 3800,
+      "sha256": "48986efb9fd71f7e38fc4fb23559d4b5a37ff89bd9f7a2eaa92af2796bf81b67"
+    }
+  ],
+  "public_export_note": "Transient logs omitted; presentation metadata neutralized; member hashes regenerated. Historical measurements and scope retained."
+}

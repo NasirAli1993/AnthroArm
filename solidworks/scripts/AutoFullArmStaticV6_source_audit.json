@@ -1,0 +1,30 @@
+{
+  "status": "STAGED V6 source; native V6 execution pending. Root reports V5 static geometry succeeded and ArchiveV1 succeeded after manual close-all.",
+  "source_manifest_sha256": "93019b023703f24cb0f3f72b139aad4c615b3da5943343cbd005c9edc32f25a7",
+  "macro_sha256": "2dbdec796b0b8ca47d14c68d9c922131de64cfe3926110bfa35daddbcf4cbbb0",
+  "links": 28,
+  "expected_solids": 293,
+  "all_embedded_transforms_match_source_audit": true,
+  "all_required_step_files_present": true,
+  "public_entrypoints": [
+    "main"
+  ],
+  "maximum_physical_line_length": 766,
+  "procedure_end_count_consistent": true,
+  "native_execution": false,
+  "scope": "28 imported multibody SLDPRT + one all-fixed static home-pose SLDASM + progressive log, if executed successfully",
+  "not_included": [
+    "mates",
+    "kinematic articulation",
+    "Motion Analysis",
+    "FEA",
+    "manufacturing qualification"
+  ],
+  "packaging": "Exact 30 named files to flat ZIP after CloseAllDocuments(True) and GetFirstDocument Nothing; 60-second Wait-Job bound, exact filenames/sizes/all streams checked",
+  "only_behavior_change_from_v4": "Automatic verified ZIP plus explicit normalization of all IsFixed checks",
+  "source_policy": "No downloads, network, source file modifications or overwrites by packaging",
+  "only_behavior_change_from_v5": "Optional nonblocking native BMP, close saved documents, frozen native build log, allowlist archive with external packaging receipt",
+  "geometry_initializers_unchanged": true,
+  "log_freeze": "Native_Static_Build.log is not modified during/after compression; package messages use sibling Native_Static_Package_<stamp>.log",
+  "evidence": "Optional SaveBMP current native viewport outside output folder/ZIP. Image failure does not block archive."
+}

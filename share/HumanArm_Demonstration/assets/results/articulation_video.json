@@ -1,0 +1,74 @@
+{
+  "file": "full_arm_articulation.webm",
+  "fps": 20,
+  "duration_s": 33.0,
+  "phases": [
+    {
+      "start_s": 0.0,
+      "title": "Human-shaped full arm",
+      "command": null,
+      "target": null
+    },
+    {
+      "start_s": 3.0,
+      "title": "1 Shoulder abduction",
+      "command": "shoulder_abduction",
+      "target": 0.45
+    },
+    {
+      "start_s": 6.0,
+      "title": "2 Shoulder flexion",
+      "command": "shoulder_flexion",
+      "target": 0.65
+    },
+    {
+      "start_s": 9.0,
+      "title": "3 Humeral axial rotation",
+      "command": "shoulder_rotation",
+      "target": -0.6
+    },
+    {
+      "start_s": 12.0,
+      "title": "4 Elbow flexion",
+      "command": "elbow_flexion",
+      "target": 1.7
+    },
+    {
+      "start_s": 15.0,
+      "title": "5 Forearm pronation",
+      "command": "forearm_pronation",
+      "target": 1.3
+    },
+    {
+      "start_s": 18.0,
+      "title": "6 Wrist flexion",
+      "command": "wrist_flexion",
+      "target": 0.7
+    },
+    {
+      "start_s": 21.0,
+      "title": "7 Wrist deviation",
+      "command": "wrist_deviation",
+      "target": 0.4
+    },
+    {
+      "start_s": 24.0,
+      "title": "Hand: five articulated fingers",
+      "command": "fist",
+      "target": null
+    },
+    {
+      "start_s": 27.0,
+      "title": "Hand: independent finger spread",
+      "command": "peace",
+      "target": null
+    },
+    {
+      "start_s": 30.0,
+      "title": "Hand: open palm",
+      "command": "open",
+      "target": null
+    }
+  ],
+  "source": "Integrated MuJoCo dynamics with exact native CAD STL surfaces"
+}

@@ -1,0 +1,98 @@
+ANTHROARM SOFTWARE-ONLY DEMONSTRATION
+7 October 2026
+
+OPEN AND WATCH
+Double-click START_SIMULATION.cmd in D:\RoboticArm. The simulation studio is
+http://127.0.0.1:8770. Start with the recorded results, then use Live Arm:
+Reset scene -> Run learned grasp. Watch the full sequence, including release.
+The independent mobile view can reset the map and run seven mapping/navigation
+goals. The continuous mounted-arm mission is supplied as an executed recording
+and reproducible Python experiment. It is a straight docking-lane experiment;
+the complex obstacle-navigation test uses the separate base.
+
+The simulation services remain on this computer only. ROS 2 domain 27 is local.
+Use STOP_SIMULATION.ps1 to stop the four integration services. Earlier CAD/V3
+studios are separate and are not stopped by that command.
+
+WHAT PICKING UP MEANS HERE
+The cube has a free joint and begins on the table. Thumb/finger closure creates
+opposing contacts. Frictional forces support it against gravity while the arm
+raises it. Tests check height, contact continuity, slip, hold and final release.
+Cube position is not animated or welded to the palm. Ground-truth object state
+is used for scoring only; camera pixels/depth estimate the control target.
+These results depend on the modeled friction, inertia and actuator limits.
+
+WHAT IS LEARNED
+42 contact-physics candidate trials produced six successful demonstration
+grasp settings, one per training cube size. Ordinary least squares fits an
+affine size-to-parameter policy. It predicts arm grasp offsets and finger
+closure parameters. It is a real trained policy, but a small specialized one.
+The raise/approach/descend/close/lift/hold/lower/release/retreat sequence is
+explicit Python logic, and arm joint targets come from numerical IK.
+It is not a general-purpose VLA, reinforcement-learning or foundation policy.
+
+MEASURED RESULTS
+10/10 held-out grasp tests: all complete pickup, hold and release.
+6/6 camera-guided grasp tests: maximum initial estimate error 1.483 mm.
+Grasp cancellation holds position; an empty target cannot pass the opposing-
+contact gate to start lifting. The object is not artificially attached.
+All 23 ROS arm checks pass, including real action feedback, cancellation,
+RGB-D calibration/TF and ROS-triggered pickup with approximately 154 mm lift.
+Seven navigation goals pass with no obstacle contacts. Pose RMSE is 8.0 mm in
+the tested world. Replaying 1,217 sensor observations reproduces the map and
+estimated path exactly. The occupancy grid comes from simulated noisy lidar.
+Three combined docking and pickup runs pass. A physical wheel-driven base
+parks using motor brakes; the mounted arm lifts the cube approximately 154 mm.
+The combined experiment assumes an 80 kg chassis, clear docking lane, fixed
+calibrated camera, known 36 mm cube and ideal base pose for manipulator IK.
+
+SOFTWARE ROLES
+FreeCAD/SOLIDWORKS existing files: the underlying human-shaped geometry.
+MuJoCo: integration of masses, joint motion, bounded actuator effort, gravity,
+collision/contact, wheel dynamics and rendered cameras/range sensors.
+Python/OpenCV: calibration, orange-cube segmentation and 3-D backprojection.
+Python/numerical IK: palm pose to seven arm angles; joint/velocity checking.
+Supervised regression: size-conditioned grasp parameters in policy.json.
+ROS 2 Jazzy: actual DDS JointState, trajectory actions, services, RGB/depth,
+camera calibration, clock, TF, lidar, odometry and occupancy map interfaces.
+Custom ICP and A*: scan-to-map local pose correction, map building, planning
+with obstacle inflation, feedback driving and braking. This is not Nav2.
+PyTorch/SmolVLM: actual local image-and-language inference. The cropped target
+was identified as a cube. The full-scene description was wrong. Raw answers
+and timings are preserved, and the VLM has no motor control authority.
+
+NOT EXECUTED OR NOT CLAIMED
+Jetson is a computing platform, not an additional physics simulator. There is
+no Jetson device in this task. Its throughput, power and deployment are not
+emulated by calling the Windows CPU a Jetson. Current components are tested
+locally as requested. No physical sim-to-real transfer is claimed.
+Isaac Sim/Lab were not installed/run because the available GTX 1660 Ti 6 GB has
+no RT cores and does not meet NVIDIA's supported Isaac requirements. The
+actual tested simulator is MuJoCo. See integration/runtime/isaac_feasibility.txt.
+No general VLA, VSLAM, global SLAM loop closure, Nav2, MoveIt, arbitrary-object
+grasping, or collision-free global arm planner is represented as complete.
+
+CODE AND EVIDENCE
+integration/runtime_server.py: live MuJoCo backend and viewing-page server.
+integration/ros2/anthro_bridge.py: actual ROS arm interface.
+integration/grasping: learned controller, camera adapter, training/evaluation.
+integration/navigation: wheel physics, sensors, mapper, planner, ROS bridge.
+integration/mobile_manipulation: mounted arm+base model, mission and recording.
+integration/vision_language.py: pinned local VLM inference.
+models/SmolVLM-256M-Instruct/download_manifest.json: model revision and hashes.
+software/ros2/pixi.lock: exact isolated ROS dependency lock.
+results/integration: raw JSON evidence, measured trajectories and recordings.
+
+SHARING
+share/Simulation_Demo_2026-10-07.zip contains a portable offline presentation,
+three recordings, posters and selected JSON evidence. Extract it completely
+and open index.html. The recipient needs a browser for the recordings; they
+do not need ROS or MuJoCo to watch. Running experiments requires the installed
+project dependencies and the commands in each integration folder's README.
+
+For a short spoken explanation: "This is a human-shaped simulated arm on a
+wheeled platform. A virtual camera estimates the cube location, a trained
+small policy chooses a grasp, and bounded motors drive the joints. Physical
+contacts keep the free cube in the hand. The tests measure whether it lifts,
+holds and releases; a separate noisy-lidar test measures mapping/navigation.
+These recordings are software experiments, not proof of a manufactured robot."

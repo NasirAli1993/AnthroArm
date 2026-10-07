@@ -1,0 +1,7 @@
+{
+  "Simulation": true,
+  "SeededGrasp": true,
+  "CAD": true,
+  "ControlAPI": true,
+  "Browser": true
+}

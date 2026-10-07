@@ -1,0 +1,5 @@
+$ErrorActionPreference = 'Stop'
+. 'D:\RoboticArm\scripts\environment.ps1'
+$env:FREECAD_USER_HOME = 'D:\RoboticArm\profile\FreeCAD'
+$cadExe = 'D:\RoboticArm\software\freecad\FreeCAD_1.1.4-Windows-x86_64-py311\bin\FreeCAD.exe'
+& $cadExe -u 'D:\RoboticArm\profile\FreeCAD\v3_user.cfg' -s 'D:\RoboticArm\profile\FreeCAD\v3_system.cfg' 'D:\RoboticArm\design\v3\build_reference_arm.FCMacro'

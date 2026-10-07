@@ -1,0 +1,16 @@
+{
+  "scope": "Development observations, distinct from final validation",
+  "iterations": [
+    {
+      "issue": "The first lidar site was inside the mounting column and returned self geometry; scan matching incorrectly held the map pose near zero while the physical base moved.",
+      "outcome": "Docking timeout, recorded in failed_trial.json.",
+      "correction": "Mounted the sensor forward of the column and used a 270-degree front field of view with the mast in the blind sector. MuJoCo rays still test actual physical geometry."
+    },
+    {
+      "issue": "A shoulder support bar at the shoulder pivot intersected the moving upper-arm shell.",
+      "outcome": "The arm could not reach the cube; the contact gate refused pickup.",
+      "correction": "Moved the rear column/support above the shoulder and retained collision checking. Added a fixed visual bearing neck to connect the support to the fixed mounting flange."
+    }
+  ],
+  "final_evidence": "validation.json contains three successful final-geometry cases. video_trial.json records the final full-physics video episode."
+}

@@ -1,0 +1,571 @@
+{
+  "trials": 10,
+  "successes": 10,
+  "all_passed": true,
+  "cancellation_holds_without_stale_commands": true,
+  "empty_target_refused_lift": true,
+  "empty_target_status": {
+    "active": false,
+    "phase": "failed",
+    "error": "No opposing thumb/finger contacts; pickup refused",
+    "parameters": [
+      -0.03446666666666669,
+      0.0,
+      0.02255238095238096,
+      1.3493333333333337,
+      1.5420952380952389,
+      1.2529523809523817,
+      1.2529523809523817,
+      0.4819047619047621,
+      0.6746666666666669,
+      0.6746666666666669
+    ],
+    "policy": "supervised affine regression",
+    "contact_count": 4,
+    "completed_sequence": false,
+    "physical_success_requires_evaluation": true,
+    "note": "Learned size-conditioned grasp; scripted stages and numerical IK; simulated upright cubes only"
+  },
+  "results": [
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.033,
+      "mass_kg": 0.04,
+      "xy": [
+        0.385,
+        -0.012
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.0338666666666667,
+        0.0,
+        0.022209523809523814,
+        1.337333333333334,
+        1.5283809523809533,
+        1.2418095238095246,
+        1.2418095238095246,
+        0.4776190476190479,
+        0.668666666666667,
+        0.668666666666667
+      ],
+      "object_estimate_xyz_m": [
+        0.385,
+        -0.012,
+        0.6164999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0,
+        0.0,
+        -0.00039147829710817206
+      ],
+      "minimum_hold_lift_m": 0.14808391506285423,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0009032517750889114,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 27.16087534830084,
+      "max_joint_limit_violation_rad": 0.0134107308560516,
+      "max_contact_penetration_m": 0.0014764521514923656,
+      "max_normal_contact_force_n": 49.35440327089878,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_0_0"
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.033,
+      "mass_kg": 0.06,
+      "xy": [
+        0.41500000000000004,
+        0.012
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.0338666666666667,
+        0.0,
+        0.022209523809523814,
+        1.337333333333334,
+        1.5283809523809533,
+        1.2418095238095246,
+        1.2418095238095246,
+        0.4776190476190479,
+        0.668666666666667,
+        0.668666666666667
+      ],
+      "object_estimate_xyz_m": [
+        0.41500000000000004,
+        0.012,
+        0.6164999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0,
+        0.0,
+        -0.00039147829710817206
+      ],
+      "minimum_hold_lift_m": 0.15011072174780316,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0006327543872622812,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 63.63577381385623,
+      "max_joint_limit_violation_rad": 0.01313638897363445,
+      "max_contact_penetration_m": 0.00119273897148767,
+      "max_normal_contact_force_n": 51.98509930561823,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_0_1"
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.035,
+      "mass_kg": 0.04,
+      "xy": [
+        0.385,
+        -0.015
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.03426666666666669,
+        0.0,
+        0.022438095238095243,
+        1.345333333333334,
+        1.5375238095238102,
+        1.249238095238096,
+        1.249238095238096,
+        0.48047619047619067,
+        0.672666666666667,
+        0.672666666666667
+      ],
+      "object_estimate_xyz_m": [
+        0.385,
+        -0.015,
+        0.6174999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0,
+        0.0,
+        -0.00039147829710817206
+      ],
+      "minimum_hold_lift_m": 0.1495636906138551,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0009964083214559893,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 40.25251936082336,
+      "max_joint_limit_violation_rad": 0.00938836706483337,
+      "max_contact_penetration_m": 0.001104127412213203,
+      "max_normal_contact_force_n": 53.44113661205344,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_1_0"
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.035,
+      "mass_kg": 0.06,
+      "xy": [
+        0.41500000000000004,
+        0.015
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.03426666666666669,
+        0.0,
+        0.022438095238095243,
+        1.345333333333334,
+        1.5375238095238102,
+        1.249238095238096,
+        1.249238095238096,
+        0.48047619047619067,
+        0.672666666666667,
+        0.672666666666667
+      ],
+      "object_estimate_xyz_m": [
+        0.41500000000000004,
+        0.015,
+        0.6174999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0,
+        0.0,
+        -0.00039147829710817206
+      ],
+      "minimum_hold_lift_m": 0.14854180250356996,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0015751067218571944,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 41.733212433937226,
+      "max_joint_limit_violation_rad": 0.014550211193846696,
+      "max_contact_penetration_m": 0.0006148653998909309,
+      "max_normal_contact_force_n": 55.57968471524354,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_1_1"
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.037,
+      "mass_kg": 0.04,
+      "xy": [
+        0.385,
+        -0.018000000000000002
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.034666666666666686,
+        0.0,
+        0.022666666666666672,
+        1.3533333333333337,
+        1.5466666666666673,
+        1.2566666666666673,
+        1.2566666666666673,
+        0.4833333333333335,
+        0.6766666666666669,
+        0.6766666666666669
+      ],
+      "object_estimate_xyz_m": [
+        0.385,
+        -0.018000000000000002,
+        0.6184999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        1.532107773982716e-14,
+        -8.873341741932883e-09,
+        -0.0003914782969376418
+      ],
+      "minimum_hold_lift_m": 0.15291709100613116,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0005384453470351847,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 71.20678534061712,
+      "max_joint_limit_violation_rad": 0.0005097658213334086,
+      "max_contact_penetration_m": 0.0008043778349381299,
+      "max_normal_contact_force_n": 55.67820307070131,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_2_0"
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.037,
+      "mass_kg": 0.06,
+      "xy": [
+        0.41500000000000004,
+        0.018000000000000002
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.034666666666666686,
+        0.0,
+        0.022666666666666672,
+        1.3533333333333337,
+        1.5466666666666673,
+        1.2566666666666673,
+        1.2566666666666673,
+        0.4833333333333335,
+        0.6766666666666669,
+        0.6766666666666669
+      ],
+      "object_estimate_xyz_m": [
+        0.41500000000000004,
+        0.018000000000000002,
+        0.6184999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        2.140954080687152e-12,
+        2.079143156252794e-09,
+        -0.0003914782969371977
+      ],
+      "minimum_hold_lift_m": 0.15276207294238164,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0006222629647038869,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 71.32295440574329,
+      "max_joint_limit_violation_rad": 0.0007367869557718614,
+      "max_contact_penetration_m": 0.0005842903854903464,
+      "max_normal_contact_force_n": 54.0213317284229,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_2_1"
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.039,
+      "mass_kg": 0.04,
+      "xy": [
+        0.385,
+        -0.021
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.035066666666666683,
+        0.0,
+        0.0228952380952381,
+        1.3613333333333335,
+        1.5558095238095244,
+        1.2640952380952386,
+        1.2640952380952386,
+        0.48619047619047634,
+        0.6806666666666668,
+        0.6806666666666668
+      ],
+      "object_estimate_xyz_m": [
+        0.385,
+        -0.021,
+        0.6194999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0,
+        0.0,
+        -0.00039147829710817206
+      ],
+      "minimum_hold_lift_m": 0.1529397530180625,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0005695126411202955,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 79.76236652533414,
+      "max_joint_limit_violation_rad": 0.0005097658213334086,
+      "max_contact_penetration_m": 0.0008755357731420781,
+      "max_normal_contact_force_n": 57.10576804110891,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_3_0"
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.039,
+      "mass_kg": 0.06,
+      "xy": [
+        0.41500000000000004,
+        0.021
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.035066666666666683,
+        0.0,
+        0.0228952380952381,
+        1.3613333333333335,
+        1.5558095238095244,
+        1.2640952380952386,
+        1.2640952380952386,
+        0.48619047619047634,
+        0.6806666666666668,
+        0.6806666666666668
+      ],
+      "object_estimate_xyz_m": [
+        0.41500000000000004,
+        0.021,
+        0.6194999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        0.0,
+        0.0,
+        -0.00039147829710817206
+      ],
+      "minimum_hold_lift_m": 0.15231996498373468,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0005121908139969368,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 96.4683869697455,
+      "max_joint_limit_violation_rad": 0.009720794229411966,
+      "max_contact_penetration_m": 0.0006893710785670984,
+      "max_normal_contact_force_n": 54.44132941863914,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_3_1"
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.041,
+      "mass_kg": 0.04,
+      "xy": [
+        0.385,
+        -0.024
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.03546666666666668,
+        0.0,
+        0.02312380952380953,
+        1.3693333333333335,
+        1.5649523809523815,
+        1.27152380952381,
+        1.27152380952381,
+        0.4890476190476191,
+        0.6846666666666668,
+        0.6846666666666668
+      ],
+      "object_estimate_xyz_m": [
+        0.385,
+        -0.024,
+        0.6204999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        3.544942117628125e-13,
+        5.991438664643134e-09,
+        -0.0003914782969366426
+      ],
+      "minimum_hold_lift_m": 0.1527293299486422,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.0004856103991380791,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 112.61749827733033,
+      "max_joint_limit_violation_rad": 0.007899314717078942,
+      "max_contact_penetration_m": 0.0008928037798830479,
+      "max_normal_contact_force_n": 52.326540307956876,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_4_0"
+    },
+    {
+      "success": true,
+      "grasp_success": true,
+      "release_success": true,
+      "phase": "complete",
+      "error": "",
+      "size_m": 0.041,
+      "mass_kg": 0.06,
+      "xy": [
+        0.41500000000000004,
+        0.024
+      ],
+      "estimate_error_m": [
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        -0.03546666666666668,
+        0.0,
+        0.02312380952380953,
+        1.3693333333333335,
+        1.5649523809523815,
+        1.27152380952381,
+        1.27152380952381,
+        0.4890476190476191,
+        0.6846666666666668,
+        0.6846666666666668
+      ],
+      "object_estimate_xyz_m": [
+        0.41500000000000004,
+        0.024,
+        0.6204999999999999
+      ],
+      "measured_initial_estimate_error_m": [
+        4.076849968726037e-12,
+        -1.8789957159648374e-09,
+        -0.00039147829693730873
+      ],
+      "minimum_hold_lift_m": 0.1525879894947214,
+      "hold_duration_s": 1.5,
+      "hold_hand_contact_fraction": 1.0,
+      "hold_slip_m": 0.00046693487363093735,
+      "max_effort_fraction": 1.0,
+      "max_external_force": 0.0,
+      "mean_hold_normal_force_n": 114.75522564909414,
+      "max_joint_limit_violation_rad": 0.006049861075161367,
+      "max_contact_penetration_m": 0.0008281147477293689,
+      "max_normal_contact_force_n": 51.496724253361116,
+      "object_is_free": true,
+      "equality_constraints": 0,
+      "body_gravcomp_max": 0.0,
+      "case_id": "heldout_4_1"
+    }
+  ]
+}

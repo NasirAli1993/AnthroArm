@@ -1,0 +1,36 @@
+SOLIDWORKS SESSION ENDED — STATIC BUILD EVIDENCED; NATIVE FILES NOT RECOVERED
+Final session state: 6 October 2026, approximately 7:36 PM Asia/Shanghai
+
+V6 successfully built/saved the 28-part, 293-solid all-fixed native arm assembly
+and verified its 30-file ZIP inside SOLIDWORKS Design Premium 2026 SP0. This is
+historical native execution evidence, preserved by screenshots.
+
+The archive was NOT transferred to this computer. Browser download-event wait,
+downloadMedia and pageAssets could not deliver a confirmed file. At expiry, the
+trial redirected to MySolidWorks feedback. D:/RoboticArm/solidworks/native_results
+is empty. The expired cloud session does not provide a retained/recoverable
+archive; no current download action is available.
+
+Historical archive filename (not a downloadable local/cloud asset):
+AnthroArm27_Static_20261006_105654_39414012_NATIVE.zip
+
+DIP V6 reached DIP_DRIVEN_10DEG.SLDASM with parent fixed, child floating and Mates,
+then FAILED with error -2147220784:
+"Actual signed flexion differs from target by over 0.5 degrees".
+No successful full joint sweep, Motion study or FEA is claimed. The complete
+robotic-arm project in SOLIDWORKS remains unfinished.
+
+WHAT IS PRESERVED ON D:
+- transfer/: original STEP links, 293-body inventory, frames and joint definitions.
+- scripts/AutoFullArmStaticV6*: reproducible native static generation source.
+- scripts/AutoDIPMateV6*: the failed native joint-test source for investigation.
+- results/full_static_v6_native_result.png: actual static/ZIP success message.
+- results/native_v6_download_ready.png: historical remote archive listing.
+- results/dip_v6_native_attempt.png: actual failed joint check.
+- docs/WHERE_THE_CODE_AND_RESULTS_ARE.txt: explanation and software distinctions.
+- studies/native_results_ledger.json: results, failure and missing recovery evidence.
+
+The preparation ZIP contains source/data/evidence; it is NOT the missing native
+SLDPRT/SLDASM result archive. Generation scripts remain reproducible, but no new
+trial session is being started. Existing movement/camera recordings on D: are
+MuJoCo results and must remain labelled accordingly.

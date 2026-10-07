@@ -1,0 +1,52 @@
+OFFICIAL SOURCES — reviewed 2026-10-05
+
+MuJoCo official Python documentation:
+https://mujoco.readthedocs.io/en/stable/python.html
+The official Python distribution includes the MuJoCo engine. Viewer, stepping, and rendering APIs are documented here.
+
+MuJoCo upstream repository:
+https://github.com/google-deepmind/mujoco
+Official native binaries include Windows x86-64. Apache-2.0 source license.
+
+NVIDIA Isaac Sim current requirements:
+https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html
+Page inspected lists 32GB RAM, RTX4080, 16GB VRAM minimum; GPUs without RT cores unsupported. Requirements change by version; this is not an evergreen hardware quotation.
+
+Isaac Sim downloads and launcher deprecation:
+https://docs.isaacsim.omniverse.nvidia.com/latest/installation/download.html
+Omniverse Launcher unavailable from 2025-10-01. Direct current releases are listed.
+
+Isaac Lab official installation requirements:
+https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html
+Lab requires Isaac Sim; current page lists Windows11/Linux,32GB RAM,16GB VRAM. Match Python and supported Sim/Lab versions instead of mixing independently newest versions.
+
+NVIDIA GTX versus RTX explanation:
+https://blogs.nvidia.com/blog/whats-the-difference-between-nvidia-rtx-and-gtx/
+Explains RT cores are a feature of the RTX lineup.
+
+GTX1660Ti official specification announcement:
+https://nvidianews.nvidia.com/news/new-geforce-gtx-1660-ti-delivers-great-performance-leap-for-every-gamer-starting-at-279
+Lists 6GB GDDR6 memory. The article's historical launch price is irrelevant to current procurement and is not used here.
+
+FreeCAD official download site:
+https://freecad.github.io/Website/download/
+Windows10+ and 64-bit portable package are offered. The freecad.org/downloads.php endpoint returned an error during this audit; the project-hosted official site was available.
+
+OpenSCAD official downloads:
+https://openscad.org/downloads.html
+Provides Windows64-bit ZIP packages and checksums/signature links; stable and development system requirements differ.
+
+OpenSCAD official documentation index:
+https://openscad.org/documentation.html
+Links to language, command-line operation and import/export documentation.
+
+Google MediaPipe Hand Landmarker Python guide:
+https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker/python
+Redirects to https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker/python
+Describes Tasks API, model assets, image/video/live-stream inference, and results.
+
+MediaPipe hand landmark pipeline source:
+https://github.com/google-ai-edge/mediapipe/blob/master/mediapipe/modules/hand_landmark/hand_landmark_cpu.pbtxt
+World landmarks use meter units with hand-centered origin; they are not camera-to-robot extrinsics.
+
+No external claims in this audit depend on forum/reddit results. Geometric, kinematic and torque conclusions are original analysis of the provided snippet and explicitly stated assumptions.

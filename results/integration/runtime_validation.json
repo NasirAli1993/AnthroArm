@@ -1,0 +1,26 @@
+{
+  "simulation_only": true,
+  "checks": {
+    "27_joint_feedback": true,
+    "physical_trajectory": {
+      "target": 0.12000000000377865,
+      "actual": 0.11331329408211575,
+      "error_rad": 0.0066867059216629
+    },
+    "unknown_joint_rejected": true,
+    "out_of_range_rejected": true,
+    "nonincreasing_time_rejected": true,
+    "overspeed_rejected": true,
+    "stop_and_hold": true,
+    "rendered_rgbd_camera": {
+      "width": 640,
+      "height": 480,
+      "detection": [
+        0.4007380558976928,
+        -0.00093410421016012,
+        0.6190646496626977
+      ]
+    }
+  },
+  "passed": true
+}

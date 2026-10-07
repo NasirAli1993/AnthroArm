@@ -1,0 +1,397 @@
+{
+  "passed": true,
+  "scope": "Geometry topology, positive volumes, file round trips and embedded descriptions only. This does not validate assembly interference, actuation, tolerances, strength, manufacturability or physical safety.",
+  "expected_components": 62,
+  "native_freecad": {
+    "reopened": true,
+    "component_count": 62,
+    "valid_components": 62,
+    "single_solid_components": 62,
+    "positive_volume_components": 62,
+    "explanations_persisted": 62,
+    "joint_metadata_persisted": 62
+  },
+  "step": {
+    "reimported": true,
+    "assembly_valid": true,
+    "solid_count": 62,
+    "valid_solids": 62,
+    "positive_volume_solids": 62,
+    "total_volume_mm3": 4819254.110430354
+  },
+  "stl_count": 62,
+  "stls": [
+    {
+      "file": "BaseAccent.stl",
+      "bytes": 37084,
+      "facets": 740,
+      "points": 370
+    },
+    {
+      "file": "BaseFixture.stl",
+      "bytes": 249284,
+      "facets": 4984,
+      "points": 2484
+    },
+    {
+      "file": "forearmCover.stl",
+      "bytes": 139884,
+      "facets": 2796,
+      "points": 1400
+    },
+    {
+      "file": "forearmRootBearingCover.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "forearmRootHubRing.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "forearmShell.stl",
+      "bytes": 69884,
+      "facets": 1396,
+      "points": 692
+    },
+    {
+      "file": "forearmTipBearingCover.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "forearmTipHubRing.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "index_distalBody.stl",
+      "bytes": 180984,
+      "facets": 3618,
+      "points": 1813
+    },
+    {
+      "file": "index_distalPad.stl",
+      "bytes": 139884,
+      "facets": 2796,
+      "points": 1400
+    },
+    {
+      "file": "index_distalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "index_intermediateBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "index_intermediatePin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "index_knuckleYoke.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "index_proximalBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "index_proximalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "middle_distalBody.stl",
+      "bytes": 181984,
+      "facets": 3638,
+      "points": 1823
+    },
+    {
+      "file": "middle_distalPad.stl",
+      "bytes": 139884,
+      "facets": 2796,
+      "points": 1400
+    },
+    {
+      "file": "middle_distalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "middle_intermediateBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "middle_intermediatePin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "middle_knuckleYoke.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "middle_proximalBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "middle_proximalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "PalmContactPad.stl",
+      "bytes": 139884,
+      "facets": 2796,
+      "points": 1400
+    },
+    {
+      "file": "PalmDorsalLid.stl",
+      "bytes": 191084,
+      "facets": 3820,
+      "points": 1904
+    },
+    {
+      "file": "PalmShell.stl",
+      "bytes": 350284,
+      "facets": 7004,
+      "points": 3492
+    },
+    {
+      "file": "pinky_distalBody.stl",
+      "bytes": 176584,
+      "facets": 3530,
+      "points": 1769
+    },
+    {
+      "file": "pinky_distalPad.stl",
+      "bytes": 139884,
+      "facets": 2796,
+      "points": 1400
+    },
+    {
+      "file": "pinky_distalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "pinky_intermediateBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "pinky_intermediatePin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "pinky_knuckleYoke.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "pinky_proximalBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "pinky_proximalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "ring_distalBody.stl",
+      "bytes": 180984,
+      "facets": 3618,
+      "points": 1813
+    },
+    {
+      "file": "ring_distalPad.stl",
+      "bytes": 139884,
+      "facets": 2796,
+      "points": 1400
+    },
+    {
+      "file": "ring_distalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "ring_intermediateBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "ring_intermediatePin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "ring_knuckleYoke.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "ring_proximalBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "ring_proximalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "ShoulderYokeL.stl",
+      "bytes": 154484,
+      "facets": 3088,
+      "points": 1546
+    },
+    {
+      "file": "ShoulderYokeR.stl",
+      "bytes": 154484,
+      "facets": 3088,
+      "points": 1546
+    },
+    {
+      "file": "thumb_distalBody.stl",
+      "bytes": 124784,
+      "facets": 2494,
+      "points": 1251
+    },
+    {
+      "file": "thumb_distalPad.stl",
+      "bytes": 139884,
+      "facets": 2796,
+      "points": 1400
+    },
+    {
+      "file": "thumb_distalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "thumb_metacarpalBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "thumb_metacarpalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "thumb_oppositionYoke.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "thumb_proximalBody.stl",
+      "bytes": 221884,
+      "facets": 4436,
+      "points": 2214
+    },
+    {
+      "file": "thumb_proximalPin.stl",
+      "bytes": 12484,
+      "facets": 248,
+      "points": 126
+    },
+    {
+      "file": "upperCover.stl",
+      "bytes": 139884,
+      "facets": 2796,
+      "points": 1400
+    },
+    {
+      "file": "upperRootBearingCover.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "upperRootHubRing.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "upperShell.stl",
+      "bytes": 70684,
+      "facets": 1412,
+      "points": 700
+    },
+    {
+      "file": "upperTipBearingCover.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "upperTipHubRing.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "WaistHousing.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    },
+    {
+      "file": "WristPitchHousing.stl",
+      "bytes": 38884,
+      "facets": 776,
+      "points": 388
+    },
+    {
+      "file": "WristRollCollar.stl",
+      "bytes": 25284,
+      "facets": 504,
+      "points": 252
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-07",
+  "focused_review_passed": true,
+  "scope": "Runtime failure visibility, ROS action contract and task status, VLM provenance and accuracy labels, Windows launcher reproducibility. This is not physical robot certification.",
+  "files_reviewed": [
+    "D:/RoboticArm/integration/runtime_server.py",
+    "D:/RoboticArm/integration/ros2/anthro_bridge.py",
+    "D:/RoboticArm/integration/vision_language.py",
+    "D:/RoboticArm/START_SIMULATION.ps1",
+    "D:/RoboticArm/START_SIMULATION.cmd",
+    "D:/RoboticArm/STOP_SIMULATION.ps1",
+    "D:/RoboticArm/RUN_VALIDATION.ps1",
+    "D:/RoboticArm/integration/navigation/launch.ps1",
+    "D:/RoboticArm/integration/runtime/run_ros2.ps1"
+  ],
+  "issues_fixed": [
+    {
+      "issue": "Unsupported multi-DOF trajectories and component tolerances were silently ignored by the ROS action server.",
+      "resolution": "Reject unsupported multi-DOF content and component path/goal tolerances; supported position-only goals remain accepted.",
+      "evidence": "review_ros_checks.json"
+    },
+    {
+      "issue": "A dead simulation worker could leave health ready and serve stale sensor/state data while commands waited.",
+      "resolution": "Report unhealthy, return HTTP503 for stale simulation streams, reject new commands promptly, and fail queued commands when the worker crashes.",
+      "evidence": "review_backend_checks.json"
+    },
+    {
+      "issue": "ROS task status omitted learned-grasp phase and final errors.",
+      "resolution": "Publish active grasp state and task_result in status JSON; completion remains distinct from evaluated physical success.",
+      "evidence": "review_ros_checks.json"
+    },
+    {
+      "issue": "Launcher relied on pwsh being on PATH, but this session found only the host application's private PowerShell executable.",
+      "resolution": "Root changed launchers to the absolute system Windows PowerShell path. All five reviewed PowerShell scripts parse under 5.1.26100.9444.",
+      "evidence": "review_launcher_checks.json"
+    },
+    {
+      "issue": "Opening the default browser URL could reuse a normal browser profile outside D:.",
+      "resolution": "Root launcher now selects an existing Edge/Chrome executable and explicitly sets D: browser profile and cache directories. No new browser is installed."
+    },
+    {
+      "issue": "VLM metadata labeled any --image source as the simulated camera and omitted an explicit accuracy assessment.",
+      "resolution": "Root made source and ROI metadata conditional and added qualitative review while preserving raw generated answers."
+    }
+  ],
+  "focused_validation": {
+    "backend_fixture_checks_passed": 8,
+    "ros_fixture_checks_passed": 9,
+    "powershell_scripts_parsed": 5,
+    "live_arm_commands_issued_during_review": false,
+    "live_navigation_commands_issued_during_review": false,
+    "earlier_native_ros_end_to_end_evidence": "arm_bridge_validation.json",
+    "earlier_native_ros_end_to_end_checks_passed": 23,
+    "note": "The earlier end-to-end run covered physical simulated movement, cancellation, RGB-D, clock, TF and the ROS-triggered grasp. Final review changes were checked with focused fixtures; root owns restart and post-restart HTTP validation."
+  },
+  "vlm_review": {
+    "input_image_independently_viewed": "D:/RoboticArm/results/integration/vision_language/scene_input.png",
+    "visible_scene": "Articulated robotic arm over a platform/table, with an orange cube.",
+    "raw_scene_answer": "In this image we can see a marker, a box and a paper.",
+    "raw_target_answer": "The object in the image is a cube.",
+    "assessment": "Target shape was identified, but requested color was omitted. Full-scene marker/paper claims are unsupported by the image, and the arm was not identified. This example does not establish reliable scene understanding.",
+    "motor_control_authority": false
+  },
+  "remaining_limits": [
+    "All tested control and sensors operate in simulation; no assembled physical arm, real calibrated RGB-D camera or Jetson deployment was validated here.",
+    "The learned grasp uses a size-conditioned regression plus scripted stages and IK for a narrow upright-cube domain; it is not a general VLA policy.",
+    "The installed ROS runtime is a pinned RoboStack community Windows distribution. Full MoveIt and Nav2 stacks are not installed.",
+    "Current host GTX 1660 Ti with 6 GB VRAM and approximately 16 GB RAM does not satisfy supported Isaac Sim/Lab hardware requirements.",
+    "ROS consumers must use simulation time and handle backward clock jumps on reset.",
+    "Launchers configure project/browser/runtime paths on D:; existing Windows components and installed browser executables may be read from their existing locations."
+  ]
+}

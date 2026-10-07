@@ -1,0 +1,9 @@
+{
+  "body_names_in_step": 293,
+  "missing_body_names": [],
+  "all_step_units_mm": true,
+  "joint_count": 27,
+  "unique_component_names": true,
+  "parent_links_resolve": true,
+  "passed": true
+}

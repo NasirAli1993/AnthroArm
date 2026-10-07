@@ -1,0 +1,42 @@
+﻿{
+    "scope":  "Parse-only under system Windows PowerShell; no service or browser launched",
+    "powershell_version":  "5.1.26100.9444",
+    "checks":  [
+                   {
+                       "path":  "D:\\RoboticArm\\START_SIMULATION.ps1",
+                       "errors":  [
+
+                                  ],
+                       "passed":  true
+                   },
+                   {
+                       "path":  "D:\\RoboticArm\\STOP_SIMULATION.ps1",
+                       "errors":  [
+
+                                  ],
+                       "passed":  true
+                   },
+                   {
+                       "path":  "D:\\RoboticArm\\RUN_VALIDATION.ps1",
+                       "errors":  [
+
+                                  ],
+                       "passed":  true
+                   },
+                   {
+                       "path":  "D:\\RoboticArm\\integration\\navigation\\launch.ps1",
+                       "errors":  [
+
+                                  ],
+                       "passed":  true
+                   },
+                   {
+                       "path":  "D:\\RoboticArm\\integration\\runtime\\run_ros2.ps1",
+                       "errors":  [
+
+                                  ],
+                       "passed":  true
+                   }
+               ],
+    "passed":  true
+}

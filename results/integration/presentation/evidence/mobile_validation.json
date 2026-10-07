@@ -1,0 +1,382 @@
+{
+  "trials": 3,
+  "successes": 3,
+  "all_passed": true,
+  "results": [
+    {
+      "success": true,
+      "task": "Continuous physical wheel docking, RGB-D detection, learned arm grasp/lift/hold/set-down/release",
+      "navigation": "Local encoder-seeded 2-D lidar scan-to-map SLAM with direct dock controller on an unobstructed lane; not a combined obstacle-navigation benchmark",
+      "initial_base": {
+        "xyz_m": [
+          -0.6013258253550189,
+          1.8834255637566052E-09,
+          0.16237933878052965
+        ],
+        "yaw_rad": -2.854166405266744E-06,
+        "tilt_rad": 0.00862740671534128
+      },
+      "parked_base": {
+        "xyz_m": [
+          0.01098789117922939,
+          2.2474268409548647E-06,
+          0.16237933792878795
+        ],
+        "yaw_rad": 0.0002611341756101619,
+        "tilt_rad": 0.008627402101273426
+      },
+      "estimated_dock_error_m": 0.00890404479816832,
+      "base_travel_m": 0.6123137165383657,
+      "max_base_drift_during_manipulation_m": 3.559921214533718E-05,
+      "max_base_tilt_during_manipulation_deg": 0.49584761352187134,
+      "minimum_hold_lift_m": 0.15395220770593365,
+      "continuous_hold_contacts": true,
+      "release_success": true,
+      "camera_detection": {
+        "detected": true,
+        "source": "rendered RGB segmentation + metric depth",
+        "ground_truth_object_pose_used": false,
+        "center_world_m": [
+          0.4007380731838872,
+          -0.00093410421016012,
+          0.6190647164926973
+        ],
+        "top_surface_z_m": 0.6370647164926974,
+        "bbox_pixels": [
+          301,
+          226,
+          21,
+          25
+        ],
+        "orange_pixels": 440,
+        "top_surface_pixels": 173,
+        "calibration": {
+          "fx": 539.0488257370118,
+          "fy": 539.0488257370118,
+          "cx": 319.5,
+          "cy": 239.5,
+          "width": 640,
+          "height": 480,
+          "camera_world_position_m": [
+            0.76,
+            -0.9,
+            1.3
+          ],
+          "camera_world_rotation": [
+            [
+              0.9354720936771068,
+              -0.2039771050121656,
+              0.28859193090283475
+            ],
+            [
+              0.3534005686913514,
+              0.5399393956679712,
+              -0.7639198171629897
+            ],
+            [
+              0.0,
+              0.8166142232636915,
+              0.5771838618355836
+            ]
+          ]
+        },
+        "assumptions": "Known upright 36 mm orange cube; visible top surface; calibrated RGB-D camera.",
+        "known_object_size_m": 0.036
+      },
+      "camera_estimate_error_m": 0.0013676813839824191,
+      "max_arm_effort_fraction": 1.0,
+      "max_wheel_effort_fraction": 1.0,
+      "max_applied_external_force": 0.0,
+      "equality_constraints": 0,
+      "base_free_joint": true,
+      "object_free_joint": true,
+      "brake": "Encoder-position feedback through effort-bounded wheel velocity motors; no world constraint",
+      "cube_size_m": 0.036,
+      "cube_mass_kg": 0.06,
+      "chassis_mass_kg": 80,
+      "column_mass_kg": 6,
+      "track_m": 0.58,
+      "wheel_radius_m": 0.105,
+      "final_controller": {
+        "active": false,
+        "phase": "complete",
+        "error": "",
+        "parameters": [
+          -0.03446666666666669,
+          0.0,
+          0.02255238095238096,
+          1.3493333333333337,
+          1.5420952380952389,
+          1.2529523809523817,
+          1.2529523809523817,
+          0.4819047619047621,
+          0.6746666666666669,
+          0.6746666666666669
+        ],
+        "policy": "supervised affine regression",
+        "contact_count": 4,
+        "completed_sequence": true,
+        "physical_success_requires_evaluation": true,
+        "note": "Learned size-conditioned grasp; scripted stages and numerical IK; simulated upright cubes only"
+      },
+      "limitations": [
+        "Heavy 80 kg chassis was selected for stability and differs from the standalone 3 kg navigation robot.",
+        "Straight docking lane only; the full navigation benchmark and combined manipulation are distinct tests.",
+        "Stationary calibrated external RGB-D camera and known upright cube size.",
+        "No learned whole-body locomotion policy or dynamic manipulation while driving.",
+        "Arm IK uses ideal simulated base pose and joint proprioception, while base docking is controlled from the lidar-map estimate."
+      ],
+      "arm_ik_base_pose_source": "Ideal simulated base pose and joint proprioception; object target comes only from RGB-D pixels"
+    },
+    {
+      "success": true,
+      "task": "Continuous physical wheel docking, RGB-D detection, learned arm grasp/lift/hold/set-down/release",
+      "navigation": "Local encoder-seeded 2-D lidar scan-to-map SLAM with direct dock controller on an unobstructed lane; not a combined obstacle-navigation benchmark",
+      "initial_base": {
+        "xyz_m": [
+          -0.5513260787332526,
+          8.9022081199964E-08,
+          0.16237933882676236
+        ],
+        "yaw_rad": -1.2017711525253824E-06,
+        "tilt_rad": 0.00862739477996859
+      },
+      "parked_base": {
+        "xyz_m": [
+          0.01902160607381997,
+          -1.2684090657035043E-05,
+          0.16237933877502264
+        ],
+        "yaw_rad": 0.00020524729360931582,
+        "tilt_rad": 0.008627401040928887
+      },
+      "estimated_dock_error_m": 0.008590937768957543,
+      "base_travel_m": 0.5703476849501015,
+      "max_base_drift_during_manipulation_m": 3.695375425801652E-05,
+      "max_base_tilt_during_manipulation_deg": 0.49608236963218383,
+      "minimum_hold_lift_m": 0.1539688134858055,
+      "continuous_hold_contacts": true,
+      "release_success": true,
+      "camera_detection": {
+        "detected": true,
+        "source": "rendered RGB segmentation + metric depth",
+        "ground_truth_object_pose_used": false,
+        "center_world_m": [
+          0.39564744643311356,
+          -0.015868676181214375,
+          0.6190602338192195
+        ],
+        "top_surface_z_m": 0.6370602338192195,
+        "bbox_pixels": [
+          296,
+          229,
+          22,
+          26
+        ],
+        "orange_pixels": 461,
+        "top_surface_pixels": 176,
+        "calibration": {
+          "fx": 539.0488257370118,
+          "fy": 539.0488257370118,
+          "cx": 319.5,
+          "cy": 239.5,
+          "width": 640,
+          "height": 480,
+          "camera_world_position_m": [
+            0.76,
+            -0.9,
+            1.3
+          ],
+          "camera_world_rotation": [
+            [
+              0.9354720936771068,
+              -0.2039771050121656,
+              0.28859193090283475
+            ],
+            [
+              0.3534005686913514,
+              0.5399393956679712,
+              -0.7639198171629897
+            ],
+            [
+              0.0,
+              0.8166142232636915,
+              0.5771838618355836
+            ]
+          ]
+        },
+        "assumptions": "Known upright 36 mm orange cube; visible top surface; calibrated RGB-D camera.",
+        "known_object_size_m": 0.036
+      },
+      "camera_estimate_error_m": 0.001273192499171823,
+      "max_arm_effort_fraction": 1.0,
+      "max_wheel_effort_fraction": 1.0,
+      "max_applied_external_force": 0.0,
+      "equality_constraints": 0,
+      "base_free_joint": true,
+      "object_free_joint": true,
+      "brake": "Encoder-position feedback through effort-bounded wheel velocity motors; no world constraint",
+      "cube_size_m": 0.036,
+      "cube_mass_kg": 0.06,
+      "chassis_mass_kg": 80,
+      "column_mass_kg": 6,
+      "track_m": 0.58,
+      "wheel_radius_m": 0.105,
+      "final_controller": {
+        "active": false,
+        "phase": "complete",
+        "error": "",
+        "parameters": [
+          -0.03446666666666669,
+          0.0,
+          0.02255238095238096,
+          1.3493333333333337,
+          1.5420952380952389,
+          1.2529523809523817,
+          1.2529523809523817,
+          0.4819047619047621,
+          0.6746666666666669,
+          0.6746666666666669
+        ],
+        "policy": "supervised affine regression",
+        "contact_count": 4,
+        "completed_sequence": true,
+        "physical_success_requires_evaluation": true,
+        "note": "Learned size-conditioned grasp; scripted stages and numerical IK; simulated upright cubes only"
+      },
+      "limitations": [
+        "Heavy 80 kg chassis was selected for stability and differs from the standalone 3 kg navigation robot.",
+        "Straight docking lane only; the full navigation benchmark and combined manipulation are distinct tests.",
+        "Stationary calibrated external RGB-D camera and known upright cube size.",
+        "No learned whole-body locomotion policy or dynamic manipulation while driving.",
+        "Arm IK uses ideal simulated base pose and joint proprioception, while base docking is controlled from the lidar-map estimate."
+      ],
+      "arm_ik_base_pose_source": "Ideal simulated base pose and joint proprioception; object target comes only from RGB-D pixels"
+    },
+    {
+      "success": true,
+      "task": "Continuous physical wheel docking, RGB-D detection, learned arm grasp/lift/hold/set-down/release",
+      "navigation": "Local encoder-seeded 2-D lidar scan-to-map SLAM with direct dock controller on an unobstructed lane; not a combined obstacle-navigation benchmark",
+      "initial_base": {
+        "xyz_m": [
+          -0.6513261565707361,
+          1.0613169272303505E-07,
+          0.16237933862755538
+        ],
+        "yaw_rad": -8.566930151505355E-07,
+        "tilt_rad": 0.00862739324753344
+      },
+      "parked_base": {
+        "xyz_m": [
+          0.020495337656561665,
+          -2.0476558639395683E-05,
+          0.16237933847389116
+        ],
+        "yaw_rad": 4.480323738867183E-05,
+        "tilt_rad": 0.008627406635027599
+      },
+      "estimated_dock_error_m": 0.0038717569813052203,
+      "base_travel_m": 0.6718214945425951,
+      "max_base_drift_during_manipulation_m": 2.8635036704437642E-05,
+      "max_base_tilt_during_manipulation_deg": 0.49581130509387095,
+      "minimum_hold_lift_m": 0.15397592856293962,
+      "continuous_hold_contacts": true,
+      "release_success": true,
+      "camera_detection": {
+        "detected": true,
+        "source": "rendered RGB segmentation + metric depth",
+        "ground_truth_object_pose_used": false,
+        "center_world_m": [
+          0.40567378211017635,
+          0.014124145486138898,
+          0.619071837641197
+        ],
+        "top_surface_z_m": 0.637071837641197,
+        "bbox_pixels": [
+          305,
+          223,
+          22,
+          25
+        ],
+        "orange_pixels": 448,
+        "top_surface_pixels": 168,
+        "calibration": {
+          "fx": 539.0488257370118,
+          "fy": 539.0488257370118,
+          "cx": 319.5,
+          "cy": 239.5,
+          "width": 640,
+          "height": 480,
+          "camera_world_position_m": [
+            0.76,
+            -0.9,
+            1.3
+          ],
+          "camera_world_rotation": [
+            [
+              0.9354720936771068,
+              -0.2039771050121656,
+              0.28859193090283475
+            ],
+            [
+              0.3534005686913514,
+              0.5399393956679712,
+              -0.7639198171629897
+            ],
+            [
+              0.0,
+              0.8166142232636915,
+              0.5771838618355836
+            ]
+          ]
+        },
+        "assumptions": "Known upright 36 mm orange cube; visible top surface; calibrated RGB-D camera.",
+        "known_object_size_m": 0.036
+      },
+      "camera_estimate_error_m": 0.0012976872884352558,
+      "max_arm_effort_fraction": 1.0,
+      "max_wheel_effort_fraction": 1.0,
+      "max_applied_external_force": 0.0,
+      "equality_constraints": 0,
+      "base_free_joint": true,
+      "object_free_joint": true,
+      "brake": "Encoder-position feedback through effort-bounded wheel velocity motors; no world constraint",
+      "cube_size_m": 0.036,
+      "cube_mass_kg": 0.06,
+      "chassis_mass_kg": 80,
+      "column_mass_kg": 6,
+      "track_m": 0.58,
+      "wheel_radius_m": 0.105,
+      "final_controller": {
+        "active": false,
+        "phase": "complete",
+        "error": "",
+        "parameters": [
+          -0.03446666666666669,
+          0.0,
+          0.02255238095238096,
+          1.3493333333333337,
+          1.5420952380952389,
+          1.2529523809523817,
+          1.2529523809523817,
+          0.4819047619047621,
+          0.6746666666666669,
+          0.6746666666666669
+        ],
+        "policy": "supervised affine regression",
+        "contact_count": 4,
+        "completed_sequence": true,
+        "physical_success_requires_evaluation": true,
+        "note": "Learned size-conditioned grasp; scripted stages and numerical IK; simulated upright cubes only"
+      },
+      "limitations": [
+        "Heavy 80 kg chassis was selected for stability and differs from the standalone 3 kg navigation robot.",
+        "Straight docking lane only; the full navigation benchmark and combined manipulation are distinct tests.",
+        "Stationary calibrated external RGB-D camera and known upright cube size.",
+        "No learned whole-body locomotion policy or dynamic manipulation while driving.",
+        "Arm IK uses ideal simulated base pose and joint proprioception, while base docking is controlled from the lidar-map estimate."
+      ],
+      "arm_ik_base_pose_source": "Ideal simulated base pose and joint proprioception; object target comes only from RGB-D pixels"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "native_v2_execution": false,
+  "files": [
+    {
+      "name": "AutoFullArmStaticV2.bas",
+      "sha256": "09c0999b1e94538893f98eb5127ecefec77ed424fb1c5ffafeb617f8887050cf"
+    },
+    {
+      "name": "AutoFullArmStaticV2.swb",
+      "sha256": "1327408dc52115304c47896333046f189b7665328bd099e3644119c34d23cc88"
+    },
+    {
+      "name": "AutoFullArmStaticV2_source_audit.json",
+      "sha256": "533682556374623ca129bd7dcdc78cbadb5893d5edadab746a63b7347257ebc2"
+    },
+    {
+      "name": "base_link.step",
+      "sha256": "28e6985fb6a0aeee94bfb6eb1a43e3ad5d89861f2e229a38fad84b6456db2c2c"
+    },
+    {
+      "name": "elbow_link.step",
+      "sha256": "5029dc395f79639a4b0b3298cbe211aae34aedd035377a282a6ad1057150f4b3"
+    },
+    {
+      "name": "forearm.step",
+      "sha256": "97c182236583bf2355ef8a85d6c487cba2fbda8a1e8545f3d621d86c192a0e5f"
+    },
+    {
+      "name": "index_distal.step",
+      "sha256": "dd080f24655fd0c46e3f6010860928e00ffe8a9842f9b1ac0a64bc61f88f429d"
+    },
+    {
+      "name": "index_intermediate.step",
+      "sha256": "a2e0017f86c034169aa05533e97749c55ae5a355d5fa99ceb7283e5cf59af220"
+    },
+    {
+      "name": "index_knuckle.step",
+      "sha256": "30035ec669c15c3b9078864c1d70b29c505eea5beb1222b294df6c35c46820f4"
+    },
+    {
+      "name": "index_proximal.step",
+      "sha256": "432672ae6d6911a1a9270ee539fc14b69dd1ced4e45d654a3325cbd0ca8bffd8"
+    },
+    {
+      "name": "middle_distal.step",
+      "sha256": "8b1cc7293f7d0b9803fad80f3f05f5ca281d6648889f2a16e5eb8e7f595401fe"
+    },
+    {
+      "name": "middle_intermediate.step",
+      "sha256": "8bfb0cecbc0ef329144f4598eccf871f2f178e60a43482d9d002f5392230b9a0"
+    },
+    {
+      "name": "middle_knuckle.step",
+      "sha256": "9bd4f7e0f41d5cc5d89252f8d6d66b998c07c526d15f5a5f4ef1b5dfff6b152e"
+    },
+    {
+      "name": "middle_proximal.step",
+      "sha256": "776b8c8eb3e4ae799930c08deeb091ed6c2c6acaa7ebe2c0bf40c51a45da9708"
+    },
+    {
+      "name": "palm_base.step",
+      "sha256": "d662b0b1eb05903d69cd40b28861c9c52010c826c74d731d1925c47b5b7965f2"
+    },
+    {
+      "name": "pinky_distal.step",
+      "sha256": "7545912224fc227b31c0fecf496835e35a06c788769fef51b643477c54a676b0"
+    },
+    {
+      "name": "pinky_intermediate.step",
+      "sha256": "653bc4bec52385c2991ed7d1d2d39cc6ce2ad74a98f3d386d17d2b432bed87c3"
+    },
+    {
+      "name": "pinky_knuckle.step",
+      "sha256": "229d89520b8149adbacf54dc4d032f8d1aed2950cb874390c30be7a8847fa4cd"
+    },
+    {
+      "name": "pinky_proximal.step",
+      "sha256": "acc4e6e831f8cd03e3c15e66523c5af9d291a540eea0e70eb74388a8a697b383"
+    },
+    {
+      "name": "READ_ME_V2.txt",
+      "sha256": "a56674811b9a49c487127b1fc510afa37120429d6818c6fab62b1c23f7ac886f"
+    },
+    {
+      "name": "ring_distal.step",
+      "sha256": "beec4899a5385e567566aa0c3f3cd10f1be60567c3dab8a4cb76d55f7a64d1c7"
+    },
+    {
+      "name": "ring_intermediate.step",
+      "sha256": "d967244e8e6beec85079b279b06c7e1f44ce97fc7af20ad0c918d8037705b67f"
+    },
+    {
+      "name": "ring_knuckle.step",
+      "sha256": "e045c05e25b8603d8abc55fcf613d9f83dd569b3353d61740bd43e597550b907"
+    },
+    {
+      "name": "ring_proximal.step",
+      "sha256": "238ce94c5dc71024d1675ce5f1aca2f4bfbfa5c56c989cee543d03e486f20250"
+    },
+    {
+      "name": "shoulder_abduction.step",
+      "sha256": "6c6f7bc60adb34e5299414f2386d095362746fa1e750857455a3e5ca6ab819ec"
+    },
+    {
+      "name": "shoulder_flexion.step",
+      "sha256": "e828573e7985d7740c6d03f3422e3decd59635c1daab53ef72fd1e27d6bdc0df"
+    },
+    {
+      "name": "thumb_distal.step",
+      "sha256": "c23bcef27d0587a735682997a265216083b144619a9edbd4342db424784763e1"
+    },
+    {
+      "name": "thumb_metacarpal.step",
+      "sha256": "2758a88a6121b1eefa17f8446a0ed4991630255677d5bf7f3e97ef1854663946"
+    },
+    {
+      "name": "thumb_opposition.step",
+      "sha256": "446d38bd23210469e5fc77184c9b10709cc5e156eb3046050ec638f31f485876"
+    },
+    {
+      "name": "thumb_proximal.step",
+      "sha256": "deb2dcbc1b42a2107048107e706e4cb4885abdeac6882448370f71734474572a"
+    },
+    {
+      "name": "upper_arm.step",
+      "sha256": "0ad302d27c2291075ebcd2b074c47220744882215ba035d038eb18f62c361391"
+    },
+    {
+      "name": "wrist_pitch.step",
+      "sha256": "82b3833b003e4c36f1b582bb71e3c48d8f506797658a31a48ddf472d61486e76"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+[workspace]
+name = "anthroarm-ros2-jazzy"
+version = "0.1.0"
+description = "Isolated Windows ROS 2 runtime for AnthroArm integration"
+channels = ["https://prefix.dev/robostack-jazzy", "https://prefix.dev/conda-forge"]
+platforms = ["win-64"]
+
+[dependencies]
+python = "3.12.*"
+ros-jazzy-ros-base = "*"
+ros-jazzy-rclpy = "*"
+ros-jazzy-std-msgs = "*"
+ros-jazzy-std-srvs = "*"
+ros-jazzy-sensor-msgs = "*"
+ros-jazzy-trajectory-msgs = "*"
+ros-jazzy-control-msgs = "*"
+ros-jazzy-geometry-msgs = "*"
+ros-jazzy-tf2-ros = "*"
+ros-jazzy-rmw-fastrtps-cpp = "*"
+
+[activation.env]
+ROS_DOMAIN_ID = "27"
+ROS_AUTOMATIC_DISCOVERY_RANGE = "LOCALHOST"
+ROS_LOCALHOST_ONLY = "1"
+RMW_IMPLEMENTATION = "rmw_fastrtps_cpp"
+ROS_LOG_DIR = "D:/RoboticArm/results/integration/runtime/ros_logs"
+ROS_HOME = "D:/RoboticArm/integration/runtime/profile/ros"
+PYTHONNOUSERSITE = "1"
+OPENBLAS_NUM_THREADS = "1"
+OMP_NUM_THREADS = "1"
+MKL_NUM_THREADS = "1"
+
+[tasks]
+probe = "python D:/RoboticArm/integration/runtime/probe_runtime.py"
+smoke = "python D:/RoboticArm/integration/runtime/run_smoke.py"

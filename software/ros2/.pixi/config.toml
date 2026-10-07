@@ -1,0 +1,7 @@
+[concurrency]
+downloads = 8
+solves = 2
+
+[cache]
+root = "D:/RoboticArm/integration/runtime/cache/pixi"
+netfs-redirect = "never"

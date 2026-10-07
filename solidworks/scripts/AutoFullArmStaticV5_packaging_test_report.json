@@ -1,0 +1,40 @@
+{
+  "status": "SOURCE AND WINDOWS PACKAGING TESTS ONLY; native SOLIDWORKS V5 execution unverified",
+  "swb_sha256": "d9b378f060d3b3e868bc682b156c752df7d6790a18dba5eee56bd3adf138ba77",
+  "v4_geometry_initializers_unchanged": true,
+  "plain_transform_setter_retained": true,
+  "explicit_isfixed_checks": [
+    "If (comp.IsFixed <> False) Then assembly.UnfixComponent",
+    "Check (comp.IsFixed = False), \"Cannot float before positioning: \" & linkNames(i)",
+    "Check (comp.IsFixed <> False), \"Static fixing failed: \" & linkNames(i)",
+    "Check (components(i).IsFixed <> False), \"Component not fixed after rebuild: \" & linkNames(i)"
+  ],
+  "packaging_test": {
+    "Test": "Exact V5 ZIP payload via hidden WScript.Shell.Run with spaces and apostrophes",
+    "ExitCode": 0,
+    "ElapsedSeconds": 1.9571053,
+    "ZipExists": true,
+    "ZipPath": "D:\\RoboticArm\\solidworks\\results\\v5_zip_payload_test_20261006_173307\\Test's archive.zip",
+    "CommandLength": 2685,
+    "NativeCadTest": false
+  },
+  "packaging_failure_tests": {
+    "Test": "No-overwrite and incomplete-30-file rejection",
+    "ExistingZipExit": 1,
+    "ExistingZipHashUnchanged": true,
+    "IncompleteSourceExit": 1,
+    "IncompleteArchiveCreated": false,
+    "NativeCadTest": false
+  },
+  "official_references": [
+    "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.archive/compress-archive?view=powershell-5.1",
+    "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/wait-job",
+    "https://help.solidworks.com/2021/english/api/sldworksapi/Align_Assembly_Component_to_Assembly_Origin_and_Planes_Example_VB.htm"
+  ],
+  "limitations": [
+    "60-second bound applies to Wait-Job; process startup/cleanup may add time",
+    "The ZIP has pre-packaging native-success log; later ZIP exit-code/size lines are only in the original run folder",
+    "Packaging fixtures are synthetic text files, not native CAD",
+    "No native mates/Motion/FEA"
+  ]
+}

@@ -1,0 +1,98 @@
+HOW TO EXPLAIN THIS ROBOTIC ARM PROJECT
+Evidence snapshot: 6 October 2026, fifth session expired around 19:36 Asia/Shanghai with no native file recovery
+
+WHAT TO SAY FIRST
+"This is a human-shaped robotic arm and hand concept. We created its geometry,
+tested 27 controlled joints in MuJoCo, and have now also built the full static
+model natively in SOLIDWORKS. SOLIDWORKS articulation and engineering tests are
+the next stage. The physical robot has not yet been built or qualified."
+
+1. THE ORIGINAL 3D DESIGN
+Software: FreeCAD, driven by Python.
+Code: D:/RoboticArm/design/v3/build_reference_arm.py
+Editable source CAD: D:/RoboticArm/design/v3/AnthroArm27_ReferenceV3.FCStd
+The code defines smooth arm/palm/finger shells, pad recesses, hinge envelopes,
+holes and internal layout concepts. The native CAD contains 293 solid bodies.
+Component explanations: D:/RoboticArm/solidworks/transfer/component_inventory.csv
+Design views: D:/RoboticArm/results/v3/design_stages/
+
+2. THE TRANSFER TO SOLIDWORKS
+Code: D:/RoboticArm/solidworks/scripts/export_transfer.py
+Data: D:/RoboticArm/solidworks/transfer/assembly_manifest.json
+This groups the 293 bodies into 28 rigid links, exports STEP in millimetres and
+records link coordinate frames. The joint schedule describes seven arm axes and
+20 finger/thumb axes. Importing these definitions does not automatically create
+SOLIDWORKS mates. STEP also does not transfer the original Python feature history.
+
+3. WHAT WAS ACTUALLY RUN IN SOLIDWORKS
+Software: native SOLIDWORKS Design Premium 2026 SP0 in the official cloud trial.
+Code: D:/RoboticArm/solidworks/scripts/AutoFullArmStaticV6.bas (VBA source)
+The macro imports each rigid link as a native multibody part, checks expected
+solid counts, saves the 28 SLDPRT files, places them using the documented home
+transforms, and saves AnthroArm27_STATIC_HOME.SLDASM. It checks transformed points,
+component count, rebuild and save returns. It then closes saved documents and
+verifies a ZIP with 28 parts, one assembly and the original build log.
+
+Actual completion proof:
+D:/RoboticArm/solidworks/results/full_static_v6_native_result.png
+Actual remote archive listing:
+D:/RoboticArm/solidworks/results/native_v6_download_ready.png
+Full arm visibly inside native SOLIDWORKS in an earlier successful geometry run:
+D:/RoboticArm/solidworks/results/full_static_v5_native_result.png
+That earlier screenshot has a packaging-failure dialog. V6 later fixed automatic
+closing/packaging and reached its success message.
+
+All native components are currently fixed in the reference pose. This preserves
+their placement for the static checkpoint. To move them as a robot, the next
+native assembly work must retain the fixed base, free the other links and create
+the 27 revolute mates with correct axes, zero references and angular limits.
+
+4. WHERE THE MOVEMENT AND CAMERA SIMULATION ALREADY WORK
+Software: MuJoCo + Python; OpenCV processes the simulated RGB-D camera.
+Robot physics/control: D:/RoboticArm/simulation/v3/model.py
+Camera-guided reach: D:/RoboticArm/simulation/v3/vision_reach.py
+Interactive local server: D:/RoboticArm/simulation/v3/server.py
+Recorded joint movement: D:/RoboticArm/results/v3/full_arm_articulation.webm
+Recorded camera-guided approach/contact: D:/RoboticArm/results/v3/camera_autonomy.webm
+Results: D:/RoboticArm/results/v3/validation.json
+These are actual MuJoCo results. They are not SOLIDWORKS motion/FEA results.
+The simulated camera detects a known orange object, estimates its position, and
+guides an approach that stops on contact. It is not autonomous object pickup.
+The reported millimetre errors apply to that simulation, not a manufactured arm.
+
+5. HISTORICAL NATIVE OUTPUT THAT WAS NOT RECOVERED
+The verified remote archive was:
+AnthroArm27_Static_20261006_105654_39414012_NATIVE.zip
+It was not transferred. The trial expired around 19:36 Asia/Shanghai and
+redirected to feedback. The native_results directory on D: is empty. This filename
+is historical evidence, not a presently downloadable archive. No retained cloud
+recovery is claimed. Browser transfer tools failed to deliver confirmed bytes.
+The local preparation ZIP contains generation source, STEP inputs and evidence;
+it does not contain the missing native SLDPRT/SLDASM outputs. Preserve the source
+and failed-test evidence. No new trial session is being launched in this update.
+
+6. WHAT REMAINS BEFORE CLAIMING A WORKING PHYSICAL ARM
+Inside SOLIDWORKS: create/audit joints, exercise each movement, inspect clearance,
+then use available Motion/Simulation tools with defensible mass, material, load
+and support inputs. Import/count/transform checks do not prove physical strength.
+The actuator bodies/cable routes in the full arm are packaging concepts.
+The existing single-finger prototype guide and Arduino firmware are on D:,
+but no motor, printed part or complete physical robot has been tested here.
+
+SHORT PRESENTATION ORDER
+Show a CAD design-stage image; point to the component explanation.
+Show the actual full arm in the SOLIDWORKS screenshot and V6 success evidence; explain that its native archive was not recovered before expiry.
+Play the MuJoCo articulation recording and label its software clearly.
+Play the camera-contact recording and explain the detect/estimate/reach sequence.
+Finish by identifying the pending native moving assembly and prototype work.
+Never describe a static screenshot as motion simulation or a cloud file as a
+downloaded local deliverable while the download remains unconfirmed.
+
+FINAL DIP AND RECOVERY OUTCOME
+DIP V6 failed: "Actual signed flexion differs from target by over 0.5 degrees"
+(error -2147220784). Parent fixed, child floating and Mates created were observed,
+but a full sweep, limit conversion, Motion and FEA did not pass. Static native
+build and remote archive verification passed historically. Session expired around
+19:36 Asia/Shanghai; no native output was recovered, and no actionable pending
+manual-download instruction remains. Local generation scripts and STEP geometry
+are preserved for reproducibility.

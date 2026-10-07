@@ -1,0 +1,16 @@
+REFERENCE REVIEW - 5 OCTOBER 2026
+
+The13user-supplied images are copied unchanged into source/references/reference_01.png through reference_13.png. The white contoured shoulder-to-hand form in images02/03 guided the full-arm silhouette; rounded finger shells, dark joints and inset pads follow the user's chosen robotic human-hand appearance. This is an original CAD approximation, not an exact reconstruction of any photographed mechanism.
+
+Nine unique user video links (the second was supplied twice):
+https://www.youtube.com/watch?v=4whgw2gLBS8
+https://www.youtube.com/watch?v=aHFo-7ZK1Bk
+https://www.youtube.com/watch?v=NimROnJeQDY
+https://www.youtube.com/watch?v=KSP4o_WCqVs
+https://www.youtube.com/watch?v=0eQf3sWtRj4
+https://www.youtube.com/watch?v=GXxyiWSE0ww
+https://www.youtube.com/watch?v=FMaKahsPS-Y
+https://www.youtube.com/watch?v=MyQQq0_LDco
+https://www.youtube.com/watch?v=gS4rOqNDTBk
+
+Web access was attempted for these links. Full video contents were unavailable through that access. Titles only were returned for NimROnJeQDY (F.L.E.X. - My Most Advanced Robotic Hand Yet, MateoTechLab) and gS4rOqNDTBk (What's in a humanoid hand?, Boston Dynamics). Do not claim all videos were watched or their internal designs reproduced. No video was downloaded, copied into the presentation or treated as technical validation of this model.

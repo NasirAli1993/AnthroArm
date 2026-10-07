@@ -1,0 +1,614 @@
+Attribute VB_Name = "AutoDIPMateV2"
+Option Explicit
+' STAGED SOURCE ONLY. NOT COMPILED OR EXECUTED IN SOLIDWORKS.
+' Requires SOLIDWORKS + SOLIDWORKS constants type library references.
+' Save SWP beside index_intermediate.step and index_distal.step.
+' Creates independent 12+10-solid parts, real mates, measured rebuild sweeps.
+' NO Motion Study timeline, dynamics, collision/contact, FEA or hardware test.
+' Does not modify source files or any pre-existing native part/assembly.
+Private swApp As SldWorks.SldWorks
+Private mathUtil As SldWorks.MathUtility
+Private runtimeLog As String, logReady As Boolean
+Private oldMapping As Long, oldUnits As Long
+Private oldInterconnect As Boolean, oldSolidSurface As Boolean, oldDiagnostics As Boolean
+Private prefsCaptured As Boolean
+Private linkNames(0 To 1) As String, expectedCounts(0 To 1) As Long
+Private nativePaths(0 To 1) As String
+Private importedModels(0 To 1) As SldWorks.ModelDoc2
+Private components(0 To 1) As SldWorks.Component2
+Private assyModel As SldWorks.ModelDoc2
+Private assy As SldWorks.AssemblyDoc
+Private concentricFeature As SldWorks.Feature
+Private axialFeature As SldWorks.Feature
+Private angleFeature As SldWorks.Feature
+Private childBore As SldWorks.Face2
+Private outputFolder As String, csvPath As String
+Private Const PI_VALUE As Double = 3.1415926535897931
+Private Const HINGE_Z_M As Double = 0.024
+Private Const SOURCE_MAX_RAD As Double = 1.4
+
+Private Sub LogLine(ByVal message As String)
+    Dim channel As Integer, entry As String
+    entry = Format$(Now, "yyyy-mm-dd hh:nn:ss") & " | " & message
+    Debug.Print entry
+    If logReady Then
+        channel = FreeFile
+        Open runtimeLog For Append As #channel
+        Print #channel, entry
+        Close #channel
+    End If
+End Sub
+
+Private Sub Check(ByVal condition As Boolean, ByVal message As String)
+    If condition = False Then Err.Raise vbObjectError + 720, "AutoDIPMateV2", message
+End Sub
+
+Private Function CountArray(ByVal items As Variant) As Long
+    If IsEmpty(items) Then
+        CountArray = 0
+    ElseIf IsArray(items) Then
+        CountArray = UBound(items) - LBound(items) + 1
+    Else
+        Err.Raise vbObjectError + 721, "CountArray", "Expected an array or Empty"
+    End If
+End Function
+
+Private Sub RestorePreferences()
+    Dim result As Boolean
+    If Not prefsCaptured Then Exit Sub
+    On Error Resume Next
+    Call swApp.SetUserPreferenceIntegerValue(swImportNeutralUnits, oldUnits)
+    result = (swApp.GetUserPreferenceIntegerValue(swImportNeutralUnits) = oldUnits)
+    If result = False Then LogLine "WARNING: could not restore import units"
+    Call swApp.SetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping, oldMapping)
+    result = (swApp.GetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping) = oldMapping)
+    If Not result Then LogLine "WARNING: could not restore assembly mapping preference"
+    Call swApp.SetUserPreferenceToggle(swImportNeutral_SolidandSurface, oldSolidSurface)
+    result = (swApp.GetUserPreferenceToggle(swImportNeutral_SolidandSurface) = oldSolidSurface)
+    If Not result Then LogLine "WARNING: could not restore solid/surface preference"
+    Call swApp.SetUserPreferenceToggle(swImportNeutralRunDiagnostics, oldDiagnostics)
+    result = (swApp.GetUserPreferenceToggle(swImportNeutralRunDiagnostics) = oldDiagnostics)
+    If Not result Then LogLine "WARNING: could not restore diagnostic preference"
+    Call swApp.SetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect, oldInterconnect)
+    result = (swApp.GetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect) = oldInterconnect)
+    If Not result Then LogLine "WARNING: could not restore 3D Interconnect preference"
+    If Err.Number <> 0 Then LogLine "RESTORE_ERROR " & CStr(Err.Number) & " " & Err.Description
+    prefsCaptured = False
+    On Error GoTo 0
+End Sub
+
+Private Sub ConfigureImport()
+    oldMapping = swApp.GetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping)
+    oldUnits = swApp.GetUserPreferenceIntegerValue(swImportNeutralUnits)
+    oldInterconnect = swApp.GetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect)
+    oldSolidSurface = swApp.GetUserPreferenceToggle(swImportNeutral_SolidandSurface)
+    oldDiagnostics = swApp.GetUserPreferenceToggle(swImportNeutralRunDiagnostics)
+    prefsCaptured = True
+    Call swApp.SetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect, False)
+    Check swApp.GetUserPreferenceToggle(swMultiCAD_Enable3DInterconnect) = False, "Cannot disable 3D Interconnect"
+    Call swApp.SetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping, swImportNeutralAssemblyStructureMapping_MultibodyPart)
+    Check swApp.GetUserPreferenceIntegerValue(swImportNeutralAssemblyStructureMapping) = swImportNeutralAssemblyStructureMapping_MultibodyPart, "Cannot set multibody mapping"
+    Call swApp.SetUserPreferenceIntegerValue(swImportNeutralUnits, swImportNeutralUnits_ImportFileUnits)
+    Check swApp.GetUserPreferenceIntegerValue(swImportNeutralUnits) = swImportNeutralUnits_ImportFileUnits, "Cannot set file-specified units"
+    Call swApp.SetUserPreferenceToggle(swImportNeutral_SolidandSurface, True)
+    If swApp.GetUserPreferenceToggle(swImportNeutral_SolidandSurface) <> False Then
+        LogLine "SOLID_SURFACE_PREFERENCE_READBACK=True"
+    Else
+        LogLine "PREFERENCE_WARNING: SolidandSurface readback False in this native session; continuing to actual strict geometry checks"
+        LogLine "REQUIRED: each imported document must be Part, exact expected solid count, zero sheet bodies, correct gross mm scale"
+    End If
+    Call swApp.SetUserPreferenceToggle(swImportNeutralRunDiagnostics, False)
+    Check swApp.GetUserPreferenceToggle(swImportNeutralRunDiagnostics) = False, "Cannot disable automatic diagnostics"
+    LogLine "PREFERENCES_SET: classic STEP, multibody part, source-file mm, automatic diagnostics disabled"
+End Sub
+
+Private Sub SaveNew(ByVal model As SldWorks.ModelDoc2, ByVal destination As String)
+    Dim result As Boolean, errors As Long, warnings As Long
+    Check Len(Dir$(destination)) = 0, "Refusing existing destination: " & destination
+    model.ClearSelection2 True
+    result = model.Extension.SaveAs(destination, swSaveAsCurrentVersion, swSaveAsOptions_Silent, Nothing, errors, warnings)
+    LogLine "SAVE " & destination & " RETURN=" & CStr(result) & " ERRORS=" & CStr(errors) & " WARNINGS=" & CStr(warnings)
+    Check (result <> False), "Native save returned False: " & destination
+    Check (errors = 0), "Native save reported errors: " & destination
+    Check Len(Dir$(destination)) > 0, "Saved file missing: " & destination
+    Check FileLen(destination) > 0, "Saved file empty: " & destination
+    LogLine "SAVED_BYTES=" & CStr(FileLen(destination))
+End Sub
+
+Private Sub ImportOne(ByVal linkIndex As Long, ByVal inputFolder As String, ByVal outputFolder As String)
+    Dim inputPath As String, stem As String
+    Dim model As SldWorks.ModelDoc2, alreadyOpen As SldWorks.ModelDoc2
+    Dim part As SldWorks.PartDoc, stepData As SldWorks.ImportStepData
+    Dim body As SldWorks.Body2
+    Dim bodies As Variant, sheets As Variant, box As Variant
+    Dim loadErrors As Long, i As Long, axis As Long
+    Dim low(2) As Double, high(2) As Double, largestSpan As Double, span As Double
+    stem = linkNames(linkIndex)
+    inputPath = inputFolder & stem & ".step"
+    nativePaths(linkIndex) = outputFolder & stem & ".SLDPRT"
+    LogLine "IMPORT_STARTED " & CStr(linkIndex + 1) & "/2 SOURCE=" & inputPath
+    Set alreadyOpen = swApp.GetOpenDocumentByName(inputPath)
+    Check alreadyOpen Is Nothing, "Source already open; close it before fresh import: " & inputPath
+    Set stepData = swApp.GetImportFileData(inputPath)
+    Check Not stepData Is Nothing, "No ImportStepData: " & stem
+    stepData.MapConfigurationData = False
+    Set model = swApp.LoadFile4(inputPath, "r", stepData, loadErrors)
+    LogLine stem & " LOAD_ERRORS=" & CStr(loadErrors)
+    Check Not model Is Nothing, "LoadFile4 returned Nothing: " & stem
+    Check loadErrors = 0, "LoadFile4 error: " & stem
+    Check model.GetType = swDocPART, "Expected one multibody Part: " & stem
+    Set part = model
+    bodies = part.GetBodies2(swSolidBody, False)
+    sheets = part.GetBodies2(swSheetBody, False)
+    LogLine stem & " SOLIDS=" & CStr(CountArray(bodies)) & " EXPECTED=" & CStr(expectedCounts(linkIndex)) & " SHEETS=" & CStr(CountArray(sheets))
+    Check CountArray(bodies) = expectedCounts(linkIndex), "Wrong solid count: " & stem
+    Check CountArray(sheets) = 0, "Unexpected sheet bodies: " & stem
+    For axis = 0 To 2
+        low(axis) = 1E+30
+        high(axis) = -1E+30
+    Next axis
+    For i = LBound(bodies) To UBound(bodies)
+        Set body = bodies(i)
+        LogLine stem & " BODY=" & body.Name
+        box = body.GetBodyBox
+        Check IsArray(box), "No body bounding box: " & stem
+        For axis = 0 To 2
+            If CDbl(box(axis)) < low(axis) Then low(axis) = CDbl(box(axis))
+            If CDbl(box(axis + 3)) > high(axis) Then high(axis) = CDbl(box(axis + 3))
+        Next axis
+    Next i
+    For axis = 0 To 2
+        span = high(axis) - low(axis)
+        LogLine stem & " APPROX_MIN_MAX_SPAN_AXIS_" & CStr(axis) & "_MM=" & CStr(low(axis) * 1000#) & "," & CStr(high(axis) * 1000#) & "," & CStr(span * 1000#)
+        If span > largestSpan Then largestSpan = span
+    Next axis
+    ' Gross scale gate only; approximate boxes are not precision dimensional evidence.
+    Check largestSpan > 0.003 And largestSpan < 0.5, "Gross scale gate failed; expected each rigid link between 3 and 500 mm"
+    Set importedModels(linkIndex) = model
+    LogLine stem & " IMPORT_COUNT_SCALE_PASS_SAVE_PENDING; exact dimensions/geometry diagnostics pending"
+End Sub
+
+Private Function AssemblyTemplate() As String
+    Dim path As String
+    path = swApp.GetUserPreferenceStringValue(swDefaultTemplateAssembly)
+    If Len(path) = 0 Then path = swApp.GetDocumentTemplate(swDocASSEMBLY, "", 0, 0#, 0#)
+    Check Len(path) > 0, "No assembly template configured; create one blank assembly manually then rerun"
+    Check Len(Dir$(path)) > 0, "Assembly template does not exist: " & path
+    LogLine "ASSEMBLY_TEMPLATE=" & path
+    AssemblyTemplate = path
+End Function
+
+
+Private Function PointAt(ByVal t As SldWorks.MathTransform, ByVal x As Double, ByVal y As Double, ByVal z As Double) As Variant
+    Dim a(2) As Double, v As Variant, p As SldWorks.MathPoint
+    a(0) = x: a(1) = y: a(2) = z
+    v = a
+    Set p = mathUtil.CreatePoint(v)
+    Check Not p Is Nothing, "CreatePoint returned Nothing"
+    Set p = p.MultiplyTransform(t)
+    Check Not p Is Nothing, "MultiplyTransform returned Nothing"
+    PointAt = p.ArrayData
+End Function
+
+Private Function FindPlane(ByVal model As SldWorks.ModelDoc2, ByVal normalAxis As Long, ByVal offset As Double) As SldWorks.Feature
+    Dim f As SldWorks.Feature, candidate As SldWorks.Feature, plane As SldWorks.RefPlane
+    Dim t As SldWorks.MathTransform, p As Variant, q As Variant
+    Dim n(2) As Double, length As Double, j As Long, matches As Long, accepted As Boolean
+    Set f = model.FirstFeature
+    Do While Not f Is Nothing
+        If f.GetTypeName2 = "RefPlane" Then
+            Set plane = f.GetSpecificFeature2
+            Set t = plane.Transform
+            p = PointAt(t, 0#, 0#, 0#)
+            q = PointAt(t, 0#, 0#, 1#)
+            length = 0#
+            For j = 0 To 2
+                n(j) = CDbl(q(j)) - CDbl(p(j))
+                length = length + n(j) * n(j)
+            Next j
+            length = Sqr(length)
+            accepted = length > 0.5
+            If accepted Then
+                For j = 0 To 2
+                    n(j) = n(j) / length
+                Next j
+                accepted = Abs(Abs(n(normalAxis)) - 1#) < 0.00000001
+                accepted = accepted And Abs(CDbl(p(normalAxis)) - offset) < 0.00000001
+            End If
+            If accepted Then
+                matches = matches + 1
+                Set candidate = f
+            End If
+        End If
+        Set f = f.GetNextFeature
+    Loop
+    LogLine "FIND_PLANE axis=" & CStr(normalAxis) & " offset_m=" & CStr(offset) & " matches=" & CStr(matches)
+    Check matches = 1, "Expected exactly one matching native datum plane"
+    Set FindPlane = candidate
+End Function
+
+Private Sub CheckBodyCount(ByVal model As SldWorks.ModelDoc2, ByVal expected As Long, ByVal stage As String)
+    Dim part As SldWorks.PartDoc, solids As Variant, sheets As Variant
+    Set part = model
+    solids = part.GetBodies2(swSolidBody, False)
+    sheets = part.GetBodies2(swSheetBody, False)
+    LogLine stage & " SOLIDS=" & CStr(CountArray(solids)) & " SHEETS=" & CStr(CountArray(sheets))
+    Check CountArray(solids) = expected, stage & " solid count changed"
+    Check CountArray(sheets) = 0, stage & " unexpected sheet bodies"
+End Sub
+
+Private Sub MakeDatums(ByVal index As Long)
+    Dim model As SldWorks.ModelDoc2, f As SldWorks.Feature, fx As SldWorks.Feature
+    Dim fy As SldWorks.Feature, fz As SldWorks.Feature, axisFeature As SldWorks.Feature
+    Dim plane As SldWorks.RefPlane, created As Object, axis As SldWorks.RefAxis
+    Dim p As Variant, q As Variant, axisData As Variant
+    Dim constraint As Long, axesFound As Long, hingeZ As Double, result As Boolean
+    Set model = importedModels(index)
+    CheckBodyCount model, expectedCounts(index), "BEFORE_DATUMS " & linkNames(index)
+    Set fx = FindPlane(model, 0, 0#): fx.Name = "DIP_YZ"
+    Set fy = FindPlane(model, 1, 0#): fy.Name = "DIP_XZ"
+    Set fz = FindPlane(model, 2, 0#): fz.Name = "DIP_XY"
+    If index = 0 Then
+        hingeZ = HINGE_Z_M
+        Set plane = fz.GetSpecificFeature2
+        p = PointAt(plane.Transform, 0#, 0#, 0#)
+        q = PointAt(plane.Transform, 0#, 0#, 1#)
+        constraint = swRefPlaneReferenceConstraint_Distance
+        If CDbl(q(2)) < CDbl(p(2)) Then constraint = constraint Or swRefPlaneReferenceConstraint_OptionFlip
+        model.ClearSelection2 True
+        Check fz.Select2(False, 0), "Cannot select XY datum for offset"
+        Set created = model.FeatureManager.InsertRefPlane(constraint, hingeZ, 0, 0#, 0, 0#)
+        Check Not created Is Nothing, "Offset reference plane creation failed"
+        Check model.EditRebuild3, "Offset plane rebuild failed"
+        Set fz = FindPlane(model, 2, hingeZ)
+        fz.Name = "DIP_HINGE_STATION"
+    End If
+    model.ClearSelection2 True
+    Check fx.Select2(False, 0), "Cannot select YZ datum for axis"
+    Check fz.Select2(True, 0), "Cannot select transverse datum for axis"
+    result = model.InsertAxis2(True)
+    Check result, "Reference-axis creation failed"
+    Set f = model.FirstFeature
+    Do While Not f Is Nothing
+        If f.GetTypeName2 = "RefAxis" Then
+            axesFound = axesFound + 1
+            Set axisFeature = f
+        End If
+        Set f = f.GetNextFeature
+    Loop
+    Check axesFound = 1, "Expected exactly one newly created reference axis"
+    axisFeature.Name = "DIP_AXIS"
+    Set axis = axisFeature.GetSpecificFeature2
+    axisData = axis.GetRefAxisParams
+    Check IsArray(axisData), "No native reference-axis parameters"
+    Check Abs(CDbl(axisData(0))) < 0.0000001 And Abs(CDbl(axisData(3))) < 0.0000001, "Axis is not at X=0"
+    Check Abs(CDbl(axisData(2)) - hingeZ) < 0.0000001, "Wrong axis start Z"
+    Check Abs(CDbl(axisData(5)) - hingeZ) < 0.0000001, "Wrong axis end Z"
+    Check Abs(CDbl(axisData(4)) - CDbl(axisData(1))) > 0.000001, "Axis length is degenerate"
+    LogLine "DATUM_AXIS_PASS " & linkNames(index) & " hinge_z_m=" & CStr(hingeZ)
+    model.ClearSelection2 True
+    CheckBodyCount model, expectedCounts(index), "AFTER_DATUMS " & linkNames(index)
+End Sub
+
+Private Function FindChildBore(ByVal model As SldWorks.ModelDoc2) As SldWorks.Face2
+    Dim part As SldWorks.PartDoc, bodies As Variant, faces As Variant, params As Variant
+    Dim body As SldWorks.Body2, face As SldWorks.Face2, surface As SldWorks.Surface
+    Dim best As SldWorks.Face2, bestArea As Double, area As Double, count As Long
+    Dim i As Long, j As Long, okay As Boolean
+    Set part = model
+    bodies = part.GetBodies2(swSolidBody, False)
+    For i = LBound(bodies) To UBound(bodies)
+        Set body = bodies(i)
+        faces = body.GetFaces
+        For j = LBound(faces) To UBound(faces)
+            Set face = faces(j)
+            Set surface = face.GetSurface
+            If surface.IsCylinder Then
+                params = surface.CylinderParams
+                okay = Abs(CDbl(params(0))) < 0.0000001 And Abs(CDbl(params(2))) < 0.0000001
+                okay = okay And Abs(CDbl(params(3))) < 0.0000001 And Abs(CDbl(params(5))) < 0.0000001
+                okay = okay And Abs(Abs(CDbl(params(4))) - 1#) < 0.0000001
+                okay = okay And Abs(CDbl(params(6)) - 0.0012) < 0.0000001
+                If okay Then
+                    count = count + 1
+                    area = face.GetArea
+                    If area > bestArea Then
+                        bestArea = area
+                        Set best = face
+                    End If
+                End If
+            End If
+        Next j
+    Next i
+    LogLine "CHILD_PIN_BORE matches=" & CStr(count) & " selected_area_m2=" & CStr(bestArea)
+    Check Not best Is Nothing, "No analytic 2.4 mm root bore with local Y axis found"
+    Check bestArea > 0.00001, "Selected bore face unexpectedly small"
+    Set FindChildBore = best
+End Function
+
+Private Function Pose(ByVal radians As Double, ByVal z As Double) As SldWorks.MathTransform
+    Dim d(15) As Double, v As Variant
+    d(0) = Cos(radians): d(2) = -Sin(radians)
+    d(4) = 1#: d(6) = Sin(radians): d(8) = Cos(radians)
+    d(11) = z: d(12) = 1#
+    v = d
+    Set Pose = mathUtil.CreateTransform(v)
+End Function
+
+Private Function AssemblyName() As String
+    Dim title As String
+    title = assyModel.GetTitle
+    If LCase$(Right$(title, 7)) = ".sldasm" Then title = Left$(title, Len(title) - 7)
+    AssemblyName = title
+End Function
+
+Private Sub SelectNamed(ByVal index As Long, ByVal datum As String, ByVal kind As String, ByVal appendSelection As Boolean, ByVal mark As Long)
+    Dim qualified As String, owner As SldWorks.Component2, selectedCount As Long
+    qualified = datum & "@" & components(index).Name2 & "@" & AssemblyName()
+    Check assyModel.Extension.SelectByID2(qualified, kind, 0#, 0#, 0#, appendSelection, mark, Nothing, 0), "Selection failed: " & qualified
+    selectedCount = assyModel.SelectionManager.GetSelectedObjectCount2(mark)
+    Set owner = assyModel.SelectionManager.GetSelectedObjectsComponent4(selectedCount, mark)
+    Check Not owner Is Nothing, "Selected reference has no component owner: " & qualified
+    Check owner.Name2 = components(index).Name2, "Selected reference belongs to wrong component"
+End Sub
+
+Private Sub VerifyFeature(ByVal feat As SldWorks.Feature, ByVal label As String)
+    Dim code As Long, warning As Boolean
+    Check Not feat Is Nothing, label & " has no native feature"
+    code = feat.GetErrorCode2(warning)
+    LogLine label & " FEATURE_ERROR=" & CStr(code) & " IS_WARNING=" & CStr(warning)
+    Check code = 0, label & " has a native feature error or warning; inspect before proceeding"
+End Sub
+
+Private Sub BuildAssembly(ByVal templatePath As String)
+    Dim i As Long, comp As SldWorks.Component2, t As SldWorks.MathTransform
+    Dim concentric As SldWorks.ConcentricMateFeatureData, coincident As SldWorks.CoincidentMateFeatureData
+    Dim entity As SldWorks.Entity, selection As SldWorks.SelectData
+    Set assyModel = swApp.NewDocument(templatePath, 0, 0#, 0#)
+    Check Not assyModel Is Nothing, "Cannot create native assembly"
+    Check assyModel.GetType = swDocASSEMBLY, "Configured template is not an assembly"
+    Set assy = assyModel
+    For i = 0 To 1
+        Set comp = assy.AddComponent5(nativePaths(i), swAddComponentConfigOptions_CurrentSelectedConfig, "", False, "", 0#, 0#, 0#)
+        Check Not comp Is Nothing, "Cannot insert " & linkNames(i)
+        Set components(i) = comp
+        assyModel.ClearSelection2 True
+        Check comp.Select4(False, Nothing, False), "Cannot select new component"
+        If comp.IsFixed Then assy.UnfixComponent
+        Check (comp.IsFixed = False), "Cannot float component before placement"
+        If i = 0 Then
+            Set t = Pose(0#, 0#)
+        Else
+            Set t = Pose(10# * PI_VALUE / 180#, HINGE_Z_M)
+        End If
+        Set comp.Transform2 = t
+        If i = 0 Then
+            assy.FixComponent
+            Check (comp.IsFixed <> False), "Parent component did not become fixed"
+        End If
+    Next i
+    assyModel.ClearSelection2 True
+    Check assyModel.EditRebuild3, "Initial assembly rebuild failed"
+    SaveNew assyModel, outputFolder & "DIP_PLACEMENT_ONLY.SLDASM"
+    ' Actual concentric mate: parent datum axis + child's analytic root bore.
+    Set concentric = assy.CreateMateData(swMateCONCENTRIC)
+    Check Not concentric Is Nothing, "Cannot obtain concentric mate data"
+    concentric.MateAlignment = swMateAlignCLOSEST
+    concentric.LockRotation = False
+    SelectNamed 0, "DIP_AXIS", "AXIS", False, 1
+    Set entity = components(1).GetCorrespondingEntity(childBore)
+    Check Not entity Is Nothing, "Cannot map pin-bore face to assembly context"
+    Set selection = assyModel.SelectionManager.CreateSelectData
+    selection.Mark = 1
+    Check entity.Select4(True, selection), "Cannot select assembly-context root bore"
+    Set concentricFeature = assy.CreateMate(concentric)
+    Check Not concentricFeature Is Nothing, "Concentric mate creation failed"
+    concentricFeature.Name = "DIP_Concentric"
+    assyModel.ClearSelection2 True
+    Check assyModel.EditRebuild3, "Concentric mate rebuild failed"
+    VerifyFeature concentricFeature, "DIP_Concentric"
+    Set concentric = concentricFeature.GetDefinition
+    Check (concentric.LockRotation = False), "Concentric rotation unexpectedly locked"
+    Set coincident = assy.CreateMateData(swMateCOINCIDENT)
+    Check Not coincident Is Nothing, "Cannot obtain coincident mate data"
+    coincident.MateAlignment = swMateAlignALIGNED
+    SelectNamed 0, "DIP_XZ", "PLANE", False, 1
+    SelectNamed 1, "DIP_XZ", "PLANE", True, 1
+    Set axialFeature = assy.CreateMate(coincident)
+    Check Not axialFeature Is Nothing, "Axial coincidence creation failed"
+    axialFeature.Name = "DIP_Axial_Coincident"
+    assyModel.ClearSelection2 True
+    Check assyModel.EditRebuild3, "Axial mate rebuild failed"
+    VerifyFeature axialFeature, "DIP_Axial_Coincident"
+    Check (components(1).IsFixed = False), "Child unexpectedly fixed"
+    SaveNew assyModel, outputFolder & "DIP_HINGE_MATED.SLDASM"
+    LogLine "REAL_HINGE_MATES_CREATED: concentric rotation unlocked + XZ coincidence"
+End Sub
+
+Private Sub AddDrivenAngle()
+    Dim angle As SldWorks.AngleMateFeatureData, selectedFeature As SldWorks.Feature
+    Dim planes(1) As SldWorks.RefPlane, vPlanes As Variant
+    SelectNamed 0, "DIP_YZ", "PLANE", False, 1
+    SelectNamed 1, "DIP_YZ", "PLANE", True, 1
+    Set selectedFeature = assyModel.SelectionManager.GetSelectedObject6(1, 1)
+    Set planes(0) = selectedFeature.GetSpecificFeature2
+    Set selectedFeature = assyModel.SelectionManager.GetSelectedObject6(2, 1)
+    Set planes(1) = selectedFeature.GetSpecificFeature2
+    vPlanes = planes
+    Set angle = assy.CreateMateData(swMateANGLE)
+    Check Not angle Is Nothing, "Cannot obtain angle mate data"
+    angle.IsAdvancedMate = False
+    angle.MateAlignment = swMateAlignALIGNED
+    angle.FlipDimension = False
+    angle.Angle = 10# * PI_VALUE / 180#
+    angle.EntitiesToMate = vPlanes
+    SelectNamed 0, "DIP_AXIS", "AXIS", True, 67108864
+    Set angleFeature = assy.CreateMate(angle)
+    Check Not angleFeature Is Nothing, "Driven angle mate creation failed"
+    angleFeature.Name = "DIP_Driven_Angle"
+    assyModel.ClearSelection2 True
+    Check assyModel.EditRebuild3, "Driven angle initial rebuild failed"
+    VerifyFeature angleFeature, "DIP_Driven_Angle"
+End Sub
+
+Private Function Atan2(ByVal y As Double, ByVal x As Double) As Double
+    If Abs(x) < 0.000000000001 Then
+        If y > 0# Then
+            Atan2 = PI_VALUE / 2#
+        ElseIf y < 0# Then
+            Atan2 = -PI_VALUE / 2#
+        Else
+            Err.Raise vbObjectError + 731, "Atan2", "Undefined zero vector"
+        End If
+    Else
+        Atan2 = Atn(y / x)
+        If x < 0# Then
+            If y >= 0# Then Atan2 = Atan2 + PI_VALUE Else Atan2 = Atan2 - PI_VALUE
+        End If
+    End If
+End Function
+
+Private Function Numeric(ByVal value As Double) As String
+    Numeric = Replace$(CStr(value), ",", ".")
+End Function
+
+Private Function MeasurePose(ByVal label As String, ByVal targetDeg As Double) As Double
+    Dim t As SldWorks.MathTransform, p As Variant, y As Variant, z As Variant, parentP As Variant
+    Dim drift As Double, tilt As Double, actualDeg As Double, j As Long, channel As Integer
+    Set t = components(1).Transform2
+    p = PointAt(t, 0#, 0#, 0#)
+    y = PointAt(t, 0#, 0.01, 0#)
+    z = PointAt(t, 0#, 0#, 0.01)
+    drift = Sqr(CDbl(p(0)) ^ 2 + CDbl(p(1)) ^ 2 + (CDbl(p(2)) - HINGE_Z_M) ^ 2)
+    tilt = Abs((CDbl(y(0)) - CDbl(p(0))) / 0.01) + Abs((CDbl(y(1)) - CDbl(p(1))) / 0.01 - 1#) + Abs((CDbl(y(2)) - CDbl(p(2))) / 0.01)
+    actualDeg = Atan2(CDbl(z(0)) - CDbl(p(0)), CDbl(z(2)) - CDbl(p(2))) * 180# / PI_VALUE
+    parentP = PointAt(components(0).Transform2, 0#, 0#, 0#)
+    Check Abs(CDbl(parentP(0))) + Abs(CDbl(parentP(1))) + Abs(CDbl(parentP(2))) < 0.0000001, "Fixed parent origin moved"
+    channel = FreeFile
+    Open csvPath For Append As #channel
+    Print #channel, label & "," & Numeric(targetDeg) & "," & Numeric(actualDeg) & "," & Numeric(drift) & "," & Numeric(tilt)
+    Close #channel
+    LogLine "MEASURE " & label & " target_deg=" & CStr(targetDeg) & " actual_deg=" & CStr(actualDeg) & " hinge_drift_m=" & CStr(drift) & " y_axis_error=" & CStr(tilt)
+    Check drift < 0.000001, "Hinge drift exceeds numerical test tolerance 1 micrometre"
+    Check tilt < 0.000001, "Hinge Y axis tilted or flipped"
+    Check (components(1).IsFixed = False), "Child unexpectedly fixed during solve"
+    MeasurePose = actualDeg
+End Function
+
+Private Sub Drive(ByVal degrees As Double, ByVal label As String)
+    Dim angle As SldWorks.AngleMateFeatureData, actual As Double, ok As Boolean
+    Set angle = angleFeature.GetDefinition
+    Check (angle.IsAdvancedMate = False), "Limit angle cannot be treated as a forced target"
+    angle.Angle = degrees * PI_VALUE / 180#
+    ok = angleFeature.ModifyDefinition(angle, assy, Nothing)
+    Check ok, "Angle ModifyDefinition failed"
+    Check assyModel.EditRebuild3, "Angle solve rebuild failed"
+    VerifyFeature concentricFeature, "CONCENTRIC " & label
+    VerifyFeature axialFeature, "AXIAL " & label
+    VerifyFeature angleFeature, "ANGLE " & label
+    Set angle = angleFeature.GetDefinition
+    Check Abs(angle.Angle - degrees * PI_VALUE / 180#) < 0.00000001, "Angle definition readback differs"
+    actual = MeasurePose(label, degrees)
+    Check Abs(actual - degrees) <= 0.5, "Actual signed flexion differs from target by over 0.5 degrees"
+    assyModel.GraphicsRedraw2
+End Sub
+
+Private Sub SweepAndLimit()
+    Dim i As Long, run As Long, targets As Variant, actual As Double
+    Dim angle As SldWorks.AngleMateFeatureData, result As Boolean
+    actual = MeasurePose("INITIAL_BRANCH", 10#)
+    If Abs(actual + 10#) < 0.5 Then
+        Set angle = angleFeature.GetDefinition
+        angle.FlipDimension = (angle.FlipDimension = False)
+        Check angleFeature.ModifyDefinition(angle, assy, Nothing), "Cannot correct opposite angle branch"
+        Check assyModel.EditRebuild3, "Angle branch correction rebuild failed"
+        LogLine "ONE_DOCUMENTED_FLIPDIMENSION_BRANCH_CORRECTION_ATTEMPT"
+    End If
+    Drive 10#, "POSITIVE_DIRECTION_CHECK"
+    assyModel.ShowNamedView2 "*Isometric", 7
+    assyModel.ViewZoomtofit2
+    SaveNew assyModel, outputFolder & "DIP_DRIVEN_10DEG.SLDASM"
+    targets = Array(0#, 10#, 0#)
+    For run = 1 To 2
+        For i = 0 To 2
+            Drive CDbl(targets(i)), "RUN" & CStr(run) & "_STEP" & CStr(i)
+        Next i
+    Next run
+    SaveNew assyModel, outputFolder & "DIP_DRIVEN_RETURN_ZERO.SLDASM"
+    LogLine "TWO_MEASURED_0_10_0_REBUILD_SWEEPS_PASS; not a Motion Study"
+    Set angle = angleFeature.GetDefinition
+    angle.IsAdvancedMate = True
+    angle.MinimumAngle = 0#
+    angle.MaximumAngle = SOURCE_MAX_RAD
+    angle.Angle = 0#
+    Check angleFeature.ModifyDefinition(angle, assy, Nothing), "Cannot convert angle to true limit mate"
+    Check assyModel.EditRebuild3, "Limit conversion rebuild failed"
+    VerifyFeature angleFeature, "LIMIT_ANGLE"
+    Set angle = angleFeature.GetDefinition
+    Check (angle.IsAdvancedMate <> False), "Angle mate did not become a limit mate"
+    Check Abs(angle.MinimumAngle) < 0.00000001, "Minimum limit readback differs"
+    Check Abs(angle.MaximumAngle - SOURCE_MAX_RAD) < 0.00000001, "Maximum limit readback differs"
+    angleFeature.Name = "DIP_Limit_0_to_80p214deg"
+    actual = MeasurePose("LIMIT_START_READBACK", 0#)
+    Check actual >= -0.5 And actual <= SOURCE_MAX_RAD * 180# / PI_VALUE + 0.5, "Initial limited pose out of range"
+    SaveNew assyModel, outputFolder & "DIP_LIMITED_0_TO_80DEG.SLDASM"
+    LogLine "LIMIT_DEFINITION_READBACK_PASS; boundary enforcement/drag test NOT EXECUTED"
+End Sub
+
+Public Sub main()
+    Dim path As String, folder As String, stamp As String, template As String
+    Dim i As Long, channel As Integer, failNumber As Long, failText As String
+    On Error GoTo Failed
+    Set swApp = Application.SldWorks
+    Set mathUtil = swApp.GetMathUtility
+    Check Not mathUtil Is Nothing, "MathUtility unavailable"
+    path = swApp.GetCurrentMacroPathName()
+    Check InStrRev(path, "\") > 0, "Save the running SWP beside both STEP files"
+    folder = Left$(path, InStrRev(path, "\"))
+    stamp = Format$(Now, "yyyymmdd_hhnnss") & "_" & CStr(CLng(Timer * 1000#))
+    outputFolder = folder & "DIP_Mate_" & stamp & "\"
+    Check Len(Dir$(Left$(outputFolder, Len(outputFolder) - 1), vbDirectory)) = 0, "Output folder exists"
+    MkDir Left$(outputFolder, Len(outputFolder) - 1)
+    runtimeLog = outputFolder & "Native_DIP_Mate.log"
+    logReady = True
+    LogLine "RUN_STARTED: actual mate creation and rebuild kinematics; NO Motion/FEA"
+    LogLine "SOLIDWORKS_REVISION=" & swApp.RevisionNumber
+    LogLine "OUTPUT_FOLDER=" & outputFolder
+    csvPath = outputFolder & "native_pose_measurements.csv"
+    channel = FreeFile
+    Open csvPath For Output As #channel
+    Print #channel, "sample,target_deg,actual_signed_y_deg,hinge_drift_m,y_axis_error"
+    Close #channel
+    linkNames(0) = "index_intermediate": expectedCounts(0) = 12
+    linkNames(1) = "index_distal": expectedCounts(1) = 10
+    For i = 0 To 1
+        Check Len(Dir$(folder & linkNames(i) & ".step")) > 0, "Missing sibling STEP: " & linkNames(i)
+    Next i
+    template = AssemblyTemplate()
+    ConfigureImport
+    For i = 0 To 1
+        ImportOne i, folder, outputFolder
+        MakeDatums i
+        If i = 1 Then Set childBore = FindChildBore(importedModels(i))
+        SaveNew importedModels(i), nativePaths(i)
+    Next i
+    RestorePreferences
+    BuildAssembly template
+    AddDrivenAngle
+    SweepAndLimit
+    CheckBodyCount importedModels(0), 12, "FINAL_PARENT"
+    CheckBodyCount importedModels(1), 10, "FINAL_CHILD"
+    LogLine "COMPLETED_NATIVE_MATE_STAGE_ONLY"
+    LogLine "PENDING: reopen, native Measure, limit boundary tests, interferences, Motion Study, loads, FEA, hardware"
+    MsgBox "Native DIP mate stage saved parts, assemblies, log and measured pose CSV." & vbCrLf & outputFolder & vbCrLf & "No Motion Study, dynamics, contact or FEA run.", vbInformation
+    logReady = False
+    Exit Sub
+Failed:
+    failNumber = Err.Number: failText = Err.Description
+    On Error Resume Next
+    LogLine "FAIL " & CStr(failNumber) & " | " & failText
+    LogLine "PARTIAL_OUTPUTS_RETAINED; full mate stage did not complete"
+    RestorePreferences
+    MsgBox "AutoDIPMateV2 stopped: " & CStr(failNumber) & vbCrLf & failText & vbCrLf & "Log: " & runtimeLog, vbExclamation
+    logReady = False
+End Sub

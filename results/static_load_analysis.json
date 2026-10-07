@@ -1,0 +1,64 @@
+{
+  "posture": "Upper arm, forearm and hand extended horizontally with shoulder pi/2; fixed base.",
+  "notes": "Quasistatic model calculation. Assumed masses/inertias and actuator caps; no CAD density calibration or hardware certification. Payload is illustrative, not attached in this calculation.",
+  "links": {
+    "base_link": 3,
+    "waist_link": 0.65,
+    "upper_arm": 1.2,
+    "forearm": 0.85,
+    "wrist_link": 0.22,
+    "palm_base": 0.35,
+    "index_knuckle": 0.008,
+    "index_proximal": 0.035,
+    "index_intermediate": 0.024,
+    "index_distal": 0.016,
+    "middle_knuckle": 0.008,
+    "middle_proximal": 0.035,
+    "middle_intermediate": 0.024,
+    "middle_distal": 0.016,
+    "ring_knuckle": 0.008,
+    "ring_proximal": 0.035,
+    "ring_intermediate": 0.024,
+    "ring_distal": 0.016,
+    "pinky_knuckle": 0.008,
+    "pinky_proximal": 0.035,
+    "pinky_intermediate": 0.024,
+    "pinky_distal": 0.016,
+    "thumb_opposition": 0.015,
+    "thumb_metacarpal": 0.038,
+    "thumb_proximal": 0.026,
+    "thumb_distal": 0.02
+  },
+  "arm_joints": [
+    {
+      "joint": "joint_1_waist",
+      "robot_gravity_Nm": 0.0,
+      "additional_60g_at_middle_tip_Nm": 0.0,
+      "simulation_effort_limit_Nm": 60
+    },
+    {
+      "joint": "joint_2_shoulder",
+      "robot_gravity_Nm": -11.605499395138082,
+      "additional_60g_at_middle_tip_Nm": -0.4708800000000002,
+      "simulation_effort_limit_Nm": 60
+    },
+    {
+      "joint": "joint_3_elbow",
+      "robot_gravity_Nm": -4.568786395138081,
+      "additional_60g_at_middle_tip_Nm": -0.2943000000000001,
+      "simulation_effort_limit_Nm": 35
+    },
+    {
+      "joint": "joint_4_wrist_pitch",
+      "robot_gravity_Nm": -1.17575264513808,
+      "additional_60g_at_middle_tip_Nm": -0.14715000000000011,
+      "simulation_effort_limit_Nm": 8
+    },
+    {
+      "joint": "joint_5_wrist_roll",
+      "robot_gravity_Nm": 0.06507289841088781,
+      "additional_60g_at_middle_tip_Nm": 0.005886000000000002,
+      "simulation_effort_limit_Nm": 5
+    }
+  ]
+}

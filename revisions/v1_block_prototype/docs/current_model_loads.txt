@@ -1,0 +1,12 @@
+GRAVITY LOADS FROM THE CURRENT SIMULATION MODEL
+
+Upper arm, forearm and hand extended horizontally with shoulder pi/2; fixed base.
+Quasistatic model calculation. Assumed masses/inertias and actuator caps; no CAD density calibration or hardware certification. Payload is illustrative, not attached in this calculation.
+
+joint_1_waist: robot gravity 0.000 Nm; additional 60 g at extended middle fingertip 0.000 Nm; configured simulator cap 60.0 Nm.
+joint_2_shoulder: robot gravity -11.605 Nm; additional 60 g at extended middle fingertip -0.471 Nm; configured simulator cap 60.0 Nm.
+joint_3_elbow: robot gravity -4.569 Nm; additional 60 g at extended middle fingertip -0.294 Nm; configured simulator cap 35.0 Nm.
+joint_4_wrist_pitch: robot gravity -1.176 Nm; additional 60 g at extended middle fingertip -0.147 Nm; configured simulator cap 8.0 Nm.
+joint_5_wrist_roll: robot gravity 0.065 Nm; additional 60 g at extended middle fingertip 0.006 Nm; configured simulator cap 5.0 Nm.
+
+These numbers replace the document example for this model only. They omit acceleration loads, duty cycle, gearbox efficiency, transmission compliance, backlash, measured friction and component strength. They do not select or certify a physical motor.

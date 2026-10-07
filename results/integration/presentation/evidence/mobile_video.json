@@ -1,0 +1,71 @@
+{
+  "file": "mobile_camera_grasp.webm",
+  "frames": 289,
+  "decoded_frames": 289,
+  "fps": 10,
+  "duration_s": 28.9,
+  "success": true,
+  "events": [
+    {
+      "phase": "drive",
+      "video_time_s": 0.0,
+      "simulation_time_s": 1.7000000000000013
+    },
+    {
+      "phase": "park",
+      "video_time_s": 9.1,
+      "simulation_time_s": 10.800000000000276
+    },
+    {
+      "phase": "raise",
+      "video_time_s": 10.3,
+      "simulation_time_s": 12.000000000000677
+    },
+    {
+      "phase": "approach",
+      "video_time_s": 11.8,
+      "simulation_time_s": 13.500000000001178
+    },
+    {
+      "phase": "descend",
+      "video_time_s": 13.8,
+      "simulation_time_s": 15.500000000001846
+    },
+    {
+      "phase": "close",
+      "video_time_s": 15.8,
+      "simulation_time_s": 17.50000000000118
+    },
+    {
+      "phase": "lift",
+      "video_time_s": 17.6,
+      "simulation_time_s": 19.300000000000182
+    },
+    {
+      "phase": "hold",
+      "video_time_s": 20.1,
+      "simulation_time_s": 21.799999999998796
+    },
+    {
+      "phase": "lower",
+      "video_time_s": 21.6,
+      "simulation_time_s": 23.299999999997965
+    },
+    {
+      "phase": "release",
+      "video_time_s": 24.1,
+      "simulation_time_s": 25.79999999999658
+    },
+    {
+      "phase": "retreat",
+      "video_time_s": 25.9,
+      "simulation_time_s": 27.599999999995582
+    },
+    {
+      "phase": "settle",
+      "video_time_s": 27.9,
+      "simulation_time_s": 29.599999999994473
+    }
+  ],
+  "source": "Actual integrated MuJoCo frames; lidar walls hidden visually for an unobstructed view, still physically present"
+}

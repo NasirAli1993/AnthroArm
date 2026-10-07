@@ -1,0 +1,5308 @@
+{
+  "passed": true,
+  "test": "Seeded palm grasp retention and lift; not autonomous pickup",
+  "initial_position": [
+    -0.5754435539309084,
+    0.0,
+    0.4395783485265043
+  ],
+  "pre_lift_position": [
+    -0.5775503048893558,
+    6.855765907793876e-05,
+    0.4330958728865123
+  ],
+  "final_position": [
+    -0.31959499247862505,
+    -4.0916123710256665e-05,
+    0.726268327347087
+  ],
+  "vertical_lift_m": 0.2931724544605747,
+  "final_object_palm_distance_m": 0.04374697471814256,
+  "finger_contact_digits": [
+    "middle",
+    "ring"
+  ],
+  "multi_digit_contact_fraction": 1.0,
+  "retention_observation_seconds": 2.0,
+  "hand_contact_samples": 120,
+  "floor_contact_samples": 0,
+  "object_mass_kg": 0.06,
+  "gravity_compensation": false,
+  "object_pose_changed_only_at_initial_reset": true,
+  "weld_constraints": false,
+  "samples": [
+    {
+      "phase": "settle",
+      "time": 0.002,
+      "object_position": [
+        -0.5754435539309084,
+        0.0,
+        0.4395783485265043
+      ],
+      "palm_position": [
+        -0.5514435539307043,
+        0.0,
+        0.39957834852662677
+      ],
+      "object_contacts": [],
+      "pinch_gap_m": 0.12593357330251503
+    },
+    {
+      "phase": "settle",
+      "time": 0.10200000000000008,
+      "object_position": [
+        -0.5789005881685965,
+        4.049406845173381e-06,
+        0.4336358191296082
+      ],
+      "palm_position": [
+        -0.5515980405769052,
+        3.237101110059968e-08,
+        0.39904797041719414
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.00035725372110343573,
+          "normal_force": 0.48499951362936683,
+          "position": [
+            -0.5879735929126475,
+            -4.1580028019830996e-07,
+            0.41360320664265326
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.1259335661475397
+    },
+    {
+      "phase": "settle",
+      "time": 0.20200000000000015,
+      "object_position": [
+        -0.5771252818266184,
+        2.2381968807869657e-06,
+        0.4326796546545443
+      ],
+      "palm_position": [
+        -0.5516534804741005,
+        6.238269734655975e-09,
+        0.39885928802286674
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.00026024970349631973,
+          "normal_force": 0.665202723559385,
+          "position": [
+            -0.5808308267242708,
+            -1.1930960722213368e-07,
+            0.4142051204890339
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.12593357741734393
+    },
+    {
+      "phase": "settle",
+      "time": 0.3020000000000002,
+      "object_position": [
+        -0.5756668413414893,
+        9.859936076756332e-06,
+        0.4329165131817407
+      ],
+      "palm_position": [
+        -0.5516806399244979,
+        -6.873530443251557e-07,
+        0.39877405173331854
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.0003237734952811291,
+          "normal_force": 0.20378706540719818,
+          "position": [
+            -0.5632565094460111,
+            0.002439155497416379,
+            0.4146792674394709
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.0003237734952811291,
+          "normal_force": 0.1664506928321656,
+          "position": [
+            -0.5607323874148975,
+            -5.794208945417206e-07,
+            0.41466441978808644
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.0003237734952811291,
+          "normal_force": 0.10959464061770585,
+          "position": [
+            -0.5632561687866162,
+            -0.002440801723961014,
+            0.4146807038307615
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.12593359029426632
+    },
+    {
+      "phase": "settle",
+      "time": 0.4020000000000003,
+      "object_position": [
+        -0.576969351360884,
+        -1.1323118468592219e-05,
+        0.4326269566137266
+      ],
+      "palm_position": [
+        -0.5516819505350681,
+        -3.9874524626003224e-07,
+        0.39876806407243165
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.00036067576958617265,
+          "normal_force": 0.5602274957812943,
+          "position": [
+            -0.5808656207326084,
+            -6.207550933077547e-07,
+            0.4141563915375228
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.1259336002196744
+    },
+    {
+      "phase": "settle",
+      "time": 0.5020000000000003,
+      "object_position": [
+        -0.5775744334428587,
+        -1.9422727076547567e-05,
+        0.4327561727595604
+      ],
+      "palm_position": [
+        -0.5516818035249903,
+        1.9367789337739223e-07,
+        0.39876474441305776
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.00037247124248448435,
+          "normal_force": 0.0,
+          "position": [
+            -0.5840546730687474,
+            -0.0017390860421764862,
+            0.413848365511179
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.00037247124248448435,
+          "normal_force": 0.5771481477503819,
+          "position": [
+            -0.5808699266391342,
+            1.511689536642383e-07,
+            0.41415982424601117
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.00037247124248448435,
+          "normal_force": 0.0,
+          "position": [
+            -0.584054868794029,
+            0.001739415742806966,
+            0.4138504271807503
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.1259335815098186
+    },
+    {
+      "phase": "close",
+      "time": 0.6020000000000004,
+      "object_position": [
+        -0.5771655799035595,
+        6.622619874769625e-05,
+        0.43265684246939573
+      ],
+      "palm_position": [
+        -0.5516816684280892,
+        -5.567568620952555e-07,
+        0.39876396861115804
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.00035603208076494394,
+          "normal_force": 0.22212758494751916,
+          "position": [
+            -0.5808660575958033,
+            1.5903741902987436e-08,
+            0.41414922057573866
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.12593357140425482
+    },
+    {
+      "phase": "close",
+      "time": 0.7020000000000005,
+      "object_position": [
+        -0.577459984656625,
+        9.600174141130574e-05,
+        0.4314598042644286
+      ],
+      "palm_position": [
+        -0.5519805443122392,
+        9.054659165783514e-06,
+        0.3977278055565553
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.0003358545048895769,
+          "normal_force": 0.6308116710856931,
+          "position": [
+            -0.5812109709051044,
+            1.0154518658125926e-05,
+            0.41301242601665755
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.0003358545048895769,
+          "normal_force": 0.0,
+          "position": [
+            -0.57525054301011,
+            1.0227403500164412e-05,
+            0.41339254068540043
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.1095090717355452
+    },
+    {
+      "phase": "close",
+      "time": 0.8020000000000006,
+      "object_position": [
+        -0.5772147689283058,
+        5.363816430885518e-05,
+        0.4321623170727028
+      ],
+      "palm_position": [
+        -0.5517951089871675,
+        -3.399375910924362e-05,
+        0.39838471529457714
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.0003279546333257486,
+          "normal_force": 0.175668532716542,
+          "position": [
+            -0.5809946125037898,
+            -3.693792041017836e-05,
+            0.41372403970109467
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": 0.0003279546333257486,
+          "normal_force": 0.3812613736683124,
+          "position": [
+            -0.5751915937185581,
+            -3.6409860038073795e-05,
+            0.4140841253286879
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.0776067886733501
+    },
+    {
+      "phase": "close",
+      "time": 0.9020000000000007,
+      "object_position": [
+        -0.5772099757723603,
+        -0.00017228046126913744,
+        0.43247536101478545
+      ],
+      "palm_position": [
+        -0.5516371997050835,
+        -6.200393417806895e-05,
+        0.3988830771588613
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00015955555309683827,
+          "normal_force": 18.409173858457372,
+          "position": [
+            -0.583978366842643,
+            -0.001802651371783494,
+            0.41371250952557326
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00015955555309683827,
+          "normal_force": 18.593710777795096,
+          "position": [
+            -0.5840436883554898,
+            -0.0036092974546057203,
+            0.4136665584468754
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalShell_collision",
+          "distance": -0.0003120906711078019,
+          "normal_force": 0.0,
+          "position": [
+            -0.5899636021951704,
+            0.009914769090776269,
+            0.4493012472547809
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.001564229870915993,
+          "normal_force": 5.919158113854538,
+          "position": [
+            -0.5886544589050002,
+            0.009903028148050422,
+            0.4488082759058938
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": -0.0002701887985683637,
+          "normal_force": 0.6426459176309788,
+          "position": [
+            -0.5969795547702301,
+            -0.010100073322431825,
+            0.44816866259002536
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0011819471800283562,
+          "normal_force": 30.3090537766611,
+          "position": [
+            -0.5969353880463648,
+            -0.0101085392678893,
+            0.44771349333553
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.055922447709745436
+    },
+    {
+      "phase": "close",
+      "time": 1.0020000000000007,
+      "object_position": [
+        -0.5776584848119207,
+        -3.970365755474099e-05,
+        0.43284334180774076
+      ],
+      "palm_position": [
+        -0.5516708473571715,
+        -2.776977645169971e-05,
+        0.39880265236402246
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -9.829885369771687e-05,
+          "normal_force": 11.407900934455341,
+          "position": [
+            -0.5860609771378053,
+            -0.0025184749737799973,
+            0.4133881873798605
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -9.829885369771687e-05,
+          "normal_force": 11.423093493781934,
+          "position": [
+            -0.586164719321522,
+            -0.002917761635940357,
+            0.41336366254381307
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -9.829885369771687e-05,
+          "normal_force": 11.393026571268408,
+          "position": [
+            -0.5859507607058764,
+            -0.002093300945513548,
+            0.4134142642199381
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -9.829885369771687e-05,
+          "normal_force": 11.428505935101876,
+          "position": [
+            -0.586213887647844,
+            -0.0031073872863037755,
+            0.4133520303069945
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00033801130427292314,
+          "normal_force": 14.077022909065322,
+          "position": [
+            -0.5904241327343696,
+            0.009949105025490283,
+            0.44921409572815785
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.000386488480111444,
+          "normal_force": 0.7837891265022716,
+          "position": [
+            -0.598119595776919,
+            -0.009926219358202627,
+            0.4479760633722734
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00042931080825789656,
+          "normal_force": 30.237738065388953,
+          "position": [
+            -0.5976058595724616,
+            -0.010039590190110885,
+            0.4476379439186744
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.0545672072325681
+    },
+    {
+      "phase": "close",
+      "time": 1.1020000000000008,
+      "object_position": [
+        -0.577551199823925,
+        2.0642074450878937e-05,
+        0.4327325269609716
+      ],
+      "palm_position": [
+        -0.5516784051353397,
+        -1.1795588579822179e-05,
+        0.3987828483258339
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00034895881627925064,
+          "normal_force": 44.18130906619901,
+          "position": [
+            -0.5862019352503156,
+            -0.0030875750687857644,
+            0.41320673226802634
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": 4.658872883252024e-05,
+          "normal_force": 4.396818660915965,
+          "position": [
+            -0.5898509023674259,
+            0.00997882041387771,
+            0.4492458226392699
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": 4.658872883252024e-05,
+          "normal_force": 4.397898327983031,
+          "position": [
+            -0.5898358343119066,
+            0.009978838464240556,
+            0.4492482410491877
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": 4.658872883252024e-05,
+          "normal_force": 4.381679807990868,
+          "position": [
+            -0.5900989204666937,
+            0.009978782275877424,
+            0.44920606800356333
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00033345559542145425,
+          "normal_force": 0.2466117365767507,
+          "position": [
+            -0.5981619285480918,
+            -0.009657652831964337,
+            0.4475922392791416
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004764236465318317,
+          "normal_force": 30.11344575782214,
+          "position": [
+            -0.5962603931015431,
+            -0.010018053407899092,
+            0.4474799676308694
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451962141070765
+    },
+    {
+      "phase": "close",
+      "time": 1.2020000000000008,
+      "object_position": [
+        -0.5775391084251372,
+        3.782615371628746e-05,
+        0.4329406217470031
+      ],
+      "palm_position": [
+        -0.5516828091054505,
+        -4.902219713332385e-06,
+        0.39876440712964645
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018654398213466906,
+          "normal_force": 14.792215675794976,
+          "position": [
+            -0.5872955073972048,
+            -0.003768171701882265,
+            0.41307269500882415
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018654398213466906,
+          "normal_force": 14.702898368807936,
+          "position": [
+            -0.5862201952419369,
+            -0.003082288017661962,
+            0.4132663698325386
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018654398213466906,
+          "normal_force": 14.718319871575094,
+          "position": [
+            -0.5863996170903121,
+            -0.00319702651777172,
+            0.41323404770989525
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00023876672106692948,
+          "normal_force": 12.70319874163633,
+          "position": [
+            -0.5897480848231393,
+            0.009984793171959109,
+            0.44925973953667053
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003377080041127697,
+          "normal_force": 0.5448411838525739,
+          "position": [
+            -0.5982227084417138,
+            -0.009506718565227092,
+            0.44770593789897783
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00045793199687606706,
+          "normal_force": 30.209792675845637,
+          "position": [
+            -0.596031896939387,
+            -0.010012291941716902,
+            0.44765637883938725
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451316549976257
+    },
+    {
+      "phase": "close",
+      "time": 1.302000000000001,
+      "object_position": [
+        -0.5774989900727849,
+        5.275006596217565e-05,
+        0.4329980119266267
+      ],
+      "palm_position": [
+        -0.5516848793121374,
+        -2.0552129702526785e-06,
+        0.39875862946172325
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00014900957508799374,
+          "normal_force": 22.075055391929293,
+          "position": [
+            -0.5873008482351585,
+            -0.0037657954076819053,
+            0.4130847922066189
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00014900957508799374,
+          "normal_force": 21.988727310294546,
+          "position": [
+            -0.5877072670711703,
+            -0.00166944205790911,
+            0.41305885206464266
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002042555213381284,
+          "normal_force": 12.897975048685009,
+          "position": [
+            -0.5897186942469088,
+            0.00998795195746189,
+            0.4493060899294292
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003371028379398508,
+          "normal_force": 0.39929349183810414,
+          "position": [
+            -0.5982020083871714,
+            -0.009531954690693524,
+            0.44773663615763654
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004599169000737313,
+          "normal_force": 30.285973062456474,
+          "position": [
+            -0.5958630502873783,
+            -0.010006628056852585,
+            0.4477162078506549
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054513438185398645
+    },
+    {
+      "phase": "close",
+      "time": 1.402000000000001,
+      "object_position": [
+        -0.5774491645297871,
+        5.615216333985427e-05,
+        0.4329106860739882
+      ],
+      "palm_position": [
+        -0.5516858997190713,
+        -8.405247642353732e-07,
+        0.39875405173901785
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0002501823427259929,
+          "normal_force": 43.32791443879042,
+          "position": [
+            -0.5872935745412853,
+            -0.003763417447242479,
+            0.4130297803054605
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002590049846540147,
+          "normal_force": 12.46001190822724,
+          "position": [
+            -0.5896320780620701,
+            0.009982967409165256,
+            0.44919475816532684
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003452388179062541,
+          "normal_force": 0.093735326238363,
+          "position": [
+            -0.5981574023285092,
+            -0.009555137909054988,
+            0.4476341762407968
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046279706470618755,
+          "normal_force": 30.444965710313394,
+          "position": [
+            -0.595727687861697,
+            -0.01000857530916005,
+            0.4476254076630303
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451297335785351
+    },
+    {
+      "phase": "close",
+      "time": 1.5020000000000011,
+      "object_position": [
+        -0.5774798801132675,
+        5.843568437803058e-05,
+        0.4330022889486142
+      ],
+      "palm_position": [
+        -0.5516862939867326,
+        -3.71209194196094e-07,
+        0.3987523299618813
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001885247027169006,
+          "normal_force": 22.231441203431153,
+          "position": [
+            -0.5872990340474928,
+            -0.0037635876784340144,
+            0.4130582782533879
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001885247027169006,
+          "normal_force": 22.24114869918892,
+          "position": [
+            -0.5873970056389982,
+            -0.003258313943467879,
+            0.4130520895486559
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025762689503318895,
+          "normal_force": 13.067400570555588,
+          "position": [
+            -0.5896960027254939,
+            0.009981259225657228,
+            0.449261549818979
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003497839718338975,
+          "normal_force": 0.36586093998354946,
+          "position": [
+            -0.5982252325957925,
+            -0.009565489050523877,
+            0.4476700006163663
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004595028266581879,
+          "normal_force": 30.449283789682454,
+          "position": [
+            -0.5957296799042227,
+            -0.01000989742202012,
+            0.4476784274198953
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451332886095817
+    },
+    {
+      "phase": "close",
+      "time": 1.6020000000000012,
+      "object_position": [
+        -0.5774905467889305,
+        6.073894846442771e-05,
+        0.4330248713695929
+      ],
+      "palm_position": [
+        -0.5516862746692861,
+        -1.6139186337758304e-07,
+        0.39875223108152513
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001884955050740974,
+          "normal_force": 22.230837304542913,
+          "position": [
+            -0.5872989028794597,
+            -0.00376336412685307,
+            0.41305810063874016
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001884955050740974,
+          "normal_force": 22.239916298129284,
+          "position": [
+            -0.5873963716402999,
+            -0.0032606776622138185,
+            0.41305194405002627
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002499308464415795,
+          "normal_force": 13.072969187800338,
+          "position": [
+            -0.5897161723455783,
+            0.009980683627201165,
+            0.44927343721024304
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.000353664997744318,
+          "normal_force": 0.3383051380036451,
+          "position": [
+            -0.5982593460871404,
+            -0.009584497113342458,
+            0.4476552571737828
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004598232148042921,
+          "normal_force": 30.47987164982336,
+          "position": [
+            -0.595715863651898,
+            -0.010010533796470818,
+            0.4476743166069134
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451348777023854
+    },
+    {
+      "phase": "close",
+      "time": 1.7020000000000013,
+      "object_position": [
+        -0.57749998948729,
+        6.212884526797631e-05,
+        0.43304239638994935
+      ],
+      "palm_position": [
+        -0.5516862361880444,
+        -6.810022877105235e-08,
+        0.3987520409595444
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018863312943799522,
+          "normal_force": 22.24257076931485,
+          "position": [
+            -0.5872987647768899,
+            -0.0037632544928467024,
+            0.4130577621496223
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018863312943799522,
+          "normal_force": 22.252318986018302,
+          "position": [
+            -0.5873958878190626,
+            -0.0032625134723262904,
+            0.41305162413463786
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002492796437577915,
+          "normal_force": 13.084116226543049,
+          "position": [
+            -0.5897271188797156,
+            0.009980510864602096,
+            0.4492807776463155
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003570353049850184,
+          "normal_force": 0.31125273456619923,
+          "position": [
+            -0.5982876768560248,
+            -0.009593525881834705,
+            0.4476431754523797
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046015380003219954,
+          "normal_force": 30.510592352354838,
+          "position": [
+            -0.5957082283178426,
+            -0.010010841109223043,
+            0.447670252419407
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350554688441
+    },
+    {
+      "phase": "close",
+      "time": 1.8020000000000014,
+      "object_position": [
+        -0.5775085807252686,
+        6.29929996486807e-05,
+        0.43305623762356577
+      ],
+      "palm_position": [
+        -0.5516862067125317,
+        -2.5754362870626103e-08,
+        0.3987519209396444
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001887498109064745,
+          "normal_force": 22.251579429485325,
+          "position": [
+            -0.58729864816438,
+            -0.0037631955485087866,
+            0.41305753963274683
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001887498109064745,
+          "normal_force": 22.261575169069296,
+          "position": [
+            -0.5873954944469046,
+            -0.003263879097001298,
+            0.41305142421357505
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002496556520551197,
+          "normal_force": 13.10130338605195,
+          "position": [
+            -0.5897341179847222,
+            0.009979887784618327,
+            0.4492867900757334
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00035962328996798517,
+          "normal_force": 0.29098828682332895,
+          "position": [
+            -0.5983056284289361,
+            -0.00959802958221999,
+            0.4476344758236574
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004603923892310588,
+          "normal_force": 30.530733570844916,
+          "position": [
+            -0.595702508606109,
+            -0.010014975018439818,
+            0.4476669221363092
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351146957891
+    },
+    {
+      "phase": "close",
+      "time": 1.9020000000000015,
+      "object_position": [
+        -0.5775167436529159,
+        6.388791196342572e-05,
+        0.43306715544923835
+      ],
+      "palm_position": [
+        -0.5516861884559199,
+        -9.950848861802848e-09,
+        0.39875183626988925
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018881013212421698,
+          "normal_force": 22.257770002902536,
+          "position": [
+            -0.58729855833097,
+            -0.0037631688777153066,
+            0.41305739923855167
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018881013212421698,
+          "normal_force": 22.267830745976124,
+          "position": [
+            -0.5873952058403983,
+            -0.003264874260688946,
+            0.413051295010851
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002498603578244253,
+          "normal_force": 13.11385501584707,
+          "position": [
+            -0.589739208936412,
+            0.009979830282120841,
+            0.4492915592564898
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003618890932998641,
+          "normal_force": 0.2741076257071038,
+          "position": [
+            -0.5983258865274954,
+            -0.009603882827405808,
+            0.44762652681031256
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046057536272793624,
+          "normal_force": 30.547508546062414,
+          "position": [
+            -0.5956993182065731,
+            -0.010015105716427735,
+            0.44766425569402496
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351039340476
+    },
+    {
+      "phase": "close",
+      "time": 2.002000000000001,
+      "object_position": [
+        -0.577524088735552,
+        6.466643635642554e-05,
+        0.43307553430544826
+      ],
+      "palm_position": [
+        -0.5516861732513266,
+        -1.2764492225217717e-09,
+        0.3987517959948232
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018889457585738277,
+          "normal_force": 22.260588499990906,
+          "position": [
+            -0.5872984802882231,
+            -0.003763149684718206,
+            0.4130573065046245
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018889457585738277,
+          "normal_force": 22.270516050926965,
+          "position": [
+            -0.5873949921187067,
+            -0.0032655526465175467,
+            0.41305121138480627
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002501503832468272,
+          "normal_force": 13.126682963092913,
+          "position": [
+            -0.589742804315364,
+            0.00997954792661105,
+            0.4492953819330421
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00036365951306042814,
+          "normal_force": 0.2606796182567086,
+          "position": [
+            -0.5983426289247453,
+            -0.00960864724335904,
+            0.4476201090897488
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046075446189940524,
+          "normal_force": 30.559478171959523,
+          "position": [
+            -0.5956969113685664,
+            -0.010015190516722313,
+            0.4476621262394165
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351412355247
+    },
+    {
+      "phase": "close",
+      "time": 2.10199999999999,
+      "object_position": [
+        -0.5775334183101871,
+        6.571462309431321e-05,
+        0.43308347260742985
+      ],
+      "palm_position": [
+        -0.5516861879010703,
+        -9.23764664131017e-09,
+        0.39875169232121904
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001887824582571266,
+          "normal_force": 22.336488341252554,
+          "position": [
+            -0.5872984515034843,
+            -0.003763156880680966,
+            0.4130572404719821
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001887824582571266,
+          "normal_force": 22.287086175197803,
+          "position": [
+            -0.5877044878652583,
+            -0.0016631915840426884,
+            0.41303168139630536
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00024988809527726766,
+          "normal_force": 13.177595468593577,
+          "position": [
+            -0.589747857874148,
+            0.009979353148932505,
+            0.4492984988561189
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003677345540444529,
+          "normal_force": 0.25922167718679356,
+          "position": [
+            -0.598361706009768,
+            -0.009613070512371535,
+            0.4476148762649168
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003677345540444529,
+          "normal_force": 0.25793571977013424,
+          "position": [
+            -0.5978991163331069,
+            -0.009499742682854636,
+            0.4477005164394886
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004584167930003202,
+          "normal_force": 30.36369996509487,
+          "position": [
+            -0.5956980989130403,
+            -0.010015209079820581,
+            0.44766111781540263
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451348831626428
+    },
+    {
+      "phase": "close",
+      "time": 2.201999999999979,
+      "object_position": [
+        -0.5775377510395953,
+        6.63254966510151e-05,
+        0.43308796559346696
+      ],
+      "palm_position": [
+        -0.5516861535628861,
+        6.245023526850276e-09,
+        0.39875176744844215
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018910556082306812,
+          "normal_force": 22.279033844373377,
+          "position": [
+            -0.5872983514583772,
+            -0.003763121447087566,
+            0.41305717259842567
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018910556082306812,
+          "normal_force": 22.289242197146717,
+          "position": [
+            -0.5873947047426454,
+            -0.003266340059788625,
+            0.41305109359011827
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002506370780221393,
+          "normal_force": 13.143566305874147,
+          "position": [
+            -0.5897489390111386,
+            0.009979334553984196,
+            0.4493013941636517
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00036845818497879433,
+          "normal_force": 0.22355888730189158,
+          "position": [
+            -0.5983707312715507,
+            -0.009615383876115786,
+            0.44761077179749265
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00036845818497879433,
+          "normal_force": 0.22536997880438525,
+          "position": [
+            -0.597898317945629,
+            -0.00949966304532366,
+            0.4476983008782481
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004588655195273574,
+          "normal_force": 30.382653440342025,
+          "position": [
+            -0.595697580630581,
+            -0.010015191988647684,
+            0.4476590861743379
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451352613643603
+    },
+    {
+      "phase": "close",
+      "time": 2.301999999999968,
+      "object_position": [
+        -0.5775434504209793,
+        6.73337338486944e-05,
+        0.4330920438250159
+      ],
+      "palm_position": [
+        -0.5516861503404862,
+        6.923165269531087e-09,
+        0.39875174966668425
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018913320661321744,
+          "normal_force": 22.28183242502252,
+          "position": [
+            -0.587298315193835,
+            -0.0037631140387490306,
+            0.41305714026970375
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018913320661321744,
+          "normal_force": 22.29208697665406,
+          "position": [
+            -0.5873946126060013,
+            -0.0032666761638022695,
+            0.4130510652965926
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025072203302238706,
+          "normal_force": 13.1497510716803,
+          "position": [
+            -0.5897504480445188,
+            0.009979163851576933,
+            0.44930360658358603
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003693817765613703,
+          "normal_force": 0.2168264021043861,
+          "position": [
+            -0.5983812733942282,
+            -0.009618204102471883,
+            0.44760708516584025
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003693817765613703,
+          "normal_force": 0.21864013266192822,
+          "position": [
+            -0.5978973709919515,
+            -0.009499624556831959,
+            0.44769682690397905
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004589946800480019,
+          "normal_force": 30.395593884068255,
+          "position": [
+            -0.5956973009161342,
+            -0.010014378276339445,
+            0.4476578332675015
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451352085817624
+    },
+    {
+      "phase": "lift",
+      "time": 2.401999999999957,
+      "object_position": [
+        -0.5775493893415059,
+        6.838443627980101e-05,
+        0.43309537866004383
+      ],
+      "palm_position": [
+        -0.5516861554284794,
+        5.866848295445342e-09,
+        0.39875171699110395
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018913696612862368,
+          "normal_force": 22.418731622388187,
+          "position": [
+            -0.5872982940219765,
+            -0.003763111349280459,
+            0.41305710260775796
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018913696612862368,
+          "normal_force": 22.434604500111544,
+          "position": [
+            -0.587394579606558,
+            -0.0032667327075652135,
+            0.41305102585854825
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.000250590931233682,
+          "normal_force": 13.201182084966302,
+          "position": [
+            -0.5897524296070198,
+            0.009979092266952375,
+            0.44930529608227054
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003710737628956224,
+          "normal_force": 0.2110684029258715,
+          "position": [
+            -0.5983913352614625,
+            -0.009620667973395159,
+            0.4476042411598775
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003710737628956224,
+          "normal_force": 0.2169561228440351,
+          "position": [
+            -0.5978907169271594,
+            -0.009492904213718192,
+            0.4476972922089245
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00045812559705472894,
+          "normal_force": 30.44001260880463,
+          "position": [
+            -0.5956973302492148,
+            -0.010014374708359714,
+            0.44765725767062364
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054513515100942905
+    },
+    {
+      "phase": "lift",
+      "time": 2.501999999999946,
+      "object_position": [
+        -0.5499307871938274,
+        0.00010474025819601573,
+        0.49979459530833625
+      ],
+      "palm_position": [
+        -0.530866408157156,
+        -1.450400517803143e-05,
+        0.4608135390338252
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -3.4456330145421184e-05,
+          "normal_force": 11.440183040538134,
+          "position": [
+            -0.5637344965630651,
+            -0.003933549109520624,
+            0.4818666493621002
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -3.4456330145421184e-05,
+          "normal_force": 11.38798835951884,
+          "position": [
+            -0.5630069315704033,
+            -0.003775769257848959,
+            0.48186200924677036
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -3.4456330145421184e-05,
+          "normal_force": 11.4371869302286,
+          "position": [
+            -0.5637317101789021,
+            -9.970676188176626e-06,
+            0.48195682567080994
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -3.4456330145421184e-05,
+          "normal_force": 11.426959439833896,
+          "position": [
+            -0.5635506489304956,
+            -0.0038937092797437416,
+            0.4818654760529951
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00029678706739687586,
+          "normal_force": 13.516834228406408,
+          "position": [
+            -0.5585113750796633,
+            0.00997999968809566,
+            0.5179857789006505
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.000318678224571494,
+          "normal_force": 0.0,
+          "position": [
+            -0.5667942686527208,
+            -0.00949330699989246,
+            0.5179233886146679
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0005162904754319403,
+          "normal_force": 31.03599715000921,
+          "position": [
+            -0.5646492625571842,
+            -0.01001523107020337,
+            0.5174691449650856
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05472502451484091
+    },
+    {
+      "phase": "lift",
+      "time": 2.601999999999935,
+      "object_position": [
+        -0.45011848220005557,
+        0.00011410884659165359,
+        0.6323313868270768
+      ],
+      "palm_position": [
+        -0.448140050597747,
+        -5.688468875658455e-06,
+        0.588596929764675
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -8.918368852934314e-05,
+          "normal_force": 14.98461154955692,
+          "position": [
+            -0.46931247130588893,
+            -0.003924074413766514,
+            0.6213709488258403
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -8.918368852934314e-05,
+          "normal_force": 14.992365806275535,
+          "position": [
+            -0.46916021605136726,
+            -0.0038887088090760265,
+            0.6213004713505924
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -8.918368852934314e-05,
+          "normal_force": 14.963079458156578,
+          "position": [
+            -0.4692783987081118,
+            -0.0005722915692963953,
+            0.6214406600655229
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002777889107248808,
+          "normal_force": 13.749979673561729,
+          "position": [
+            -0.44939461483581733,
+            0.0099878008727445,
+            0.6519783598810757
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004335881431384967,
+          "normal_force": 30.810390205786096,
+          "position": [
+            -0.4551342303962234,
+            -0.010006901821100183,
+            0.6540433727952177
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054525855234270774
+    },
+    {
+      "phase": "lift",
+      "time": 2.701999999999924,
+      "object_position": [
+        -0.3569705472535585,
+        0.00011118112429299447,
+        0.70558162498426
+      ],
+      "palm_position": [
+        -0.3670766243929319,
+        1.031403663250574e-05,
+        0.6629244973357328
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0003565162769176076,
+          "normal_force": 43.602419895217025,
+          "position": [
+            -0.37717211206388573,
+            -0.003752366910379216,
+            0.6999051536835498
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00024051495381484156,
+          "normal_force": 12.942889324328,
+          "position": [
+            -0.34968386295582077,
+            0.00998427808251179,
+            0.7235434946242663
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00038994621114841517,
+          "normal_force": 0.3230236355209061,
+          "position": [
+            -0.3558093361649649,
+            -0.009494379799833343,
+            0.7290546179292945
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00044859851256488634,
+          "normal_force": 30.42688694079772,
+          "position": [
+            -0.35452983104723823,
+            -0.010011083650726208,
+            0.727275228004953
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054363450542561705
+    },
+    {
+      "phase": "lift",
+      "time": 2.801999999999913,
+      "object_position": [
+        -0.32815327342039785,
+        9.853462412488792e-05,
+        0.7227068884488322
+      ],
+      "palm_position": [
+        -0.34159759641244714,
+        1.0131275384927083e-05,
+        0.6807358847009034
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001927875515039022,
+          "normal_force": 22.21104167963677,
+          "position": [
+            -0.34868123800880824,
+            -0.00375448824719962,
+            0.7184535211092017
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001927875515039022,
+          "normal_force": 22.218021008555848,
+          "position": [
+            -0.3487660852318264,
+            -0.0030132146173537204,
+            0.7185699174874761
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002600593442948905,
+          "normal_force": 13.173364843816856,
+          "position": [
+            -0.3194272684881275,
+            0.009982050125265117,
+            0.7399686427371865
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003636980123725188,
+          "normal_force": 0.32757673245612545,
+          "position": [
+            -0.3265433770921382,
+            -0.009995351686518963,
+            0.7474988863471074
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003636980123725188,
+          "normal_force": 0.3275741408389224,
+          "position": [
+            -0.3262559079498699,
+            -0.009895135153459373,
+            0.747190081382787
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004557457888066057,
+          "normal_force": 30.330946202113687,
+          "position": [
+            -0.3239838274438567,
+            -0.010013045251823113,
+            0.7441049048630799
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054453903652344086
+    },
+    {
+      "phase": "lift",
+      "time": 2.901999999999902,
+      "object_position": [
+        -0.32185104543345594,
+        9.023271673614473e-05,
+        0.7260206879587301
+      ],
+      "palm_position": [
+        -0.335940988366074,
+        5.688257607960505e-06,
+        0.6842493342147193
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001891294518406368,
+          "normal_force": 22.31994255538878,
+          "position": [
+            -0.3424392137488441,
+            -0.003758606150349818,
+            0.7220732139797886
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001891294518406368,
+          "normal_force": 22.270422854903643,
+          "position": [
+            -0.34267430303753527,
+            -0.0016554814621285348,
+            0.7224064072215493
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025070195298221477,
+          "normal_force": 13.200643914195815,
+          "position": [
+            -0.3128553906455217,
+            0.009978199571088649,
+            0.7431448105559688
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00036139967261704506,
+          "normal_force": 0.31628215716896874,
+          "position": [
+            -0.3198652424495619,
+            -0.009998166809905519,
+            0.7507819184611404
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00036139967261704506,
+          "normal_force": 0.31555424907301205,
+          "position": [
+            -0.3195828213594548,
+            -0.009898091272473156,
+            0.7504691674276873
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00045840845464175105,
+          "normal_force": 30.401270690352437,
+          "position": [
+            -0.31735741893400365,
+            -0.010016116392823578,
+            0.7473496051123116
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05449979492727819
+    },
+    {
+      "phase": "lift",
+      "time": 3.001999999999891,
+      "object_position": [
+        -0.3205167978778919,
+        8.492257951753625e-05,
+        0.7266600079481502
+      ],
+      "palm_position": [
+        -0.33473537630559774,
+        2.7413058592086353e-06,
+        0.6849277571062596
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018881557449650343,
+          "normal_force": 22.275764933212187,
+          "position": [
+            -0.3411297679759441,
+            -0.0037611876716837625,
+            0.7227693767698171
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018881557449650343,
+          "normal_force": 22.283301665439158,
+          "position": [
+            -0.3412123300639689,
+            -0.0030218012070308987,
+            0.722886970116976
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002506268152787071,
+          "normal_force": 13.178919878275938,
+          "position": [
+            -0.31148582685443393,
+            0.009976904858051305,
+            0.7437657723287175
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003668486544813323,
+          "normal_force": 0.2414332570058653,
+          "position": [
+            -0.3182020428699769,
+            -0.009899417273031197,
+            0.751104184697648
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003668486544813323,
+          "normal_force": 0.2451187437125864,
+          "position": [
+            -0.3170947515498029,
+            -0.009499462686484219,
+            0.7498725445657858
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003668486544813323,
+          "normal_force": 0.24048458294343866,
+          "position": [
+            -0.31848362024855525,
+            -0.009999454537864261,
+            0.7514174439509447
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004575374130056467,
+          "normal_force": 30.265779393403346,
+          "position": [
+            -0.31598386634886744,
+            -0.010017402599326694,
+            0.7479795151546056
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451288956067246
+    },
+    {
+      "phase": "lift",
+      "time": 3.10199999999988,
+      "object_position": [
+        -0.3202158037799518,
+        8.112462631958092e-05,
+        0.7267747252785428
+      ],
+      "palm_position": [
+        -0.33447086689591443,
+        1.2532279470439642e-06,
+        0.6850558521626539
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889472236274202,
+          "normal_force": 22.291292810297794,
+          "position": [
+            -0.3408484573731769,
+            -0.0037623908505069,
+            0.7229002363822926
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889472236274202,
+          "normal_force": 22.29955162922118,
+          "position": [
+            -0.34093061887247256,
+            -0.0030262176591880122,
+            0.723017355538969
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025125720813113213,
+          "normal_force": 13.196625773682468,
+          "position": [
+            -0.31119198524959213,
+            0.009976694266412154,
+            0.7438872519413778
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00036964137412114377,
+          "normal_force": 0.19689614471371655,
+          "position": [
+            -0.3179108899567159,
+            -0.009899710725699607,
+            0.7512218842932468
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00036964137412114377,
+          "normal_force": 0.20101032271464386,
+          "position": [
+            -0.31680376026433094,
+            -0.009499758530136848,
+            0.749990212192543
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00036964137412114377,
+          "normal_force": 0.19584312432161807,
+          "position": [
+            -0.31819248151997587,
+            -0.009999767629594185,
+            0.7515352137325447
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00036964137412114377,
+          "normal_force": 0.20059260103791218,
+          "position": [
+            -0.3169082585762871,
+            -0.00953671311638314,
+            0.7501064876397897
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004579672146958861,
+          "normal_force": 30.207647506590806,
+          "position": [
+            -0.31569343178751486,
+            -0.010017745061467976,
+            0.7480974166617524
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451366854104823
+    },
+    {
+      "phase": "lift",
+      "time": 3.201999999999869,
+      "object_position": [
+        -0.3201285962572163,
+        7.825931749156713e-05,
+        0.7267923618286314
+      ],
+      "palm_position": [
+        -0.33440564845343784,
+        5.548115850051269e-07,
+        0.6850816151711561
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018891875981243584,
+          "normal_force": 22.350517649289227,
+          "position": [
+            -0.34077959721468765,
+            -0.003762897557646995,
+            0.7229265744519392
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018891875981243584,
+          "normal_force": 22.3077476104567,
+          "position": [
+            -0.34101398818337025,
+            -0.0016591687669161022,
+            0.7232607619538343
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025102881006257093,
+          "normal_force": 13.240856596866113,
+          "position": [
+            -0.31112000121624095,
+            0.009976854696025684,
+            0.7439166897425507
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739995165104217,
+          "normal_force": 0.2049257952568585,
+          "position": [
+            -0.31683925838272986,
+            -0.009536973658622057,
+            0.7501294971825688
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739995165104217,
+          "normal_force": 0.20456339982568844,
+          "position": [
+            -0.31673460532331704,
+            -0.009499718923178845,
+            0.7500131278345777
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739995165104217,
+          "normal_force": 0.20828685135232558,
+          "position": [
+            -0.31784240940816644,
+            -0.009899627099196815,
+            0.7512448554546832
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739995165104217,
+          "normal_force": 0.20806955355249085,
+          "position": [
+            -0.31779493461736885,
+            -0.009883012805635066,
+            0.7511920540469139
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004569931729272903,
+          "normal_force": 30.209023151877034,
+          "position": [
+            -0.3156245313686746,
+            -0.010016930510660823,
+            0.7481214831044007
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451363599828427
+    },
+    {
+      "phase": "lift",
+      "time": 3.301999999999858,
+      "object_position": [
+        -0.320093798179118,
+        7.539740918002024e-05,
+        0.7267829238991433
+      ],
+      "palm_position": [
+        -0.33438903171225254,
+        2.493933591877857e-07,
+        0.6850857469737127
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900937842320252,
+          "normal_force": 22.286128426937047,
+          "position": [
+            -0.34076211636135834,
+            -0.0037630698125992175,
+            0.7229308112917439
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900937842320252,
+          "normal_force": 22.29462740641392,
+          "position": [
+            -0.34084363039905363,
+            -0.003032726510998174,
+            0.7230470022461071
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025150779008393625,
+          "normal_force": 13.218267870010767,
+          "position": [
+            -0.31109886773782,
+            0.009977097633686063,
+            0.7439204393663024
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037310341590570095,
+          "normal_force": 0.19829083638068692,
+          "position": [
+            -0.3167145306808369,
+            -0.009499491444729368,
+            0.7500109611308401
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037310341590570095,
+          "normal_force": 0.19446323942713872,
+          "position": [
+            -0.31782191357826006,
+            -0.009899360036438886,
+            0.751241875778508
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037310341590570095,
+          "normal_force": 0.19796199960890423,
+          "position": [
+            -0.31681872387668275,
+            -0.009537297440113519,
+            0.7501267688504846
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004586470938337135,
+          "normal_force": 30.378280901328033,
+          "position": [
+            -0.3156040123816944,
+            -0.010016730068170672,
+            0.7481192091956929
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451355913251525
+    },
+    {
+      "phase": "lift",
+      "time": 3.401999999999847,
+      "object_position": [
+        -0.3200745692498921,
+        7.245439916683389e-05,
+        0.7267683954780941
+      ],
+      "palm_position": [
+        -0.33438588803947994,
+        1.110055023962036e-07,
+        0.6850845397482473
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018902504158885579,
+          "normal_force": 22.284715644861837,
+          "position": [
+            -0.3407588804725099,
+            -0.0037631244612018225,
+            0.7229296010868946
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018902504158885579,
+          "normal_force": 22.294141771574164,
+          "position": [
+            -0.3408401174987007,
+            -0.003035282379293567,
+            0.7230453929125542
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002515364540934414,
+          "normal_force": 13.22282146022219,
+          "position": [
+            -0.31109404749622405,
+            0.009977244348039968,
+            0.7439201969783017
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037198682634414994,
+          "normal_force": 0.20518539315803053,
+          "position": [
+            -0.31671031578501807,
+            -0.00949932852242235,
+            0.7500057025389995
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037198682634414994,
+          "normal_force": 0.20119849232499804,
+          "position": [
+            -0.317817532524245,
+            -0.009899094601682961,
+            0.751236189639889
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046050832723207915,
+          "normal_force": 30.551405126127293,
+          "position": [
+            -0.3155997933824676,
+            -0.010016582077633281,
+            0.7481142220421224
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.0545135451283496
+    },
+    {
+      "phase": "lift",
+      "time": 3.501999999999836,
+      "object_position": [
+        -0.3200574024587448,
+        6.949193459535891e-05,
+        0.7267563318044885
+      ],
+      "palm_position": [
+        -0.3343837886626672,
+        4.616130498664446e-08,
+        0.6850841926686674
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001888724565738905,
+          "normal_force": 22.344449689744994,
+          "position": [
+            -0.3407566261330728,
+            -0.0037631400888016924,
+            0.7229293018598169
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001888724565738905,
+          "normal_force": 22.29735916951371,
+          "position": [
+            -0.34099108010273704,
+            -0.001658995033973563,
+            0.7232635338750586
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002515167738109865,
+          "normal_force": 13.262847544009725,
+          "position": [
+            -0.3110913917800229,
+            0.009977340819906151,
+            0.7439217555480788
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003726684430768937,
+          "normal_force": 0.2184247143957211,
+          "position": [
+            -0.31670790543033744,
+            -0.009499203406967246,
+            0.7500038542359312
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003726684430768937,
+          "normal_force": 0.2228915046988424,
+          "position": [
+            -0.31781502548802726,
+            -0.009898866122665013,
+            0.7512338820301547
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.000460490540159107,
+          "normal_force": 30.555608465851154,
+          "position": [
+            -0.31559724732286154,
+            -0.01001646701732373,
+            0.7481126673724381
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451352135265014
+    },
+    {
+      "phase": "lift",
+      "time": 3.601999999999825,
+      "object_position": [
+        -0.32004007497728876,
+        6.639449064922694e-05,
+        0.7267436943928478
+      ],
+      "palm_position": [
+        -0.33438128802979195,
+        1.9136669104255573e-08,
+        0.6850848788828208
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889035724374647,
+          "normal_force": 22.34576099173248,
+          "position": [
+            -0.3407539628187811,
+            -0.003763131645404182,
+            0.7229299949082966
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889035724374647,
+          "normal_force": 22.29906245856092,
+          "position": [
+            -0.3409884291365901,
+            -0.0016588851194222595,
+            0.7232642391271551
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002515076563036574,
+          "normal_force": 13.26507569577952,
+          "position": [
+            -0.31108827915028536,
+            0.009977431337045924,
+            0.7439238065770524
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003730538103641476,
+          "normal_force": 0.21538401954431796,
+          "position": [
+            -0.31670519366738936,
+            -0.00949911568978742,
+            0.7500033393208692
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003730538103641476,
+          "normal_force": 0.21979343497045362,
+          "position": [
+            -0.31781201149050553,
+            -0.00989862551409204,
+            0.7512328316917738
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046055434324056044,
+          "normal_force": 30.561647155381813,
+          "position": [
+            -0.3155944870696358,
+            -0.010016398746575682,
+            0.748112331481133
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351472638562
+    },
+    {
+      "phase": "lift",
+      "time": 3.701999999999814,
+      "object_position": [
+        -0.3200232433174114,
+        6.326632247015037e-05,
+        0.7267312807885383
+      ],
+      "palm_position": [
+        -0.33437893794415763,
+        7.276994160963483e-09,
+        0.6850858823540933
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018889749971468304,
+          "normal_force": 22.346956053469587,
+          "position": [
+            -0.3407514324465978,
+            -0.003763120941251585,
+            0.7229310195059293
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018889749971468304,
+          "normal_force": 22.29987466610333,
+          "position": [
+            -0.34098591008516177,
+            -0.001658785059361225,
+            0.7232652735996388
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002515783355619819,
+          "normal_force": 13.268159195767891,
+          "position": [
+            -0.311085361333221,
+            0.009977492841303576,
+            0.7439258787005605
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037338984156254026,
+          "normal_force": 0.21327042624590178,
+          "position": [
+            -0.3167026037606535,
+            -0.009499055933972687,
+            0.7500033835446601
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037338984156254026,
+          "normal_force": 0.2179668493658911,
+          "position": [
+            -0.3178090907990707,
+            -0.009898408805899754,
+            0.7512323396582616
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.000460589167093785,
+          "normal_force": 30.565353775802915,
+          "position": [
+            -0.31559185411300994,
+            -0.010016354526093542,
+            0.7481125262232288
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350964559917
+    },
+    {
+      "phase": "lift",
+      "time": 3.801999999999803,
+      "object_position": [
+        -0.3200068749435936,
+        6.009178174691658e-05,
+        0.7267166229585885
+      ],
+      "palm_position": [
+        -0.33437688149558475,
+        5.313821754316009e-09,
+        0.6850869151659306
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018904061711003448,
+          "normal_force": 22.289489294415123,
+          "position": [
+            -0.34074926679927986,
+            -0.003763103486644972,
+            0.722932032187821
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018904061711003448,
+          "normal_force": 22.29936126926959,
+          "position": [
+            -0.34082951941909945,
+            -0.003044111224989648,
+            0.7230464137713944
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002517938227340906,
+          "normal_force": 13.232994862610246,
+          "position": [
+            -0.31108225764122865,
+            0.00997757038100094,
+            0.7439265776158388
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037331818439180855,
+          "normal_force": 0.1943324501607723,
+          "position": [
+            -0.3166994898192474,
+            -0.009499015546205254,
+            0.750002780624328
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037331818439180855,
+          "normal_force": 0.18938867910647475,
+          "position": [
+            -0.3178054422845232,
+            -0.00989816972442678,
+            0.7512311348954278
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046070086336904903,
+          "normal_force": 30.572732796865395,
+          "position": [
+            -0.31558876717550655,
+            -0.010016332338250392,
+            0.7481119308152997
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054513518034563495
+    },
+    {
+      "phase": "lift",
+      "time": 3.901999999999792,
+      "object_position": [
+        -0.31999164138507097,
+        5.704714344327148e-05,
+        0.7267035874136308
+      ],
+      "palm_position": [
+        -0.33437526373601434,
+        1.329725678584782e-09,
+        0.68508779423259
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889682251691829,
+          "normal_force": 22.28510979272579,
+          "position": [
+            -0.3407475027920095,
+            -0.003763102158137187,
+            0.7229329495275962
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889682251691829,
+          "normal_force": 22.294423055485613,
+          "position": [
+            -0.3408275380597726,
+            -0.0030461247642083866,
+            0.7230470050254361
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002515715063671241,
+          "normal_force": 13.233113022065924,
+          "position": [
+            -0.3110803657753003,
+            0.009977630319243673,
+            0.7439278061087595
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037358174276018165,
+          "normal_force": 0.19431955287995675,
+          "position": [
+            -0.3166971601020439,
+            -0.009498976973763482,
+            0.7500029098075585
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037358174276018165,
+          "normal_force": 0.19404956957057254,
+          "position": [
+            -0.3167987987321853,
+            -0.009535204589423389,
+            0.7501157946797422
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046058764725200794,
+          "normal_force": 30.560050000410573,
+          "position": [
+            -0.3155863800865135,
+            -0.010016279585059958,
+            0.7481121422008659
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350736088214
+    },
+    {
+      "phase": "lift",
+      "time": 4.001999999999781,
+      "object_position": [
+        -0.3199768549296513,
+        5.389175456061779e-05,
+        0.726690126729123
+      ],
+      "palm_position": [
+        -0.33437395581653967,
+        -2.3816717257795845e-10,
+        0.6850885378815912
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018895200215617995,
+          "normal_force": 22.34401594700765,
+          "position": [
+            -0.34074608702198855,
+            -0.003763099146451801,
+            0.7229337116954246
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018895200215617995,
+          "normal_force": 22.298251068440518,
+          "position": [
+            -0.34098057962556483,
+            -0.0016585704233262367,
+            0.7232679965515709
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002515687505023697,
+          "normal_force": 13.270060886589926,
+          "position": [
+            -0.3110789144775261,
+            0.009977645688385843,
+            0.7439288823370325
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037370299538985925,
+          "normal_force": 0.210455842751403,
+          "position": [
+            -0.31669559879274567,
+            -0.009498959963039167,
+            0.7500032761638282
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037370299538985925,
+          "normal_force": 0.21088672423770885,
+          "position": [
+            -0.316796687485467,
+            -0.009534990419749922,
+            0.7501155452313837
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004605970874063927,
+          "normal_force": 30.565869849239146,
+          "position": [
+            -0.31558480472143235,
+            -0.010016261558506694,
+            0.7481125631109102
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350742182904
+    },
+    {
+      "phase": "lift",
+      "time": 4.10199999999977,
+      "object_position": [
+        -0.3199623416789529,
+        5.060454901933204e-05,
+        0.7266759323644686
+      ],
+      "palm_position": [
+        -0.33437291581751927,
+        2.0638642672742014e-09,
+        0.6850891447888132
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900062929843464,
+          "normal_force": 22.286642124115073,
+          "position": [
+            -0.34074498214350407,
+            -0.0037630895180043237,
+            0.7229343157520571
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900062929843464,
+          "normal_force": 22.296134542884854,
+          "position": [
+            -0.3408245728144478,
+            -0.003050042846491761,
+            0.7230477502767714
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002518984039671759,
+          "normal_force": 13.236713162924874,
+          "position": [
+            -0.31107747802036645,
+            0.009977631896649936,
+            0.743929587942274
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003736802772160148,
+          "normal_force": 0.1925653190798024,
+          "position": [
+            -0.3166942809809047,
+            -0.009498950429926326,
+            0.7500032849789393
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003736802772160148,
+          "normal_force": 0.19229451638945777,
+          "position": [
+            -0.3167947828988913,
+            -0.00953477120203049,
+            0.7501149020365986
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004606630495983969,
+          "normal_force": 30.56331604739741,
+          "position": [
+            -0.3155835127219918,
+            -0.010016266923743779,
+            0.7481125803027138
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.0545135115529751
+    },
+    {
+      "phase": "lift",
+      "time": 4.201999999999759,
+      "object_position": [
+        -0.3199483131919924,
+        4.746855433301047e-05,
+        0.7266622651676928
+      ],
+      "palm_position": [
+        -0.3343721260689607,
+        -4.681612309721868e-10,
+        0.6850896158986564
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889566841020266,
+          "normal_force": 22.28453451432689,
+          "position": [
+            -0.34074411515174,
+            -0.0037630924283106318,
+            0.722934808003241
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889566841020266,
+          "normal_force": 22.29347014376248,
+          "position": [
+            -0.3408234940648581,
+            -0.0030519938788721316,
+            0.7230479284451183
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025169863058101396,
+          "normal_force": 13.236636930496626,
+          "position": [
+            -0.3110766880385595,
+            0.009977654279042476,
+            0.7439303807222817
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037383341853902555,
+          "normal_force": 0.19311361802514693,
+          "position": [
+            -0.31669342923277155,
+            -0.009498945421185016,
+            0.7500037408738154
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037383341853902555,
+          "normal_force": 0.19291266988759953,
+          "position": [
+            -0.31679336924388574,
+            -0.009534564812241318,
+            0.750114728932981
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046061003818977667,
+          "normal_force": 30.561413613412803,
+          "position": [
+            -0.3155826350582488,
+            -0.010016255158245647,
+            0.7481130867067336
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350771494605
+    },
+    {
+      "phase": "lift",
+      "time": 4.301999999999748,
+      "object_position": [
+        -0.3199344004913258,
+        4.418411096867152e-05,
+        0.7266477694001439
+      ],
+      "palm_position": [
+        -0.33437149721701076,
+        1.613211511546523e-09,
+        0.6850899944596194
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900541488873433,
+          "normal_force": 22.28699721865546,
+          "position": [
+            -0.3407434533688255,
+            -0.0037630862285616164,
+            0.7229351789972144
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900541488873433,
+          "normal_force": 22.29651315274127,
+          "position": [
+            -0.34082261146498216,
+            -0.0030539124352804113,
+            0.7230479976763478
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025189909335822115,
+          "normal_force": 13.237397318319518,
+          "position": [
+            -0.3110758107600005,
+            0.009977662021723576,
+            0.7439307841556332
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037378258835461,
+          "normal_force": 0.19181345811895828,
+          "position": [
+            -0.316692614303136,
+            -0.0094989407646443,
+            0.7500037079987231
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037378258835461,
+          "normal_force": 0.19154749808820903,
+          "position": [
+            -0.3167919551200967,
+            -0.009534346387149752,
+            0.750114031247829
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004606768473910435,
+          "normal_force": 30.564787259132675,
+          "position": [
+            -0.3155818432867997,
+            -0.010016258506435224,
+            0.7481130534746558
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351135628403
+    },
+    {
+      "phase": "lift",
+      "time": 4.401999999999737,
+      "object_position": [
+        -0.31992084041330043,
+        4.10425184502091e-05,
+        0.726633854934178
+      ],
+      "palm_position": [
+        -0.33437103152278413,
+        -7.358058077171194e-10,
+        0.6850902784008286
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018895510468369068,
+          "normal_force": 22.345013117951336,
+          "position": [
+            -0.340742933033238,
+            -0.0037630913081274286,
+            0.7229354825798044
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018895510468369068,
+          "normal_force": 22.299163999831883,
+          "position": [
+            -0.3409774454925989,
+            -0.0016583342509677449,
+            0.7232698020207213
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025168043400636747,
+          "normal_force": 13.271958692755991,
+          "position": [
+            -0.3110754652939265,
+            0.009977694517168883,
+            0.743931256808718
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739050282287659,
+          "normal_force": 0.20895509799917428,
+          "position": [
+            -0.31669215262279676,
+            -0.00949893646624703,
+            0.7500041295166199
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739050282287659,
+          "normal_force": 0.2093861846373231,
+          "position": [
+            -0.31679092151413835,
+            -0.009534137492157629,
+            0.7501138135268625
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046063380758506626,
+          "normal_force": 30.56901842043011,
+          "position": [
+            -0.3155813534559437,
+            -0.010016240524071324,
+            0.748113518541563
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350724052348
+    },
+    {
+      "phase": "lift",
+      "time": 4.501999999999726,
+      "object_position": [
+        -0.31990731547777235,
+        3.777861789656366e-05,
+        0.7266192892080523
+      ],
+      "palm_position": [
+        -0.3343706579261256,
+        2.069282979380665e-10,
+        0.6850905072715464
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018898335843757838,
+          "normal_force": 22.286605269663422,
+          "position": [
+            -0.34074253954528977,
+            -0.0037630883882988153,
+            0.722935707209994
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018898335843757838,
+          "normal_force": 22.29602350661463,
+          "position": [
+            -0.34082127380754945,
+            -0.003057752156496055,
+            0.7230479121600895
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025179483067174017,
+          "normal_force": 13.236318377849223,
+          "position": [
+            -0.3110749553243747,
+            0.00997769002143049,
+            0.7439314993459768
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738988355468722,
+          "normal_force": 0.1917433437023468,
+          "position": [
+            -0.3166916649429573,
+            -0.009498935016819492,
+            0.7500041381553291
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738988355468722,
+          "normal_force": 0.19148865028840958,
+          "position": [
+            -0.31678983209629064,
+            -0.00953392134699486,
+            0.7501131542082857
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004606452609845362,
+          "normal_force": 30.564920764705587,
+          "position": [
+            -0.3155808792047289,
+            -0.01001624253404047,
+            0.7481135279804609
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350882353853
+    },
+    {
+      "phase": "lift",
+      "time": 4.601999999999715,
+      "object_position": [
+        -0.3198940364718273,
+        3.463219252585462e-05,
+        0.7266054460257272
+      ],
+      "palm_position": [
+        -0.3343703868745817,
+        -2.6223904036972196e-09,
+        0.6850906753452535
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018889419076260715,
+          "normal_force": 22.344618899618183,
+          "position": [
+            -0.34074221397075144,
+            -0.0037630947666903256,
+            0.722935905204666
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018889419076260715,
+          "normal_force": 22.29744421042733,
+          "position": [
+            -0.34097674632016073,
+            -0.0016582449747734504,
+            0.7232702274341707
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.000251582027709137,
+          "normal_force": 13.272324360017473,
+          "position": [
+            -0.3110747627932008,
+            0.00997770928774473,
+            0.743931895902199
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037404350088653316,
+          "normal_force": 0.20926883938373414,
+          "position": [
+            -0.3166912560956967,
+            -0.009498953514505092,
+            0.7500043005765247
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037404350088653316,
+          "normal_force": 0.2097478775041258,
+          "position": [
+            -0.31678900873662597,
+            -0.009533720128029555,
+            0.7501128540094066
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046059717161806344,
+          "normal_force": 30.568128620778328,
+          "position": [
+            -0.3155805889513066,
+            -0.010016232180731052,
+            0.7481139047217089
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350361196498
+    },
+    {
+      "phase": "lift",
+      "time": 4.701999999999704,
+      "object_position": [
+        -0.3198807024904126,
+        3.133577045123769e-05,
+        0.7265905476765094
+      ],
+      "palm_position": [
+        -0.3343701531122362,
+        -1.0367146842001096e-09,
+        0.6850908200804697
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018895869242853191,
+          "normal_force": 22.34544873351812,
+          "position": [
+            -0.34074198355166857,
+            -0.0037630904889881297,
+            0.7229360333294156
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018895869242853191,
+          "normal_force": 22.299521858203388,
+          "position": [
+            -0.3409765083497215,
+            -0.001658166153148994,
+            0.7232703807576448
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025165844315182235,
+          "normal_force": 13.272623788456757,
+          "position": [
+            -0.3110743654105122,
+            0.009977699040938301,
+            0.7439319900625166
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037397903603638745,
+          "normal_force": 0.20862113885355843,
+          "position": [
+            -0.31669089266464434,
+            -0.009498953316130836,
+            0.7500041650519057
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037397903603638745,
+          "normal_force": 0.20904928501836584,
+          "position": [
+            -0.3167880288627613,
+            -0.00953350021085557,
+            0.7501120360824021
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004606344673369277,
+          "normal_force": 30.56989712765855,
+          "position": [
+            -0.31558025179833527,
+            -0.010016237238408896,
+            0.7481137531246789
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350720237467
+    },
+    {
+      "phase": "lift",
+      "time": 4.801999999999693,
+      "object_position": [
+        -0.3198674326399298,
+        2.801635515712461e-05,
+        0.7265756408825251
+      ],
+      "palm_position": [
+        -0.33436996728242735,
+        1.3836440677414505e-09,
+        0.6850909346671986
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901904054720358,
+          "normal_force": 22.285410198881518,
+          "position": [
+            -0.3407418024271747,
+            -0.0037630848601415195,
+            0.7229361323600056
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901904054720358,
+          "normal_force": 22.294662198998928,
+          "position": [
+            -0.3408198955740575,
+            -0.003063446897893501,
+            0.7230474346807502
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025188349815602175,
+          "normal_force": 13.238517046346665,
+          "position": [
+            -0.31107397013470806,
+            0.009977688814258923,
+            0.7439319866479487
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738672235142268,
+          "normal_force": 0.19104390992964357,
+          "position": [
+            -0.31669056628463105,
+            -0.009498952050072637,
+            0.7500039299392289
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738672235142268,
+          "normal_force": 0.19083121971061395,
+          "position": [
+            -0.31678708805425904,
+            -0.009533280027768582,
+            0.7501111211479916
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004607195998651825,
+          "normal_force": 30.565456777673386,
+          "position": [
+            -0.3155799574954513,
+            -0.010016242998263598,
+            0.7481134991321393
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351118131624
+    },
+    {
+      "phase": "hold",
+      "time": 4.901999999999682,
+      "object_position": [
+        -0.3198542876083418,
+        2.4775068860835785e-05,
+        0.7265610946446727
+      ],
+      "palm_position": [
+        -0.334369830531107,
+        1.2049514039179632e-09,
+        0.6850910208880386
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900637202518548,
+          "normal_force": 22.286945700947726,
+          "position": [
+            -0.340741648812057,
+            -0.003763085688376463,
+            0.7229362245372635
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900637202518548,
+          "normal_force": 22.2964963048302,
+          "position": [
+            -0.3408195313187071,
+            -0.003065342027089542,
+            0.7230472249714822
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025186608925077274,
+          "normal_force": 13.23723505153165,
+          "position": [
+            -0.31107384393772547,
+            0.009977696246619407,
+            0.7439321001542671
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738938201930874,
+          "normal_force": 0.19086532821296165,
+          "position": [
+            -0.31669038445687697,
+            -0.00949895120021228,
+            0.7500040187791932
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738938201930874,
+          "normal_force": 0.19060968997793779,
+          "position": [
+            -0.31678630637496774,
+            -0.009533065021998088,
+            0.7501105434141297
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004606980557198013,
+          "normal_force": 30.566579266021144,
+          "position": [
+            -0.31557977529838566,
+            -0.010016237677736637,
+            0.7481135949146709
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351080046988
+    },
+    {
+      "phase": "hold",
+      "time": 5.001999999999671,
+      "object_position": [
+        -0.3198413030530807,
+        2.1641643041779318e-05,
+        0.7265472328612625
+      ],
+      "palm_position": [
+        -0.3343697385745421,
+        -2.4953527939190948e-09,
+        0.6850910810260663
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018889548080179417,
+          "normal_force": 22.345054440311326,
+          "position": [
+            -0.3407415081638661,
+            -0.003763095058742283,
+            0.7229363192861047
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018889548080179417,
+          "normal_force": 22.297749529111183,
+          "position": [
+            -0.34097606048522683,
+            -0.0016580319993499096,
+            0.7232706734267605
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002515876996370178,
+          "normal_force": 13.27295863348708,
+          "position": [
+            -0.31107398521999463,
+            0.009977720879464951,
+            0.743932338219117
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003740825597857574,
+          "normal_force": 0.2093278749494239,
+          "position": [
+            -0.3166903477062323,
+            -0.009498953132640018,
+            0.7500044407957028
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003740825597857574,
+          "normal_force": 0.20979877337536756,
+          "position": [
+            -0.3167857050411488,
+            -0.009532864592724502,
+            0.750110333482432
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.000460584129958041,
+          "normal_force": 30.568276935090232,
+          "position": [
+            -0.315579694464458,
+            -0.010016221726254552,
+            0.748114067534732
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350440292787
+    },
+    {
+      "phase": "hold",
+      "time": 5.10199999999966,
+      "object_position": [
+        -0.31982819117362454,
+        1.834290854230956e-05,
+        0.7265324068600344
+      ],
+      "palm_position": [
+        -0.33436964223817767,
+        -1.5979380495464901e-09,
+        0.6850911419609648
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018892958321302123,
+          "normal_force": 22.345203269762045,
+          "position": [
+            -0.3407414140112151,
+            -0.003763092467573311,
+            0.7229363717381183
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018892958321302123,
+          "normal_force": 22.2982923005002,
+          "position": [
+            -0.3409759616308202,
+            -0.0016579570417380738,
+            0.723270747892101
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002516138985620986,
+          "normal_force": 13.273526493165575,
+          "position": [
+            -0.3110737242621753,
+            0.009977708166006658,
+            0.7439323627867256
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037400178516912806,
+          "normal_force": 0.20880510614943665,
+          "position": [
+            -0.3166901430899526,
+            -0.009498955879632672,
+            0.7500042705637505
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037400178516912806,
+          "normal_force": 0.2092644693673037,
+          "position": [
+            -0.31678489011374644,
+            -0.009532649689508746,
+            0.7501094872252083
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046064328174061814,
+          "normal_force": 30.56948491617194,
+          "position": [
+            -0.31557951201003387,
+            -0.010016228836407244,
+            0.7481138851236803
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350630970402
+    },
+    {
+      "phase": "hold",
+      "time": 5.201999999999649,
+      "object_position": [
+        -0.3198151284621724,
+        1.5065097538680578e-05,
+        0.7265176788553388
+      ],
+      "palm_position": [
+        -0.33436956563029613,
+        -9.070845417864109e-10,
+        0.6850911915266032
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018893754868042127,
+          "normal_force": 22.346161096215674,
+          "position": [
+            -0.3407413322842887,
+            -0.0037630916339346223,
+            0.7229364205212792
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018893754868042127,
+          "normal_force": 22.29987922926979,
+          "position": [
+            -0.3409758831060552,
+            -0.0016578998564440962,
+            0.7232708072171736
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025170452651636913,
+          "normal_force": 13.273817164742475,
+          "position": [
+            -0.3110736557704397,
+            0.00997770895279536,
+            0.7439323518200308
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003740356155819789,
+          "normal_force": 0.2090692481857418,
+          "position": [
+            -0.31669000008805004,
+            -0.009498954744107295,
+            0.7500042984211557
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003740356155819789,
+          "normal_force": 0.20949343859811548,
+          "position": [
+            -0.31678413846842746,
+            -0.009532431385731302,
+            0.7501088396832911
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046059210012628016,
+          "normal_force": 30.569200552513536,
+          "position": [
+            -0.3155793749218161,
+            -0.010016225360910774,
+            0.748113909868863
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054513507779440785
+    },
+    {
+      "phase": "hold",
+      "time": 5.301999999999638,
+      "object_position": [
+        -0.31980208422431106,
+        1.1776767772505908e-05,
+        0.7265028475579667
+      ],
+      "palm_position": [
+        -0.3343694982171732,
+        -2.988796505755806e-10,
+        0.6850912348996595
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889744453465253,
+          "normal_force": 22.284913610313513,
+          "position": [
+            -0.34074127043860003,
+            -0.0037630900683087044,
+            0.7229364539703386
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889744453465253,
+          "normal_force": 22.293991615602057,
+          "position": [
+            -0.34081831307689,
+            -0.0030729026556134903,
+            0.7230462499535062
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002517029574680986,
+          "normal_force": 13.237689903223872,
+          "position": [
+            -0.311073516342368,
+            0.009977707594390577,
+            0.7439323419123984
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739628279560866,
+          "normal_force": 0.19173475231200124,
+          "position": [
+            -0.31668985462996435,
+            -0.009498955597594193,
+            0.7500041838428524
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739628279560866,
+          "normal_force": 0.1915421550360092,
+          "position": [
+            -0.3167833816249894,
+            -0.009532214276921452,
+            0.7501080477250621
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046064561899885644,
+          "normal_force": 30.563970626334903,
+          "position": [
+            -0.3155792473262176,
+            -0.010016226222666399,
+            0.7481137852215279
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350921945252
+    },
+    {
+      "phase": "hold",
+      "time": 5.401999999999627,
+      "object_position": [
+        -0.3197890528204061,
+        8.47043476837114e-06,
+        0.726487935194113
+      ],
+      "palm_position": [
+        -0.33436944311191136,
+        1.0917679551316941e-09,
+        0.6850912689718294
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901383426451595,
+          "normal_force": 22.284739637751525,
+          "position": [
+            -0.34074122310083116,
+            -0.003763087902400919,
+            0.7229364772956155
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901383426451595,
+          "normal_force": 22.29400452931598,
+          "position": [
+            -0.3408180537659825,
+            -0.0030747839727574174,
+            0.7230459749982755
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002518234360297092,
+          "normal_force": 13.237163376442343,
+          "position": [
+            -0.3110734116082576,
+            0.00997771996863309,
+            0.7439321647466428
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037386141336262247,
+          "normal_force": 0.19094250181419462,
+          "position": [
+            -0.3166897292048874,
+            -0.009498952393068902,
+            0.7500040824499647
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037386141336262247,
+          "normal_force": 0.19073663747924868,
+          "position": [
+            -0.31678264030119524,
+            -0.009531991704480693,
+            0.7501072643088129
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004607246288985786,
+          "normal_force": 30.56560768446879,
+          "position": [
+            -0.3155791407968733,
+            -0.010016219542133328,
+            0.7481136712754742
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351064720033
+    },
+    {
+      "phase": "hold",
+      "time": 5.501999999999616,
+      "object_position": [
+        -0.31977605698938566,
+        5.199601041853064e-06,
+        0.7264732748836576
+      ],
+      "palm_position": [
+        -0.33436939590715264,
+        9.129918902342715e-10,
+        0.6850913007163584
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901704675039493,
+          "normal_force": 22.284825736664054,
+          "position": [
+            -0.3407411710250028,
+            -0.003763088228315047,
+            0.7229365092713216
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901704675039493,
+          "normal_force": 22.294100641648964,
+          "position": [
+            -0.3408177909948027,
+            -0.003076667051930096,
+            0.7230457079188115
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002517916130040983,
+          "normal_force": 13.237282500787177,
+          "position": [
+            -0.31107335152060145,
+            0.00997771938874374,
+            0.7439322111088195
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738513741844725,
+          "normal_force": 0.19096441698219324,
+          "position": [
+            -0.3166896290998822,
+            -0.009498953965364642,
+            0.7500040670116198
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738513741844725,
+          "normal_force": 0.19075976441681533,
+          "position": [
+            -0.3167819362963524,
+            -0.009531777743610257,
+            0.7501065786119911
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046072668801748403,
+          "normal_force": 30.565617457448994,
+          "position": [
+            -0.3155790472443513,
+            -0.010016219001578095,
+            0.7481136553296812
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351079637164
+    },
+    {
+      "phase": "hold",
+      "time": 5.601999999999605,
+      "object_position": [
+        -0.31976307533518666,
+        1.9235190551636087e-06,
+        0.7264586157719283
+      ],
+      "palm_position": [
+        -0.33436935677795715,
+        8.458871197165878e-10,
+        0.6850913267297405
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.000189015999130411,
+          "normal_force": 22.284700479941456,
+          "position": [
+            -0.34074112639110615,
+            -0.0037630887282242525,
+            0.7229365367137464
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.000189015999130411,
+          "normal_force": 22.293977346431344,
+          "position": [
+            -0.3408175363742314,
+            -0.00307855057933083,
+            0.7230454357284015
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025179595237271175,
+          "normal_force": 13.23702509741672,
+          "position": [
+            -0.31107330880030815,
+            0.009977724070851388,
+            0.7439321894044058
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738447508268922,
+          "normal_force": 0.19099326201250366,
+          "position": [
+            -0.3166895433305633,
+            -0.009498954249199954,
+            0.7500040748161874
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738447508268922,
+          "normal_force": 0.1907897095759493,
+          "position": [
+            -0.3167812464743235,
+            -0.00953156246466485,
+            0.7501059158954679
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004607264649518056,
+          "normal_force": 30.565556472940976,
+          "position": [
+            -0.3155789660183685,
+            -0.010016215400130445,
+            0.7481136636922406
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351048430021
+    },
+    {
+      "phase": "hold",
+      "time": 5.701999999999594,
+      "object_position": [
+        -0.31975008477040623,
+        -1.3830089633505011e-06,
+        0.7264440941146506
+      ],
+      "palm_position": [
+        -0.334369321167368,
+        1.7523901136397205e-09,
+        0.6850913500709598
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889885086988025,
+          "normal_force": 22.284603368962735,
+          "position": [
+            -0.340741074798825,
+            -0.003763087606201151,
+            0.7229365701057862
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889885086988025,
+          "normal_force": 22.293652537904542,
+          "position": [
+            -0.3408172732709882,
+            -0.003080429584298985,
+            0.7230451712746602
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002520048329151215,
+          "normal_force": 13.239472032183722,
+          "position": [
+            -0.31107317488019604,
+            0.009977714912224182,
+            0.7439321317879559
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037385683135193157,
+          "normal_force": 0.19134152559156983,
+          "position": [
+            -0.3166894159670195,
+            -0.009498955158765275,
+            0.7500040040088296
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037385683135193157,
+          "normal_force": 0.19116975828854293,
+          "position": [
+            -0.3167805248211605,
+            -0.009531351089285624,
+            0.7501051849254959
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004607143213753233,
+          "normal_force": 30.564291936185224,
+          "position": [
+            -0.315578844093718,
+            -0.010016217275646548,
+            0.7481135962778547
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054513511017835595
+    },
+    {
+      "phase": "hold",
+      "time": 5.801999999999583,
+      "object_position": [
+        -0.31973716609552366,
+        -4.599297833867417e-06,
+        0.7264295601449173
+      ],
+      "palm_position": [
+        -0.33436929328666093,
+        -4.956864292134151e-10,
+        0.685091371206943
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018897145749616342,
+          "normal_force": 22.284446023055466,
+          "position": [
+            -0.34074103760228347,
+            -0.00376309250064137,
+            0.722936596839605
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018897145749616342,
+          "normal_force": 22.29353642261872,
+          "position": [
+            -0.3408170304038526,
+            -0.003082320978976246,
+            0.7230448943928994
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025171475392518763,
+          "normal_force": 13.236726421858611,
+          "position": [
+            -0.31107332631574847,
+            0.009977733840327425,
+            0.7439322683691459
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.000373932370799061,
+          "normal_force": 0.19188571830675114,
+          "position": [
+            -0.3166894177790257,
+            -0.009498955987035648,
+            0.75000423361674
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.000373932370799061,
+          "normal_force": 0.19169838411022308,
+          "position": [
+            -0.31677992458488635,
+            -0.009531136921350054,
+            0.7501047450136306
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046064328889586275,
+          "normal_force": 30.56365703814086,
+          "position": [
+            -0.3155788328225813,
+            -0.010016206317419538,
+            0.7481138382164048
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054513508386976266
+    },
+    {
+      "phase": "hold",
+      "time": 5.901999999999572,
+      "object_position": [
+        -0.3197242306017671,
+        -7.856135676015623e-06,
+        0.726414988740919
+      ],
+      "palm_position": [
+        -0.33436926634867925,
+        -1.3414392620608583e-09,
+        0.6850913902104298
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889565264921314,
+          "normal_force": 22.34579555916997,
+          "position": [
+            -0.34074100133042984,
+            -0.0037630950862487435,
+            0.7229366211610656
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001889565264921314,
+          "normal_force": 22.29937724521876,
+          "position": [
+            -0.3409755943026077,
+            -0.0016575249706849047,
+            0.7232710591631704
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025162482382748576,
+          "normal_force": 13.272258544763458,
+          "position": [
+            -0.311073393749292,
+            0.009977749975568774,
+            0.7439322716362865
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739619952528614,
+          "normal_force": 0.2092710963834548,
+          "position": [
+            -0.31668938157158544,
+            -0.009498955189976423,
+            0.7500043547656048
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003739619952528614,
+          "normal_force": 0.2096807314544722,
+          "position": [
+            -0.3167792869322046,
+            -0.009530921434557426,
+            0.7501041978373888
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004606161927550349,
+          "normal_force": 30.569553377133378,
+          "position": [
+            -0.3155787912682423,
+            -0.010016196377133505,
+            0.7481139672470651
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350693292433
+    },
+    {
+      "phase": "hold",
+      "time": 6.001999999999561,
+      "object_position": [
+        -0.31971128721724695,
+        -1.1138532289918696e-05,
+        0.7264005095231181
+      ],
+      "palm_position": [
+        -0.33436924103102605,
+        -1.6498992113196373e-09,
+        0.6850914076363107
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018892905223104724,
+          "normal_force": 22.345458478110167,
+          "position": [
+            -0.34074096148791383,
+            -0.0037630963513446683,
+            0.722936648023845
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018892905223104724,
+          "normal_force": 22.298154433329458,
+          "position": [
+            -0.34097556282796954,
+            -0.0016574715789413883,
+            0.7232710912700968
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002516761619767918,
+          "normal_force": 13.27329005800845,
+          "position": [
+            -0.3110733568891736,
+            0.009977751759421328,
+            0.7439322458171166
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037396459327961913,
+          "normal_force": 0.20952358241775623,
+          "position": [
+            -0.3166893084304777,
+            -0.009498956709781167,
+            0.7500043607690894
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037396459327961913,
+          "normal_force": 0.20996715260398827,
+          "position": [
+            -0.3167786203194659,
+            -0.009530710967480815,
+            0.7501035442795527
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046062334879585983,
+          "normal_force": 30.568781176907653,
+          "position": [
+            -0.3155787174137793,
+            -0.010016193936773578,
+            0.7481139820154481
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.0545135056898
+    },
+    {
+      "phase": "hold",
+      "time": 6.10199999999955,
+      "object_position": [
+        -0.3196982091391753,
+        -1.4569078363216682e-05,
+        0.7263849519224755
+      ],
+      "palm_position": [
+        -0.3343691927073545,
+        2.6523834094326066e-09,
+        0.6850914373796868
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001890545978491945,
+          "normal_force": 22.286708483224515,
+          "position": [
+            -0.34074095204968285,
+            -0.0037630869085517487,
+            0.7229366415956662
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001890545978491945,
+          "normal_force": 22.296592202281328,
+          "position": [
+            -0.3408163089686977,
+            -0.003087950706768593,
+            0.723044047902135
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002519708745455642,
+          "normal_force": 13.235798759663913,
+          "position": [
+            -0.31107307104149495,
+            0.009977740807294317,
+            0.7439319637315838
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003737380558630728,
+          "normal_force": 0.19037314215152434,
+          "position": [
+            -0.3166890943691243,
+            -0.009498953439113972,
+            0.7500039581336564
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003737380558630728,
+          "normal_force": 0.19010475694513235,
+          "position": [
+            -0.31677775706635236,
+            -0.00953047700129899,
+            0.7501024264257625
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046075651321038005,
+          "normal_force": 30.567597972475852,
+          "position": [
+            -0.31557856064991985,
+            -0.010016200079442313,
+            0.7481135258137903
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054513512799935084
+    },
+    {
+      "phase": "hold",
+      "time": 6.201999999999539,
+      "object_position": [
+        -0.3196853072895082,
+        -1.7807622270195862e-05,
+        0.7263706354092444
+      ],
+      "palm_position": [
+        -0.33436917334772454,
+        5.980770123323149e-10,
+        0.6850914528543347
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900154705161918,
+          "normal_force": 22.285994600008564,
+          "position": [
+            -0.34074090994448736,
+            -0.0037630917842636185,
+            0.7229366739565389
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018900154705161918,
+          "normal_force": 22.29558724468944,
+          "position": [
+            -0.340816061233568,
+            -0.003089840340365643,
+            0.723043777025211
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025178185492273744,
+          "normal_force": 13.235037440290723,
+          "position": [
+            -0.31107315388644774,
+            0.009977748031475879,
+            0.7439320828757852
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.000373828761157771,
+          "normal_force": 0.19120222341482723,
+          "position": [
+            -0.31668907396080576,
+            -0.009498956358657912,
+            0.7500041430044936
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.000373828761157771,
+          "normal_force": 0.19096163024207993,
+          "position": [
+            -0.3167771485136882,
+            -0.009530269597552243,
+            0.7501019563261804
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004606878218922136,
+          "normal_force": 30.565877664971936,
+          "position": [
+            -0.31557852311854384,
+            -0.010016193776227728,
+            0.7481137315023894
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350986221823
+    },
+    {
+      "phase": "hold",
+      "time": 6.301999999999528,
+      "object_position": [
+        -0.31967236050690423,
+        -2.1116484271457173e-05,
+        0.7263559369253011
+      ],
+      "palm_position": [
+        -0.33436914491340375,
+        8.561534946498551e-10,
+        0.6850914722807182
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901505833240694,
+          "normal_force": 22.284295632660996,
+          "position": [
+            -0.34074088148569903,
+            -0.003763091572827807,
+            0.722936690186587
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901505833240694,
+          "normal_force": 22.293602490998794,
+          "position": [
+            -0.3408158226151565,
+            -0.0030917194270743287,
+            0.723043494647294
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002518014684838777,
+          "normal_force": 13.23623399391815,
+          "position": [
+            -0.3110731060402367,
+            0.009977750004808073,
+            0.7439320230125622
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738014910374779,
+          "normal_force": 0.19142087966154622,
+          "position": [
+            -0.3166889825150574,
+            -0.009498956992672575,
+            0.750004093372433
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738014910374779,
+          "normal_force": 0.19122196240429468,
+          "position": [
+            -0.3167764519698423,
+            -0.009530054319143666,
+            0.7501012353652744
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004607052608541022,
+          "normal_force": 30.564629885385564,
+          "position": [
+            -0.31557844031250604,
+            -0.01001619139253045,
+            0.7481136793662526
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351049510764
+    },
+    {
+      "phase": "hold",
+      "time": 6.401999999999517,
+      "object_position": [
+        -0.31965932084743853,
+        -2.4520492232023966e-05,
+        0.7263405356348343
+      ],
+      "palm_position": [
+        -0.3343691019833824,
+        3.779833916010482e-09,
+        0.685091499883256
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001891196138635645,
+          "normal_force": 22.287386337441234,
+          "position": [
+            -0.340740870550475,
+            -0.0037630847560323963,
+            0.7229366877261303
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.0001891196138635645,
+          "normal_force": 22.29769433390812,
+          "position": [
+            -0.34081559440654574,
+            -0.003093583334450125,
+            0.7230432008448764
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002519290691382807,
+          "normal_force": 13.234723161767594,
+          "position": [
+            -0.3110728855347599,
+            0.009977740109071698,
+            0.7439318546767537
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003736217432967518,
+          "normal_force": 0.18977196358507456,
+          "position": [
+            -0.31668880502377117,
+            -0.00949895597135618,
+            0.7500037891859888
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003736217432967518,
+          "normal_force": 0.18946328219763886,
+          "position": [
+            -0.3167756320821532,
+            -0.009529824785371828,
+            0.7501002223716098
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004608053329729381,
+          "normal_force": 30.56923235603386,
+          "position": [
+            -0.3155783092974857,
+            -0.010016197145103697,
+            0.7481133314943907
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351597778321
+    },
+    {
+      "phase": "hold",
+      "time": 6.501999999999506,
+      "object_position": [
+        -0.3196464390832571,
+        -2.7756375998639396e-05,
+        0.7263264111866478
+      ],
+      "palm_position": [
+        -0.3343690882943181,
+        1.4516104484915977e-09,
+        0.6850915121198337
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018903505222081848,
+          "normal_force": 22.286490720058772,
+          "position": [
+            -0.3407408231571601,
+            -0.003763090510637589,
+            0.7229367265075173
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018903505222081848,
+          "normal_force": 22.296310105307708,
+          "position": [
+            -0.34081534233665467,
+            -0.0030954737164356973,
+            0.7230429357187458
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025180413192973943,
+          "normal_force": 13.235057107393297,
+          "position": [
+            -0.31107300025964424,
+            0.00997774677980547,
+            0.7439320061780579
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003737825918696362,
+          "normal_force": 0.19125402875721725,
+          "position": [
+            -0.3166888026681258,
+            -0.009498958651463496,
+            0.7500040444680126
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003737825918696362,
+          "normal_force": 0.19099196509099786,
+          "position": [
+            -0.31677505053665594,
+            -0.009529620102374754,
+            0.7500998315560219
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046067842089232285,
+          "normal_force": 30.565817909462766,
+          "position": [
+            -0.31557828033716917,
+            -0.0100161900941498,
+            0.7481136166705014
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351219316931
+    },
+    {
+      "phase": "hold",
+      "time": 6.601999999999495,
+      "object_position": [
+        -0.31963351308996374,
+        -3.1067358975487966e-05,
+        0.726311901054855
+      ],
+      "palm_position": [
+        -0.3343690681438945,
+        1.5717748740554027e-09,
+        0.6850915253571745
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901239370883264,
+          "normal_force": 22.284291284610934,
+          "position": [
+            -0.3407407905084008,
+            -0.003763091314050968,
+            0.7229367476703101
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018901239370883264,
+          "normal_force": 22.29363706287641,
+          "position": [
+            -0.3408151009754716,
+            -0.00309735473678138,
+            0.7230426569879159
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025189924376088684,
+          "normal_force": 13.236480718830181,
+          "position": [
+            -0.311072961760037,
+            0.009977755688266796,
+            0.7439319046568056
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037375435508216334,
+          "normal_force": 0.19142215865645643,
+          "position": [
+            -0.3166887346508317,
+            -0.009498958213218988,
+            0.7500040302746391
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.00037375435508216334,
+          "normal_force": 0.19122434293868215,
+          "position": [
+            -0.31677438740446984,
+            -0.009529407187502026,
+            0.7500991562373382
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004607162554968578,
+          "normal_force": 30.56447899581061,
+          "position": [
+            -0.31557821391683905,
+            -0.010016184252780148,
+            0.7481136094894971
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.054513511042183264
+    },
+    {
+      "phase": "hold",
+      "time": 6.701999999999484,
+      "object_position": [
+        -0.3196206522484018,
+        -3.428712091524665e-05,
+        0.7262978310274562
+      ],
+      "palm_position": [
+        -0.33436905646109477,
+        -1.5601711703497798e-09,
+        0.685091536666417
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018892402175887463,
+          "normal_force": 22.34560775954158,
+          "position": [
+            -0.3407407439628594,
+            -0.003763098640511318,
+            0.7229367864378753
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018892402175887463,
+          "normal_force": 22.2980607908829,
+          "position": [
+            -0.3409753849922978,
+            -0.0016570518590787614,
+            0.7232712948317443
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.0002516490601299723,
+          "normal_force": 13.273195790475524,
+          "position": [
+            -0.31107311610185834,
+            0.00997776816769361,
+            0.7439321023038701
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738965333873556,
+          "normal_force": 0.2101074600601175,
+          "position": [
+            -0.3166887560811623,
+            -0.009498961662127034,
+            0.7500043173616511
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003738965333873556,
+          "normal_force": 0.21053567298193426,
+          "position": [
+            -0.31677383202368087,
+            -0.009529204121912688,
+            0.7500987996930787
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.0004606175793259556,
+          "normal_force": 30.56813211672217,
+          "position": [
+            -0.3155782053335681,
+            -0.01001617517821496,
+            0.7481139307074105
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451350622167201
+    },
+    {
+      "phase": "hold",
+      "time": 6.801999999999473,
+      "object_position": [
+        -0.3196076504010201,
+        -3.768494706143264e-05,
+        0.7262826420293748
+      ],
+      "palm_position": [
+        -0.3343690217636538,
+        1.0497918239133234e-09,
+        0.6850915587437627
+      ],
+      "object_contacts": [
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018899799828472143,
+          "normal_force": 22.285882847637314,
+          "position": [
+            -0.3407407312026988,
+            -0.0037630934022975207,
+            0.7229367874436029
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "CentralPalmPad_collision",
+          "distance": -0.00018899799828472143,
+          "normal_force": 22.295506773260602,
+          "position": [
+            -0.34081462367386134,
+            -0.003101115982650267,
+            0.7230420977178341
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "middle_distalPad_collision",
+          "distance": -0.00025186396707401983,
+          "normal_force": 13.234757447018955,
+          "position": [
+            -0.3110729946532446,
+            0.009977769170615939,
+            0.7439319011698842
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003736936111495063,
+          "normal_force": 0.19217489002036328,
+          "position": [
+            -0.31668934451902897,
+            -0.009499450211357119,
+            0.7500049270886182
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalShell_collision",
+          "distance": 0.0003736936111495063,
+          "normal_force": 0.19194033472734964,
+          "position": [
+            -0.3167736609047319,
+            -0.009529691665459375,
+            0.7500985610608564
+          ]
+        },
+        {
+          "geom1": "object_geom",
+          "geom2": "ring_distalPad_collision",
+          "distance": -0.00046066271849589275,
+          "normal_force": 30.56388687993108,
+          "position": [
+            -0.31557811082169296,
+            -0.010016173682968161,
+            0.7481137245160588
+          ]
+        }
+      ],
+      "pinch_gap_m": 0.05451351006314709
+    }
+  ],
+  "model": "Aster-25 Anatomical",
+  "model_version": "2.0",
+  "collision_model": "Per-component convex hulls of anatomical CAD shells and pads; exact visible CAD surfaces are shown separately.",
+  "actuator_bias_feedforward": true,
+  "effort_limits_Nm": [
+    60.0,
+    60.0,
+    35.0,
+    8.0,
+    5.0,
+    0.65,
+    1.1,
+    0.85,
+    0.55,
+    0.65,
+    1.1,
+    0.85,
+    0.55,
+    0.65,
+    1.1,
+    0.85,
+    0.55,
+    0.65,
+    1.1,
+    0.85,
+    0.55,
+    1.1,
+    1.0,
+    0.7,
+    0.7
+  ]
+}

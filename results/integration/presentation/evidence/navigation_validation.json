@@ -1,0 +1,224 @@
+{
+  "passed": true,
+  "implementation": "Custom incremental scan-to-map ICP + differential-wheel odometry + log-odds occupancy + inflated-grid A* + feedback drive",
+  "scope": "Simulation only. Separate base. No mounted humanoid arm, ROS Nav2, graph optimization or global loop closure is claimed.",
+  "seed": 10,
+  "simulated_duration_s": 122.1999999998966,
+  "wall_elapsed_s": 40.743852900050115,
+  "sensor": {
+    "beams": 180,
+    "max_range_m": 5.5,
+    "range_noise_std_m": 0.006,
+    "scan_rate_hz": 10,
+    "odometry_scale_bias": 1.008,
+    "encoder_distance_noise_std_m": 6e-05
+  },
+  "initialization": "Local pose origin set at the known initial base pose; no later ground-truth correction.",
+  "controller_truth_access": "Ground truth used only after control for scoring and orange evaluation trace. Planning and SLAM use observations.",
+  "checks": {
+    "sensor_based_mapping": {
+      "passed": true,
+      "accepted_scan_matches": 1216,
+      "rejected_scan_matches": 0,
+      "map_points": 1716,
+      "observed_cells": 4687
+    },
+    "localization": {
+      "passed": true,
+      "position_rmse_m": 0.007997088586023658,
+      "position_max_error_m": 0.023472045515123843,
+      "wheel_odometry_rmse_m": 2.3921736588815175,
+      "final_yaw_error_deg": 0.15749115167456432
+    },
+    "heldout_goals": {
+      "passed": true,
+      "episodes": [
+        {
+          "name": "heldout_goal_1",
+          "goal_map_xy_m": [
+            3.9,
+            0.15
+          ],
+          "unknown_cells_allowed_in_plan": false,
+          "reached_estimated_tolerance": true,
+          "duration_s": 16.199999999962245,
+          "goal_error_estimated_m": 0.13036648234918913,
+          "goal_error_true_m": 0.12662688862566474,
+          "position_rmse_m": 0.0047021020701888995,
+          "max_pose_error_m": 0.010548375837416387,
+          "environment_contact_steps": 0,
+          "settled_speed_m_s": 0.00043497588072892055,
+          "passed": true
+        },
+        {
+          "name": "heldout_goal_2",
+          "goal_map_xy_m": [
+            0.25,
+            3.35
+          ],
+          "unknown_cells_allowed_in_plan": false,
+          "reached_estimated_tolerance": true,
+          "duration_s": 18.99999999995572,
+          "goal_error_estimated_m": 0.12794743362233538,
+          "goal_error_true_m": 0.1333077719313922,
+          "position_rmse_m": 0.006896748771623243,
+          "max_pose_error_m": 0.01436771316841881,
+          "environment_contact_steps": 0,
+          "settled_speed_m_s": 0.00791671511371483,
+          "passed": true
+        },
+        {
+          "name": "heldout_goal_3",
+          "goal_map_xy_m": [
+            4.1,
+            3.6
+          ],
+          "unknown_cells_allowed_in_plan": false,
+          "reached_estimated_tolerance": true,
+          "duration_s": 21.399999999950126,
+          "goal_error_estimated_m": 0.13388417447423012,
+          "goal_error_true_m": 0.12676238380114227,
+          "position_rmse_m": 0.00912959606812457,
+          "max_pose_error_m": 0.017284364355656587,
+          "environment_contact_steps": 0,
+          "settled_speed_m_s": 4.870535910998557e-11,
+          "passed": true
+        }
+      ]
+    },
+    "obstacle_contacts": {
+      "passed": true,
+      "physics_steps_in_contact": 0,
+      "pairs": []
+    }
+  },
+  "episodes": [
+    {
+      "name": "mapping_east",
+      "goal_map_xy_m": [
+        4.35,
+        0.1
+      ],
+      "unknown_cells_allowed_in_plan": true,
+      "reached_estimated_tolerance": true,
+      "duration_s": 16.5000000000014,
+      "goal_error_estimated_m": 0.14105953781760508,
+      "goal_error_true_m": 0.13899979866881976,
+      "position_rmse_m": 0.005127401070672675,
+      "max_pose_error_m": 0.013087342293461117,
+      "environment_contact_steps": 0,
+      "settled_speed_m_s": 0.009129644510407634,
+      "passed": true
+    },
+    {
+      "name": "mapping_north",
+      "goal_map_xy_m": [
+        4.35,
+        3.5
+      ],
+      "unknown_cells_allowed_in_plan": true,
+      "reached_estimated_tolerance": true,
+      "duration_s": 13.699999999992407,
+      "goal_error_estimated_m": 0.11536859222831355,
+      "goal_error_true_m": 0.1153906240101109,
+      "position_rmse_m": 0.008104410625979611,
+      "max_pose_error_m": 0.015738512278603484,
+      "environment_contact_steps": 0,
+      "settled_speed_m_s": 0.0005635664586564802,
+      "passed": true
+    },
+    {
+      "name": "mapping_west",
+      "goal_map_xy_m": [
+        0.15,
+        3.45
+      ],
+      "unknown_cells_allowed_in_plan": true,
+      "reached_estimated_tolerance": true,
+      "duration_s": 20.300000000022678,
+      "goal_error_estimated_m": 0.13222572347938075,
+      "goal_error_true_m": 0.1399401820486517,
+      "position_rmse_m": 0.011747213613689092,
+      "max_pose_error_m": 0.023472045515123843,
+      "environment_contact_steps": 0,
+      "settled_speed_m_s": 0.0026585125062121274,
+      "passed": true
+    },
+    {
+      "name": "mapping_loop",
+      "goal_map_xy_m": [
+        0.0,
+        0.0
+      ],
+      "unknown_cells_allowed_in_plan": true,
+      "reached_estimated_tolerance": true,
+      "duration_s": 14.50000000001203,
+      "goal_error_estimated_m": 0.11453224719861861,
+      "goal_error_true_m": 0.1165197674133474,
+      "position_rmse_m": 0.006412143904626196,
+      "max_pose_error_m": 0.012041711576920725,
+      "environment_contact_steps": 0,
+      "settled_speed_m_s": 0.0021347669599792243,
+      "passed": true
+    },
+    {
+      "name": "heldout_goal_1",
+      "goal_map_xy_m": [
+        3.9,
+        0.15
+      ],
+      "unknown_cells_allowed_in_plan": false,
+      "reached_estimated_tolerance": true,
+      "duration_s": 16.199999999962245,
+      "goal_error_estimated_m": 0.13036648234918913,
+      "goal_error_true_m": 0.12662688862566474,
+      "position_rmse_m": 0.0047021020701888995,
+      "max_pose_error_m": 0.010548375837416387,
+      "environment_contact_steps": 0,
+      "settled_speed_m_s": 0.00043497588072892055,
+      "passed": true
+    },
+    {
+      "name": "heldout_goal_2",
+      "goal_map_xy_m": [
+        0.25,
+        3.35
+      ],
+      "unknown_cells_allowed_in_plan": false,
+      "reached_estimated_tolerance": true,
+      "duration_s": 18.99999999995572,
+      "goal_error_estimated_m": 0.12794743362233538,
+      "goal_error_true_m": 0.1333077719313922,
+      "position_rmse_m": 0.006896748771623243,
+      "max_pose_error_m": 0.01436771316841881,
+      "environment_contact_steps": 0,
+      "settled_speed_m_s": 0.00791671511371483,
+      "passed": true
+    },
+    {
+      "name": "heldout_goal_3",
+      "goal_map_xy_m": [
+        4.1,
+        3.6
+      ],
+      "unknown_cells_allowed_in_plan": false,
+      "reached_estimated_tolerance": true,
+      "duration_s": 21.399999999950126,
+      "goal_error_estimated_m": 0.13388417447423012,
+      "goal_error_true_m": 0.12676238380114227,
+      "position_rmse_m": 0.00912959606812457,
+      "max_pose_error_m": 0.017284364355656587,
+      "environment_contact_steps": 0,
+      "settled_speed_m_s": 4.870535910998557e-11,
+      "passed": true
+    }
+  ],
+  "emergency_forward_stops": 0,
+  "planning_calls": 153,
+  "video": {
+    "filename": "navigation_demo.webm",
+    "frames": 243,
+    "fps": 10,
+    "playback_simulation_speed": 5
+  }
+}

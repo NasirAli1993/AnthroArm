@@ -1,0 +1,94 @@
+ANTHRO / ARM - HUMAN HAND DESIGN WALKTHROUGH
+Project folder: D:\RoboticArm
+
+Open http://127.0.0.1:8765/design while Robotics Studio is running.
+The page presents saved construction views and simulation evidence in order.
+Use Previous / Next, the left-hand step list, or the keyboard arrow keys.
+Use Expand view to inspect a large image, and Compare original to put the
+previous block-shaped model beside the currently selected stage.
+
+1. SET THE PROPORTIONS
+   A nominal 190 mm hand combines a 100 mm palm with a 90 mm middle finger.
+   Segment lengths are joint-center design dimensions, not skin measurements.
+   Index and ring: 40 / 24 / 18 mm.
+   Middle: 45 / 25 / 20 mm. Little finger: 33 / 20 / 17 mm.
+   Thumb: 30 / 20 / 15 mm, with two base axes for opposition and flexion.
+
+2. SHAPE THE PALM
+   Inspect the rounded palm outline, taper toward the wrist and raised thumb
+   side. A palm shell gives the hand its silhouette and supports finger roots.
+   The visible shell is distinct from the simplified collision representation.
+
+3. BUILD THE FINGER SEGMENTS
+   A proximal segment leaves the main knuckle; a middle segment connects the
+   two smaller knuckles; a distal segment finishes at a rounded fingertip.
+   The base has spread and curl axes, followed by middle and tip curl axes.
+   Joint gaps must remain visible so the rigid shells can articulate.
+
+4. MAKE THE THUMB OPPOSE THE FINGERS
+   The thumb starts on the side of the palm. Its opposition axis turns the
+   bending plane across the palm; flexion curls it toward the fingertips.
+   It has a metacarpal, a proximal segment and a distal fingertip segment.
+
+5. ASSEMBLE THE HAND
+   Inspect the staggered knuckle line, differing finger lengths, curved shells
+   and wrist transition together. Surface appearance is not a strength result.
+
+6. TEST ARTICULATION
+   The live simulator commands 20 finger axes and five arm axes.
+   Choose a finger in Individual joint control, move one slider, and observe
+   the reported angle and the rendered body. Open and fist exercise curl;
+   pinch exercises thumb opposition and finger positioning.
+
+7. MEASURE PRECISION
+   Read http://127.0.0.1:8765/precision for the new model's measured results.
+   A target angle is a command. The measured joint angle is the resulting
+   position under gravity and contact. Their difference is tracking error.
+   A screenshot alone cannot establish a numeric motion tolerance.
+   Reported performance belongs to the tested simulation and conditions.
+   The v2 report passes seven checks. Its 25 independent, contact-free joint
+   tests settle for four seconds: maximum error is below 0.01 degree, and
+   commanded palm-position error is below 0.01 mm (rounded for readability).
+   This is an ideal model with known parameters and no sensor noise,
+   backlash or structural compliance. It does not establish hardware accuracy.
+
+8. TEST OBJECT CONTACT
+   A seeded grasp begins with an object already placed in the palm, then
+   closes and lifts. Its result applies to that setup. This is a different
+   test from finding an object on a table and autonomously picking it up.
+   The current recorded test lifted the 60 g block 293.2 mm, with middle and
+   ring finger contact sustained through a two-second retention observation.
+   Open http://127.0.0.1:8765/grasp-results for the complete measured record.
+
+MOTION RECORDING
+  http://127.0.0.1:8765/motion.webm opens the saved simulation video.
+  Individual-joint control is available in the live simulation; the recording
+  shows the saved run and cannot be used to command the robot.
+
+UNDERSTANDING THE EVIDENCE
+  Design dimensions: geometry parameters used to construct the model.
+  CAD geometry: actual saved views of the model built in the CAD tool.
+  Physics test: actual saved simulation views and associated measurement logs.
+  Pending: a real image or result has not yet been saved for that step.
+  An available image is not automatically a passed engineering test.
+
+The walkthrough polls the saved manifest and image files while work proceeds.
+It does not invent a completed stage when an image is missing. The explanatory
+text describes the construction and what to inspect; the measured test report
+is the authority for simulation results. The full CAD source remains editable.
+
+FILES
+  dashboard\design.html                 Guided browser viewer
+  results\design_stages\stages.json      Step descriptions and evidence status
+  results\design_stages\01_dimensions.png
+  results\design_stages\02_palm.png
+  results\design_stages\03_finger.png
+  results\design_stages\04_thumb.png
+  results\design_stages\05_assembly.png
+  results\design_stages\06_articulation.png
+  results\design_stages\07_precision.png
+  results\design_stages\08_grasp.png
+
+This remains a digital prototype. Fabrication requires a reviewed mechanical
+design, motors and transmission, bearings, electrical wiring, control hardware
+and validation with actual parts. Hardware is not connected to this viewer.

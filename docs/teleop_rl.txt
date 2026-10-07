@@ -1,0 +1,57 @@
+WEBCAM CONTROL AND REINFORCEMENT-LEARNING ENVIRONMENT
+
+Files:
+simulation/webcam_teleop.py — all 20 finger/thumb-axis retargeting, using Google MediaPipe Tasks HandLandmarker and OpenCV.
+simulation/grasp_env.py — Gymnasium environment backed by the same robot.xml MuJoCo model.
+models/hand_landmarker.task — official Google HandLandmarker model bundle.
+
+All paths are relative to D:\RoboticArm. Run commands from D:\RoboticArm using software\python\python.exe or the supplied launchers. No webcam images are saved by the teleoperation script. Its UDP output contains joint angles and optional relative arm targets only, sent to 127.0.0.1:5005.
+
+WEBCAM
+1. Start the arm dashboard and enable its Teleoperation control.
+2. Run software\python\python.exe simulation\webcam_teleop.py
+3. Show one open hand to the camera. Press C with the hand open to set neutral joint offsets. Curl fingers individually and try a thumb pinch. Q exits. Use --camera 1 to choose another camera index.
+4. Optional --arm enables wrist movement mapped into a bounded robot target region. Moving the hand vertically/laterally changes target height/lateral position; apparent hand scale changes target reach. The first tracked sample establishes a relative origin. C resets it.
+
+The --arm mapping is an uncalibrated relative-control heuristic, not measured metric camera depth or a calibrated world pose. MediaPipe world landmarks are centered on the hand. Real robot use would require a camera-to-robot calibration and a reviewed controller.
+
+Mapping:
+Index/middle/ring/little MCP, PIP, DIP flexion uses pi minus the interior angle of three landmarks; a straight chain maps to zero. Knuckle spread is signed in a palm frame and converted to the model axis sign. Thumb MCP/IP use landmark bends; CMC flexion/opposition are an approximation from base bend and pinch distance. The 20 robot axes are all addressed; anatomical/thumb motion is not a one-to-one human joint measurement.
+
+Commands are clamped to model joint ranges, exponentially filtered, and rate-limited. Degenerate/nonfinite landmarks are rejected. Missing hand detections stop command transmission; the dashboard's stale-data behavior holds its last/current target. Reacquisition resumes bounded commands. This controls the simulation only.
+
+Useful diagnostics:
+software\python\python.exe simulation\webcam_teleop.py --self-test
+software\python\python.exe simulation\webcam_teleop.py --model-test
+software\python\python.exe simulation\webcam_teleop.py --probe-camera
+The camera probe reads one frame and reports status/shape only. It does not record or upload it. Model-test runs on an all-black generated image and proves loading/inference, not tracking accuracy. Consult results\teleop_rl_validation.json for actual validation outcomes.
+
+GYMNASIUM
+Import ArmHandGraspEnv from simulation/grasp_env.py. It exposes reset, step, render, close; action space is 25 bounded target-increment controls; observations include joint positions/velocities/targets, object pose/velocity, palm/relative fingertip positions, per-finger object contact indicators, last action and timing state. Optional reset options={'randomize_object':True} perturbs object XY by up to 15 mm. A deterministic reset is the default.
+
+The reward includes palm reach, distinct digits in contact with object_geom, lift above the object's settled reset height, action change and joint-speed penalties. Table and robot self-contact do not count as grasp contact. Lift reward requires two distinct digits touching the object. Success requires a lift of at least 50 mm with at least two digit contacts, bounded object speed and palm distance, maintained for 25 control steps. Time-limit truncation and dropped-object termination are provided.
+
+This is an executable task and reward scaffold. No trained policy is supplied and no general autonomous grasp capability is claimed. The smoke test is deliberately a small seeded action rollout and Gymnasium API check; it is not policy training or a grasp demonstration. Contact thresholds, reward weights, reset distribution and friction are design choices for experimentation; they need tuning and physical identification before transfer.
+
+Run:
+software\python\python.exe simulation\grasp_env.py --smoke-test --steps 100
+
+
+OFFICIAL MODEL PROVENANCE
+Guide: https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker
+Python API: https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker/python
+Download: https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task
+Downloaded 2026-10-05; SHA256: fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1
+Model remains in D:\RoboticArm\models. The official latest URL can change; the recorded SHA256 identifies the tested local copy.
+
+
+VALIDATION COMPLETED 2026-10-05
+Geometry/range/rate tests passed for 20 hand axes. Official model loaded and inferred on a blank image. Webcam 0 opened and delivered one 640x480 frame without saving it. Gymnasium check_env and 100-step smoke rollout passed with finite observations/rewards; no grasp success occurred in that untrained rollout. Live human-hand tracking was not demonstrated. See results\teleop_rl_validation.json.
+
+
+LOCAL CONTROL API VALIDATION
+The dashboard receiver validates finite numbers and complete packets before applying targets. UDP timestamps, when supplied, must be finite and within one second of local wall time. Invalid packets do not extend tracking freshness. After 600 ms without valid input, the simulator holds its current joint pose. Webcam arm targets are limited to X 0.20–0.52 m, Y -0.20–0.20 m and Z 0.30–0.70 m. This is the same bounded region used by --arm.
+
+Manual commands, gesture demonstrations, seeded grasp and webcam mode are mutually exclusive. Reset returns home with demo/tracking disabled and simulation running. Pause freezes physics time; commands can still be queued while paused.
+
+scripts\test_control_api.py passed 31 HTTP/UDP integration checks, including invalid/nonfinite/oversized/deeply nested input, stale timestamps, atomic packet rejection, watchdog holding, valid arm targets, joint clamping and mode/reset behavior. It restores home with demo/tracking disabled. Results are in results\control_api_validation.json.
