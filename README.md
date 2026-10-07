@@ -81,3 +81,5 @@ Also not demonstrated: physical assembly or sim-to-real accuracy, verified physi
 The tested stack includes Python 3.12.10, MuJoCo 3.14.0, NumPy 2.5.3, SciPy 1.18.1, OpenCV 5.0.0.93, FreeCAD 1.1.4, native ROS 2 Jazzy, PyTorch 2.8.0 CPU, and Transformers 4.53.3. ROS uses its own Python 3.12.15 environment. Exact snapshots and upstream sources are in [dependency documentation](docs/dependencies/SOFTWARE_SOURCES.md).
 
 Third-party software, models, fonts, and formats retain their respective names, copyrights, and license terms. The repository does not redistribute installed software environments or the large SmolVLM weights. The included MediaPipe hand-landmark task asset retains its upstream provenance and license notice. Source and asset reuse is subject to the repository's applicable license and any third-party terms; no additional license grant is implied by this overview.
+
+Project owner: [@NasirAli1993](https://github.com/NasirAli1993)
